@@ -12,31 +12,9 @@ interface Props {
 }
 
 function ordinalSuffix(n: number) {
-  const s = ["th", "st", "nd", "rd"];
   const v = n % 100;
-  return s[(v - 20) % 10] ?? s[v] ?? s[0];
-}
-
-function Section({ title, children }: { title: string; children: React.ReactNode }) {
-  return (
-    <div className="px-5 py-4 border-b border-slate-700/50 last:border-0">
-      <h4 className="text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-3">
-        {title}
-      </h4>
-      {children}
-    </div>
-  );
-}
-
-function Stat({ label, value, accent }: { label: string; value: string; accent?: string }) {
-  return (
-    <div className="flex justify-between items-center py-0.5">
-      <span className="text-sm text-slate-400">{label}</span>
-      <span className="text-sm font-semibold" style={accent ? { color: accent } : undefined}>
-        {value ?? <span className="text-slate-600">—</span>}
-      </span>
-    </div>
-  );
+  if (v >= 11 && v <= 13) return "th";
+  return ["th", "st", "nd", "rd"][n % 10] ?? "th";
 }
 
 export default function DistrictPanel({ districtId, repName, data, onClose }: Props) {
@@ -44,58 +22,69 @@ export default function DistrictPanel({ districtId, repName, data, onClose }: Pr
   const districtNum = parseInt(rawNum ?? "0", 10);
   const stateName = STATE_NAMES[stateCode] ?? stateCode;
   const isAtLarge = districtNum === 0 || AT_LARGE_STATES.has(stateCode);
-
   const districtLabel = isAtLarge
-    ? "At-Large"
-    : `${districtNum}${ordinalSuffix(districtNum)} District`;
+    ? "At-Large District"
+    : `${districtNum}${ordinalSuffix(districtNum)} Congressional District`;
 
   const partyColor = PARTY_COLORS[data.party] ?? PARTY_COLORS.Unknown;
+  const partyShort = data.party === "Republican" ? "R" : data.party === "Democrat" ? "D" : "I";
+
   const initials = repName
-    .split(" ")
+    .replace(/["'.]/g, "")
+    .split(/\s+/)
+    .filter((w) => w.length > 1)
     .map((w) => w[0])
     .join("")
     .slice(0, 2)
     .toUpperCase();
 
-  // Vote-share math
+  // Vote bar
   const rPct = Math.max(0, Math.min(100, 50 + data.margin / 2));
   const dPct = 100 - rPct;
-  const winnerPct = data.margin >= 0 ? rPct : dPct;
-  const winnerLabel = data.margin >= 0 ? "Republican" : "Democrat";
-  const marginLabel = data.margin === 0 ? "0% — Tie" : `${data.margin > 0 ? "+" : ""}${data.margin}%`;
 
+  const marginAbs = Math.abs(data.margin);
   const competitiveness =
-    Math.abs(data.margin) < 5
-      ? "Toss-Up"
-      : Math.abs(data.margin) < 10
-      ? "Competitive"
-      : Math.abs(data.margin) < 20
-      ? `Lean ${winnerLabel.slice(0, 1)}`
-      : Math.abs(data.margin) < 35
-      ? `Likely ${winnerLabel.slice(0, 1)}`
-      : `Safe ${winnerLabel.slice(0, 1)}`;
+    marginAbs < 5 ? "Toss-Up" :
+    marginAbs < 10 ? "Competitive" :
+    marginAbs < 20 ? `Lean ${data.margin > 0 ? "R" : "D"}` :
+    marginAbs < 35 ? `Likely ${data.margin > 0 ? "R" : "D"}` :
+    `Safe ${data.margin > 0 ? "R" : "D"}`;
 
-  const yearsServing = Math.max(0, 2025 - data.termStart);
-  const approxTerms = Math.ceil(yearsServing / 2);
+  const competitivenessColor =
+    marginAbs < 5 ? "#F59E0B" :
+    marginAbs < 10 ? "#F97316" :
+    data.margin > 0 ? PARTY_COLORS.Republican : PARTY_COLORS.Democrat;
 
-  const pviLabel =
-    data.pvi === 0 ? "EVEN" : data.pvi > 0 ? `R+${data.pvi}` : `D+${Math.abs(data.pvi)}`;
+  const yearsServing = Math.max(0, 2026 - data.termStart);
+  const approxTerms = yearsServing < 2 ? 1 : Math.ceil(yearsServing / 2);
+  const pviLabel = data.pvi === 0 ? "EVEN" : data.pvi > 0 ? `R+${data.pvi}` : `D+${Math.abs(data.pvi)}`;
 
   return (
-    <div className="w-80 xl:w-96 flex flex-col bg-slate-800 border-l border-slate-700/50 animate-slide-in overflow-hidden shrink-0 shadow-2xl">
-      {/* Party color accent */}
-      <div className="h-1 shrink-0" style={{ backgroundColor: partyColor }} />
+    <div
+      className="w-80 xl:w-96 flex flex-col bg-slate-900 border-l border-slate-700/40 animate-slide-in overflow-hidden shrink-0"
+      style={{ boxShadow: "-8px 0 32px rgba(0,0,0,0.4)" }}
+    >
+      {/* Party accent line */}
+      <div className="h-0.5 shrink-0" style={{ backgroundColor: partyColor }} />
 
       {/* Header */}
-      <div className="flex items-center justify-between px-5 py-3.5 border-b border-slate-700/50 shrink-0">
-        <div>
-          <h2 className="text-white font-bold text-sm leading-tight">{stateName}</h2>
-          <p className="text-slate-400 text-xs mt-0.5">{districtLabel}</p>
+      <div className="flex items-center justify-between px-4 py-3 border-b border-slate-700/40 shrink-0 bg-slate-900/80">
+        <div className="flex items-center gap-2.5 min-w-0">
+          <div
+            className="w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold shrink-0"
+            style={{ backgroundColor: partyColor + "25", color: partyColor, border: `1.5px solid ${partyColor}50` }}
+          >
+            {partyShort}
+          </div>
+          <div className="min-w-0">
+            <p className="text-white font-semibold text-sm leading-tight truncate">{stateName}</p>
+            <p className="text-slate-500 text-[11px]">{districtLabel}</p>
+          </div>
         </div>
         <button
           onClick={onClose}
-          className="w-7 h-7 rounded-full flex items-center justify-center text-slate-500 hover:text-white hover:bg-slate-700 transition-colors text-sm leading-none"
-          aria-label="Close panel"
+          className="w-6 h-6 rounded-full flex items-center justify-center text-slate-600 hover:text-slate-300 hover:bg-slate-700/60 transition-colors text-xs shrink-0"
+          aria-label="Close"
         >
           ✕
         </button>
@@ -103,144 +92,162 @@ export default function DistrictPanel({ districtId, repName, data, onClose }: Pr
 
       {/* Scrollable body */}
       <div className="flex-1 overflow-y-auto">
-        {/* Rep info */}
-        <div className="px-5 py-5 border-b border-slate-700/50">
-          <div className="flex items-center gap-4">
-            {/* Avatar */}
+
+        {/* Rep card */}
+        <div className="px-4 py-5">
+          <div className="flex items-center gap-3.5">
             <div
-              className="w-16 h-16 rounded-full flex items-center justify-center text-xl font-bold shrink-0"
+              className="w-14 h-14 rounded-full flex items-center justify-center text-lg font-bold shrink-0 select-none"
               style={{
-                backgroundColor: partyColor + "22",
-                border: `2px solid ${partyColor}55`,
+                background: `radial-gradient(circle at 35% 35%, ${partyColor}40, ${partyColor}15)`,
+                border: `2px solid ${partyColor}35`,
                 color: partyColor,
               }}
             >
               {initials}
             </div>
-
-            <div className="min-w-0">
-              <p className="text-[11px] text-slate-500 uppercase tracking-wide">Representative</p>
-              <h3 className="text-white font-bold text-base leading-tight mt-0.5 truncate">
-                {repName}
-              </h3>
-              <div className="mt-1.5">
+            <div className="min-w-0 flex-1">
+              <p className="text-[10px] text-slate-600 uppercase tracking-widest mb-0.5">Representative</p>
+              <h3 className="text-white font-bold text-sm leading-snug">{repName}</h3>
+              <div className="flex items-center gap-2 mt-1.5">
                 <span
-                  className="text-xs font-semibold px-2.5 py-0.5 rounded-full"
+                  className="text-[11px] font-semibold px-2 py-0.5 rounded-full"
                   style={{
-                    backgroundColor: partyColor + "20",
+                    backgroundColor: partyColor + "18",
                     color: partyColor,
-                    border: `1px solid ${partyColor}40`,
+                    border: `1px solid ${partyColor}35`,
                   }}
                 >
-                  {data.party === "Republican"
-                    ? "R — Republican"
-                    : data.party === "Democrat"
-                    ? "D — Democrat"
-                    : "I — Independent"}
+                  {data.party}
                 </span>
+                <span className="text-[11px] text-slate-600">{stateCode}-{rawNum}</span>
               </div>
             </div>
           </div>
         </div>
 
+        {/* Divider */}
+        <div className="mx-4 border-t border-slate-700/40" />
+
         {/* 2024 Election */}
-        <Section title="2024 Election">
-          <div className="space-y-3">
-            {/* Vote bar */}
-            <div>
-              <div className="flex h-4 rounded overflow-hidden bg-slate-700/60">
-                <div
-                  className="h-full transition-all duration-500"
-                  style={{
-                    width: `${rPct}%`,
-                    backgroundColor: PARTY_COLORS.Republican,
-                    minWidth: rPct > 0 ? 3 : 0,
-                  }}
-                />
-                <div
-                  className="h-full transition-all duration-500"
-                  style={{
-                    width: `${dPct}%`,
-                    backgroundColor: PARTY_COLORS.Democrat,
-                    minWidth: dPct > 0 ? 3 : 0,
-                  }}
-                />
+        <div className="px-4 py-4">
+          <p className="text-[10px] font-bold text-slate-600 uppercase tracking-widest mb-3">2024 Election</p>
+
+          {/* Vote share bar */}
+          <div className="mb-3">
+            <div className="flex h-5 rounded-md overflow-hidden bg-slate-800">
+              <div
+                className="h-full flex items-center justify-end pr-1.5 text-[10px] text-white/80 font-semibold transition-all duration-700"
+                style={{ width: `${rPct}%`, backgroundColor: PARTY_COLORS.Republican, minWidth: rPct > 5 ? undefined : 0 }}
+              >
+                {rPct > 12 ? `${rPct.toFixed(1)}%` : ""}
               </div>
-              <div className="flex justify-between mt-1.5 text-xs">
-                <span className="text-red-400">R {rPct.toFixed(1)}%</span>
-                <span className="text-blue-400">D {dPct.toFixed(1)}%</span>
+              <div
+                className="h-full flex items-center justify-start pl-1.5 text-[10px] text-white/80 font-semibold transition-all duration-700"
+                style={{ width: `${dPct}%`, backgroundColor: PARTY_COLORS.Democrat, minWidth: dPct > 5 ? undefined : 0 }}
+              >
+                {dPct > 12 ? `${dPct.toFixed(1)}%` : ""}
               </div>
             </div>
-
-            <Stat
-              label="Margin of Victory"
-              value={marginLabel}
-              accent={data.margin >= 0 ? PARTY_COLORS.Republican : PARTY_COLORS.Democrat}
-            />
-            <Stat label="Race Classification" value={competitiveness} />
+            <div className="flex justify-between mt-1 text-[10px] text-slate-500">
+              <span>R  {rPct.toFixed(1)}%</span>
+              <span>D  {dPct.toFixed(1)}%</span>
+            </div>
           </div>
-        </Section>
 
-        {/* Demographics */}
-        <Section title="Demographics">
-          <div className="space-y-1">
-            <Stat
-              label="Median Household Income"
+          <div className="space-y-2">
+            <Row
+              label="Margin"
+              value={data.margin === 0 ? "Tie" : `${data.margin > 0 ? "R" : "D"} +${marginAbs}%`}
+              valueColor={data.margin >= 0 ? PARTY_COLORS.Republican : PARTY_COLORS.Democrat}
+            />
+            <Row
+              label="Race Rating"
+              value={competitiveness}
+              valueColor={competitivenessColor}
+            />
+          </div>
+        </div>
+
+        <div className="mx-4 border-t border-slate-700/40" />
+
+        {/* District Info */}
+        <div className="px-4 py-4">
+          <p className="text-[10px] font-bold text-slate-600 uppercase tracking-widest mb-3">District Profile</p>
+          <div className="space-y-2">
+            <Row
+              label="Median Income"
               value={`$${(data.income * 1000).toLocaleString()}`}
             />
-            <Stat
+            <Row
               label="Cook PVI"
               value={pviLabel}
-              accent={
-                data.pvi > 0
-                  ? PARTY_COLORS.Republican
-                  : data.pvi < 0
-                  ? PARTY_COLORS.Democrat
-                  : undefined
-              }
+              valueColor={data.pvi > 0 ? PARTY_COLORS.Republican : data.pvi < 0 ? PARTY_COLORS.Democrat : undefined}
             />
           </div>
-        </Section>
+        </div>
+
+        <div className="mx-4 border-t border-slate-700/40" />
 
         {/* Tenure */}
-        <Section title="Tenure">
-          <div className="space-y-1">
-            <Stat label="First Elected" value={String(data.termStart)} />
-            <Stat
-              label="Years Serving"
-              value={yearsServing === 0 ? "< 1 year" : `${yearsServing} yrs`}
+        <div className="px-4 py-4">
+          <p className="text-[10px] font-bold text-slate-600 uppercase tracking-widest mb-3">Tenure</p>
+          <div className="space-y-2 mb-3">
+            <Row label="First Elected" value={String(data.termStart)} />
+            <Row
+              label="Time Served"
+              value={yearsServing < 1 ? "< 1 year" : `${yearsServing} year${yearsServing !== 1 ? "s" : ""}`}
             />
-            <Stat label="Approx. Terms" value={`~${approxTerms}`} />
+            <Row label="Terms (approx.)" value={`~${approxTerms}`} />
           </div>
 
           {/* Tenure bar */}
-          <div className="mt-3">
-            <div className="h-1.5 bg-slate-700 rounded-full overflow-hidden">
-              <div
-                className="h-full rounded-full transition-all duration-500"
-                style={{
-                  width: `${Math.min(100, (yearsServing / 30) * 100)}%`,
-                  backgroundColor: partyColor,
-                  minWidth: yearsServing > 0 ? 4 : 0,
-                }}
-              />
+          <div className="mt-2">
+            <div className="flex items-center gap-2">
+              <div className="flex-1 h-1.5 bg-slate-800 rounded-full overflow-hidden">
+                <div
+                  className="h-full rounded-full transition-all duration-700"
+                  style={{
+                    width: `${Math.min(100, (yearsServing / 32) * 100)}%`,
+                    backgroundColor: partyColor,
+                    minWidth: yearsServing > 0 ? 4 : 0,
+                  }}
+                />
+              </div>
+              <span className="text-[10px] text-slate-600 shrink-0">{yearsServing}y / 32y</span>
             </div>
-            <div className="flex justify-between mt-1 text-[10px] text-slate-600">
-              <span>0 yrs</span>
-              <span>30 yrs</span>
-            </div>
-          </div>
-        </Section>
-
-        {/* Data note */}
-        <div className="px-5 py-4">
-          <div className="rounded-lg bg-slate-700/30 border border-slate-600/30 p-3">
-            <p className="text-[11px] text-slate-500 leading-relaxed">
-              Data reflects 119th Congress (April 2026). Election margins from 2024 general results. Income figures are district-level estimates.
-            </p>
           </div>
         </div>
+
+        {/* Footer */}
+        <div className="px-4 py-3 border-t border-slate-700/30">
+          <p className="text-[10px] text-slate-700 leading-relaxed">
+            119th Congress · Data as of April 2026
+          </p>
+        </div>
       </div>
+    </div>
+  );
+}
+
+function Row({
+  label,
+  value,
+  valueColor,
+}: {
+  label: string;
+  value: string;
+  valueColor?: string;
+}) {
+  return (
+    <div className="flex justify-between items-center">
+      <span className="text-[12px] text-slate-500">{label}</span>
+      <span
+        className="text-[12px] font-semibold text-right"
+        style={valueColor ? { color: valueColor } : { color: "#e2e8f0" }}
+      >
+        {value}
+      </span>
     </div>
   );
 }
