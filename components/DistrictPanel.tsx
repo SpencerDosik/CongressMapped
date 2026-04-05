@@ -232,12 +232,11 @@ export default function DistrictPanel({ districtId, repName, data, onClose }: Pr
           </div>
         </Section>
 
-        {/* Placeholder notice */}
+        {/* Data note */}
         <div className="px-5 py-4">
           <div className="rounded-lg bg-slate-700/30 border border-slate-600/30 p-3">
             <p className="text-[11px] text-slate-500 leading-relaxed">
-              📡 Live data (bio, photo, committees, recent votes) will load here once the
-              Congress API is connected.
+              Data reflects 119th Congress (April 2026). Election margins from 2024 general results. Income figures are district-level estimates.
             </p>
           </div>
         </div>

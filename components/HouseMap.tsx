@@ -14,7 +14,7 @@ import MapLegend from "./MapLegend";
 
 import { FilterMode } from "@/lib/types";
 import { getDistrictColor, PARTY_COLORS } from "@/lib/colors";
-import { getMockDistrictData, getMockRepName } from "@/lib/mockData";
+import { getDistrictData, getRepName } from "@/lib/districtData";
 import { toDistrictId, formatDistrict, STATE_NAMES, AT_LARGE_STATES } from "@/lib/stateFips";
 
 const DISTRICTS_URL = "/api/districts";
@@ -32,8 +32,9 @@ function Tooltip({
   x: number;
   y: number;
 }) {
-  const data = getMockDistrictData(districtId);
-  const repName = getMockRepName(districtId);
+  const rawData = getDistrictData(districtId);
+  const data = rawData ?? { party: "Unknown" as const, margin: 0, income: 65, pvi: 0, termStart: 2025, repName: "Vacant" };
+  const repName = rawData?.repName ?? "Vacant";
   const [stateCode, rawNum] = districtId.split("-");
   const districtNum = parseInt(rawNum ?? "0", 10);
   const stateName = STATE_NAMES[stateCode] ?? stateCode;
@@ -165,8 +166,8 @@ export default function HouseMap() {
     []
   );
 
-  const selectedData = selectedId ? getMockDistrictData(selectedId) : null;
-  const selectedRepName = selectedId ? getMockRepName(selectedId) : null;
+  const selectedData = selectedId ? getDistrictData(selectedId) : null;
+  const selectedRepName = selectedId ? getRepName(selectedId) : null;
 
   return (
     <div className="flex flex-col w-screen h-screen overflow-hidden bg-slate-900">
@@ -248,7 +249,7 @@ export default function HouseMap() {
                     const id = toDistrictId(props.STATEFP, props.CD118FP);
                     if (!id) return null;
 
-                    const data = getMockDistrictData(id);
+                    const data = getDistrictData(id) ?? { party: "Unknown" as const, margin: 0, income: 65, pvi: 0, termStart: 2025, repName: "Vacant" };
                     const isSelected = id === selectedId;
                     const isHovered = id === hoveredId;
 
