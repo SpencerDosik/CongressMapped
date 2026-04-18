@@ -18,7 +18,7 @@ import { getDistrictData, getRepName } from "@/lib/districtData";
 import { toDistrictId, STATE_NAMES, AT_LARGE_STATES } from "@/lib/stateFips";
 
 // ── Constants ─────────────────────────────────────────────────────────────────
-const DISTRICTS_URL = "/api/districts";
+const DISTRICTS_URL = "/districts.json";
 const ZOOM_MIN = 0.5;
 const ZOOM_MAX = 25;
 const R_SEATS = 220;
@@ -372,7 +372,7 @@ export default function HouseMap() {
                 }}
               />
               <p className="text-slate-500 text-sm font-medium">Loading districts…</p>
-              <p className="text-slate-700 text-xs mt-1">Census TIGER GeoJSON</p>
+              <p className="text-slate-700 text-xs mt-1">Loading district boundaries…</p>
             </div>
           )}
 
