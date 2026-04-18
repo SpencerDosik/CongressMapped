@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useCallback, useRef, useMemo } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import {
   ComposableMap,
   Geographies,
@@ -14,7 +14,7 @@ import MapLegend from "./MapLegend";
 
 import { FilterMode } from "@/lib/types";
 import { getDistrictColor, PARTY_COLORS } from "@/lib/colors";
-import { getDistrictData, getRepName, DistrictFullData } from "@/lib/districtData";
+import { getDistrictData, getRepName } from "@/lib/districtData";
 import { toDistrictId, STATE_NAMES, AT_LARGE_STATES } from "@/lib/stateFips";
 
 // ── Constants ─────────────────────────────────────────────────────────────────
@@ -101,35 +101,31 @@ function SearchBar({
       return;
     }
 
-    // Import all district data dynamically at search time
-    import("@/lib/districtData").then(({ getDistrictData }) => {
-      // Try to match against all 435 districts
-      const stateAbbrs = Object.keys(STATE_NAMES) as string[];
-      const matches: { id: string; name: string; state: string }[] = [];
+    const stateAbbrs = Object.keys(STATE_NAMES) as string[];
+    const matches: { id: string; name: string; state: string }[] = [];
 
-      for (const state of stateAbbrs) {
-        const numSeats = getStateSeats(state);
-        const atLarge = AT_LARGE_STATES.has(state);
-        const districts = atLarge ? [0] : Array.from({ length: numSeats }, (_, i) => i + 1);
+    for (const state of stateAbbrs) {
+      const numSeats = getStateSeats(state);
+      const atLarge = AT_LARGE_STATES.has(state);
+      const districts = atLarge ? [0] : Array.from({ length: numSeats }, (_, i) => i + 1);
 
-        for (const d of districts) {
-          const id = `${state}-${String(d).padStart(2, "0")}`;
-          const data = getDistrictData(id);
-          if (!data) continue;
+      for (const d of districts) {
+        const id = `${state}-${String(d).padStart(2, "0")}`;
+        const data = getDistrictData(id);
+        if (!data) continue;
 
-          const repName = data.repName.toLowerCase();
-          const stateName = (STATE_NAMES[state] ?? state).toLowerCase();
-          if (repName.includes(q) || stateName.includes(q) || id.toLowerCase().includes(q)) {
-            matches.push({ id, name: data.repName, state: STATE_NAMES[state] ?? state });
-          }
-          if (matches.length >= 8) break;
+        const repName = data.repName.toLowerCase();
+        const stateName = (STATE_NAMES[state] ?? state).toLowerCase();
+        if (repName.includes(q) || stateName.includes(q) || id.toLowerCase().includes(q)) {
+          matches.push({ id, name: data.repName, state: STATE_NAMES[state] ?? state });
         }
         if (matches.length >= 8) break;
       }
+      if (matches.length >= 8) break;
+    }
 
-      setResults(matches);
-      setOpen(matches.length > 0);
-    });
+    setResults(matches);
+    setOpen(matches.length > 0);
   }, [query]);
 
   return (
