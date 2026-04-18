@@ -21,14 +21,17 @@ import { toDistrictId, STATE_NAMES, AT_LARGE_STATES } from "@/lib/stateFips";
 const DISTRICTS_URL = "/districts.json";
 const ZOOM_MIN = 0.5;
 const ZOOM_MAX = 25;
-const R_SEATS = 220;
-const D_SEATS = 215;
+const R_SEATS = 217;
+const I_SEATS = 1;
+const D_SEATS = 213;
+const V_SEATS = 4;
 const TOTAL_SEATS = 435;
 const MAJORITY = 218;
 
 // ── Seat Composition Bar ──────────────────────────────────────────────────────
 function SeatBar() {
   const rPct = (R_SEATS / TOTAL_SEATS) * 100;
+  const iPct = (I_SEATS / TOTAL_SEATS) * 100;
   const dPct = (D_SEATS / TOTAL_SEATS) * 100;
   const majorityPct = (MAJORITY / TOTAL_SEATS) * 100;
 
@@ -43,10 +46,17 @@ function SeatBar() {
 
         {/* Bar */}
         <div className="relative w-52 h-3 rounded-full overflow-visible bg-slate-800">
+          {/* R segment */}
           <div
             className="absolute left-0 top-0 h-full rounded-l-full"
             style={{ width: `${rPct}%`, backgroundColor: "#DC2626" }}
           />
+          {/* I segment (Kiley) — minimum 4px wide so it's visible */}
+          <div
+            className="absolute top-0 h-full"
+            style={{ left: `${rPct}%`, width: `max(4px, ${iPct}%)`, backgroundColor: "#D97706" }}
+          />
+          {/* D segment */}
           <div
             className="absolute right-0 top-0 h-full rounded-r-full"
             style={{ width: `${dPct}%`, backgroundColor: "#2563EB" }}
@@ -68,6 +78,10 @@ function SeatBar() {
           <span className="text-blue-400 font-bold text-sm tabular-nums">{D_SEATS}</span>
         </div>
       </div>
+      {/* Vacancy note */}
+      <p className="text-[10px] text-slate-700">
+        1 Independent · {V_SEATS} vacant
+      </p>
     </div>
   );
 }

@@ -1,4 +1,4 @@
-export type Party = "Republican" | "Democrat" | "Independent" | "Unknown";
+export type Party = "Republican" | "Democrat" | "Independent" | "Vacant" | "Unknown";
 
 export interface Representative {
   bioguideId: string;
@@ -20,7 +20,9 @@ export interface DistrictStaticData {
   income: number; // Median HH income in $K (Census ACS ~2022)
   pvi: number; // Cook PVI equivalent: positive = R lean, negative = D lean
   termStart: number; // Year current incumbent first won this seat
-  party: Party; // Fallback party (from training data)
+  party: Party;
+  caucus?: string;    // For independents who caucus with a party
+  repElect?: string;  // Representative-elect for vacant seats
 }
 
 export type FilterMode =

@@ -26,10 +26,15 @@ export default function DistrictPanel({ districtId, repName, data, onClose }: Pr
     ? "At-Large District"
     : `${districtNum}${ordinalSuffix(districtNum)} Congressional District`;
 
+  const isVacant = data.party === "Vacant";
   const partyColor = PARTY_COLORS[data.party] ?? PARTY_COLORS.Unknown;
-  const partyShort = data.party === "Republican" ? "R" : data.party === "Democrat" ? "D" : "I";
+  const partyShort =
+    data.party === "Republican" ? "R" :
+    data.party === "Democrat" ? "D" :
+    data.party === "Independent" ? "I" :
+    data.party === "Vacant" ? "V" : "?";
 
-  const initials = repName
+  const initials = isVacant ? "—" : repName
     .replace(/["'.]/g, "")
     .split(/\s+/)
     .filter((w) => w.length > 1)
@@ -98,7 +103,11 @@ export default function DistrictPanel({ districtId, repName, data, onClose }: Pr
           <div className="flex items-center gap-3.5">
             <div
               className="w-14 h-14 rounded-full flex items-center justify-center text-lg font-bold shrink-0 select-none"
-              style={{
+              style={isVacant ? {
+                background: "rgba(55,65,81,0.3)",
+                border: "2px dashed #374151",
+                color: "#4B5563",
+              } : {
                 background: `radial-gradient(circle at 35% 35%, ${partyColor}40, ${partyColor}15)`,
                 border: `2px solid ${partyColor}35`,
                 color: partyColor,
@@ -107,8 +116,12 @@ export default function DistrictPanel({ districtId, repName, data, onClose }: Pr
               {initials}
             </div>
             <div className="min-w-0 flex-1">
-              <p className="text-[10px] text-slate-600 uppercase tracking-widest mb-0.5">Representative</p>
-              <h3 className="text-white font-bold text-sm leading-snug">{repName}</h3>
+              <p className="text-[10px] text-slate-600 uppercase tracking-widest mb-0.5">
+                {isVacant ? "Seat Status" : "Representative"}
+              </p>
+              <h3 className={`font-bold text-sm leading-snug ${isVacant ? "text-slate-500 italic" : "text-white"}`}>
+                {isVacant ? "Vacant" : repName}
+              </h3>
               <div className="flex items-center gap-2 mt-1.5">
                 <span
                   className="text-[11px] font-semibold px-2 py-0.5 rounded-full"
@@ -118,10 +131,21 @@ export default function DistrictPanel({ districtId, repName, data, onClose }: Pr
                     border: `1px solid ${partyColor}35`,
                   }}
                 >
-                  {data.party}
+                  {isVacant ? "Vacant" : data.party}
                 </span>
                 <span className="text-[11px] text-slate-600">{stateCode}-{rawNum}</span>
               </div>
+              {data.caucus && (
+                <p className="text-[11px] text-slate-500 mt-1">
+                  Caucuses with {data.caucus}s
+                </p>
+              )}
+              {isVacant && data.repElect && (
+                <div className="mt-2 px-2 py-1.5 rounded-md" style={{ backgroundColor: "rgba(30,41,59,0.6)", border: "1px solid rgba(71,85,105,0.4)" }}>
+                  <p className="text-[10px] text-slate-500 uppercase tracking-widest">Representative-elect</p>
+                  <p className="text-[12px] text-slate-200 font-semibold mt-0.5">{data.repElect}</p>
+                </div>
+              )}
             </div>
           </div>
         </div>
@@ -187,10 +211,10 @@ export default function DistrictPanel({ districtId, repName, data, onClose }: Pr
           </div>
         </div>
 
-        <div className="mx-4 border-t border-slate-700/40" />
+        {!isVacant && <div className="mx-4 border-t border-slate-700/40" />}
 
         {/* Tenure */}
-        <div className="px-4 py-4">
+        {!isVacant && <div className="px-4 py-4">
           <p className="text-[10px] font-bold text-slate-600 uppercase tracking-widest mb-3">Tenure</p>
           <div className="space-y-2 mb-3">
             <Row label="First Elected" value={String(data.termStart)} />
@@ -217,7 +241,7 @@ export default function DistrictPanel({ districtId, repName, data, onClose }: Pr
               <span className="text-[10px] text-slate-600 shrink-0">{yearsServing}y / 32y</span>
             </div>
           </div>
-        </div>
+        </div>}
 
         {/* Footer */}
         <div className="px-4 py-3 border-t border-slate-700/30">

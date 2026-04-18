@@ -6,14 +6,16 @@ import { Party, FilterMode } from "./types";
 export const PARTY_COLORS: Record<Party, string> = {
   Republican: "#DC2626",
   Democrat: "#2563EB",
-  Independent: "#7C3AED",
+  Independent: "#D97706",
+  Vacant: "#374151",
   Unknown: "#64748B",
 };
 
 export const PARTY_COLORS_SOFT: Record<Party, string> = {
   Republican: "#EF4444",
   Democrat: "#3B82F6",
-  Independent: "#8B5CF6",
+  Independent: "#F59E0B",
+  Vacant: "#4B5563",
   Unknown: "#94A3B8",
 };
 
@@ -85,6 +87,7 @@ export function getLegendItems(mode: FilterMode): LegendItem[] {
         { label: "Republican", color: PARTY_COLORS.Republican },
         { label: "Democrat", color: PARTY_COLORS.Democrat },
         { label: "Independent", color: PARTY_COLORS.Independent },
+        { label: "Vacant", color: PARTY_COLORS.Vacant },
       ];
     case "margin":
       return [
