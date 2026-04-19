@@ -29,6 +29,11 @@ export const STATE_NAMES: Record<string, string> = {
   WI: "Wisconsin", WY: "Wyoming",
 };
 
+// Reverse lookup: 2-letter abbreviation → FIPS code
+export const STATE_TO_FIPS: Record<string, string> = Object.fromEntries(
+  Object.entries(FIPS_TO_STATE).map(([fips, abbr]) => [abbr, fips])
+);
+
 // At-large states (only 1 representative, district code = "00" in Census TIGER)
 export const AT_LARGE_STATES = new Set([
   "AK", "DE", "ND", "SD", "VT", "WY",

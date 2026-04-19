@@ -23,9 +23,10 @@ const CATEGORIES: FilterCategory[] = [
   {
     label: "Partisanship",
     filters: [
-      { mode: "party",  desc: "Party affiliation" },
-      { mode: "margin", desc: "2024 election result" },
-      { mode: "pvi",    desc: "Partisan lean (Cook PVI)" },
+      { mode: "party",       desc: "Party affiliation" },
+      { mode: "competitive", desc: "Battleground / competitive races" },
+      { mode: "margin",      desc: "2024 election result" },
+      { mode: "pvi",         desc: "Partisan lean (Cook PVI)" },
     ],
   },
   {

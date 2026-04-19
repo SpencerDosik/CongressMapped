@@ -12,11 +12,12 @@ import FilterTabs from "./FilterTabs";
 import DistrictPanel from "./DistrictPanel";
 import MapLegend from "./MapLegend";
 import RepProfile from "./RepProfile";
+import BattlegroundSidebar from "./BattlegroundSidebar";
 
 import { FilterMode } from "@/lib/types";
 import { getDistrictColor, PARTY_COLORS } from "@/lib/colors";
 import { getDistrictData, getRepName } from "@/lib/districtData";
-import { toDistrictId, STATE_NAMES, AT_LARGE_STATES, FIPS_TO_STATE } from "@/lib/stateFips";
+import { toDistrictId, STATE_NAMES, AT_LARGE_STATES, FIPS_TO_STATE, STATE_TO_FIPS } from "@/lib/stateFips";
 
 // ── Constants ─────────────────────────────────────────────────────────────────
 const DISTRICTS_URL = "/districts.json";
@@ -28,10 +29,6 @@ const V_SEATS = 4;
 const TOTAL_SEATS = 435;
 const MAJORITY = 218;
 
-// Reverse FIPS lookup: "CA" → "06"
-const STATE_TO_FIPS: Record<string, string> = Object.fromEntries(
-  Object.entries(FIPS_TO_STATE).map(([fips, abbr]) => [abbr, fips])
-);
 
 // Geographic center [lon, lat] and appropriate zoom level per state
 const STATE_VIEW: Record<string, { center: [number, number]; zoom: number }> = {
@@ -338,6 +335,18 @@ export default function HouseMap() {
   const [showProfile, setShowProfile] = useState(false);
   const [isolatedState, setIsolatedState] = useState<string | null>(null);
 
+  // Sync selectedId → URL
+  useEffect(() => {
+    const url = selectedId ? `?d=${selectedId}` : window.location.pathname;
+    history.replaceState({}, "", url);
+  }, [selectedId]);
+
+  // On mount: read ?d=XX-NN from URL and open that district
+  useEffect(() => {
+    const param = new URLSearchParams(window.location.search).get("d");
+    if (param && getDistrictData(param)) setSelectedId(param);
+  }, []);
+
   useEffect(() => {
     const h = (e: MouseEvent) => setMousePos({ x: e.clientX, y: e.clientY });
     window.addEventListener("mousemove", h);
@@ -541,6 +550,14 @@ export default function HouseMap() {
             </button>
           )}
         </div>
+
+        {/* Battleground Sidebar — shown when competitive filter is active */}
+        {filterMode === "competitive" && (
+          <BattlegroundSidebar
+            onSelectDistrict={(id) => setSelectedId((prev) => prev === id ? null : id)}
+            selectedId={selectedId}
+          />
+        )}
 
         {/* District Panel */}
         {selectedId && selectedData && selectedRepName && (

@@ -33,7 +33,7 @@ const DISTRICT_DATA: Record<string, DistrictFullData> = {
   "AZ-07": { repName: "Adelita S. Grijalva", party: "Democrat", margin: -20, income: 76, pvi: -15, termStart: 2025 },
   "AZ-08": { repName: "Abraham J. Hamadeh", party: "Republican", margin: 22, income: 52, pvi: 16, termStart: 2025 },
   "AZ-09": { repName: "Paul A. Gosar", party: "Republican", margin: 32, income: 51, pvi: 24, termStart: 2011 },
-  "CA-01": { repName: "Vacant", party: "Vacant", margin: 30, income: 89, pvi: 22, termStart: 2026 },
+  "CA-01": { repName: "Vacant", party: "Vacant", margin: 30, income: 89, pvi: 22, termStart: 2026, electionStatus: "Special election pending", electionDate: "2025-11-04" },
   "CA-02": { repName: "Jared Huffman", party: "Democrat", margin: -42, income: 86, pvi: -32, termStart: 2013 },
   "CA-03": { repName: "Kevin Kiley", party: "Independent", caucus: "Republican", margin: 14, income: 87, pvi: 10, termStart: 2023 },
   "CA-04": { repName: "Mike Thompson", party: "Democrat", margin: -28, income: 92, pvi: -21, termStart: 1999 },
@@ -46,7 +46,7 @@ const DISTRICT_DATA: Record<string, DistrictFullData> = {
   "CA-11": { repName: "Nancy Pelosi", party: "Democrat", margin: -62, income: 87, pvi: -46, termStart: 1987 },
   "CA-12": { repName: "Lateefah Simon", party: "Democrat", margin: -52, income: 86, pvi: -39, termStart: 2025 },
   "CA-13": { repName: "Adam Gray", party: "Democrat", margin: -3, income: 85, pvi: -2, termStart: 2025 },
-  "CA-14": { repName: "Vacant", party: "Vacant", margin: -36, income: 92, pvi: -27, termStart: 2026 },
+  "CA-14": { repName: "Vacant", party: "Vacant", margin: -36, income: 92, pvi: -27, termStart: 2026, electionStatus: "Special election pending", electionDate: "2025-11-04" },
   "CA-15": { repName: "Kevin Mullin", party: "Democrat", margin: -36, income: 91, pvi: -27, termStart: 2023 },
   "CA-16": { repName: "Sam T. Liccardo", party: "Democrat", margin: -24, income: 90, pvi: -18, termStart: 2025 },
   "CA-17": { repName: "Ro Khanna", party: "Democrat", margin: -32, income: 89, pvi: -24, termStart: 2017 },
@@ -275,7 +275,7 @@ const DISTRICT_DATA: Record<string, DistrictFullData> = {
   "NJ-08": { repName: "Robert Menendez", party: "Democrat", margin: -12, income: 100, pvi: -9, termStart: 2023 },
   "NJ-09": { repName: "Nellie Pou", party: "Democrat", margin: -36, income: 101, pvi: -27, termStart: 2025 },
   "NJ-10": { repName: "LaMonica McIver", party: "Democrat", margin: -36, income: 81, pvi: -27, termStart: 2024 },
-  "NJ-11": { repName: "Vacant", party: "Vacant", repElect: "Analila Mejia", margin: -12, income: 80, pvi: -9, termStart: 2026 },
+  "NJ-11": { repName: "Vacant", party: "Vacant", repElect: "Analila Mejia", margin: -12, income: 80, pvi: -9, termStart: 2026, electionStatus: "Special election certified", electionDate: "2025-07-15" },
   "NJ-12": { repName: "Bonnie Watson Coleman", party: "Democrat", margin: -36, income: 83, pvi: -27, termStart: 2015 },
   "NM-01": { repName: "Melanie A. Stansbury", party: "Democrat", margin: -18, income: 68, pvi: -14, termStart: 2021 },
   "NM-02": { repName: "Gabe Vasquez", party: "Democrat", margin: -4, income: 67, pvi: -3, termStart: 2023 },
@@ -394,7 +394,7 @@ const DISTRICT_DATA: Record<string, DistrictFullData> = {
   "TX-20": { repName: "Joaquin Castro", party: "Democrat", margin: -42, income: 77, pvi: -32, termStart: 2013 },
   "TX-21": { repName: "Chip Roy", party: "Republican", margin: 22, income: 78, pvi: 16, termStart: 2019 },
   "TX-22": { repName: "Troy E. Nehls", party: "Republican", margin: 36, income: 75, pvi: 27, termStart: 2021 },
-  "TX-23": { repName: "Vacant", party: "Vacant", margin: 8, income: 76, pvi: 6, termStart: 2026 },
+  "TX-23": { repName: "Vacant", party: "Vacant", margin: 8, income: 76, pvi: 6, termStart: 2026, electionStatus: "Special election pending", electionDate: "2025-10-07" },
   "TX-24": { repName: "Beth Van Duyne", party: "Republican", margin: 14, income: 73, pvi: 10, termStart: 2021 },
   "TX-25": { repName: "Roger Williams", party: "Republican", margin: 28, income: 74, pvi: 21, termStart: 2013 },
   "TX-26": { repName: "Brandon Gill", party: "Republican", margin: 22, income: 71, pvi: 16, termStart: 2025 },
@@ -455,4 +455,16 @@ export function getDistrictData(districtId: string): DistrictFullData | null {
 
 export function getRepName(districtId: string): string {
   return DISTRICT_DATA[districtId]?.repName ?? "Vacant";
+}
+
+export function getCompetitivenessScore(districtId: string): number {
+  const d = DISTRICT_DATA[districtId];
+  if (!d) return 0;
+  return Math.max(0, Math.min(100, 100 - (Math.abs(d.pvi) * 0.6 + Math.abs(d.margin) * 0.4)));
+}
+
+export function getRankedByCompetitiveness(): { id: string; score: number }[] {
+  return Object.keys(DISTRICT_DATA)
+    .map((id) => ({ id, score: getCompetitivenessScore(id) }))
+    .sort((a, b) => b.score - a.score);
 }

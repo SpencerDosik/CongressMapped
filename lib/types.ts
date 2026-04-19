@@ -21,8 +21,10 @@ export interface DistrictStaticData {
   pvi: number; // Cook PVI equivalent: positive = R lean, negative = D lean
   termStart: number; // Year current incumbent first won this seat
   party: Party;
-  caucus?: string;    // For independents who caucus with a party
-  repElect?: string;  // Representative-elect for vacant seats
+  caucus?: string;        // For independents who caucus with a party
+  repElect?: string;      // Representative-elect for vacant seats
+  electionDate?: string;  // Scheduled special election date (ISO, e.g. "2025-09-23")
+  electionStatus?: string; // Human-readable status (e.g. "Primary: June 10 · General: Sept 23")
 }
 
 export type FilterMode =
@@ -30,7 +32,8 @@ export type FilterMode =
   | "margin"
   | "income"
   | "tenure"
-  | "pvi";
+  | "pvi"
+  | "competitive";
 
 export interface DistrictData {
   districtId: string;

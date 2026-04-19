@@ -1,0 +1,5747 @@
+{
+  "WA-01": {
+    "bioguide": "D000617",
+    "fecIds": [
+      "H0WA08046"
+    ],
+    "phone": "202-225-6311",
+    "url": "https://delbene.house.gov",
+    "office": "2311 Rayburn House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "VT-00": {
+    "bioguide": "B001318",
+    "fecIds": [
+      "H2VT01076"
+    ],
+    "phone": "202-225-4115",
+    "url": "https://balint.house.gov",
+    "office": "1510 Longworth House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "MS-01": {
+    "bioguide": "K000388",
+    "fecIds": [
+      "H6MS01131"
+    ],
+    "phone": "202-225-4306",
+    "url": "https://trentkelly.house.gov",
+    "office": "2243 Rayburn House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "IL-20": {
+    "bioguide": "D000563",
+    "fecIds": [
+      "S6IL00151",
+      "H2IL20026"
+    ],
+    "phone": null,
+    "url": null,
+    "office": null,
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "SC-03": {
+    "bioguide": "B001325",
+    "fecIds": [
+      "H4SC01313"
+    ],
+    "phone": "202-225-5301",
+    "url": "https://sheribiggs.house.gov",
+    "office": "1530 Longworth House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "RI-02": {
+    "bioguide": "M001223",
+    "fecIds": [
+      "H2RI02184"
+    ],
+    "phone": "202-225-2735",
+    "url": "https://magaziner.house.gov",
+    "office": "252 Cannon House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "NY-20": {
+    "bioguide": "T000469",
+    "fecIds": [
+      "H8NY21203"
+    ],
+    "phone": "202-225-5076",
+    "url": "https://tonko.house.gov",
+    "office": "2269 Rayburn House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "AL-04": {
+    "bioguide": "A000055",
+    "fecIds": [
+      "H6AL04098"
+    ],
+    "phone": "202-225-4876",
+    "url": "https://aderholt.house.gov",
+    "office": "272 Cannon House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "WI-02": {
+    "bioguide": "P000607",
+    "fecIds": [
+      "H2WI02124"
+    ],
+    "phone": "202-225-2906",
+    "url": "https://pocan.house.gov",
+    "office": "1026 Longworth House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "FL-12": {
+    "bioguide": "B001257",
+    "fecIds": [
+      "H6FL09070"
+    ],
+    "phone": "202-225-5755",
+    "url": "https://bilirakis.house.gov",
+    "office": "2306 Rayburn House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "GA-02": {
+    "bioguide": "B000490",
+    "fecIds": [
+      "H2GA02031"
+    ],
+    "phone": "202-225-3631",
+    "url": "https://bishop.house.gov",
+    "office": "2407 Rayburn House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "TN-07": {
+    "bioguide": "V000139",
+    "fecIds": [
+      "H6TN07161"
+    ],
+    "phone": "202-225-2811",
+    "url": "https://vanepps.house.gov/",
+    "office": "2446 Rayburn House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "AR-03": {
+    "bioguide": "W000809",
+    "fecIds": [
+      "H0AR03055"
+    ],
+    "phone": "202-225-4301",
+    "url": "https://womack.house.gov",
+    "office": "2412 Rayburn House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "FL-16": {
+    "bioguide": "B001260",
+    "fecIds": [
+      "H6FL13148"
+    ],
+    "phone": "202-225-5015",
+    "url": "https://buchanan.house.gov",
+    "office": "2409 Rayburn House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "CA-41": {
+    "bioguide": "C000059",
+    "fecIds": [
+      "H2CA37023"
+    ],
+    "phone": "202-225-1986",
+    "url": "https://calvert.house.gov",
+    "office": "2205 Rayburn House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "WV-02": {
+    "bioguide": "M001235",
+    "fecIds": [
+      "H4WV02205"
+    ],
+    "phone": "202-225-2711",
+    "url": "https://rileymoore.house.gov",
+    "office": "1337 Longworth House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "IN-07": {
+    "bioguide": "C001072",
+    "fecIds": [
+      "H8IN07184"
+    ],
+    "phone": "202-225-4011",
+    "url": "https://carson.house.gov",
+    "office": "2135 Rayburn House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "TX-31": {
+    "bioguide": "C001051",
+    "fecIds": [
+      "H2TX31044"
+    ],
+    "phone": "202-225-3864",
+    "url": "https://carter.house.gov",
+    "office": "2208 Rayburn House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "LA-06": {
+    "bioguide": "F000110",
+    "fecIds": [
+      "H4LA06211"
+    ],
+    "phone": "202-225-3901",
+    "url": "https://fields.house.gov",
+    "office": "2349 Rayburn House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "FL-14": {
+    "bioguide": "C001066",
+    "fecIds": [
+      "H6FL11126",
+      "H6FL11134"
+    ],
+    "phone": "202-225-3376",
+    "url": "https://castor.house.gov",
+    "office": "2188 Rayburn House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "CA-28": {
+    "bioguide": "C001080",
+    "fecIds": [
+      "H0CA32101"
+    ],
+    "phone": "202-225-5464",
+    "url": "https://chu.house.gov",
+    "office": "2423 Rayburn House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "NY-09": {
+    "bioguide": "S000148",
+    "fecIds": [
+      "S8NY00082",
+      "H0NY16010"
+    ],
+    "phone": null,
+    "url": null,
+    "office": null,
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "MO-05": {
+    "bioguide": "C001061",
+    "fecIds": [
+      "H4MO05234"
+    ],
+    "phone": "202-225-4535",
+    "url": "https://cleaver.house.gov",
+    "office": "2217 Rayburn House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "SC-06": {
+    "bioguide": "C000537",
+    "fecIds": [
+      "H2SC02042"
+    ],
+    "phone": "202-225-3315",
+    "url": "https://clyburn.house.gov",
+    "office": "274 Cannon House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "TN-09": {
+    "bioguide": "C001068",
+    "fecIds": [
+      "H6TN09068"
+    ],
+    "phone": "202-225-3265",
+    "url": "https://cohen.house.gov",
+    "office": "2268 Rayburn House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "OK-04": {
+    "bioguide": "C001053",
+    "fecIds": [
+      "H2OK04055"
+    ],
+    "phone": "202-225-6165",
+    "url": "https://cole.house.gov",
+    "office": "2207 Rayburn House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "CA-21": {
+    "bioguide": "C001059",
+    "fecIds": [
+      "H4CA20082"
+    ],
+    "phone": "202-225-3341",
+    "url": "https://costa.house.gov",
+    "office": "2081 Rayburn House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "CT-02": {
+    "bioguide": "C001069",
+    "fecIds": [
+      "H2CT02112"
+    ],
+    "phone": "202-225-2076",
+    "url": "https://courtney.house.gov",
+    "office": "2449 Rayburn House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "ID-02": {
+    "bioguide": "S001148",
+    "fecIds": [
+      "H8ID02064"
+    ],
+    "phone": "202-225-5531",
+    "url": "https://simpson.house.gov",
+    "office": "2084 Rayburn House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "AR-01": {
+    "bioguide": "C001087",
+    "fecIds": [
+      "H0AR01083"
+    ],
+    "phone": "202-225-4076",
+    "url": "https://crawford.house.gov",
+    "office": "2422 Rayburn House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "TX-28": {
+    "bioguide": "C001063",
+    "fecIds": [
+      "H2TX23082"
+    ],
+    "phone": "202-225-1640",
+    "url": "https://cuellar.house.gov",
+    "office": "2308 Rayburn House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "IL-07": {
+    "bioguide": "D000096",
+    "fecIds": [
+      "H4IL07037"
+    ],
+    "phone": "202-225-5006",
+    "url": "https://davis.house.gov",
+    "office": "2159 Rayburn House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "CO-01": {
+    "bioguide": "D000197",
+    "fecIds": [
+      "H6CO01141"
+    ],
+    "phone": "202-225-4431",
+    "url": "https://degette.house.gov",
+    "office": "2111 Rayburn House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "CT-03": {
+    "bioguide": "D000216",
+    "fecIds": [
+      "H0CT03072"
+    ],
+    "phone": "202-225-3661",
+    "url": "https://delauro.house.gov",
+    "office": "2413 Rayburn House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "TN-04": {
+    "bioguide": "D000616",
+    "fecIds": [
+      "H0TN04195"
+    ],
+    "phone": "202-225-6831",
+    "url": "https://desjarlais.house.gov",
+    "office": "2304 Rayburn House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "FL-26": {
+    "bioguide": "D000600",
+    "fecIds": [
+      "H2FL25018"
+    ],
+    "phone": "202-225-4211",
+    "url": "https://mariodiazbalart.house.gov",
+    "office": "374 Cannon House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "TX-37": {
+    "bioguide": "D000399",
+    "fecIds": [
+      "H4TX10028"
+    ],
+    "phone": "202-225-4865",
+    "url": "https://doggett.house.gov",
+    "office": "2307 Rayburn House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "TN-03": {
+    "bioguide": "F000459",
+    "fecIds": [
+      "H0TN03254"
+    ],
+    "phone": "202-225-3271",
+    "url": "https://fleischmann.house.gov",
+    "office": "2187 Rayburn House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "NC-05": {
+    "bioguide": "F000450",
+    "fecIds": [
+      "H4NC05146"
+    ],
+    "phone": "202-225-2071",
+    "url": "https://foxx.house.gov",
+    "office": "2462 Rayburn House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "CA-08": {
+    "bioguide": "G000559",
+    "fecIds": [
+      "H0CA10149"
+    ],
+    "phone": "202-225-1880",
+    "url": "https://garamendi.house.gov",
+    "office": "2428 Rayburn House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "AZ-09": {
+    "bioguide": "G000565",
+    "fecIds": [
+      "H0AZ01259"
+    ],
+    "phone": "202-225-2315",
+    "url": "https://gosar.house.gov",
+    "office": "2057 Rayburn House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "IA-03": {
+    "bioguide": "N000193",
+    "fecIds": [
+      "H2IA03119"
+    ],
+    "phone": "202-225-5476",
+    "url": "https://nunn.house.gov",
+    "office": "1410 Longworth House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "MO-06": {
+    "bioguide": "G000546",
+    "fecIds": [
+      "H0MO06073"
+    ],
+    "phone": "202-225-7041",
+    "url": "https://graves.house.gov",
+    "office": "1135 Longworth House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "TX-09": {
+    "bioguide": "G000553",
+    "fecIds": [
+      "H4TX09095"
+    ],
+    "phone": "202-225-7508",
+    "url": "https://algreen.house.gov",
+    "office": "2347 Rayburn House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "VA-09": {
+    "bioguide": "G000568",
+    "fecIds": [
+      "H0VA09055"
+    ],
+    "phone": "202-225-3861",
+    "url": "https://morgangriffith.house.gov",
+    "office": "2110 Rayburn House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "KY-02": {
+    "bioguide": "G000558",
+    "fecIds": [
+      "H8KY02031"
+    ],
+    "phone": "202-225-3501",
+    "url": "https://guthrie.house.gov",
+    "office": "2161 Rayburn House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "MD-01": {
+    "bioguide": "H001052",
+    "fecIds": [
+      "H8MD01094"
+    ],
+    "phone": "202-225-5311",
+    "url": "https://harris.house.gov",
+    "office": "1536 Longworth House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "NM-01": {
+    "bioguide": "S001218",
+    "fecIds": [
+      "H2NM01144"
+    ],
+    "phone": "202-225-6316",
+    "url": "https://stansbury.house.gov",
+    "office": "1421 Longworth House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "CT-04": {
+    "bioguide": "H001047",
+    "fecIds": [
+      "H8CT04172"
+    ],
+    "phone": "202-225-5541",
+    "url": "https://himes.house.gov",
+    "office": "2137 Rayburn House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "HI-02": {
+    "bioguide": "T000487",
+    "fecIds": [
+      "H2HI02581"
+    ],
+    "phone": "202-225-4906",
+    "url": "https://tokuda.house.gov",
+    "office": "1027 Longworth House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "MD-05": {
+    "bioguide": "H000874",
+    "fecIds": [
+      "H2MD05155"
+    ],
+    "phone": "202-225-4131",
+    "url": "https://hoyer.house.gov",
+    "office": "1705 Longworth House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "MI-04": {
+    "bioguide": "H001058",
+    "fecIds": [
+      "H0MI02094"
+    ],
+    "phone": "202-225-4401",
+    "url": "https://huizenga.house.gov",
+    "office": "2232 Rayburn House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "GA-04": {
+    "bioguide": "J000288",
+    "fecIds": [
+      "H6GA04129"
+    ],
+    "phone": "202-225-1605",
+    "url": "https://hankjohnson.house.gov",
+    "office": "2240 Rayburn House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "OH-04": {
+    "bioguide": "J000289",
+    "fecIds": [
+      "H6OH04082"
+    ],
+    "phone": "202-225-2676",
+    "url": "https://jordan.house.gov",
+    "office": "2056 Rayburn House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "OH-09": {
+    "bioguide": "K000009",
+    "fecIds": [
+      "H2OH09031"
+    ],
+    "phone": "202-225-4146",
+    "url": "https://kaptur.house.gov",
+    "office": "2314 Rayburn House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "MA-09": {
+    "bioguide": "K000375",
+    "fecIds": [
+      "H0MA10082"
+    ],
+    "phone": "202-225-3111",
+    "url": "https://keating.house.gov",
+    "office": "2372 Rayburn House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "PA-16": {
+    "bioguide": "K000376",
+    "fecIds": [
+      "H0PA03271"
+    ],
+    "phone": "202-225-5406",
+    "url": "https://kelly.house.gov",
+    "office": "1707 Longworth House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "OK-05": {
+    "bioguide": "B000740",
+    "fecIds": [
+      "H0OK05205"
+    ],
+    "phone": "202-225-2132",
+    "url": "https://bice.house.gov",
+    "office": "2402 Rayburn House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "WA-02": {
+    "bioguide": "L000560",
+    "fecIds": [
+      "H0WA02080"
+    ],
+    "phone": "202-225-2605",
+    "url": "https://larsen.house.gov",
+    "office": "2163 Rayburn House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "CT-01": {
+    "bioguide": "L000557",
+    "fecIds": [
+      "H8CT01046"
+    ],
+    "phone": "202-225-2265",
+    "url": "https://larson.house.gov",
+    "office": "1501 Longworth House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "OH-05": {
+    "bioguide": "L000566",
+    "fecIds": [
+      "H8OH05036"
+    ],
+    "phone": "202-225-6405",
+    "url": "https://latta.house.gov",
+    "office": "2470 Rayburn House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "CA-18": {
+    "bioguide": "L000397",
+    "fecIds": [
+      "H4CA16049"
+    ],
+    "phone": "202-225-3072",
+    "url": "https://lofgren.house.gov",
+    "office": "1401 Longworth House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "OK-03": {
+    "bioguide": "L000491",
+    "fecIds": [
+      "H4OK06056"
+    ],
+    "phone": "202-225-5565",
+    "url": "https://lucas.house.gov",
+    "office": "2405 Rayburn House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "NM-03": {
+    "bioguide": "L000273",
+    "fecIds": [
+      "H0NM03102"
+    ],
+    "phone": "202-225-6190",
+    "url": "https://fernandez.house.gov",
+    "office": "2417 Rayburn House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "MA-08": {
+    "bioguide": "L000562",
+    "fecIds": [
+      "H2MA09072",
+      "S0MA00083"
+    ],
+    "phone": "202-225-8273",
+    "url": "https://lynch.house.gov",
+    "office": "2109 Rayburn House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "MA-05": {
+    "bioguide": "C001101",
+    "fecIds": [
+      "H4MA05084"
+    ],
+    "phone": "202-225-2836",
+    "url": "https://katherineclark.house.gov",
+    "office": "2368 Rayburn House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "CA-07": {
+    "bioguide": "M001163",
+    "fecIds": [
+      "H6CA05195"
+    ],
+    "phone": "202-225-7163",
+    "url": "https://matsui.house.gov",
+    "office": "2206 Rayburn House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "TX-10": {
+    "bioguide": "M001157",
+    "fecIds": [
+      "H4TX10093"
+    ],
+    "phone": "202-225-2401",
+    "url": "https://mccaul.house.gov",
+    "office": "2300 Rayburn House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "CA-05": {
+    "bioguide": "M001177",
+    "fecIds": [
+      "H8CA04152",
+      "H6CA21135"
+    ],
+    "phone": "202-225-2511",
+    "url": "https://mcclintock.house.gov",
+    "office": "2256 Rayburn House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "MN-04": {
+    "bioguide": "M001143",
+    "fecIds": [
+      "H0MN04049"
+    ],
+    "phone": "202-225-6631",
+    "url": "https://mccollum.house.gov",
+    "office": "2426 Rayburn House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "MA-02": {
+    "bioguide": "M000312",
+    "fecIds": [
+      "H4MA03022"
+    ],
+    "phone": "202-225-6101",
+    "url": "https://mcgovern.house.gov",
+    "office": "370 Cannon House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "NY-05": {
+    "bioguide": "M001137",
+    "fecIds": [
+      "H8NY06048"
+    ],
+    "phone": "202-225-3461",
+    "url": "https://meeks.house.gov",
+    "office": "2310 Rayburn House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "WI-04": {
+    "bioguide": "M001160",
+    "fecIds": [
+      "H4WI04183"
+    ],
+    "phone": "202-225-4572",
+    "url": "https://gwenmoore.house.gov",
+    "office": "2252 Rayburn House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "KS-01": {
+    "bioguide": "M000871",
+    "fecIds": [
+      "H0KS01123"
+    ],
+    "phone": "202-225-2715",
+    "url": "https://mann.house.gov",
+    "office": "344 Cannon House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "CT-05": {
+    "bioguide": "H001081",
+    "fecIds": [
+      "H8CT05245"
+    ],
+    "phone": "202-225-4476",
+    "url": "https://hayes.house.gov",
+    "office": "2049 Rayburn House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "NY-12": {
+    "bioguide": "N000002",
+    "fecIds": [
+      "H2NY17071"
+    ],
+    "phone": "202-225-5635",
+    "url": "https://nadler.house.gov",
+    "office": "2132 Rayburn House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "MA-01": {
+    "bioguide": "N000015",
+    "fecIds": [
+      "H8MA02041"
+    ],
+    "phone": "202-225-5601",
+    "url": "https://neal.house.gov",
+    "office": "372 Cannon House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "DC-00": {
+    "bioguide": "N000147",
+    "fecIds": [
+      "H0DC00058"
+    ],
+    "phone": "202-225-8050",
+    "url": "https://norton.house.gov",
+    "office": "2136 Rayburn House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "NJ-06": {
+    "bioguide": "P000034",
+    "fecIds": [
+      "H8NJ03073",
+      "S6NJ00263"
+    ],
+    "phone": "202-225-4671",
+    "url": "https://pallone.house.gov",
+    "office": "2107 Rayburn House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "CA-11": {
+    "bioguide": "P000197",
+    "fecIds": [
+      "H8CA05035"
+    ],
+    "phone": "202-225-4965",
+    "url": "https://pelosi.house.gov",
+    "office": "1236 Longworth House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "MI-14": {
+    "bioguide": "P000595",
+    "fecIds": [
+      "H8MI09068",
+      "S4MI00355"
+    ],
+    "phone": "202-225-5802",
+    "url": "http://peters.house.gov",
+    "office": "1609 Longworth House Office Building",
+    "contactForm": "https://petersforms.house.gov/contact-us-form",
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "ME-01": {
+    "bioguide": "P000597",
+    "fecIds": [
+      "H8ME01120",
+      "S0ME00038"
+    ],
+    "phone": "202-225-6116",
+    "url": "https://pingree.house.gov",
+    "office": "2354 Rayburn House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "IL-05": {
+    "bioguide": "Q000023",
+    "fecIds": [
+      "H0IL05096"
+    ],
+    "phone": "202-225-4061",
+    "url": "https://quigley.house.gov",
+    "office": "2083 Rayburn House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "KY-05": {
+    "bioguide": "R000395",
+    "fecIds": [
+      "H0KY05015"
+    ],
+    "phone": "202-225-4601",
+    "url": "https://halrogers.house.gov",
+    "office": "2406 Rayburn House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "AL-03": {
+    "bioguide": "R000575",
+    "fecIds": [
+      "H2AL03032"
+    ],
+    "phone": "202-225-3261",
+    "url": "https://mikerogers.house.gov",
+    "office": "2469 Rayburn House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "LA-01": {
+    "bioguide": "S001176",
+    "fecIds": [
+      "H0LA01087"
+    ],
+    "phone": "202-225-3015",
+    "url": "https://scalise.house.gov",
+    "office": "266 Cannon House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "IL-09": {
+    "bioguide": "S001145",
+    "fecIds": [
+      "H8IL09067"
+    ],
+    "phone": "202-225-2111",
+    "url": "https://schakowsky.house.gov",
+    "office": "2408 Rayburn House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "CA-30": {
+    "bioguide": "F000483",
+    "fecIds": [
+      "H4CA30149"
+    ],
+    "phone": "202-225-4176",
+    "url": "https://friedman.house.gov",
+    "office": "1517 Longworth House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "AZ-01": {
+    "bioguide": "S001183",
+    "fecIds": [
+      "H4AZ06045",
+      "H8AZ05097"
+    ],
+    "phone": "202-225-2190",
+    "url": "https://schweikert.house.gov",
+    "office": "166 Cannon House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "GA-08": {
+    "bioguide": "S001189",
+    "fecIds": [
+      "H0GA08099"
+    ],
+    "phone": "202-225-6531",
+    "url": "https://austinscott.house.gov",
+    "office": "2185 Rayburn House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "GA-13": {
+    "bioguide": "S001157",
+    "fecIds": [
+      "H2GA13012"
+    ],
+    "phone": "202-225-2939",
+    "url": "https://davidscott.house.gov",
+    "office": "468 Cannon House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "VA-03": {
+    "bioguide": "S000185",
+    "fecIds": [
+      "H6VA01117"
+    ],
+    "phone": "202-225-8351",
+    "url": "https://bobbyscott.house.gov",
+    "office": "2328 Rayburn House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "SC-01": {
+    "bioguide": "M000194",
+    "fecIds": [
+      "H0SC01394"
+    ],
+    "phone": "202-225-3176",
+    "url": "https://mace.house.gov",
+    "office": "1728 Longworth House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "AL-07": {
+    "bioguide": "S001185",
+    "fecIds": [
+      "H0AL07086"
+    ],
+    "phone": "202-225-2665",
+    "url": "https://sewell.house.gov",
+    "office": "1035 Longworth House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "CA-32": {
+    "bioguide": "S000344",
+    "fecIds": [
+      "H6CA24113"
+    ],
+    "phone": "202-225-5911",
+    "url": "https://sherman.house.gov",
+    "office": "2365 Rayburn House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "WA-09": {
+    "bioguide": "S000510",
+    "fecIds": [
+      "H6WA09025"
+    ],
+    "phone": "202-225-8901",
+    "url": "https://adamsmith.house.gov",
+    "office": "2264 Rayburn House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "NE-03": {
+    "bioguide": "S001172",
+    "fecIds": [
+      "H6NE03115"
+    ],
+    "phone": "202-225-6435",
+    "url": "https://adriansmith.house.gov",
+    "office": "502 Cannon House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "NJ-04": {
+    "bioguide": "S000522",
+    "fecIds": [
+      "H8NJ04014"
+    ],
+    "phone": "202-225-3765",
+    "url": "https://chrissmith.house.gov",
+    "office": "2373 Rayburn House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "CA-38": {
+    "bioguide": "S001156",
+    "fecIds": [
+      "H2CA39078"
+    ],
+    "phone": "202-225-6676",
+    "url": "https://lindasanchez.house.gov",
+    "office": "2309 Rayburn House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "MS-02": {
+    "bioguide": "T000193",
+    "fecIds": [
+      "H4MS02068"
+    ],
+    "phone": "202-225-5876",
+    "url": "https://benniethompson.house.gov",
+    "office": "2466 Rayburn House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "CA-04": {
+    "bioguide": "T000460",
+    "fecIds": [
+      "H8CA01109"
+    ],
+    "phone": "202-225-3311",
+    "url": "https://mikethompson.house.gov",
+    "office": "268 Cannon House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "PA-15": {
+    "bioguide": "T000467",
+    "fecIds": [
+      "H8PA05071"
+    ],
+    "phone": "202-225-5121",
+    "url": "https://thompson.house.gov",
+    "office": "400 Cannon House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "SD-00": {
+    "bioguide": "J000301",
+    "fecIds": [
+      "H8SD01055"
+    ],
+    "phone": "202-225-2801",
+    "url": "https://dustyjohnson.house.gov",
+    "office": "1714 Longworth House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "OH-10": {
+    "bioguide": "T000463",
+    "fecIds": [
+      "H2OH03067",
+      "H2OH03091"
+    ],
+    "phone": "202-225-6465",
+    "url": "https://turner.house.gov",
+    "office": "2183 Rayburn House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "MD-08": {
+    "bioguide": "R000606",
+    "fecIds": [
+      "H6MD08457"
+    ],
+    "phone": "202-225-5341",
+    "url": "https://raskin.house.gov",
+    "office": "2242 Rayburn House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "NY-07": {
+    "bioguide": "V000081",
+    "fecIds": [
+      "H2NY00010"
+    ],
+    "phone": "202-225-2361",
+    "url": "https://velazquez.house.gov",
+    "office": "2302 Rayburn House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "MI-05": {
+    "bioguide": "W000798",
+    "fecIds": [
+      "H4MI07103"
+    ],
+    "phone": "202-225-6276",
+    "url": "https://walberg.house.gov",
+    "office": "2266 Rayburn House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "FL-25": {
+    "bioguide": "W000797",
+    "fecIds": [
+      "H4FL20023"
+    ],
+    "phone": "202-225-7931",
+    "url": "https://wassermanschultz.house.gov",
+    "office": "270 Cannon House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "CA-43": {
+    "bioguide": "W000187",
+    "fecIds": [
+      "H4CA23011"
+    ],
+    "phone": "202-225-2201",
+    "url": "https://waters.house.gov",
+    "office": "2221 Rayburn House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "FL-11": {
+    "bioguide": "W000806",
+    "fecIds": [
+      "H0FL08208",
+      "S4FL00256"
+    ],
+    "phone": "202-225-1002",
+    "url": "https://webster.house.gov",
+    "office": "2184 Rayburn House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "SC-02": {
+    "bioguide": "W000795",
+    "fecIds": [
+      "H2SC02059"
+    ],
+    "phone": "202-225-2452",
+    "url": "https://joewilson.house.gov",
+    "office": "1436 Longworth House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "FL-24": {
+    "bioguide": "W000808",
+    "fecIds": [
+      "H0FL17068"
+    ],
+    "phone": "202-225-4506",
+    "url": "https://wilson.house.gov",
+    "office": "2080 Rayburn House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "VA-01": {
+    "bioguide": "W000804",
+    "fecIds": [
+      "H8VA01147"
+    ],
+    "phone": "202-225-4261",
+    "url": "https://wittman.house.gov",
+    "office": "2055 Rayburn House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "OR-03": {
+    "bioguide": "D000635",
+    "fecIds": [
+      "H4OR03192"
+    ],
+    "phone": "202-225-4811",
+    "url": "https://dexter.house.gov",
+    "office": "1207 Longworth House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "IN-09": {
+    "bioguide": "H001093",
+    "fecIds": [
+      "H6IN09143"
+    ],
+    "phone": "202-225-5315",
+    "url": "https://houchin.house.gov",
+    "office": "342 Cannon House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "NV-02": {
+    "bioguide": "A000369",
+    "fecIds": [
+      "H2NV02395",
+      "H1NV02017",
+      "S0NV00237"
+    ],
+    "phone": "202-225-6155",
+    "url": "https://amodei.house.gov",
+    "office": "104 Cannon House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "OR-01": {
+    "bioguide": "B001278",
+    "fecIds": [
+      "H2OR01133"
+    ],
+    "phone": "202-225-0855",
+    "url": "https://bonamici.house.gov",
+    "office": "2231 Rayburn House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "KY-04": {
+    "bioguide": "M001184",
+    "fecIds": [
+      "H2KY04121"
+    ],
+    "phone": "202-225-3465",
+    "url": "https://massie.house.gov",
+    "office": "2371 Rayburn House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "IL-11": {
+    "bioguide": "F000454",
+    "fecIds": [
+      "H8IL14067",
+      "H2IL11124"
+    ],
+    "phone": "202-225-3515",
+    "url": "https://foster.house.gov",
+    "office": "2366 Rayburn House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "NV-01": {
+    "bioguide": "T000468",
+    "fecIds": [
+      "H8NV03036"
+    ],
+    "phone": "202-225-5965",
+    "url": "https://titus.house.gov",
+    "office": "2370 Rayburn House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "AR-04": {
+    "bioguide": "W000821",
+    "fecIds": [
+      "H4AR04048"
+    ],
+    "phone": "202-225-3772",
+    "url": "https://westerman.house.gov",
+    "office": "202 Cannon House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "CA-02": {
+    "bioguide": "H001068",
+    "fecIds": [
+      "H2CA06259"
+    ],
+    "phone": "202-225-5161",
+    "url": "https://huffman.house.gov",
+    "office": "2330 Rayburn House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "CA-06": {
+    "bioguide": "B001287",
+    "fecIds": [
+      "H0CA03078"
+    ],
+    "phone": "202-225-5716",
+    "url": "https://bera.house.gov",
+    "office": "172 Cannon House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "CA-26": {
+    "bioguide": "B001285",
+    "fecIds": [
+      "H2CA00120"
+    ],
+    "phone": "202-225-5811",
+    "url": "https://juliabrownley.house.gov",
+    "office": "2262 Rayburn House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "CA-25": {
+    "bioguide": "R000599",
+    "fecIds": [
+      "H2CA36439"
+    ],
+    "phone": "202-225-5330",
+    "url": "https://ruiz.house.gov",
+    "office": "2342 Rayburn House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "CA-39": {
+    "bioguide": "T000472",
+    "fecIds": [
+      "H2CA43245"
+    ],
+    "phone": "202-225-2305",
+    "url": "https://takano.house.gov",
+    "office": "2078 Rayburn House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "CA-52": {
+    "bioguide": "V000130",
+    "fecIds": [
+      "H2CA50026"
+    ],
+    "phone": "202-225-8045",
+    "url": "https://vargas.house.gov",
+    "office": "2467 Rayburn House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "CA-50": {
+    "bioguide": "P000608",
+    "fecIds": [
+      "H2CA52089"
+    ],
+    "phone": "202-225-0508",
+    "url": "https://scottpeters.house.gov",
+    "office": "2369 Rayburn House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "FL-22": {
+    "bioguide": "F000462",
+    "fecIds": [
+      "H2FL14053",
+      "H2FL22080"
+    ],
+    "phone": "202-225-9890",
+    "url": "https://frankel.house.gov",
+    "office": "2305 Rayburn House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "IL-08": {
+    "bioguide": "K000391",
+    "fecIds": [
+      "H6IL08147"
+    ],
+    "phone": "202-225-3711",
+    "url": "https://krishnamoorthi.house.gov",
+    "office": "2367 Rayburn House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "KY-06": {
+    "bioguide": "B001282",
+    "fecIds": [
+      "H0KY06104"
+    ],
+    "phone": "202-225-4706",
+    "url": "https://barr.house.gov",
+    "office": "2430 Rayburn House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "MO-02": {
+    "bioguide": "W000812",
+    "fecIds": [
+      "H2MO02102"
+    ],
+    "phone": "202-225-1621",
+    "url": "https://wagner.house.gov",
+    "office": "2350 Rayburn House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "MT-00": {
+    "bioguide": "D000618",
+    "fecIds": [
+      "H2MT01060",
+      "S2MT00096"
+    ],
+    "phone": "202-225-3211",
+    "url": "http://daines.house.gov",
+    "office": "206 Cannon House Office Building",
+    "contactForm": "https://daines.house.gov/email-me",
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "NC-09": {
+    "bioguide": "H001067",
+    "fecIds": [
+      "H2NC08185"
+    ],
+    "phone": "202-225-3715",
+    "url": "https://hudson.house.gov",
+    "office": "2112 Rayburn House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "ND-00": {
+    "bioguide": "F000482",
+    "fecIds": [
+      "H4ND00061"
+    ],
+    "phone": "202-225-2611",
+    "url": "https://fedorchak.house.gov",
+    "office": "1607 Longworth House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "NY-06": {
+    "bioguide": "M001188",
+    "fecIds": [
+      "H2NY06116"
+    ],
+    "phone": "202-225-2601",
+    "url": "https://meng.house.gov",
+    "office": "2468 Rayburn House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "NY-08": {
+    "bioguide": "J000294",
+    "fecIds": [
+      "H2NY10092"
+    ],
+    "phone": "202-225-5936",
+    "url": "https://jeffries.house.gov",
+    "office": "2267 Rayburn House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "OH-03": {
+    "bioguide": "B001281",
+    "fecIds": [
+      "H2OH03125"
+    ],
+    "phone": "202-225-4324",
+    "url": "https://beatty.house.gov",
+    "office": "2079 Rayburn House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "OH-14": {
+    "bioguide": "J000295",
+    "fecIds": [
+      "H2OH14064"
+    ],
+    "phone": "202-225-5731",
+    "url": "https://joyce.house.gov",
+    "office": "2065 Rayburn House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "PA-10": {
+    "bioguide": "P000605",
+    "fecIds": [
+      "H2PA04135"
+    ],
+    "phone": "202-225-5836",
+    "url": "https://perry.house.gov",
+    "office": "2160 Rayburn House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "TX-14": {
+    "bioguide": "W000814",
+    "fecIds": [
+      "H2TX14149"
+    ],
+    "phone": "202-225-2831",
+    "url": "https://weber.house.gov",
+    "office": "107 Cannon House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "TX-20": {
+    "bioguide": "C001091",
+    "fecIds": [
+      "H2TX35011"
+    ],
+    "phone": "202-225-3236",
+    "url": "https://castro.house.gov",
+    "office": "2241 Rayburn House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "TX-25": {
+    "bioguide": "W000816",
+    "fecIds": [
+      "H2TX33040",
+      "S2TX00270"
+    ],
+    "phone": "202-225-9896",
+    "url": "https://williams.house.gov",
+    "office": "2336 Rayburn House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "TX-33": {
+    "bioguide": "V000131",
+    "fecIds": [
+      "H2TX33073"
+    ],
+    "phone": "202-225-9897",
+    "url": "https://veasey.house.gov",
+    "office": "2186 Rayburn House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "IL-02": {
+    "bioguide": "K000385",
+    "fecIds": [
+      "H2IL02172"
+    ],
+    "phone": "202-225-0773",
+    "url": "https://robinkelly.house.gov",
+    "office": "2329 Rayburn House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "MO-08": {
+    "bioguide": "S001195",
+    "fecIds": [
+      "H4MO08162"
+    ],
+    "phone": "202-225-4404",
+    "url": "https://jasonsmith.house.gov",
+    "office": "1011 Longworth House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "NJ-01": {
+    "bioguide": "N000188",
+    "fecIds": [
+      "H4NJ01084"
+    ],
+    "phone": "202-225-6501",
+    "url": "https://norcross.house.gov",
+    "office": "2427 Rayburn House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "NC-12": {
+    "bioguide": "A000370",
+    "fecIds": [
+      "H4NC12100"
+    ],
+    "phone": "202-225-1510",
+    "url": "https://adams.house.gov",
+    "office": "2436 Rayburn House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "AL-06": {
+    "bioguide": "P000609",
+    "fecIds": [
+      "H4AL06098"
+    ],
+    "phone": "202-225-4921",
+    "url": "https://palmer.house.gov",
+    "office": "170 Cannon House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "AR-02": {
+    "bioguide": "H001072",
+    "fecIds": [
+      "H4AR02141"
+    ],
+    "phone": "202-225-2506",
+    "url": "https://hill.house.gov",
+    "office": "1533 Longworth House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "AZ-03": {
+    "bioguide": "A000381",
+    "fecIds": [
+      "H4AZ03109"
+    ],
+    "phone": "202-225-4065",
+    "url": "https://ansari.house.gov",
+    "office": "1432 Longworth House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "CA-10": {
+    "bioguide": "D000623",
+    "fecIds": [
+      "H0CA10073"
+    ],
+    "phone": "202-225-2095",
+    "url": "https://desaulnier.house.gov",
+    "office": "2134 Rayburn House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "CA-33": {
+    "bioguide": "A000371",
+    "fecIds": [
+      "H2CA31125"
+    ],
+    "phone": "202-225-3201",
+    "url": "https://aguilar.house.gov",
+    "office": "108 Cannon House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "CA-36": {
+    "bioguide": "L000582",
+    "fecIds": [
+      "H4CA33119"
+    ],
+    "phone": "202-225-3976",
+    "url": "https://lieu.house.gov",
+    "office": "2454 Rayburn House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "CA-35": {
+    "bioguide": "T000474",
+    "fecIds": [
+      "H4CA35031"
+    ],
+    "phone": "202-225-6161",
+    "url": "https://torres.house.gov",
+    "office": "2227 Rayburn House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "GA-01": {
+    "bioguide": "C001103",
+    "fecIds": [
+      "H4GA01039"
+    ],
+    "phone": "202-225-5831",
+    "url": "https://buddycarter.house.gov",
+    "office": "2432 Rayburn House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "GA-11": {
+    "bioguide": "L000583",
+    "fecIds": [
+      "H4GA11061"
+    ],
+    "phone": "202-225-2931",
+    "url": "https://loudermilk.house.gov",
+    "office": "2133 Rayburn House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "GA-12": {
+    "bioguide": "A000372",
+    "fecIds": [
+      "H2GA12121"
+    ],
+    "phone": "202-225-2823",
+    "url": "https://allen.house.gov",
+    "office": "462 Cannon House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "IL-12": {
+    "bioguide": "B001295",
+    "fecIds": [
+      "H4IL12060"
+    ],
+    "phone": "202-225-5661",
+    "url": "https://bost.house.gov",
+    "office": "352 Cannon House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "MA-06": {
+    "bioguide": "M001196",
+    "fecIds": [
+      "H4MA06090"
+    ],
+    "phone": "202-225-8020",
+    "url": "https://moulton.house.gov",
+    "office": "1126 Longworth House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "MI-02": {
+    "bioguide": "M001194",
+    "fecIds": [
+      "H4MI04126"
+    ],
+    "phone": "202-225-3561",
+    "url": "https://moolenaar.house.gov",
+    "office": "246 Cannon House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "MI-06": {
+    "bioguide": "D000624",
+    "fecIds": [
+      "H4MI12079"
+    ],
+    "phone": "202-225-4071",
+    "url": "https://debbiedingell.house.gov",
+    "office": "102 Cannon House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "MN-06": {
+    "bioguide": "E000294",
+    "fecIds": [
+      "H4MN06087"
+    ],
+    "phone": "202-225-2331",
+    "url": "https://emmer.house.gov",
+    "office": "326 Cannon House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "NC-07": {
+    "bioguide": "R000603",
+    "fecIds": [
+      "H2NC07096"
+    ],
+    "phone": "202-225-2731",
+    "url": "https://rouzer.house.gov",
+    "office": "2333 Rayburn House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "NJ-12": {
+    "bioguide": "W000822",
+    "fecIds": [
+      "H4NJ12149"
+    ],
+    "phone": "202-225-5801",
+    "url": "https://watsoncoleman.house.gov",
+    "office": "168 Cannon House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "NY-21": {
+    "bioguide": "S001196",
+    "fecIds": [
+      "H4NY21079"
+    ],
+    "phone": "202-225-4611",
+    "url": "https://stefanik.house.gov",
+    "office": "2211 Rayburn House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "PA-02": {
+    "bioguide": "B001296",
+    "fecIds": [
+      "H4PA13199"
+    ],
+    "phone": "202-225-6111",
+    "url": "https://boyle.house.gov",
+    "office": "1502 Longworth House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "TX-36": {
+    "bioguide": "B001291",
+    "fecIds": [
+      "H6TX02079"
+    ],
+    "phone": "202-225-1555",
+    "url": "https://babin.house.gov",
+    "office": "2236 Rayburn House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "VA-08": {
+    "bioguide": "B001292",
+    "fecIds": [
+      "H4VA08224"
+    ],
+    "phone": "202-225-4376",
+    "url": "https://beyer.house.gov",
+    "office": "1226 Longworth House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "VI-00": {
+    "bioguide": "P000610",
+    "fecIds": [
+      "H2VI00082"
+    ],
+    "phone": "202-225-1790",
+    "url": "https://plaskett.house.gov",
+    "office": "2059 Rayburn House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "WA-04": {
+    "bioguide": "N000189",
+    "fecIds": [
+      "H4WA04104"
+    ],
+    "phone": "202-225-5816",
+    "url": "https://newhouse.house.gov",
+    "office": "460 Cannon House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "WI-06": {
+    "bioguide": "G000576",
+    "fecIds": [
+      "H4WI06048"
+    ],
+    "phone": "202-225-2476",
+    "url": "https://grothman.house.gov",
+    "office": "1211 Longworth House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "AS-00": {
+    "bioguide": "R000600",
+    "fecIds": [
+      "H4AS00036"
+    ],
+    "phone": "202-225-8577",
+    "url": "https://radewagen.house.gov",
+    "office": "2001 Rayburn House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "IL-16": {
+    "bioguide": "L000585",
+    "fecIds": [
+      "H6IL18088"
+    ],
+    "phone": "202-225-6201",
+    "url": "https://lahood.house.gov",
+    "office": "503 Cannon House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "OH-08": {
+    "bioguide": "D000626",
+    "fecIds": [
+      "H6OH08315"
+    ],
+    "phone": "202-225-6205",
+    "url": "https://davidson.house.gov",
+    "office": "2113 Rayburn House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "KY-01": {
+    "bioguide": "C001108",
+    "fecIds": [
+      "H6KY01110"
+    ],
+    "phone": "202-225-3115",
+    "url": "https://comer.house.gov",
+    "office": "2410 Rayburn House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "PA-03": {
+    "bioguide": "E000296",
+    "fecIds": [
+      "H6PA02171"
+    ],
+    "phone": "202-225-4001",
+    "url": "https://evans.house.gov",
+    "office": "1105 Longworth House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "IL-10": {
+    "bioguide": "S001190",
+    "fecIds": [
+      "H2IL10068"
+    ],
+    "phone": "202-225-4835",
+    "url": "https://schneider.house.gov",
+    "office": "300 Cannon House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "AZ-05": {
+    "bioguide": "B001302",
+    "fecIds": [
+      "H6AZ05083"
+    ],
+    "phone": "202-225-2635",
+    "url": "https://biggs.house.gov",
+    "office": "464 Cannon House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "CA-17": {
+    "bioguide": "K000389",
+    "fecIds": [
+      "H4CA12055"
+    ],
+    "phone": "202-225-2631",
+    "url": "https://khanna.house.gov",
+    "office": "306 Cannon House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "CA-19": {
+    "bioguide": "P000613",
+    "fecIds": [
+      "H6CA20152"
+    ],
+    "phone": "202-225-2861",
+    "url": "https://panetta.house.gov",
+    "office": "200 Cannon House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "CA-24": {
+    "bioguide": "C001112",
+    "fecIds": [
+      "H6CA24303"
+    ],
+    "phone": "202-225-3601",
+    "url": "https://carbajal.house.gov",
+    "office": "2331 Rayburn House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "CA-44": {
+    "bioguide": "B001300",
+    "fecIds": [
+      "H6CA44103"
+    ],
+    "phone": "202-225-8220",
+    "url": "https://barragan.house.gov",
+    "office": "2312 Rayburn House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "CA-46": {
+    "bioguide": "C001110",
+    "fecIds": [
+      "H6CA46116"
+    ],
+    "phone": "202-225-2965",
+    "url": "https://correa.house.gov",
+    "office": "2082 Rayburn House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "DE-00": {
+    "bioguide": "M001238",
+    "fecIds": [
+      "H4DE00045"
+    ],
+    "phone": "202-225-4165",
+    "url": "https://mcbride.house.gov",
+    "office": "1306 Longworth House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "FL-02": {
+    "bioguide": "D000628",
+    "fecIds": [
+      "H6FL02208"
+    ],
+    "phone": "202-225-5235",
+    "url": "https://dunn.house.gov",
+    "office": "466 Cannon House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "FL-05": {
+    "bioguide": "R000609",
+    "fecIds": [
+      "H6FL04105"
+    ],
+    "phone": "202-225-2501",
+    "url": "https://rutherford.house.gov",
+    "office": "1711 Longworth House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "FL-09": {
+    "bioguide": "S001200",
+    "fecIds": [
+      "H6FL09179"
+    ],
+    "phone": "202-225-9889",
+    "url": "https://soto.house.gov",
+    "office": "2353 Rayburn House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "FL-21": {
+    "bioguide": "M001199",
+    "fecIds": [
+      "H6FL18097"
+    ],
+    "phone": "202-225-3026",
+    "url": "https://mast.house.gov",
+    "office": "2182 Rayburn House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "IN-03": {
+    "bioguide": "S001188",
+    "fecIds": [
+      "H0IN03198",
+      "S0IN00095"
+    ],
+    "phone": "202-225-4436",
+    "url": "https://stutzman.house.gov",
+    "office": "404 Cannon House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "LA-03": {
+    "bioguide": "H001077",
+    "fecIds": [
+      "H6LA03148"
+    ],
+    "phone": "202-225-2031",
+    "url": "https://clayhiggins.house.gov",
+    "office": "572 Cannon House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "LA-04": {
+    "bioguide": "J000299",
+    "fecIds": [
+      "H6LA04138"
+    ],
+    "phone": "202-225-2777",
+    "url": "https://mikejohnson.house.gov",
+    "office": "521 Cannon House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "MI-01": {
+    "bioguide": "B001301",
+    "fecIds": [
+      "H6MI01226"
+    ],
+    "phone": "202-225-4735",
+    "url": "https://bergman.house.gov",
+    "office": "566 Cannon House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "NC-13": {
+    "bioguide": "K000405",
+    "fecIds": [
+      "H4NC13116"
+    ],
+    "phone": "202-225-4531",
+    "url": "https://knott.house.gov",
+    "office": "1239 Longworth House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "NE-02": {
+    "bioguide": "B001298",
+    "fecIds": [
+      "H6NE02125"
+    ],
+    "phone": "202-225-4155",
+    "url": "https://bacon.house.gov",
+    "office": "2104 Rayburn House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "NJ-05": {
+    "bioguide": "G000583",
+    "fecIds": [
+      "H6NJ05171"
+    ],
+    "phone": "202-225-4465",
+    "url": "https://gottheimer.house.gov",
+    "office": "106 Cannon House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "NV-03": {
+    "bioguide": "L000590",
+    "fecIds": [
+      "H6NV04020"
+    ],
+    "phone": "202-225-3252",
+    "url": "https://susielee.house.gov",
+    "office": "365 Cannon House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "NY-13": {
+    "bioguide": "E000297",
+    "fecIds": [
+      "H2NY13096"
+    ],
+    "phone": "202-225-4365",
+    "url": "https://espaillat.house.gov",
+    "office": "2332 Rayburn House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "PA-01": {
+    "bioguide": "F000466",
+    "fecIds": [
+      "H6PA08277"
+    ],
+    "phone": "202-225-4276",
+    "url": "https://fitzpatrick.house.gov",
+    "office": "271 Cannon House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "PA-11": {
+    "bioguide": "S001199",
+    "fecIds": [
+      "H6PA16320"
+    ],
+    "phone": "202-225-2411",
+    "url": "https://smucker.house.gov",
+    "office": "302 Cannon House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "TN-08": {
+    "bioguide": "K000392",
+    "fecIds": [
+      "H2TN07103"
+    ],
+    "phone": "202-225-4714",
+    "url": "https://kustoff.house.gov",
+    "office": "560 Cannon House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "TX-34": {
+    "bioguide": "G000581",
+    "fecIds": [
+      "H6TX15162"
+    ],
+    "phone": "202-225-2531",
+    "url": "https://gonzalez.house.gov",
+    "office": "1201 Longworth House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "TX-19": {
+    "bioguide": "A000375",
+    "fecIds": [
+      "H6TX19099"
+    ],
+    "phone": "202-225-4005",
+    "url": "https://arrington.house.gov",
+    "office": "1111 Longworth House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "WA-07": {
+    "bioguide": "J000298",
+    "fecIds": [
+      "H6WA07458"
+    ],
+    "phone": "202-225-3106",
+    "url": "https://jayapal.house.gov",
+    "office": "2346 Rayburn House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "KS-04": {
+    "bioguide": "E000298",
+    "fecIds": [
+      "H8KS04112"
+    ],
+    "phone": "202-225-6216",
+    "url": "https://estes.house.gov",
+    "office": "2234 Rayburn House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "SC-05": {
+    "bioguide": "N000190",
+    "fecIds": [
+      "H8SC05158"
+    ],
+    "phone": "202-225-5501",
+    "url": "https://norman.house.gov",
+    "office": "569 Cannon House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "CA-34": {
+    "bioguide": "G000585",
+    "fecIds": [
+      "H8CA34266"
+    ],
+    "phone": "202-225-6235",
+    "url": "https://gomez.house.gov",
+    "office": "506 Cannon House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "UT-03": {
+    "bioguide": "K000403",
+    "fecIds": [
+      "H4UT03260"
+    ],
+    "phone": "202-225-7751",
+    "url": "https://mikekennedy.house.gov",
+    "office": "1626 Longworth House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "TX-27": {
+    "bioguide": "C001115",
+    "fecIds": [
+      "H8TX27049"
+    ],
+    "phone": "202-225-7742",
+    "url": "https://cloud.house.gov",
+    "office": "304 Cannon House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "OH-12": {
+    "bioguide": "B001306",
+    "fecIds": [
+      "H8OH12180"
+    ],
+    "phone": "202-225-5355",
+    "url": "https://balderson.house.gov",
+    "office": "2429 Rayburn House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "OK-01": {
+    "bioguide": "H001082",
+    "fecIds": [
+      "H8OK01157"
+    ],
+    "phone": "202-225-2211",
+    "url": "https://hern.house.gov",
+    "office": "171 Cannon House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "NY-25": {
+    "bioguide": "M001206",
+    "fecIds": [
+      "H8NY25105"
+    ],
+    "phone": "202-225-3615",
+    "url": "https://morelle.house.gov",
+    "office": "570 Cannon House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "PA-05": {
+    "bioguide": "S001205",
+    "fecIds": [
+      "H8PA07200"
+    ],
+    "phone": "202-225-2011",
+    "url": "https://scanlon.house.gov",
+    "office": "1214 Longworth House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "HI-01": {
+    "bioguide": "C001055",
+    "fecIds": [
+      "H2HI02128"
+    ],
+    "phone": "202-225-2726",
+    "url": "https://case.house.gov",
+    "office": "2210 Rayburn House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "NV-04": {
+    "bioguide": "H001066",
+    "fecIds": [
+      "H2NV04011"
+    ],
+    "phone": "202-225-9894",
+    "url": "https://horsford.house.gov",
+    "office": "406 Cannon House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "AZ-04": {
+    "bioguide": "S001211",
+    "fecIds": [
+      "H8AZ09040"
+    ],
+    "phone": "202-225-9888",
+    "url": "https://stanton.house.gov",
+    "office": "207 Cannon House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "CA-09": {
+    "bioguide": "H001090",
+    "fecIds": [
+      "H8CA10126"
+    ],
+    "phone": "202-225-4540",
+    "url": "https://harder.house.gov",
+    "office": "209 Cannon House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "CA-49": {
+    "bioguide": "L000593",
+    "fecIds": [
+      "H8CA49058"
+    ],
+    "phone": "202-225-3906",
+    "url": "https://levin.house.gov",
+    "office": "2352 Rayburn House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "CO-02": {
+    "bioguide": "N000191",
+    "fecIds": [
+      "H8CO02160"
+    ],
+    "phone": "202-225-2161",
+    "url": "https://neguse.house.gov",
+    "office": "2400 Rayburn House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "CO-06": {
+    "bioguide": "C001121",
+    "fecIds": [
+      "H8CO06229"
+    ],
+    "phone": "202-225-7882",
+    "url": "https://crow.house.gov",
+    "office": "1323 Longworth House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "FL-17": {
+    "bioguide": "S001214",
+    "fecIds": [
+      "H8FL17053"
+    ],
+    "phone": "202-225-5792",
+    "url": "https://steube.house.gov",
+    "office": "2457 Rayburn House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "GA-06": {
+    "bioguide": "M001208",
+    "fecIds": [
+      "H8GA06393"
+    ],
+    "phone": "202-225-4501",
+    "url": "https://mcbath.house.gov",
+    "office": "2246 Rayburn House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "ID-01": {
+    "bioguide": "F000469",
+    "fecIds": [
+      "H8ID01124"
+    ],
+    "phone": "202-225-6611",
+    "url": "https://fulcher.house.gov",
+    "office": "1514 Longworth House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "IL-04": {
+    "bioguide": "G000586",
+    "fecIds": [
+      "H8IL04134"
+    ],
+    "phone": "202-225-8203",
+    "url": "https://chuygarcia.house.gov",
+    "office": "2334 Rayburn House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "IL-06": {
+    "bioguide": "C001117",
+    "fecIds": [
+      "H8IL06139"
+    ],
+    "phone": "202-225-4561",
+    "url": "https://casten.house.gov",
+    "office": "2440 Rayburn House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "IL-14": {
+    "bioguide": "U000040",
+    "fecIds": [
+      "H8IL14174"
+    ],
+    "phone": "202-225-2976",
+    "url": "https://underwood.house.gov",
+    "office": "2228 Rayburn House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "IN-04": {
+    "bioguide": "B001307",
+    "fecIds": [
+      "H8IN04199"
+    ],
+    "phone": "202-225-5037",
+    "url": "https://baird.house.gov",
+    "office": "2303 Rayburn House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "KS-03": {
+    "bioguide": "D000629",
+    "fecIds": [
+      "H8KS03155"
+    ],
+    "phone": "202-225-2865",
+    "url": "https://davids.house.gov",
+    "office": "2435 Rayburn House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "MA-03": {
+    "bioguide": "T000482",
+    "fecIds": [
+      "H8MA03106"
+    ],
+    "phone": "202-225-3411",
+    "url": "https://trahan.house.gov",
+    "office": "2233 Rayburn House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "MA-07": {
+    "bioguide": "P000617",
+    "fecIds": [
+      "H8MA07032"
+    ],
+    "phone": "202-225-5111",
+    "url": "https://pressley.house.gov",
+    "office": "402 Cannon House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "MI-07": {
+    "bioguide": "B001321",
+    "fecIds": [
+      "H2MI07123"
+    ],
+    "phone": "202-225-4872",
+    "url": "https://barrett.house.gov",
+    "office": "1232 Longworth House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "MI-11": {
+    "bioguide": "S001215",
+    "fecIds": [
+      "H8MI11254"
+    ],
+    "phone": "202-225-8171",
+    "url": "https://stevens.house.gov",
+    "office": "2411 Rayburn House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "MI-12": {
+    "bioguide": "T000481",
+    "fecIds": [
+      "H8MI13250"
+    ],
+    "phone": "202-225-5126",
+    "url": "https://tlaib.house.gov",
+    "office": "2438 Rayburn House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "MN-02": {
+    "bioguide": "C001119",
+    "fecIds": [
+      "H6MN02131"
+    ],
+    "phone": "202-225-2271",
+    "url": "https://craig.house.gov",
+    "office": "2052 Rayburn House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "MN-05": {
+    "bioguide": "O000173",
+    "fecIds": [
+      "H8MN05239"
+    ],
+    "phone": "202-225-4755",
+    "url": "https://omar.house.gov",
+    "office": "1730 Longworth House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "MN-08": {
+    "bioguide": "S001212",
+    "fecIds": [
+      "H8MN08043"
+    ],
+    "phone": "202-225-6211",
+    "url": "https://stauber.house.gov",
+    "office": "145 Cannon House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "MS-03": {
+    "bioguide": "G000591",
+    "fecIds": [
+      "H8MS03125"
+    ],
+    "phone": "202-225-5031",
+    "url": "https://guest.house.gov",
+    "office": "450 Cannon House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "NH-01": {
+    "bioguide": "P000614",
+    "fecIds": [
+      "H8NH01210"
+    ],
+    "phone": "202-225-5456",
+    "url": "https://pappas.house.gov",
+    "office": "452 Cannon House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "NJ-02": {
+    "bioguide": "V000133",
+    "fecIds": [
+      "H8NJ02166"
+    ],
+    "phone": "202-225-6572",
+    "url": "https://vandrew.house.gov",
+    "office": "2447 Rayburn House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "NJ-03": {
+    "bioguide": "C001136",
+    "fecIds": [
+      "H4NJ03080"
+    ],
+    "phone": "202-225-4765",
+    "url": "https://conaway.house.gov",
+    "office": "1022 Longworth House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "NY-14": {
+    "bioguide": "O000172",
+    "fecIds": [
+      "H8NY15148"
+    ],
+    "phone": "202-225-3965",
+    "url": "https://ocasio-cortez.house.gov",
+    "office": "250 Cannon House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "PA-04": {
+    "bioguide": "D000631",
+    "fecIds": [
+      "H8PA04116"
+    ],
+    "phone": "202-225-4731",
+    "url": "https://dean.house.gov",
+    "office": "150 Cannon House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "PA-06": {
+    "bioguide": "H001085",
+    "fecIds": [
+      "H8PA06087"
+    ],
+    "phone": "202-225-4315",
+    "url": "https://houlahan.house.gov",
+    "office": "1727 Longworth House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "PA-09": {
+    "bioguide": "M001204",
+    "fecIds": [
+      "H8PA10147"
+    ],
+    "phone": "202-225-6511",
+    "url": "https://meuser.house.gov",
+    "office": "350 Cannon House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "PA-13": {
+    "bioguide": "J000302",
+    "fecIds": [
+      "H8PA13125"
+    ],
+    "phone": "202-225-2431",
+    "url": "https://johnjoyce.house.gov",
+    "office": "2102 Rayburn House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "PA-14": {
+    "bioguide": "R000610",
+    "fecIds": [
+      "H8PA18199"
+    ],
+    "phone": "202-225-2065",
+    "url": "https://reschenthaler.house.gov",
+    "office": "2209 Rayburn House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "SC-04": {
+    "bioguide": "T000480",
+    "fecIds": [
+      "H8SC04250"
+    ],
+    "phone": "202-225-6030",
+    "url": "https://timmons.house.gov",
+    "office": "267 Cannon House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "TN-02": {
+    "bioguide": "B001309",
+    "fecIds": [
+      "H8TN02119"
+    ],
+    "phone": "202-225-5435",
+    "url": "https://burchett.house.gov",
+    "office": "1122 Longworth House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "TN-06": {
+    "bioguide": "R000612",
+    "fecIds": [
+      "H8TN06094"
+    ],
+    "phone": "202-225-4231",
+    "url": "https://johnrose.house.gov",
+    "office": "2238 Rayburn House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "TX-02": {
+    "bioguide": "C001120",
+    "fecIds": [
+      "H8TX02166"
+    ],
+    "phone": "202-225-6565",
+    "url": "https://crenshaw.house.gov",
+    "office": "248 Cannon House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "TX-05": {
+    "bioguide": "G000589",
+    "fecIds": [
+      "H8TX05144"
+    ],
+    "phone": "202-225-3484",
+    "url": "https://gooden.house.gov",
+    "office": "2431 Rayburn House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "TX-07": {
+    "bioguide": "F000468",
+    "fecIds": [
+      "H8TX07140"
+    ],
+    "phone": "202-225-2571",
+    "url": "https://fletcher.house.gov",
+    "office": "2004 Rayburn House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "TX-16": {
+    "bioguide": "E000299",
+    "fecIds": [
+      "H8TX16109"
+    ],
+    "phone": "202-225-4831",
+    "url": "https://escobar.house.gov",
+    "office": "2448 Rayburn House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "TX-21": {
+    "bioguide": "R000614",
+    "fecIds": [
+      "H8TX21307"
+    ],
+    "phone": "202-225-4236",
+    "url": "https://roy.house.gov",
+    "office": "103 Cannon House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "TX-29": {
+    "bioguide": "G000587",
+    "fecIds": [
+      "H8TX29052"
+    ],
+    "phone": "202-225-1688",
+    "url": "https://sylviagarcia.house.gov",
+    "office": "2419 Rayburn House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "VA-06": {
+    "bioguide": "C001118",
+    "fecIds": [
+      "H8VA06104"
+    ],
+    "phone": "202-225-5431",
+    "url": "https://cline.house.gov",
+    "office": "2443 Rayburn House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "WA-08": {
+    "bioguide": "S001216",
+    "fecIds": [
+      "H8WA08189"
+    ],
+    "phone": "202-225-7761",
+    "url": "https://schrier.house.gov",
+    "office": "1110 Longworth House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "WI-01": {
+    "bioguide": "S001213",
+    "fecIds": [
+      "H8WI01156"
+    ],
+    "phone": "202-225-3031",
+    "url": "https://steil.house.gov",
+    "office": "1526 Longworth House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "WV-01": {
+    "bioguide": "M001205",
+    "fecIds": [
+      "H8WV03097"
+    ],
+    "phone": "202-225-3452",
+    "url": "https://miller.house.gov",
+    "office": "465 Cannon House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "ME-02": {
+    "bioguide": "G000592",
+    "fecIds": [
+      "H8ME02185"
+    ],
+    "phone": "202-225-6306",
+    "url": "https://golden.house.gov",
+    "office": "1107 Longworth House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "NC-03": {
+    "bioguide": "M001210",
+    "fecIds": [
+      "H0NC03172"
+    ],
+    "phone": "202-225-3415",
+    "url": "https://murphy.house.gov",
+    "office": "407 Cannon House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "MD-07": {
+    "bioguide": "M000687",
+    "fecIds": [
+      "S6MD03185",
+      "H6MD07020",
+      "H0MD07114"
+    ],
+    "phone": "202-225-4741",
+    "url": "https://mfume.house.gov",
+    "office": "2263 Rayburn House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "WI-07": {
+    "bioguide": "T000165",
+    "fecIds": [
+      "H0WI07101"
+    ],
+    "phone": "202-225-3365",
+    "url": "https://tiffany.house.gov",
+    "office": "451 Cannon House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "WY-00": {
+    "bioguide": "H001096",
+    "fecIds": [
+      "H2WY00166"
+    ],
+    "phone": "202-225-2311",
+    "url": "https://hageman.house.gov",
+    "office": "1227 Longworth House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "CA-48": {
+    "bioguide": "I000056",
+    "fecIds": [
+      "H0CA48024",
+      "S8CA00135"
+    ],
+    "phone": "202-225-5672",
+    "url": "https://issa.house.gov",
+    "office": "2108 Rayburn House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "TX-17": {
+    "bioguide": "S000250",
+    "fecIds": [
+      "H2TX03126"
+    ],
+    "phone": "202-225-6105",
+    "url": "https://sessions.house.gov",
+    "office": "2204 Rayburn House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "CA-22": {
+    "bioguide": "V000129",
+    "fecIds": [
+      "H2CA20094"
+    ],
+    "phone": "202-225-4695",
+    "url": "https://valadao.house.gov",
+    "office": "2465 Rayburn House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "AL-01": {
+    "bioguide": "M001212",
+    "fecIds": [
+      "H8AL02171"
+    ],
+    "phone": "202-225-2901",
+    "url": "https://barrymoore.house.gov",
+    "office": "1511 Longworth House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "CA-23": {
+    "bioguide": "O000019",
+    "fecIds": [
+      "H0CA08135"
+    ],
+    "phone": "202-225-5861",
+    "url": "https://obernolte.house.gov",
+    "office": "2433 Rayburn House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "CA-40": {
+    "bioguide": "K000397",
+    "fecIds": [
+      "H8CA39240"
+    ],
+    "phone": "202-225-4111",
+    "url": "https://youngkim.house.gov",
+    "office": "2439 Rayburn House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "CA-51": {
+    "bioguide": "J000305",
+    "fecIds": [
+      "H8CA49074"
+    ],
+    "phone": "202-225-2040",
+    "url": "https://sarajacobs.house.gov",
+    "office": "2348 Rayburn House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "CO-04": {
+    "bioguide": "B000825",
+    "fecIds": [
+      "H0CO03165"
+    ],
+    "phone": "202-225-4761",
+    "url": "https://boebert.house.gov",
+    "office": "1713 Longworth House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "FL-03": {
+    "bioguide": "C001039",
+    "fecIds": [
+      "H0FL03175"
+    ],
+    "phone": "202-225-5744",
+    "url": "https://cammack.house.gov",
+    "office": "2421 Rayburn House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "FL-18": {
+    "bioguide": "F000472",
+    "fecIds": [
+      "H0FL15104"
+    ],
+    "phone": "202-225-1252",
+    "url": "https://franklin.house.gov",
+    "office": "2301 Rayburn House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "FL-19": {
+    "bioguide": "D000032",
+    "fecIds": [
+      "H2FL14186"
+    ],
+    "phone": "202-225-2536",
+    "url": "https://donalds.house.gov",
+    "office": "1710 Longworth House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "FL-28": {
+    "bioguide": "G000593",
+    "fecIds": [
+      "H0FL26036"
+    ],
+    "phone": "202-225-2778",
+    "url": "https://gimenez.house.gov",
+    "office": "448 Cannon House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "FL-27": {
+    "bioguide": "S000168",
+    "fecIds": [
+      "H8FL27185"
+    ],
+    "phone": "202-225-3931",
+    "url": "https://salazar.house.gov",
+    "office": "2162 Rayburn House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "GA-05": {
+    "bioguide": "W000788",
+    "fecIds": [
+      "H0GA05301"
+    ],
+    "phone": "202-225-3801",
+    "url": "https://nikemawilliams.house.gov",
+    "office": "1406 Longworth House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "GA-09": {
+    "bioguide": "C001116",
+    "fecIds": [
+      "H0GA09246"
+    ],
+    "phone": "202-225-9893",
+    "url": "https://clyde.house.gov",
+    "office": "445 Cannon House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "IA-02": {
+    "bioguide": "H001091",
+    "fecIds": [
+      "H0IA01174"
+    ],
+    "phone": "202-225-2911",
+    "url": "https://hinson.house.gov",
+    "office": "2458 Rayburn House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "IA-01": {
+    "bioguide": "M001215",
+    "fecIds": [
+      "H8IA02043"
+    ],
+    "phone": "202-225-6576",
+    "url": "https://millermeeks.house.gov",
+    "office": "504 Cannon House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "IA-04": {
+    "bioguide": "F000446",
+    "fecIds": [
+      "H0IA04145"
+    ],
+    "phone": "202-225-4426",
+    "url": "https://feenstra.house.gov",
+    "office": "2434 Rayburn House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "IL-15": {
+    "bioguide": "M001211",
+    "fecIds": [
+      "H0IL15129"
+    ],
+    "phone": "202-225-5271",
+    "url": "https://marymiller.house.gov",
+    "office": "1740 Longworth House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "IN-01": {
+    "bioguide": "M001214",
+    "fecIds": [
+      "H0IN01150"
+    ],
+    "phone": "202-225-2461",
+    "url": "https://mrvan.house.gov",
+    "office": "2441 Rayburn House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "IN-05": {
+    "bioguide": "S000929",
+    "fecIds": [
+      "H0IN05326"
+    ],
+    "phone": "202-225-2276",
+    "url": "https://spartz.house.gov",
+    "office": "1609 Longworth House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "MA-04": {
+    "bioguide": "A000148",
+    "fecIds": [
+      "H0MA04192"
+    ],
+    "phone": "202-225-5931",
+    "url": "https://auchincloss.house.gov",
+    "office": "1524 Longworth House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "MI-09": {
+    "bioguide": "M001136",
+    "fecIds": [
+      "H0MI10287"
+    ],
+    "phone": "202-225-2106",
+    "url": "https://mcclain.house.gov",
+    "office": "562 Cannon House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "MN-07": {
+    "bioguide": "F000470",
+    "fecIds": [
+      "H0MN07091"
+    ],
+    "phone": "202-225-2165",
+    "url": "https://fischbach.house.gov",
+    "office": "2229 Rayburn House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "NC-02": {
+    "bioguide": "R000305",
+    "fecIds": [
+      "H0NC02125"
+    ],
+    "phone": "202-225-3032",
+    "url": "https://ross.house.gov",
+    "office": "1221 Longworth House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "NY-02": {
+    "bioguide": "G000597",
+    "fecIds": [
+      "H0NY02234"
+    ],
+    "phone": "202-225-7896",
+    "url": "https://garbarino.house.gov",
+    "office": "2344 Rayburn House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "NY-11": {
+    "bioguide": "M000317",
+    "fecIds": [
+      "H0NY11078"
+    ],
+    "phone": "202-225-3371",
+    "url": "https://malliotakis.house.gov",
+    "office": "1124 Longworth House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "NY-15": {
+    "bioguide": "T000486",
+    "fecIds": [
+      "H0NY15160"
+    ],
+    "phone": "202-225-4361",
+    "url": "https://ritchietorres.house.gov",
+    "office": "1414 Longworth House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "OR-02": {
+    "bioguide": "B000668",
+    "fecIds": [
+      "H0OR02127"
+    ],
+    "phone": "202-225-6730",
+    "url": "https://bentz.house.gov",
+    "office": "409 Cannon House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "TN-01": {
+    "bioguide": "H001086",
+    "fecIds": [
+      "H0TN01118"
+    ],
+    "phone": "202-225-6356",
+    "url": "https://harshbarger.house.gov",
+    "office": "167 Cannon House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "TX-04": {
+    "bioguide": "F000246",
+    "fecIds": [
+      "H0TX04219"
+    ],
+    "phone": "202-225-6673",
+    "url": "https://fallon.house.gov",
+    "office": "2416 Rayburn House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "TX-11": {
+    "bioguide": "P000048",
+    "fecIds": [
+      "H0TX11230"
+    ],
+    "phone": "202-225-3605",
+    "url": "https://pfluger.house.gov",
+    "office": "2202 Rayburn House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "TX-13": {
+    "bioguide": "J000304",
+    "fecIds": [
+      "H0TX13228"
+    ],
+    "phone": "202-225-3706",
+    "url": "https://jackson.house.gov",
+    "office": "125 Cannon House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "TX-22": {
+    "bioguide": "N000026",
+    "fecIds": [
+      "H0TX22302"
+    ],
+    "phone": "202-225-5951",
+    "url": "https://nehls.house.gov",
+    "office": "1104 Longworth House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "TX-24": {
+    "bioguide": "V000134",
+    "fecIds": [
+      "H0TX24209"
+    ],
+    "phone": "202-225-6605",
+    "url": "https://vanduyne.house.gov",
+    "office": "1725 Longworth House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "UT-01": {
+    "bioguide": "M001213",
+    "fecIds": [
+      "H0UT01205"
+    ],
+    "phone": "202-225-0453",
+    "url": "https://blakemoore.house.gov",
+    "office": "1131 Longworth House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "UT-04": {
+    "bioguide": "O000086",
+    "fecIds": [
+      "H0UT04076"
+    ],
+    "phone": "202-225-3011",
+    "url": "https://owens.house.gov",
+    "office": "309 Cannon House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "WA-10": {
+    "bioguide": "S001159",
+    "fecIds": [
+      "H0WA10034"
+    ],
+    "phone": "202-225-9740",
+    "url": "https://strickland.house.gov",
+    "office": "1724 Longworth House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "WI-05": {
+    "bioguide": "F000471",
+    "fecIds": [
+      "H0WI05113"
+    ],
+    "phone": "202-225-5101",
+    "url": "https://fitzgerald.house.gov",
+    "office": "2444 Rayburn House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "NY-24": {
+    "bioguide": "T000478",
+    "fecIds": [
+      "H4NY22051"
+    ],
+    "phone": "202-225-3665",
+    "url": "https://tenney.house.gov",
+    "office": "2230 Rayburn House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "LA-05": {
+    "bioguide": "L000595",
+    "fecIds": [
+      "H2LA05126"
+    ],
+    "phone": "202-225-8490",
+    "url": "https://letlow.house.gov",
+    "office": "142 Cannon House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "LA-02": {
+    "bioguide": "C001125",
+    "fecIds": [
+      "H2LA02149"
+    ],
+    "phone": "202-225-6636",
+    "url": "https://troycarter.house.gov",
+    "office": "442 Cannon House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "TX-06": {
+    "bioguide": "E000071",
+    "fecIds": [
+      "H8TX06266"
+    ],
+    "phone": "202-225-2002",
+    "url": "https://ellzey.house.gov",
+    "office": "1721 Longworth House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "OH-11": {
+    "bioguide": "B001313",
+    "fecIds": [
+      "H2OH11169"
+    ],
+    "phone": "202-225-7032",
+    "url": "https://shontelbrown.house.gov",
+    "office": "2455 Rayburn House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "OH-15": {
+    "bioguide": "C001126",
+    "fecIds": [
+      "H2OH15228"
+    ],
+    "phone": "202-225-2015",
+    "url": "https://carey.house.gov",
+    "office": "1433 Longworth House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "FL-20": {
+    "bioguide": "C001127",
+    "fecIds": [
+      "H8FL20032"
+    ],
+    "phone": "202-225-1313",
+    "url": "https://cherfilus-mccormick.house.gov",
+    "office": "2442 Rayburn House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "NE-01": {
+    "bioguide": "F000474",
+    "fecIds": [
+      "H2NE01118"
+    ],
+    "phone": "202-225-4806",
+    "url": "https://flood.house.gov",
+    "office": "343 Cannon House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "MN-01": {
+    "bioguide": "F000475",
+    "fecIds": [
+      "H2MN01223"
+    ],
+    "phone": "202-225-2472",
+    "url": "https://finstad.house.gov",
+    "office": "2418 Rayburn House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "NY-18": {
+    "bioguide": "R000579",
+    "fecIds": [
+      "H8NY19223"
+    ],
+    "phone": "202-225-5614",
+    "url": "https://patryan.house.gov",
+    "office": "1708 Longworth House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "IN-02": {
+    "bioguide": "Y000067",
+    "fecIds": [
+      "H2IN02295"
+    ],
+    "phone": "202-225-3915",
+    "url": "https://yakym.house.gov",
+    "office": "349 Cannon House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "MT-01": {
+    "bioguide": "Z000018",
+    "fecIds": [
+      "H4MT01041"
+    ],
+    "phone": "202-225-5628",
+    "url": "https://zinke.house.gov",
+    "office": "512 Cannon House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "AL-05": {
+    "bioguide": "S001220",
+    "fecIds": [
+      "H2AL05102"
+    ],
+    "phone": "202-225-4801",
+    "url": "https://strong.house.gov",
+    "office": "449 Cannon House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "AZ-02": {
+    "bioguide": "C001132",
+    "fecIds": [
+      "H2AZ01354"
+    ],
+    "phone": "202-225-3361",
+    "url": "https://crane.house.gov",
+    "office": "307 Cannon House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "AZ-06": {
+    "bioguide": "C001133",
+    "fecIds": [
+      "H2AZ02360"
+    ],
+    "phone": "202-225-2542",
+    "url": "https://ciscomani.house.gov",
+    "office": "461 Cannon House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "CA-03": {
+    "bioguide": "K000401",
+    "fecIds": [
+      "H2CA03157"
+    ],
+    "phone": "202-225-2523",
+    "url": "https://kiley.house.gov",
+    "office": "2445 Rayburn House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "CA-15": {
+    "bioguide": "M001225",
+    "fecIds": [
+      "H2CA14162"
+    ],
+    "phone": "202-225-3531",
+    "url": "https://kevinmullin.house.gov",
+    "office": "1404 Longworth House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "CA-37": {
+    "bioguide": "K000400",
+    "fecIds": [
+      "H2CA37304"
+    ],
+    "phone": "202-225-7084",
+    "url": "https://kamlager-dove.house.gov",
+    "office": "144 Cannon House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "CA-42": {
+    "bioguide": "G000598",
+    "fecIds": [
+      "H2CA47188"
+    ],
+    "phone": "202-225-7924",
+    "url": "https://robertgarcia.house.gov",
+    "office": "109 Cannon House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "CO-07": {
+    "bioguide": "P000620",
+    "fecIds": [
+      "H8CO07045"
+    ],
+    "phone": "202-225-2645",
+    "url": "https://pettersen.house.gov",
+    "office": "348 Cannon House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "FL-04": {
+    "bioguide": "B001314",
+    "fecIds": [
+      "H2FL04211"
+    ],
+    "phone": "202-225-0123",
+    "url": "https://bean.house.gov",
+    "office": "2459 Rayburn House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "FL-07": {
+    "bioguide": "M001216",
+    "fecIds": [
+      "H2FL07156"
+    ],
+    "phone": "202-225-4035",
+    "url": "https://mills.house.gov",
+    "office": "346 Cannon House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "FL-10": {
+    "bioguide": "F000476",
+    "fecIds": [
+      "H2FL10259"
+    ],
+    "phone": "202-225-2176",
+    "url": "https://frost.house.gov",
+    "office": "1224 Longworth House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "FL-13": {
+    "bioguide": "L000596",
+    "fecIds": [
+      "H0FL13158"
+    ],
+    "phone": "202-225-5961",
+    "url": "https://luna.house.gov",
+    "office": "226 Cannon House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "FL-15": {
+    "bioguide": "L000597",
+    "fecIds": [
+      "H2FL15241"
+    ],
+    "phone": "202-225-5626",
+    "url": "https://laurellee.house.gov",
+    "office": "2464 Rayburn House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "FL-23": {
+    "bioguide": "M001217",
+    "fecIds": [
+      "H2FL22171"
+    ],
+    "phone": "202-225-3001",
+    "url": "https://moskowitz.house.gov",
+    "office": "242 Cannon House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "GA-07": {
+    "bioguide": "M001218",
+    "fecIds": [
+      "H0GA07273"
+    ],
+    "phone": "202-225-4272",
+    "url": "https://mccormick.house.gov",
+    "office": "1719 Longworth House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "GA-10": {
+    "bioguide": "C001129",
+    "fecIds": [
+      "H4GA10071"
+    ],
+    "phone": "202-225-4101",
+    "url": "https://collins.house.gov",
+    "office": "2351 Rayburn House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "GU-00": {
+    "bioguide": "M001219",
+    "fecIds": [
+      "H2GU01031"
+    ],
+    "phone": "202-225-1188",
+    "url": "https://moylan.house.gov",
+    "office": "228 Cannon House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "IL-01": {
+    "bioguide": "J000309",
+    "fecIds": [
+      "H2IL01349"
+    ],
+    "phone": "202-225-4372",
+    "url": "https://jonathanjackson.house.gov",
+    "office": "1632 Longworth House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "IL-03": {
+    "bioguide": "R000617",
+    "fecIds": [
+      "H2IL03162"
+    ],
+    "phone": "202-225-5701",
+    "url": "https://ramirez.house.gov",
+    "office": "1523 Longworth House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "IL-13": {
+    "bioguide": "B001315",
+    "fecIds": [
+      "H2IL13153"
+    ],
+    "phone": "202-225-2371",
+    "url": "https://budzinski.house.gov",
+    "office": "1717 Longworth House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "IL-17": {
+    "bioguide": "S001225",
+    "fecIds": [
+      "H2IL17147"
+    ],
+    "phone": "202-225-5905",
+    "url": "https://sorensen.house.gov",
+    "office": "1314 Longworth House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "KY-03": {
+    "bioguide": "M001220",
+    "fecIds": [
+      "H2KY03206"
+    ],
+    "phone": "202-225-5401",
+    "url": "https://mcgarvey.house.gov",
+    "office": "1527 Longworth House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "MD-04": {
+    "bioguide": "I000058",
+    "fecIds": [
+      "H2MD04315"
+    ],
+    "phone": "202-225-8699",
+    "url": "https://ivey.house.gov",
+    "office": "1610 Longworth House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "MI-03": {
+    "bioguide": "S001221",
+    "fecIds": [
+      "H0MI03316"
+    ],
+    "phone": "202-225-3831",
+    "url": "https://scholten.house.gov",
+    "office": "1317 Longworth House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "MI-10": {
+    "bioguide": "J000307",
+    "fecIds": [
+      "H2MI10150"
+    ],
+    "phone": "202-225-4961",
+    "url": "https://james.house.gov",
+    "office": "1519 Longworth House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "MI-13": {
+    "bioguide": "T000488",
+    "fecIds": [
+      "H2MI13204"
+    ],
+    "phone": "202-225-5802",
+    "url": "https://thanedar.house.gov",
+    "office": "154 Cannon House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "MO-04": {
+    "bioguide": "A000379",
+    "fecIds": [
+      "H2MO04207"
+    ],
+    "phone": "202-225-2876",
+    "url": "https://alford.house.gov",
+    "office": "328 Cannon House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "MO-07": {
+    "bioguide": "B001316",
+    "fecIds": [
+      "H2MO07143"
+    ],
+    "phone": "202-225-6536",
+    "url": "https://burlison.house.gov",
+    "office": "1108 Longworth House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "MS-04": {
+    "bioguide": "E000235",
+    "fecIds": [
+      "H2MS04258"
+    ],
+    "phone": "202-225-5772",
+    "url": "https://ezell.house.gov",
+    "office": "443 Cannon House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "NC-01": {
+    "bioguide": "D000230",
+    "fecIds": [
+      "H2NC02287"
+    ],
+    "phone": "202-225-3101",
+    "url": "https://dondavis.house.gov",
+    "office": "1123 Longworth House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "NC-04": {
+    "bioguide": "F000477",
+    "fecIds": [
+      "H2NC06114"
+    ],
+    "phone": "202-225-1784",
+    "url": "https://foushee.house.gov",
+    "office": "2452 Rayburn House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "NC-11": {
+    "bioguide": "E000246",
+    "fecIds": [
+      "H2NC14050"
+    ],
+    "phone": "202-225-6401",
+    "url": "https://edwards.house.gov",
+    "office": "1505 Longworth House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "NJ-07": {
+    "bioguide": "K000398",
+    "fecIds": [
+      "H0NJ07261"
+    ],
+    "phone": "202-225-5361",
+    "url": "https://kean.house.gov",
+    "office": "251 Cannon House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "NJ-08": {
+    "bioguide": "M001226",
+    "fecIds": [
+      "H2NJ08232"
+    ],
+    "phone": "202-225-7919",
+    "url": "https://menendez.house.gov",
+    "office": "2453 Rayburn House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "NM-02": {
+    "bioguide": "V000136",
+    "fecIds": [
+      "H2NM02191"
+    ],
+    "phone": "202-225-2365",
+    "url": "https://vasquez.house.gov",
+    "office": "322 Cannon House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "NY-01": {
+    "bioguide": "L000598",
+    "fecIds": [
+      "H2NY01190"
+    ],
+    "phone": "202-225-3826",
+    "url": "https://lalota.house.gov",
+    "office": "122 Cannon House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "NY-10": {
+    "bioguide": "G000599",
+    "fecIds": [
+      "H2NY10308"
+    ],
+    "phone": "202-225-7944",
+    "url": "https://goldman.house.gov",
+    "office": "245 Cannon House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "NY-17": {
+    "bioguide": "L000599",
+    "fecIds": [
+      "H2NY17162"
+    ],
+    "phone": "202-225-6506",
+    "url": "https://lawler.house.gov",
+    "office": "324 Cannon House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "NY-23": {
+    "bioguide": "L000600",
+    "fecIds": [
+      "H2NY23228"
+    ],
+    "phone": "202-225-3161",
+    "url": "https://langworthy.house.gov",
+    "office": "422 Cannon House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "OH-01": {
+    "bioguide": "L000601",
+    "fecIds": [
+      "H2OH01194"
+    ],
+    "phone": "202-225-2216",
+    "url": "https://landsman.house.gov",
+    "office": "2244 Rayburn House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "OH-07": {
+    "bioguide": "M001222",
+    "fecIds": [
+      "H2OH16051"
+    ],
+    "phone": "202-225-3876",
+    "url": "https://maxmiller.house.gov",
+    "office": "143 Cannon House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "OH-13": {
+    "bioguide": "S001223",
+    "fecIds": [
+      "H2OH13264"
+    ],
+    "phone": "202-225-6265",
+    "url": "https://sykes.house.gov",
+    "office": "1217 Longworth House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "OK-02": {
+    "bioguide": "B001317",
+    "fecIds": [
+      "H2OK02315"
+    ],
+    "phone": "202-225-2701",
+    "url": "https://brecheen.house.gov",
+    "office": "351 Cannon House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "OR-04": {
+    "bioguide": "H001094",
+    "fecIds": [
+      "H2OR04095"
+    ],
+    "phone": "202-225-6416",
+    "url": "https://hoyle.house.gov",
+    "office": "1620 Longworth House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "OR-06": {
+    "bioguide": "S001226",
+    "fecIds": [
+      "H2OR06066"
+    ],
+    "phone": "202-225-5643",
+    "url": "https://salinas.house.gov",
+    "office": "403 Cannon House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "PA-12": {
+    "bioguide": "L000602",
+    "fecIds": [
+      "H2PA18200"
+    ],
+    "phone": "202-225-2135",
+    "url": "https://summerlee.house.gov",
+    "office": "2437 Rayburn House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "PA-17": {
+    "bioguide": "D000530",
+    "fecIds": [
+      "H2PA17103"
+    ],
+    "phone": "202-225-2301",
+    "url": "https://deluzio.house.gov",
+    "office": "1222 Longworth House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "SC-07": {
+    "bioguide": "F000478",
+    "fecIds": [
+      "H2SC07280"
+    ],
+    "phone": "202-225-9895",
+    "url": "https://fry.house.gov",
+    "office": "345 Cannon House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "TN-05": {
+    "bioguide": "O000175",
+    "fecIds": [
+      "H2TN05446"
+    ],
+    "phone": "202-225-4311",
+    "url": "https://ogles.house.gov",
+    "office": "151 Cannon House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "TX-01": {
+    "bioguide": "M001224",
+    "fecIds": [
+      "H2TX01112"
+    ],
+    "phone": "202-225-3035",
+    "url": "https://moran.house.gov",
+    "office": "1605 Longworth House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "TX-03": {
+    "bioguide": "S001224",
+    "fecIds": [
+      "H2TX03290"
+    ],
+    "phone": "202-225-4201",
+    "url": "https://keithself.house.gov",
+    "office": "1030 Longworth House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "TX-08": {
+    "bioguide": "L000603",
+    "fecIds": [
+      "H2TX08182"
+    ],
+    "phone": "202-225-4901",
+    "url": "https://luttrell.house.gov",
+    "office": "444 Cannon House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "TX-15": {
+    "bioguide": "D000594",
+    "fecIds": [
+      "H0TX15124"
+    ],
+    "phone": "202-225-9901",
+    "url": "https://delacruz.house.gov",
+    "office": "1415 Longworth House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "TX-30": {
+    "bioguide": "C001130",
+    "fecIds": [
+      "H2TX30178"
+    ],
+    "phone": "202-225-8885",
+    "url": "https://crockett.house.gov",
+    "office": "1616 Longworth House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "TX-35": {
+    "bioguide": "C001131",
+    "fecIds": [
+      "H2TX35144"
+    ],
+    "phone": "202-225-5645",
+    "url": "https://casar.house.gov",
+    "office": "446 Cannon House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "TX-38": {
+    "bioguide": "H001095",
+    "fecIds": [
+      "H0TX07170"
+    ],
+    "phone": "202-225-5646",
+    "url": "https://hunt.house.gov",
+    "office": "1520 Longworth House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "VA-02": {
+    "bioguide": "K000399",
+    "fecIds": [
+      "H2VA02064"
+    ],
+    "phone": "202-225-4215",
+    "url": "https://kiggans.house.gov",
+    "office": "152 Cannon House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "WA-03": {
+    "bioguide": "G000600",
+    "fecIds": [
+      "H2WA03217"
+    ],
+    "phone": "202-225-3536",
+    "url": "https://gluesenkampperez.house.gov",
+    "office": "1431 Longworth House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "WI-03": {
+    "bioguide": "V000135",
+    "fecIds": [
+      "H0WI03175"
+    ],
+    "phone": "202-225-5506",
+    "url": "https://vanorden.house.gov",
+    "office": "1513 Longworth House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "VA-04": {
+    "bioguide": "M001227",
+    "fecIds": [
+      "H4VA04066"
+    ],
+    "phone": "202-225-6365",
+    "url": "https://mcclellan.house.gov",
+    "office": "1628 Longworth House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "RI-01": {
+    "bioguide": "A000380",
+    "fecIds": [
+      "H4RI01265"
+    ],
+    "phone": "202-225-4911",
+    "url": "https://amo.house.gov",
+    "office": "1119 Longworth House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "UT-02": {
+    "bioguide": "M001228",
+    "fecIds": [
+      "H4UT02296"
+    ],
+    "phone": "202-225-9730",
+    "url": "https://maloy.house.gov",
+    "office": "249 Cannon House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "NY-03": {
+    "bioguide": "S001201",
+    "fecIds": [
+      "H6NY03247"
+    ],
+    "phone": "202-225-3335",
+    "url": "https://suozzi.house.gov",
+    "office": "203 Cannon House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "NY-26": {
+    "bioguide": "K000402",
+    "fecIds": [
+      "H4NY26078"
+    ],
+    "phone": "202-225-3306",
+    "url": "https://kennedy.house.gov",
+    "office": "423 Cannon House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "CA-20": {
+    "bioguide": "F000480",
+    "fecIds": [
+      "H4CA20181"
+    ],
+    "phone": "202-225-2915",
+    "url": "https://fong.house.gov",
+    "office": "243 Cannon House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "OH-06": {
+    "bioguide": "R000619",
+    "fecIds": [
+      "H4OH06165"
+    ],
+    "phone": "202-225-5705",
+    "url": "https://rulli.house.gov",
+    "office": "421 Cannon House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "NJ-10": {
+    "bioguide": "M001229",
+    "fecIds": [
+      "H4NJ10176"
+    ],
+    "phone": "202-225-3436",
+    "url": "https://mciver.house.gov",
+    "office": "426 Cannon House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "WI-08": {
+    "bioguide": "W000829",
+    "fecIds": [
+      "H4WI08119"
+    ],
+    "phone": "202-225-5665",
+    "url": "https://wied.house.gov",
+    "office": "424 Cannon House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "CA-31": {
+    "bioguide": "C001123",
+    "fecIds": [
+      "H8CA39174",
+      "H4CA31170"
+    ],
+    "phone": "202-225-5256",
+    "url": "https://cisneros.house.gov",
+    "office": "2463 Rayburn House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "AK-00": {
+    "bioguide": "B001323",
+    "fecIds": [
+      "H2AK01083"
+    ],
+    "phone": "202-225-5765",
+    "url": "https://begich.house.gov",
+    "office": "153 Cannon House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "AL-02": {
+    "bioguide": "F000481",
+    "fecIds": [
+      "H4AL02170"
+    ],
+    "phone": "202-225-4931",
+    "url": "https://figures.house.gov",
+    "office": "225 Cannon House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "AZ-08": {
+    "bioguide": "H001098",
+    "fecIds": [
+      "H4AZ08108"
+    ],
+    "phone": "202-225-4576",
+    "url": "https://hamadeh.house.gov",
+    "office": "1722 Longworth House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "CA-12": {
+    "bioguide": "S001231",
+    "fecIds": [
+      "H4CA12154"
+    ],
+    "phone": "202-225-2661",
+    "url": "https://simon.house.gov",
+    "office": "1023 Longworth House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "CA-13": {
+    "bioguide": "G000605",
+    "fecIds": [
+      "H2CA13115"
+    ],
+    "phone": "202-225-1947",
+    "url": "https://gray.house.gov",
+    "office": "1230 Longworth House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "CA-16": {
+    "bioguide": "L000607",
+    "fecIds": [
+      "H4CA16197"
+    ],
+    "phone": "202-225-8104",
+    "url": "https://liccardo.house.gov",
+    "office": "1117 Longworth House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "CA-27": {
+    "bioguide": "W000830",
+    "fecIds": [
+      "H4CA27111"
+    ],
+    "phone": "202-225-1956",
+    "url": "https://whitesides.house.gov",
+    "office": "1504 Longworth House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "CA-29": {
+    "bioguide": "R000620",
+    "fecIds": [
+      "H4CA29141"
+    ],
+    "phone": "202-225-6131",
+    "url": "https://rivas.house.gov",
+    "office": "1319 Longworth House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "CA-45": {
+    "bioguide": "T000491",
+    "fecIds": [
+      "H4CA45170"
+    ],
+    "phone": "202-225-2415",
+    "url": "https://tran.house.gov",
+    "office": "1127 Longworth House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "CA-47": {
+    "bioguide": "M001241",
+    "fecIds": [
+      "H4CA47085"
+    ],
+    "phone": "202-225-5611",
+    "url": "https://min.house.gov",
+    "office": "1034 Longworth House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "CO-03": {
+    "bioguide": "H001100",
+    "fecIds": [
+      "H4CO03357"
+    ],
+    "phone": "202-225-4676",
+    "url": "https://hurd.house.gov",
+    "office": "1641 Longworth House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "CO-05": {
+    "bioguide": "C001137",
+    "fecIds": [
+      "H6CO05142"
+    ],
+    "phone": "202-225-4422",
+    "url": "https://crank.house.gov",
+    "office": "1029 Longworth House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "CO-08": {
+    "bioguide": "E000300",
+    "fecIds": [
+      "H4CO08034"
+    ],
+    "phone": "202-225-5625",
+    "url": "https://gabeevans.house.gov",
+    "office": "1229 Longworth House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "FL-08": {
+    "bioguide": "H001099",
+    "fecIds": [
+      "H4FL08168"
+    ],
+    "phone": "202-225-3671",
+    "url": "https://haridopolos.house.gov",
+    "office": "1039 Longworth House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "GA-03": {
+    "bioguide": "J000311",
+    "fecIds": [
+      "H4GA03126"
+    ],
+    "phone": "202-225-5901",
+    "url": "https://jack.house.gov",
+    "office": "1320 Longworth House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "IN-06": {
+    "bioguide": "S001229",
+    "fecIds": [
+      "H4IN06185"
+    ],
+    "phone": "202-225-3021",
+    "url": "https://shreve.house.gov",
+    "office": "224 Cannon House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "IN-08": {
+    "bioguide": "M001233",
+    "fecIds": [
+      "H4IN08249"
+    ],
+    "phone": "202-225-4636",
+    "url": "https://messmer.house.gov",
+    "office": "1208 Longworth House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "KS-02": {
+    "bioguide": "S001228",
+    "fecIds": [
+      "H4KS02164"
+    ],
+    "phone": "202-225-6601",
+    "url": "https://schmidt.house.gov",
+    "office": "1223 Longworth House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "MD-02": {
+    "bioguide": "O000176",
+    "fecIds": [
+      "H4MD02232"
+    ],
+    "phone": "202-225-3061",
+    "url": "https://olszewski.house.gov",
+    "office": "1339 Longworth House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "MD-03": {
+    "bioguide": "E000301",
+    "fecIds": [
+      "H4MD03156"
+    ],
+    "phone": "202-225-4016",
+    "url": "https://elfreth.house.gov",
+    "office": "1213 Longworth House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "MD-06": {
+    "bioguide": "M001232",
+    "fecIds": [
+      "H4MD06340"
+    ],
+    "phone": "202-225-2721",
+    "url": "https://mcclaindelaney.house.gov",
+    "office": "1130 Longworth House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "MI-08": {
+    "bioguide": "M001237",
+    "fecIds": [
+      "H4MI08218"
+    ],
+    "phone": "202-225-3611",
+    "url": "https://mcdonaldrivet.house.gov",
+    "office": "1408 Longworth House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "MN-03": {
+    "bioguide": "M001234",
+    "fecIds": [
+      "H4MN03118"
+    ],
+    "phone": "202-225-2871",
+    "url": "https://morrison.house.gov",
+    "office": "1205 Longworth House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "MO-01": {
+    "bioguide": "B001324",
+    "fecIds": [
+      "H4MO01134"
+    ],
+    "phone": "202-225-2406",
+    "url": "https://bell.house.gov",
+    "office": "1429 Longworth House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "MO-03": {
+    "bioguide": "O000177",
+    "fecIds": [
+      "H8MO09146",
+      "H4MO03221"
+    ],
+    "phone": "202-225-2956",
+    "url": "https://onder.house.gov",
+    "office": "1113 Longworth House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "MP-00": {
+    "bioguide": "K000404",
+    "fecIds": [
+      "H4MP01022"
+    ],
+    "phone": "202-225-2646",
+    "url": "https://king-hinds.house.gov",
+    "office": "425 Cannon House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "MT-02": {
+    "bioguide": "D000634",
+    "fecIds": [
+      "H4MT02098"
+    ],
+    "phone": "202-225-3211",
+    "url": "https://downing.house.gov",
+    "office": "1529 Longworth House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "NC-06": {
+    "bioguide": "M001240",
+    "fecIds": [
+      "H4NC06177"
+    ],
+    "phone": "202-225-3065",
+    "url": "https://mcdowell.house.gov",
+    "office": "1032 Longworth House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "NC-08": {
+    "bioguide": "H001102",
+    "fecIds": [
+      "H6NC09200",
+      "H4NC08066"
+    ],
+    "phone": "202-225-1976",
+    "url": "https://markharris.house.gov",
+    "office": "126 Cannon House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "NC-10": {
+    "bioguide": "H001101",
+    "fecIds": [
+      "H2NC13243"
+    ],
+    "phone": "202-225-2576",
+    "url": "https://harrigan.house.gov",
+    "office": "1233 Longworth House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "NC-14": {
+    "bioguide": "M001236",
+    "fecIds": [
+      "H4NC14015"
+    ],
+    "phone": "202-225-5634",
+    "url": "https://timmoore.house.gov",
+    "office": "1424 Longworth House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "NH-02": {
+    "bioguide": "G000604",
+    "fecIds": [
+      "H4NH02399"
+    ],
+    "phone": "202-225-5206",
+    "url": "https://goodlander.house.gov",
+    "office": "223 Cannon House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "NJ-09": {
+    "bioguide": "P000621",
+    "fecIds": [
+      "H4NJ09194"
+    ],
+    "phone": "202-225-5751",
+    "url": "https://pou.house.gov",
+    "office": "1007 Longworth House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "NY-04": {
+    "bioguide": "G000602",
+    "fecIds": [
+      "H4NY04158"
+    ],
+    "phone": "202-225-5516",
+    "url": "https://gillen.house.gov",
+    "office": "428 Cannon House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "NY-16": {
+    "bioguide": "L000606",
+    "fecIds": [
+      "H4NY16087"
+    ],
+    "phone": "202-225-2464",
+    "url": "https://latimer.house.gov",
+    "office": "1507 Longworth House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "NY-19": {
+    "bioguide": "R000622",
+    "fecIds": [
+      "H8NY22177"
+    ],
+    "phone": "202-225-5441",
+    "url": "https://riley.house.gov",
+    "office": "128 Cannon House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "NY-22": {
+    "bioguide": "M001231",
+    "fecIds": [
+      "H4NY22085"
+    ],
+    "phone": "202-225-3701",
+    "url": "https://mannion.house.gov",
+    "office": "1516 Longworth House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "OH-02": {
+    "bioguide": "T000490",
+    "fecIds": [
+      "H4OH02248"
+    ],
+    "phone": "202-225-3164",
+    "url": "https://taylor.house.gov",
+    "office": "325 Cannon House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "OR-05": {
+    "bioguide": "B001326",
+    "fecIds": [
+      "H4OR05304"
+    ],
+    "phone": "202-225-5711",
+    "url": "https://bynum.house.gov",
+    "office": "1508 Longworth House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "PA-07": {
+    "bioguide": "M001230",
+    "fecIds": [
+      "H8PA15195"
+    ],
+    "phone": "202-225-6411",
+    "url": "https://mackenzie.house.gov",
+    "office": "121 Cannon House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "PA-08": {
+    "bioguide": "B001327",
+    "fecIds": [
+      "H4PA08124"
+    ],
+    "phone": "202-225-5546",
+    "url": "https://bresnahan.house.gov",
+    "office": "1133 Longworth House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "PR-00": {
+    "bioguide": "H001103",
+    "fecIds": [
+      "H4PR01010"
+    ],
+    "phone": "202-225-2615",
+    "url": "https://hernandez.house.gov",
+    "office": "1419 Longworth House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "TX-12": {
+    "bioguide": "G000601",
+    "fecIds": [
+      "H4TX12065"
+    ],
+    "phone": "202-225-5071",
+    "url": "https://craiggoldman.house.gov",
+    "office": "1716 Longworth House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "TX-26": {
+    "bioguide": "G000603",
+    "fecIds": [
+      "H4TX26149"
+    ],
+    "phone": "202-225-7772",
+    "url": "https://gill.house.gov",
+    "office": "1305 Longworth House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "TX-32": {
+    "bioguide": "J000310",
+    "fecIds": [
+      "H4TX32089"
+    ],
+    "phone": "202-225-2231",
+    "url": "https://juliejohnson.house.gov",
+    "office": "221 Cannon House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "VA-05": {
+    "bioguide": "M001239",
+    "fecIds": [
+      "H2VA07196",
+      "H0VA07133"
+    ],
+    "phone": "202-225-4711",
+    "url": "https://mcguire.house.gov",
+    "office": "1013 Longworth House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "VA-07": {
+    "bioguide": "V000138",
+    "fecIds": [
+      "H4VA07234"
+    ],
+    "phone": "202-225-2815",
+    "url": "https://vindman.house.gov",
+    "office": "1005 Longworth House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "VA-10": {
+    "bioguide": "S001230",
+    "fecIds": [
+      "H4VA10279"
+    ],
+    "phone": "202-225-5136",
+    "url": "https://subramanyam.house.gov",
+    "office": "1009 Longworth House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "WA-05": {
+    "bioguide": "B001322",
+    "fecIds": [
+      "H4WA05234"
+    ],
+    "phone": "202-225-2006",
+    "url": "https://baumgartner.house.gov",
+    "office": "124 Cannon House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "WA-06": {
+    "bioguide": "R000621",
+    "fecIds": [
+      "H4WA06117"
+    ],
+    "phone": "202-225-5916",
+    "url": "https://randall.house.gov",
+    "office": "1531 Longworth House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "FL-01": {
+    "bioguide": "P000622",
+    "fecIds": [
+      "H6FL01390"
+    ],
+    "phone": "202-225-4136",
+    "url": "https://patronis.house.gov",
+    "office": "2021 Rayburn House Office Building",
+    "contactForm": "https://patronis.house.gov/contact/email-me",
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "FL-06": {
+    "bioguide": "F000484",
+    "fecIds": [
+      "H6FL06258"
+    ],
+    "phone": "202-225-2706",
+    "url": "https://fine.house.gov",
+    "office": "244 Cannon House Office Building",
+    "contactForm": "hhttps://fine.house.gov/address_authentication?form=/contact/email-me",
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "VA-11": {
+    "bioguide": "W000831",
+    "fecIds": [
+      "H6VA11066"
+    ],
+    "phone": "202-225-1492",
+    "url": "https://walkinshaw.house.gov/",
+    "office": "2265 Rayburn House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "AZ-07": {
+    "bioguide": "G000606",
+    "fecIds": [
+      "H6AZ07121"
+    ],
+    "phone": "202-225-2435",
+    "url": "https://grijalva.house.gov/",
+    "office": "1203 Longworth House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "TX-18": {
+    "bioguide": "M001245",
+    "fecIds": [
+      "H6TX18232"
+    ],
+    "phone": "202-225-3816",
+    "url": "https://menefee.house.gov/",
+    "office": "1318 Longworth House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  },
+  "GA-14": {
+    "bioguide": "F000485",
+    "fecIds": [
+      "H0GA14030"
+    ],
+    "phone": "202-225-5211",
+    "url": null,
+    "office": "2201 Rayburn House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null
+  }
+}

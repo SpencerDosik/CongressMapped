@@ -1,5 +1,5 @@
 import { scaleLinear, scaleSequential } from "d3-scale";
-import { interpolateRdBu, interpolateYlGn, interpolateBlues, interpolateOranges, interpolatePurples } from "d3-scale-chromatic";
+import { interpolateRdBu, interpolateYlGn, interpolateBlues, interpolateOranges } from "d3-scale-chromatic";
 import { Party, FilterMode } from "./types";
 
 // Party colors
@@ -49,6 +49,21 @@ export function pviColor(pvi: number): string {
   return interpolateRdBu(1 - t);
 }
 
+// Competitive score: 100 = pure toss-up, 0 = completely safe
+// Score = 100 - (|pvi| * 0.6 + |margin| * 0.4), clamped [0, 100]
+export function competitivenessScore(pvi: number, margin: number): number {
+  return Math.max(0, Math.min(100, 100 - (Math.abs(pvi) * 0.6 + Math.abs(margin) * 0.4)));
+}
+
+// Competitive color scale: amber/orange = competitive, slate = safe
+const competitiveScale = scaleLinear<string>()
+  .domain([0, 40, 70, 100])
+  .range(["#1e293b", "#475569", "#F97316", "#F59E0B"]);
+
+export function competitiveColor(score: number): string {
+  return competitiveScale(Math.max(0, Math.min(100, score)));
+}
+
 // Get color for a district based on filter mode
 export function getDistrictColor(
   mode: FilterMode,
@@ -69,6 +84,8 @@ export function getDistrictColor(
       return tenureColor(tenureYears);
     case "pvi":
       return pviColor(pvi);
+    case "competitive":
+      return competitiveColor(competitivenessScore(pvi, margin));
     default:
       return PARTY_COLORS.Unknown;
   }
@@ -119,16 +136,24 @@ export function getLegendItems(mode: FilterMode): LegendItem[] {
         { label: "D+20", color: pviColor(-20) },
         { label: "D+40", color: pviColor(-40) },
       ];
+    case "competitive":
+      return [
+        { label: "Toss-Up", color: competitiveColor(95) },
+        { label: "Competitive", color: competitiveColor(75) },
+        { label: "Lean", color: competitiveColor(50) },
+        { label: "Safe", color: competitiveColor(15) },
+      ];
   }
 }
 
 export function filterModeLabel(mode: FilterMode): string {
   const labels: Record<FilterMode, string> = {
     party: "Party",
-    margin: "2024 Margin of Victory",
-    income: "Median Household Income",
-    tenure: "Years in Office",
-    pvi: "Partisan Lean (PVI)",
+    margin: "2024 Margin",
+    income: "Median Income",
+    tenure: "Tenure",
+    pvi: "Cook PVI",
+    competitive: "Battleground",
   };
   return labels[mode];
 }

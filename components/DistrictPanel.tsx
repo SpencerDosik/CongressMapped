@@ -130,6 +130,20 @@ export default function DistrictPanel({ districtId, repName, data, onClose, onSh
                   <p className="text-[12px] text-slate-200 font-semibold mt-0.5">{data.repElect}</p>
                 </div>
               )}
+              {isVacant && data.electionStatus && (
+                <div className="mt-2 px-2 py-1.5 rounded-md flex items-start gap-2" style={{ backgroundColor: "rgba(245,158,11,0.08)", border: "1px solid rgba(245,158,11,0.25)" }}>
+                  <span className="text-amber-500 text-[11px] shrink-0 mt-0.5">⚡</span>
+                  <div>
+                    <p className="text-[10px] text-amber-600 uppercase tracking-widest">Special Election</p>
+                    <p className="text-[11px] text-amber-400 font-medium mt-0.5">{data.electionStatus}</p>
+                    {data.electionDate && (
+                      <p className="text-[10px] text-amber-600 mt-0.5">
+                        {new Date(data.electionDate + "T00:00:00").toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" })}
+                      </p>
+                    )}
+                  </div>
+                </div>
+              )}
             </div>
           </div>
         </div>
