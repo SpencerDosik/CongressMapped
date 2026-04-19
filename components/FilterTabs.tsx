@@ -75,10 +75,6 @@ export default function FilterTabs({ filterMode, onModeChange }: Props) {
               border: "1px solid rgba(30,41,59,0.9)",
             }}
           >
-            <span className="text-[9px] font-bold text-slate-600 uppercase tracking-widest pr-1.5 pl-0.5 whitespace-nowrap select-none border-r border-slate-700/60 mr-1">
-              {category.label}
-            </span>
-
             {category.filters.map(({ mode, desc }) => {
               const active = filterMode === mode;
               return (

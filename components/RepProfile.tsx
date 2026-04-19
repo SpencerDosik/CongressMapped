@@ -185,7 +185,7 @@ export default function RepProfile({ districtId, repName, data, onClose }: Props
             </SectionCard>
 
             {/* District & Tenure */}
-            <SectionCard title="District &amp; Tenure">
+            <SectionCard title="District & Tenure">
               <StatRow label="Median Income" value={`$${(data.income * 1000).toLocaleString()}`} />
               <StatRow label="First Elected" value={String(data.termStart)} />
               <StatRow

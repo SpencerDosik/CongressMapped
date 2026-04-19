@@ -333,7 +333,7 @@ export default function HouseMap() {
   const [hoveredId, setHoveredId] = useState<string | null>(null);
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const [zoom, setZoom] = useState(1);
-  const [center, setCenter] = useState<[number, number]>([0, 0]);
+  const [center, setCenter] = useState<[number, number]>([-98, 38]);
   const [mapReady, setMapReady] = useState(false);
   const [showProfile, setShowProfile] = useState(false);
   const [isolatedState, setIsolatedState] = useState<string | null>(null);
@@ -354,7 +354,7 @@ export default function HouseMap() {
 
   const handleZoomIn = () => setZoom((z) => Math.min(z * 1.6, ZOOM_MAX));
   const handleZoomOut = () => setZoom((z) => Math.max(z / 1.6, ZOOM_MIN));
-  const handleReset = () => { setZoom(1); setCenter([0, 0]); };
+  const handleReset = () => { setZoom(1); setCenter([-98, 38]); };
 
   const loadedRef = useRef(false);
   const parseGeographies = useCallback((geos: Record<string, unknown>[]) => {
@@ -528,7 +528,7 @@ export default function HouseMap() {
           {/* Isolation exit button */}
           {isolatedState && (
             <button
-              onClick={() => { setIsolatedState(null); setZoom(1); setCenter([0, 0]); }}
+              onClick={() => { setIsolatedState(null); setZoom(1); setCenter([-98, 38]); }}
               className="absolute top-4 left-4 flex items-center gap-2 px-3 py-2 rounded-lg text-xs font-medium transition-all z-20"
               style={{
                 backgroundColor: "rgba(13,17,23,0.92)",
