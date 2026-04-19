@@ -195,23 +195,9 @@ export default function DistrictPanel({ districtId, repName, data, onClose, onSh
           </div>
         </div>
 
-        {!isVacant && <div className="mx-4 border-t border-slate-700/40" />}
-
-        {/* Tenure */}
-        {!isVacant && <div className="px-4 py-4">
-          <p className="text-[10px] font-bold text-slate-600 uppercase tracking-widest mb-3">Tenure</p>
-          <div className="space-y-2">
-            <Row label="First Elected" value={String(data.termStart)} />
-            <Row
-              label="Time Served"
-              value={yearsServing < 1 ? "< 1 year" : `${yearsServing} year${yearsServing !== 1 ? "s" : ""}`}
-            />
-          </div>
-        </div>}
-
         {/* Full profile button */}
         {!isVacant && (
-          <div className="px-4 pb-4">
+          <div className="px-4 pb-3">
             <button
               onClick={onShowProfile}
               className="w-full flex items-center justify-between px-4 py-3 rounded-lg text-sm font-medium transition-all duration-150 group"
@@ -228,6 +214,20 @@ export default function DistrictPanel({ districtId, repName, data, onClose, onSh
             </button>
           </div>
         )}
+
+        {!isVacant && <div className="mx-4 border-t border-slate-700/40" />}
+
+        {/* Tenure */}
+        {!isVacant && <div className="px-4 py-4">
+          <p className="text-[10px] font-bold text-slate-600 uppercase tracking-widest mb-3">Tenure</p>
+          <div className="space-y-2">
+            <Row label="First Elected" value={String(data.termStart)} />
+            <Row
+              label="Time Served"
+              value={yearsServing < 1 ? "< 1 year" : `${yearsServing} year${yearsServing !== 1 ? "s" : ""}`}
+            />
+          </div>
+        </div>}
 
         {/* Footer */}
         <div className="px-4 py-3 border-t border-slate-700/30">

@@ -16,7 +16,7 @@ import RepProfile from "./RepProfile";
 import { FilterMode } from "@/lib/types";
 import { getDistrictColor, PARTY_COLORS } from "@/lib/colors";
 import { getDistrictData, getRepName } from "@/lib/districtData";
-import { toDistrictId, STATE_NAMES, AT_LARGE_STATES } from "@/lib/stateFips";
+import { toDistrictId, STATE_NAMES, AT_LARGE_STATES, FIPS_TO_STATE } from "@/lib/stateFips";
 
 // ── Constants ─────────────────────────────────────────────────────────────────
 const DISTRICTS_URL = "/districts.json";
@@ -27,6 +27,40 @@ const D_SEATS = 213;
 const V_SEATS = 4;
 const TOTAL_SEATS = 435;
 const MAJORITY = 218;
+
+// Reverse FIPS lookup: "CA" → "06"
+const STATE_TO_FIPS: Record<string, string> = Object.fromEntries(
+  Object.entries(FIPS_TO_STATE).map(([fips, abbr]) => [abbr, fips])
+);
+
+// Geographic center [lon, lat] and appropriate zoom level per state
+const STATE_VIEW: Record<string, { center: [number, number]; zoom: number }> = {
+  AL: { center: [-86.84, 32.75], zoom: 5 }, AK: { center: [-153.4, 64.2], zoom: 3 },
+  AZ: { center: [-111.5, 34.2], zoom: 4 },  AR: { center: [-92.4, 34.9], zoom: 5 },
+  CA: { center: [-119.7, 37.2], zoom: 3 },  CO: { center: [-105.5, 39.0], zoom: 4 },
+  CT: { center: [-72.7, 41.6], zoom: 11 },  DE: { center: [-75.5, 39.0], zoom: 14 },
+  FL: { center: [-81.5, 27.8], zoom: 4 },   GA: { center: [-83.4, 32.7], zoom: 5 },
+  HI: { center: [-157.5, 20.3], zoom: 7 },  ID: { center: [-114.5, 44.2], zoom: 4 },
+  IL: { center: [-89.2, 40.4], zoom: 5 },   IN: { center: [-86.1, 40.3], zoom: 6 },
+  IA: { center: [-93.1, 42.0], zoom: 5 },   KS: { center: [-98.4, 38.5], zoom: 5 },
+  KY: { center: [-84.9, 37.8], zoom: 5 },   LA: { center: [-92.0, 31.2], zoom: 5 },
+  ME: { center: [-69.4, 44.7], zoom: 6 },   MD: { center: [-76.6, 39.1], zoom: 9 },
+  MA: { center: [-71.8, 42.3], zoom: 9 },   MI: { center: [-84.5, 43.3], zoom: 5 },
+  MN: { center: [-94.7, 46.7], zoom: 4 },   MS: { center: [-89.7, 32.7], zoom: 5 },
+  MO: { center: [-92.5, 38.6], zoom: 5 },   MT: { center: [-110.5, 47.0], zoom: 4 },
+  NE: { center: [-99.9, 41.5], zoom: 5 },   NV: { center: [-117.1, 38.8], zoom: 4 },
+  NH: { center: [-71.6, 43.7], zoom: 8 },   NJ: { center: [-74.5, 40.1], zoom: 9 },
+  NM: { center: [-106.1, 34.5], zoom: 4 },  NY: { center: [-75.5, 42.7], zoom: 5 },
+  NC: { center: [-79.4, 35.6], zoom: 5 },   ND: { center: [-100.5, 47.5], zoom: 5 },
+  OH: { center: [-82.8, 40.4], zoom: 5 },   OK: { center: [-97.5, 35.5], zoom: 5 },
+  OR: { center: [-120.6, 43.9], zoom: 4 },  PA: { center: [-77.2, 40.6], zoom: 5 },
+  RI: { center: [-71.5, 41.7], zoom: 15 },  SC: { center: [-80.9, 33.9], zoom: 6 },
+  SD: { center: [-100.3, 44.4], zoom: 5 },  TN: { center: [-86.3, 35.9], zoom: 5 },
+  TX: { center: [-99.3, 31.5], zoom: 3 },   UT: { center: [-111.1, 39.3], zoom: 5 },
+  VT: { center: [-72.7, 44.1], zoom: 9 },   VA: { center: [-78.2, 37.5], zoom: 5 },
+  WA: { center: [-120.5, 47.4], zoom: 5 },  WV: { center: [-80.6, 38.6], zoom: 6 },
+  WI: { center: [-89.7, 44.3], zoom: 5 },   WY: { center: [-107.6, 43.0], zoom: 5 },
+};
 
 // ── Seat Composition Bar ──────────────────────────────────────────────────────
 function SeatBar() {
@@ -76,11 +110,14 @@ function SeatBar() {
 // ── Search Bar ────────────────────────────────────────────────────────────────
 function SearchBar({
   onSelect,
+  onIsolate,
 }: {
   onSelect: (id: string) => void;
+  onIsolate: (abbr: string) => void;
 }) {
   const [query, setQuery] = useState("");
   const [results, setResults] = useState<{ id: string; name: string; state: string }[]>([]);
+  const [stateMatches, setStateMatches] = useState<{ abbr: string; name: string }[]>([]);
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 
@@ -98,9 +135,19 @@ function SearchBar({
     const q = query.trim().toLowerCase();
     if (q.length < 2) {
       setResults([]);
+      setStateMatches([]);
       setOpen(false);
       return;
     }
+
+    // State isolation candidates: exact abbreviation or name prefix
+    const isolateCandidates = Object.entries(STATE_NAMES)
+      .filter(([abbr, name]) =>
+        abbr.toLowerCase() === q || name.toLowerCase().startsWith(q)
+      )
+      .map(([abbr, name]) => ({ abbr, name }))
+      .slice(0, 4);
+    setStateMatches(isolateCandidates);
 
     const stateAbbrs = Object.keys(STATE_NAMES) as string[];
     const matches: { id: string; name: string; state: string }[] = [];
@@ -126,8 +173,10 @@ function SearchBar({
     }
 
     setResults(matches);
-    setOpen(matches.length > 0);
+    setOpen(isolateCandidates.length > 0 || matches.length > 0);
   }, [query]);
+
+  const clear = () => { setQuery(""); setResults([]); setStateMatches([]); setOpen(false); };
 
   return (
     <div ref={ref} className="relative">
@@ -140,22 +189,34 @@ function SearchBar({
           placeholder="Find rep or district…"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
-          onFocus={() => results.length > 0 && setOpen(true)}
+          onFocus={() => (results.length > 0 || stateMatches.length > 0) && setOpen(true)}
           className="bg-transparent text-slate-300 text-xs placeholder-slate-600 outline-none w-full"
         />
         {query && (
-          <button
-            onClick={() => { setQuery(""); setResults([]); setOpen(false); }}
-            className="text-slate-600 hover:text-slate-400 text-xs leading-none"
-          >
-            ✕
-          </button>
+          <button onClick={clear} className="text-slate-600 hover:text-slate-400 text-xs leading-none">✕</button>
         )}
       </div>
 
       {/* Dropdown */}
       {open && (
         <div className="absolute top-full mt-1 right-0 w-64 bg-slate-900 border border-slate-700/60 rounded-xl shadow-2xl shadow-black/50 overflow-hidden z-50">
+
+          {/* State isolation buttons */}
+          {stateMatches.map(({ abbr, name }) => (
+            <button
+              key={abbr}
+              onClick={() => { onIsolate(abbr); clear(); }}
+              className="w-full flex items-center gap-2.5 px-3 py-2.5 hover:bg-indigo-900/40 transition-colors text-left border-b border-slate-800/60"
+              style={{ borderBottom: "1px solid rgba(30,41,59,0.8)" }}
+            >
+              <svg className="w-3 h-3 text-indigo-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 10l4.553-2.069A1 1 0 0121 8.87v6.26a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+              </svg>
+              <span className="text-indigo-300 text-xs font-medium">Isolate {name}</span>
+            </button>
+          ))}
+
+          {/* District results */}
           {results.map(({ id, name, state }) => {
             const d = getDistrictData(id);
             const party = d?.party ?? "Unknown";
@@ -163,18 +224,10 @@ function SearchBar({
             return (
               <button
                 key={id}
-                onClick={() => {
-                  onSelect(id);
-                  setQuery("");
-                  setResults([]);
-                  setOpen(false);
-                }}
+                onClick={() => { onSelect(id); clear(); }}
                 className="w-full flex items-center gap-3 px-3 py-2.5 hover:bg-slate-800 transition-colors text-left"
               >
-                <div
-                  className="w-2 h-2 rounded-full shrink-0"
-                  style={{ backgroundColor: color }}
-                />
+                <div className="w-2 h-2 rounded-full shrink-0" style={{ backgroundColor: color }} />
                 <div className="min-w-0 flex-1">
                   <p className="text-white text-xs font-medium truncate">{name}</p>
                   <p className="text-slate-500 text-[10px]">{state} · {id}</p>
@@ -257,11 +310,9 @@ function ZoomControls({ zoom, onIn, onOut, onReset }: {
   onReset: () => void;
 }) {
   const btn = "w-8 h-8 flex items-center justify-center rounded-lg bg-slate-900/90 border border-slate-700/60 text-slate-400 hover:text-white hover:border-slate-500 transition-all text-sm font-medium select-none disabled:opacity-30";
-  const zoomLevel = zoom < 1.05 ? "Overview" : zoom < 3 ? "Regional" : zoom < 8 ? "State" : "District";
 
   return (
     <div className="absolute bottom-5 right-4 flex flex-col items-end gap-1.5">
-      <span className="text-slate-700 text-[10px] select-none">{zoomLevel}</span>
       <div className="flex flex-col gap-1">
         <button onClick={onIn} className={btn} title="Zoom in" disabled={zoom >= ZOOM_MAX}>+</button>
         <button onClick={onOut} className={btn} title="Zoom out" disabled={zoom <= ZOOM_MIN}>−</button>
@@ -285,6 +336,7 @@ export default function HouseMap() {
   const [center, setCenter] = useState<[number, number]>([0, 0]);
   const [mapReady, setMapReady] = useState(false);
   const [showProfile, setShowProfile] = useState(false);
+  const [isolatedState, setIsolatedState] = useState<string | null>(null);
 
   useEffect(() => {
     const h = (e: MouseEvent) => setMousePos({ x: e.clientX, y: e.clientY });
@@ -346,12 +398,18 @@ export default function HouseMap() {
         {/* Seat bar (center) */}
         <SeatBar />
 
-        {/* Search + hint */}
-        <div className="flex items-center gap-4 shrink-0">
-          <SearchBar onSelect={(id) => setSelectedId(id)} />
-          <span className="text-slate-700 text-[10px] hidden lg:block">
-            Click · Hover · Scroll
-          </span>
+        {/* Search */}
+        <div className="flex items-center shrink-0">
+          <SearchBar
+            onSelect={(id) => setSelectedId(id)}
+            onIsolate={(abbr) => {
+              setIsolatedState(abbr);
+              const view = STATE_VIEW[abbr];
+              if (view) { setZoom(view.zoom); setCenter(view.center); }
+              setSelectedId(null);
+              setShowProfile(false);
+            }}
+          />
         </div>
       </header>
 
@@ -399,6 +457,7 @@ export default function HouseMap() {
                     const props = (geo as any).properties ?? {};
                     const id = toDistrictId(props.STATEFP, props.CD118FP);
                     if (!id) return null;
+                    if (isolatedState && props.STATEFP !== STATE_TO_FIPS[isolatedState]) return null;
 
                     const data = getDistrictData(id) ?? {
                       party: "Unknown" as const,
@@ -465,6 +524,22 @@ export default function HouseMap() {
 
           {/* Legend */}
           <MapLegend mode={filterMode} />
+
+          {/* Isolation exit button */}
+          {isolatedState && (
+            <button
+              onClick={() => { setIsolatedState(null); setZoom(1); setCenter([0, 0]); }}
+              className="absolute top-4 left-4 flex items-center gap-2 px-3 py-2 rounded-lg text-xs font-medium transition-all z-20"
+              style={{
+                backgroundColor: "rgba(13,17,23,0.92)",
+                border: "1px solid rgba(99,102,241,0.5)",
+                color: "#a5b4fc",
+                backdropFilter: "blur(8px)",
+              }}
+            >
+              ← All States
+            </button>
+          )}
         </div>
 
         {/* District Panel */}
