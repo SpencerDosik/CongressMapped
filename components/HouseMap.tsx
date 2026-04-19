@@ -11,6 +11,7 @@ import {
 import FilterTabs from "./FilterTabs";
 import DistrictPanel from "./DistrictPanel";
 import MapLegend from "./MapLegend";
+import RepProfile from "./RepProfile";
 
 import { FilterMode } from "@/lib/types";
 import { getDistrictColor, PARTY_COLORS } from "@/lib/colors";
@@ -21,8 +22,7 @@ import { toDistrictId, STATE_NAMES, AT_LARGE_STATES } from "@/lib/stateFips";
 const DISTRICTS_URL = "/districts.json";
 const ZOOM_MIN = 0.5;
 const ZOOM_MAX = 25;
-const R_SEATS = 217;
-const I_SEATS = 1;
+const R_CAUCUS = 218; // 217 R + Kevin Kiley (I, caucuses R)
 const D_SEATS = 213;
 const V_SEATS = 4;
 const TOTAL_SEATS = 435;
@@ -30,38 +30,27 @@ const MAJORITY = 218;
 
 // ── Seat Composition Bar ──────────────────────────────────────────────────────
 function SeatBar() {
-  const rPct = (R_SEATS / TOTAL_SEATS) * 100;
-  const iPct = (I_SEATS / TOTAL_SEATS) * 100;
+  const rPct = (R_CAUCUS / TOTAL_SEATS) * 100;
   const dPct = (D_SEATS / TOTAL_SEATS) * 100;
   const majorityPct = (MAJORITY / TOTAL_SEATS) * 100;
 
   return (
     <div className="flex flex-col items-center gap-1 select-none">
       <div className="flex items-center gap-3">
-        {/* R count */}
         <div className="text-right">
-          <span className="text-red-400 font-bold text-sm tabular-nums">{R_SEATS}</span>
+          <span className="text-red-400 font-bold text-sm tabular-nums">{R_CAUCUS}</span>
           <span className="text-slate-600 text-[10px] ml-1">R</span>
         </div>
 
-        {/* Bar */}
         <div className="relative w-52 h-3 rounded-full overflow-visible bg-slate-800">
-          {/* R segment */}
           <div
             className="absolute left-0 top-0 h-full rounded-l-full"
             style={{ width: `${rPct}%`, backgroundColor: "#DC2626" }}
           />
-          {/* I segment (Kiley) — minimum 4px wide so it's visible */}
-          <div
-            className="absolute top-0 h-full"
-            style={{ left: `${rPct}%`, width: `max(4px, ${iPct}%)`, backgroundColor: "#D97706" }}
-          />
-          {/* D segment */}
           <div
             className="absolute right-0 top-0 h-full rounded-r-full"
             style={{ width: `${dPct}%`, backgroundColor: "#2563EB" }}
           />
-          {/* Majority threshold line */}
           <div
             className="absolute top-1/2 -translate-y-1/2 w-0.5 h-5 bg-slate-400/80 rounded-full z-10"
             style={{ left: `${majorityPct}%` }}
@@ -72,15 +61,13 @@ function SeatBar() {
           </div>
         </div>
 
-        {/* D count */}
         <div className="text-left">
           <span className="text-slate-600 text-[10px] mr-1">D</span>
           <span className="text-blue-400 font-bold text-sm tabular-nums">{D_SEATS}</span>
         </div>
       </div>
-      {/* Vacancy note */}
       <p className="text-[10px] text-slate-700">
-        1 Independent · {V_SEATS} vacant
+        incl. 1 independent · {V_SEATS} vacant
       </p>
     </div>
   );
@@ -297,6 +284,7 @@ export default function HouseMap() {
   const [zoom, setZoom] = useState(1);
   const [center, setCenter] = useState<[number, number]>([0, 0]);
   const [mapReady, setMapReady] = useState(false);
+  const [showProfile, setShowProfile] = useState(false);
 
   useEffect(() => {
     const h = (e: MouseEvent) => setMousePos({ x: e.clientX, y: e.clientY });
@@ -485,7 +473,8 @@ export default function HouseMap() {
             districtId={selectedId}
             repName={selectedRepName}
             data={selectedData}
-            onClose={() => setSelectedId(null)}
+            onClose={() => { setSelectedId(null); setShowProfile(false); }}
+            onShowProfile={() => setShowProfile(true)}
           />
         )}
       </div>
@@ -493,6 +482,16 @@ export default function HouseMap() {
       {/* Tooltip */}
       {hoveredId && !selectedId && (
         <Tooltip districtId={hoveredId} x={mousePos.x} y={mousePos.y} />
+      )}
+
+      {/* Full Profile Overlay */}
+      {showProfile && selectedId && selectedData && selectedRepName && (
+        <RepProfile
+          districtId={selectedId}
+          repName={selectedRepName}
+          data={selectedData}
+          onClose={() => setShowProfile(false)}
+        />
       )}
     </div>
   );

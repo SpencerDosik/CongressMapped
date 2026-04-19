@@ -9,6 +9,7 @@ interface Props {
   repName: string;
   data: DistrictStaticData;
   onClose: () => void;
+  onShowProfile: () => void;
 }
 
 function ordinalSuffix(n: number) {
@@ -17,7 +18,7 @@ function ordinalSuffix(n: number) {
   return ["th", "st", "nd", "rd"][n % 10] ?? "th";
 }
 
-export default function DistrictPanel({ districtId, repName, data, onClose }: Props) {
+export default function DistrictPanel({ districtId, repName, data, onClose, onShowProfile }: Props) {
   const [stateCode, rawNum] = districtId.split("-");
   const districtNum = parseInt(rawNum ?? "0", 10);
   const stateName = STATE_NAMES[stateCode] ?? stateCode;
@@ -34,14 +35,6 @@ export default function DistrictPanel({ districtId, repName, data, onClose }: Pr
     data.party === "Independent" ? "I" :
     data.party === "Vacant" ? "V" : "?";
 
-  const initials = isVacant ? "—" : repName
-    .replace(/["'.]/g, "")
-    .split(/\s+/)
-    .filter((w) => w.length > 1)
-    .map((w) => w[0])
-    .join("")
-    .slice(0, 2)
-    .toUpperCase();
 
   // Vote bar
   const rPct = Math.max(0, Math.min(100, 50 + data.margin / 2));
@@ -61,7 +54,6 @@ export default function DistrictPanel({ districtId, repName, data, onClose }: Pr
     data.margin > 0 ? PARTY_COLORS.Republican : PARTY_COLORS.Democrat;
 
   const yearsServing = Math.max(0, 2026 - data.termStart);
-  const approxTerms = yearsServing < 2 ? 1 : Math.ceil(yearsServing / 2);
   const pviLabel = data.pvi === 0 ? "EVEN" : data.pvi > 0 ? `R+${data.pvi}` : `D+${Math.abs(data.pvi)}`;
 
   return (
@@ -74,17 +66,9 @@ export default function DistrictPanel({ districtId, repName, data, onClose }: Pr
 
       {/* Header */}
       <div className="flex items-center justify-between px-4 py-3 border-b border-slate-700/40 shrink-0 bg-slate-900/80">
-        <div className="flex items-center gap-2.5 min-w-0">
-          <div
-            className="w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold shrink-0"
-            style={{ backgroundColor: partyColor + "25", color: partyColor, border: `1.5px solid ${partyColor}50` }}
-          >
-            {partyShort}
-          </div>
-          <div className="min-w-0">
-            <p className="text-white font-semibold text-sm leading-tight truncate">{stateName}</p>
-            <p className="text-slate-500 text-[11px]">{districtLabel}</p>
-          </div>
+        <div className="min-w-0">
+          <p className="text-white font-semibold text-sm leading-tight truncate">{stateName}</p>
+          <p className="text-slate-500 text-[11px]">{districtLabel}</p>
         </div>
         <button
           onClick={onClose}
@@ -102,7 +86,7 @@ export default function DistrictPanel({ districtId, repName, data, onClose }: Pr
         <div className="px-4 py-5">
           <div className="flex items-center gap-3.5">
             <div
-              className="w-14 h-14 rounded-full flex items-center justify-center text-lg font-bold shrink-0 select-none"
+              className="w-14 h-14 rounded-full flex items-center justify-center text-2xl font-bold shrink-0 select-none"
               style={isVacant ? {
                 background: "rgba(55,65,81,0.3)",
                 border: "2px dashed #374151",
@@ -113,7 +97,7 @@ export default function DistrictPanel({ districtId, repName, data, onClose }: Pr
                 color: partyColor,
               }}
             >
-              {initials}
+              {partyShort}
             </div>
             <div className="min-w-0 flex-1">
               <p className="text-[10px] text-slate-600 uppercase tracking-widest mb-0.5">
@@ -216,32 +200,34 @@ export default function DistrictPanel({ districtId, repName, data, onClose }: Pr
         {/* Tenure */}
         {!isVacant && <div className="px-4 py-4">
           <p className="text-[10px] font-bold text-slate-600 uppercase tracking-widest mb-3">Tenure</p>
-          <div className="space-y-2 mb-3">
+          <div className="space-y-2">
             <Row label="First Elected" value={String(data.termStart)} />
             <Row
               label="Time Served"
               value={yearsServing < 1 ? "< 1 year" : `${yearsServing} year${yearsServing !== 1 ? "s" : ""}`}
             />
-            <Row label="Terms (approx.)" value={`~${approxTerms}`} />
-          </div>
-
-          {/* Tenure bar */}
-          <div className="mt-2">
-            <div className="flex items-center gap-2">
-              <div className="flex-1 h-1.5 bg-slate-800 rounded-full overflow-hidden">
-                <div
-                  className="h-full rounded-full transition-all duration-700"
-                  style={{
-                    width: `${Math.min(100, (yearsServing / 32) * 100)}%`,
-                    backgroundColor: partyColor,
-                    minWidth: yearsServing > 0 ? 4 : 0,
-                  }}
-                />
-              </div>
-              <span className="text-[10px] text-slate-600 shrink-0">{yearsServing}y / 32y</span>
-            </div>
           </div>
         </div>}
+
+        {/* Full profile button */}
+        {!isVacant && (
+          <div className="px-4 pb-4">
+            <button
+              onClick={onShowProfile}
+              className="w-full flex items-center justify-between px-4 py-3 rounded-lg text-sm font-medium transition-all duration-150 group"
+              style={{
+                backgroundColor: "rgba(30,41,59,0.5)",
+                border: "1px solid rgba(71,85,105,0.4)",
+                color: "#94a3b8",
+              }}
+              onMouseEnter={e => { (e.currentTarget as HTMLButtonElement).style.backgroundColor = "rgba(51,65,85,0.6)"; (e.currentTarget as HTMLButtonElement).style.color = "#e2e8f0"; }}
+              onMouseLeave={e => { (e.currentTarget as HTMLButtonElement).style.backgroundColor = "rgba(30,41,59,0.5)"; (e.currentTarget as HTMLButtonElement).style.color = "#94a3b8"; }}
+            >
+              <span>View Full Profile</span>
+              <span className="text-slate-600 group-hover:text-slate-300 transition-colors">→</span>
+            </button>
+          </div>
+        )}
 
         {/* Footer */}
         <div className="px-4 py-3 border-t border-slate-700/30">
