@@ -32,8 +32,7 @@ export type FilterMode =
   | "margin"
   | "income"
   | "tenure"
-  | "pvi"
-  | "competitive";
+  | "pvi";
 
 export interface DistrictData {
   districtId: string;

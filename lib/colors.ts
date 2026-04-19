@@ -1,5 +1,5 @@
 import { scaleLinear, scaleSequential } from "d3-scale";
-import { interpolateRdBu, interpolateYlGn, interpolateBlues, interpolateOranges } from "d3-scale-chromatic";
+import { interpolateRdBu, interpolateBlues } from "d3-scale-chromatic";
 import { Party, FilterMode } from "./types";
 
 // Party colors
@@ -19,49 +19,36 @@ export const PARTY_COLORS_SOFT: Record<Party, string> = {
   Unknown: "#94A3B8",
 };
 
-// Margin color scale: red (R) to blue (D), 0 = white
+// Margin color scale: red (R) ↔ blue (D), center = white/grey
 export function marginColor(margin: number): string {
-  // Clamp to [-50, 50]
   const clamped = Math.max(-50, Math.min(50, margin));
-  // Convert to [0, 1] where 1 = deep red (+50), 0 = deep blue (-50)
   const t = (clamped + 50) / 100;
-  // interpolateRdBu: 0=blue, 1=red — we reverse it
   return interpolateRdBu(1 - t);
 }
 
-// Income color scale: light (low) to dark green (high)
-// Range roughly $28K (poorest) to $200K (wealthiest)
-const incomeScale = scaleSequential(interpolateYlGn).domain([28, 180]);
+// Income color scale optimized for dark backgrounds.
+// Low income → muted dark teal; high income → bright amber/yellow.
+// Real district-level range ≈ $35K–$175K.
+const incomeScale = scaleLinear<string>()
+  .domain([35, 65, 100, 175])
+  .range(["#0f2336", "#0f766e", "#d97706", "#fde047"])
+  .clamp(true);
+
 export function incomeColor(incomeK: number): string {
-  return incomeScale(Math.max(28, Math.min(200, incomeK)));
+  return incomeScale(incomeK);
 }
 
-// Tenure color scale: light to dark blue
+// Tenure color scale: faint → saturated blue
 const tenureScale = scaleSequential(interpolateBlues).domain([0, 35]);
 export function tenureColor(years: number): string {
   return tenureScale(Math.max(0, Math.min(40, years)));
 }
 
-// PVI color scale: red to blue
+// PVI color scale: red (R lean) ↔ blue (D lean)
 export function pviColor(pvi: number): string {
   const clamped = Math.max(-40, Math.min(40, pvi));
   const t = (clamped + 40) / 80;
   return interpolateRdBu(1 - t);
-}
-
-// Competitive score: 100 = pure toss-up, 0 = completely safe
-// Score = 100 - (|pvi| * 0.6 + |margin| * 0.4), clamped [0, 100]
-export function competitivenessScore(pvi: number, margin: number): number {
-  return Math.max(0, Math.min(100, 100 - (Math.abs(pvi) * 0.6 + Math.abs(margin) * 0.4)));
-}
-
-// Competitive color scale: amber/orange = competitive, slate = safe
-const competitiveScale = scaleLinear<string>()
-  .domain([0, 40, 70, 100])
-  .range(["#1e293b", "#475569", "#F97316", "#F59E0B"]);
-
-export function competitiveColor(score: number): string {
-  return competitiveScale(Math.max(0, Math.min(100, score)));
 }
 
 // Get color for a district based on filter mode
@@ -74,20 +61,12 @@ export function getDistrictColor(
   tenureYears: number,
 ): string {
   switch (mode) {
-    case "party":
-      return PARTY_COLORS[party] ?? PARTY_COLORS.Unknown;
-    case "margin":
-      return marginColor(margin);
-    case "income":
-      return incomeColor(income);
-    case "tenure":
-      return tenureColor(tenureYears);
-    case "pvi":
-      return pviColor(pvi);
-    case "competitive":
-      return competitiveColor(competitivenessScore(pvi, margin));
-    default:
-      return PARTY_COLORS.Unknown;
+    case "party":   return PARTY_COLORS[party] ?? PARTY_COLORS.Unknown;
+    case "margin":  return marginColor(margin);
+    case "income":  return incomeColor(income);
+    case "tenure":  return tenureColor(tenureYears);
+    case "pvi":     return pviColor(pvi);
+    default:        return PARTY_COLORS.Unknown;
   }
 }
 
@@ -101,32 +80,33 @@ export function getLegendItems(mode: FilterMode): LegendItem[] {
   switch (mode) {
     case "party":
       return [
-        { label: "Republican", color: PARTY_COLORS.Republican },
-        { label: "Democrat", color: PARTY_COLORS.Democrat },
-        { label: "Independent", color: PARTY_COLORS.Independent },
-        { label: "Vacant", color: PARTY_COLORS.Vacant },
+        { label: "Republican",   color: PARTY_COLORS.Republican },
+        { label: "Democrat",     color: PARTY_COLORS.Democrat },
+        { label: "Independent",  color: PARTY_COLORS.Independent },
+        { label: "Vacant",       color: PARTY_COLORS.Vacant },
       ];
     case "margin":
       return [
-        { label: "R +50%", color: marginColor(50) },
-        { label: "R +25%", color: marginColor(25) },
+        { label: "R +50%",  color: marginColor(50) },
+        { label: "R +25%",  color: marginColor(25) },
         { label: "Toss-up", color: marginColor(0) },
-        { label: "D +25%", color: marginColor(-25) },
-        { label: "D +50%", color: marginColor(-50) },
+        { label: "D +25%",  color: marginColor(-25) },
+        { label: "D +50%",  color: marginColor(-50) },
       ];
     case "income":
       return [
-        { label: "$28K", color: incomeColor(28) },
-        { label: "$60K", color: incomeColor(60) },
-        { label: "$100K", color: incomeColor(100) },
-        { label: "$150K+", color: incomeColor(150) },
+        { label: "< $50K",      color: incomeColor(42) },
+        { label: "$65K",        color: incomeColor(65) },
+        { label: "$90K",        color: incomeColor(90) },
+        { label: "$120K",       color: incomeColor(120) },
+        { label: "$150K+",      color: incomeColor(160) },
       ];
     case "tenure":
       return [
-        { label: "0–2 yrs", color: tenureColor(1) },
-        { label: "4–8 yrs", color: tenureColor(6) },
+        { label: "0–2 yrs",   color: tenureColor(1) },
+        { label: "4–8 yrs",   color: tenureColor(6) },
         { label: "10–20 yrs", color: tenureColor(15) },
-        { label: "20+ yrs", color: tenureColor(28) },
+        { label: "20+ yrs",   color: tenureColor(28) },
       ];
     case "pvi":
       return [
@@ -136,24 +116,16 @@ export function getLegendItems(mode: FilterMode): LegendItem[] {
         { label: "D+20", color: pviColor(-20) },
         { label: "D+40", color: pviColor(-40) },
       ];
-    case "competitive":
-      return [
-        { label: "Toss-Up", color: competitiveColor(95) },
-        { label: "Competitive", color: competitiveColor(75) },
-        { label: "Lean", color: competitiveColor(50) },
-        { label: "Safe", color: competitiveColor(15) },
-      ];
   }
 }
 
 export function filterModeLabel(mode: FilterMode): string {
   const labels: Record<FilterMode, string> = {
-    party: "Party",
+    party:  "Party",
     margin: "2024 Margin",
     income: "Median Income",
     tenure: "Tenure",
-    pvi: "Cook PVI",
-    competitive: "Battleground",
+    pvi:    "Cook PVI",
   };
   return labels[mode];
 }

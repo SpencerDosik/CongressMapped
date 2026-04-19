@@ -12,7 +12,6 @@ import FilterTabs from "./FilterTabs";
 import DistrictPanel from "./DistrictPanel";
 import MapLegend from "./MapLegend";
 import RepProfile from "./RepProfile";
-import BattlegroundSidebar from "./BattlegroundSidebar";
 
 import { FilterMode } from "@/lib/types";
 import { getDistrictColor, PARTY_COLORS } from "@/lib/colors";
@@ -24,8 +23,8 @@ const DISTRICTS_URL = "/districts.json";
 const ZOOM_MIN = 0.5;
 const ZOOM_MAX = 25;
 const R_CAUCUS = 218; // 217 R + Kevin Kiley (I, caucuses R)
-const D_SEATS = 213;
-const V_SEATS = 4;
+const D_SEATS = 214; // +1: Analilia Mejia won NJ-11 special election Apr 16, 2026
+const V_SEATS = 3;   // CA-01, CA-14, TX-23
 const TOTAL_SEATS = 435;
 const MAJORITY = 218;
 
@@ -98,7 +97,7 @@ function SeatBar() {
         </div>
       </div>
       <p className="text-[10px] text-slate-700">
-        incl. 1 independent · {V_SEATS} vacant
+        incl. 1 independent · {V_SEATS} vacant seats
       </p>
     </div>
   );
@@ -550,14 +549,6 @@ export default function HouseMap() {
             </button>
           )}
         </div>
-
-        {/* Battleground Sidebar — shown when competitive filter is active */}
-        {filterMode === "competitive" && (
-          <BattlegroundSidebar
-            onSelectDistrict={(id) => setSelectedId((prev) => prev === id ? null : id)}
-            selectedId={selectedId}
-          />
-        )}
 
         {/* District Panel */}
         {selectedId && selectedData && selectedRepName && (
