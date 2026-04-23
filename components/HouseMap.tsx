@@ -397,7 +397,7 @@ export default function HouseMap() {
           </div>
           <div>
             <h1 className="text-white font-bold text-sm leading-tight tracking-tight">
-              House Visualizer
+              HouseMap
             </h1>
             <p className="text-slate-600 text-[10px]">119th Congress</p>
           </div>

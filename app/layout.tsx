@@ -2,11 +2,11 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "House of Representatives Visualizer",
+  title: "HouseMap",
   description:
     "Interactive map of all 435 U.S. Congressional Districts — explore representatives, election margins, income, tenure, and more.",
   openGraph: {
-    title: "House of Representatives Visualizer",
+    title: "HouseMap",
     description: "Interactive map of all 435 U.S. Congressional Districts",
     type: "website",
   },
