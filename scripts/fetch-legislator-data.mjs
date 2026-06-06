@@ -56,11 +56,13 @@ async function main() {
       phone: term.phone ?? null,
       url: term.url ?? null,
       office: term.office ?? null,
-      // Social / contact extras
       contactForm: term.contact_form ?? null,
       twitter: leg.social?.twitter ?? null,
       facebook: leg.social?.facebook ?? null,
       youtube: leg.social?.youtube ?? null,
+      birthday: leg.bio?.birthday ?? null,
+      gender: leg.bio?.gender ?? null,
+      religion: leg.bio?.religion ?? null,
     };
   }
 

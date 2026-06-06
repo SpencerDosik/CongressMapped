@@ -46,7 +46,7 @@
       "code": "HSJU",
       "name": "House Committee on the Judiciary",
       "type": "house",
-      "rank": 14,
+      "rank": 13,
       "title": null,
       "parent": null
     },
@@ -252,7 +252,7 @@
       "code": "HSSY",
       "name": "House Committee on Science, Space, and Technology",
       "type": "house",
-      "rank": 17,
+      "rank": 16,
       "title": null,
       "parent": null
     },
@@ -260,7 +260,7 @@
       "code": "HSFA",
       "name": "House Committee on Foreign Affairs",
       "type": "house",
-      "rank": 25,
+      "rank": 24,
       "title": null,
       "parent": null
     },
@@ -276,7 +276,7 @@
       "code": "HSHM11",
       "name": "Border Security and Enforcement",
       "type": "subcommittee",
-      "rank": 5,
+      "rank": 4,
       "title": null,
       "parent": "House Committee on Homeland Security"
     },
@@ -318,7 +318,7 @@
       "code": "HSHM",
       "name": "House Committee on Homeland Security",
       "type": "house",
-      "rank": 5,
+      "rank": 4,
       "title": null,
       "parent": null
     },
@@ -554,7 +554,7 @@
       "code": "HSSY",
       "name": "House Committee on Science, Space, and Technology",
       "type": "house",
-      "rank": 22,
+      "rank": 21,
       "title": null,
       "parent": null
     },
@@ -567,18 +567,10 @@
       "parent": "House Committee on Homeland Security"
     },
     {
-      "code": "HSHM09",
-      "name": "Oversight, Investigations, and Accountability",
-      "type": "subcommittee",
-      "rank": 5,
-      "title": null,
-      "parent": "House Committee on Homeland Security"
-    },
-    {
       "code": "HSHM05",
       "name": "Counterterrorism and Intelligence",
       "type": "subcommittee",
-      "rank": 6,
+      "rank": 5,
       "title": null,
       "parent": "House Committee on Homeland Security"
     }
@@ -682,7 +674,7 @@
       "code": "HSAP",
       "name": "House Committee on Appropriations",
       "type": "house",
-      "rank": 35,
+      "rank": 34,
       "title": null,
       "parent": null
     },
@@ -698,7 +690,7 @@
       "code": "HSAP19",
       "name": "Commerce, Justice, Science, and Related Agencies",
       "type": "subcommittee",
-      "rank": 8,
+      "rank": 7,
       "title": null,
       "parent": "House Committee on Appropriations"
     },
@@ -1786,7 +1778,7 @@
       "code": "HSHM",
       "name": "House Committee on Homeland Security",
       "type": "house",
-      "rank": 15,
+      "rank": 14,
       "title": null,
       "parent": null
     },
@@ -2342,7 +2334,7 @@
       "code": "HSAP",
       "name": "House Committee on Appropriations",
       "type": "house",
-      "rank": 26,
+      "rank": 25,
       "title": null,
       "parent": null
     },
@@ -2366,7 +2358,7 @@
       "code": "HSAP20",
       "name": "Transportation, Housing and Urban Development, and Related Agencies",
       "type": "subcommittee",
-      "rank": 8,
+      "rank": 7,
       "title": "Vice Chair",
       "parent": "House Committee on Appropriations"
     },
@@ -3680,56 +3672,6 @@
       "parent": "House Permanent Select Committee on Intelligence"
     }
   ],
-  "GA-13": [
-    {
-      "code": "HSAG",
-      "name": "House Committee on Agriculture",
-      "type": "house",
-      "rank": 2,
-      "title": null,
-      "parent": null
-    },
-    {
-      "code": "HSBA",
-      "name": "House Committee on Financial Services",
-      "type": "house",
-      "rank": 5,
-      "title": null,
-      "parent": null
-    },
-    {
-      "code": "HSAG16",
-      "name": "General Farm Commodities, Risk Management, and Credit",
-      "type": "subcommittee",
-      "rank": 2,
-      "title": null,
-      "parent": "House Committee on Agriculture"
-    },
-    {
-      "code": "HSAG22",
-      "name": "Commodity Markets, Digital Assets, and Rural Development",
-      "type": "subcommittee",
-      "rank": 2,
-      "title": null,
-      "parent": "House Committee on Agriculture"
-    },
-    {
-      "code": "HSBA16",
-      "name": "Capital Markets",
-      "type": "subcommittee",
-      "rank": 2,
-      "title": null,
-      "parent": "House Committee on Financial Services"
-    },
-    {
-      "code": "HSBA20",
-      "name": "Financial Institutions",
-      "type": "subcommittee",
-      "rank": 4,
-      "title": null,
-      "parent": "House Committee on Financial Services"
-    }
-  ],
   "VA-03": [
     {
       "code": "HSED",
@@ -4293,7 +4235,7 @@
       "code": "HSII24",
       "name": "Indian and Insular Affairs",
       "type": "subcommittee",
-      "rank": 4,
+      "rank": 3,
       "title": null,
       "parent": "House Committee on Natural Resources"
     },
@@ -5020,14 +4962,6 @@
       "rank": 9,
       "title": null,
       "parent": null
-    },
-    {
-      "code": "HSII24",
-      "name": "Indian and Insular Affairs",
-      "type": "subcommittee",
-      "rank": 2,
-      "title": null,
-      "parent": "House Committee on Natural Resources"
     },
     {
       "code": "HSPW14",
@@ -5761,16 +5695,16 @@
       "parent": "House Committee on Appropriations"
     },
     {
-      "code": "HSAP02",
-      "name": "Defense",
+      "code": "HSAP20",
+      "name": "Transportation, Housing and Urban Development, and Related Agencies",
       "type": "subcommittee",
-      "rank": 7,
+      "rank": 6,
       "title": null,
       "parent": "House Committee on Appropriations"
     },
     {
-      "code": "HSAP20",
-      "name": "Transportation, Housing and Urban Development, and Related Agencies",
+      "code": "HSAP02",
+      "name": "Defense",
       "type": "subcommittee",
       "rank": 7,
       "title": null,
@@ -6458,7 +6392,7 @@
       "code": "HSJU",
       "name": "House Committee on the Judiciary",
       "type": "house",
-      "rank": 7,
+      "rank": 6,
       "title": null,
       "parent": null
     },
@@ -6918,7 +6852,7 @@
       "code": "HSSY",
       "name": "House Committee on Science, Space, and Technology",
       "type": "house",
-      "rank": 14,
+      "rank": 13,
       "title": null,
       "parent": null
     },
@@ -6947,20 +6881,20 @@
       "parent": "House Committee on Transportation and Infrastructure"
     },
     {
+      "code": "HSSY18",
+      "name": "Environment",
+      "type": "subcommittee",
+      "rank": 2,
+      "title": null,
+      "parent": "House Committee on Science, Space, and Technology"
+    },
+    {
       "code": "HSAG15",
       "name": "Forestry and Horticulture",
       "type": "subcommittee",
       "rank": 3,
       "title": null,
       "parent": "House Committee on Agriculture"
-    },
-    {
-      "code": "HSSY18",
-      "name": "Environment",
-      "type": "subcommittee",
-      "rank": 3,
-      "title": null,
-      "parent": "House Committee on Science, Space, and Technology"
     },
     {
       "code": "HSAG22",
@@ -7413,6 +7347,14 @@
       "parent": null
     },
     {
+      "code": "HSII24",
+      "name": "Indian and Insular Affairs",
+      "type": "subcommittee",
+      "rank": 2,
+      "title": null,
+      "parent": "House Committee on Natural Resources"
+    },
+    {
       "code": "HSVR08",
       "name": "Oversight and Investigations",
       "type": "subcommittee",
@@ -7427,14 +7369,6 @@
       "rank": 2,
       "title": null,
       "parent": "House Committee on Veterans' Affairs"
-    },
-    {
-      "code": "HSII24",
-      "name": "Indian and Insular Affairs",
-      "type": "subcommittee",
-      "rank": 3,
-      "title": null,
-      "parent": "House Committee on Natural Resources"
     },
     {
       "code": "HSII13",
@@ -7926,7 +7860,7 @@
       "code": "HSHM",
       "name": "House Committee on Homeland Security",
       "type": "house",
-      "rank": 3,
+      "rank": 2,
       "title": null,
       "parent": null
     },
@@ -7934,7 +7868,7 @@
       "code": "HSJU",
       "name": "House Committee on the Judiciary",
       "type": "house",
-      "rank": 9,
+      "rank": 8,
       "title": null,
       "parent": null
     },
@@ -8361,7 +8295,7 @@
       "code": "HSPW",
       "name": "House Committee on Transportation and Infrastructure",
       "type": "house",
-      "rank": 30,
+      "rank": 31,
       "title": null,
       "parent": null
     },
@@ -8369,7 +8303,15 @@
       "code": "HSHM09",
       "name": "Oversight, Investigations, and Accountability",
       "type": "subcommittee",
-      "rank": 4,
+      "rank": 5,
+      "title": null,
+      "parent": "House Committee on Homeland Security"
+    },
+    {
+      "code": "HSHM11",
+      "name": "Border Security and Enforcement",
+      "type": "subcommittee",
+      "rank": 5,
       "title": null,
       "parent": "House Committee on Homeland Security"
     },
@@ -8380,14 +8322,6 @@
       "rank": 6,
       "title": null,
       "parent": "House Committee on the Judiciary"
-    },
-    {
-      "code": "HSHM11",
-      "name": "Border Security and Enforcement",
-      "type": "subcommittee",
-      "rank": 6,
-      "title": null,
-      "parent": "House Committee on Homeland Security"
     },
     {
       "code": "HSJU01",
@@ -8805,7 +8739,7 @@
       "code": "HSJU",
       "name": "House Committee on the Judiciary",
       "type": "house",
-      "rank": 8,
+      "rank": 7,
       "title": null,
       "parent": null
     },
@@ -9005,7 +8939,7 @@
       "code": "HSSY",
       "name": "House Committee on Science, Space, and Technology",
       "type": "house",
-      "rank": 20,
+      "rank": 19,
       "title": null,
       "parent": null
     },
@@ -9021,7 +8955,7 @@
       "code": "HSPW",
       "name": "House Committee on Transportation and Infrastructure",
       "type": "house",
-      "rank": 32,
+      "rank": 33,
       "title": null,
       "parent": null
     },
@@ -9029,7 +8963,7 @@
       "code": "HSII24",
       "name": "Indian and Insular Affairs",
       "type": "subcommittee",
-      "rank": 6,
+      "rank": 5,
       "title": null,
       "parent": "House Committee on Natural Resources"
     },
@@ -9095,7 +9029,7 @@
       "code": "HSAP",
       "name": "House Committee on Appropriations",
       "type": "house",
-      "rank": 22,
+      "rank": 21,
       "title": null,
       "parent": null
     },
@@ -9271,7 +9205,7 @@
       "code": "HSJU",
       "name": "House Committee on the Judiciary",
       "type": "house",
-      "rank": 10,
+      "rank": 9,
       "title": null,
       "parent": null
     },
@@ -9483,7 +9417,7 @@
       "code": "HSJU",
       "name": "House Committee on the Judiciary",
       "type": "house",
-      "rank": 11,
+      "rank": 10,
       "title": null,
       "parent": null
     },
@@ -9649,7 +9583,7 @@
       "code": "HSJU",
       "name": "House Committee on the Judiciary",
       "type": "house",
-      "rank": 12,
+      "rank": 11,
       "title": null,
       "parent": null
     },
@@ -9738,16 +9672,16 @@
   ],
   "IL-04": [
     {
-      "code": "HSPW",
-      "name": "House Committee on Transportation and Infrastructure",
+      "code": "HSJU",
+      "name": "House Committee on the Judiciary",
       "type": "house",
-      "rank": 15,
+      "rank": 14,
       "title": null,
       "parent": null
     },
     {
-      "code": "HSJU",
-      "name": "House Committee on the Judiciary",
+      "code": "HSPW",
+      "name": "House Committee on Transportation and Infrastructure",
       "type": "house",
       "rank": 15,
       "title": null,
@@ -10091,7 +10025,7 @@
       "code": "HSPW",
       "name": "House Committee on Transportation and Infrastructure",
       "type": "house",
-      "rank": 23,
+      "rank": 24,
       "title": null,
       "parent": null
     },
@@ -10359,7 +10293,7 @@
       "code": "HSAP",
       "name": "House Committee on Appropriations",
       "type": "house",
-      "rank": 23,
+      "rank": 22,
       "title": null,
       "parent": null
     },
@@ -11888,6 +11822,14 @@
       "parent": null
     },
     {
+      "code": "HSAG",
+      "name": "House Committee on Agriculture",
+      "type": "house",
+      "rank": 29,
+      "title": null,
+      "parent": null
+    },
+    {
       "code": "JSLC",
       "name": "Joint Committee of Congress on the Library",
       "type": "joint",
@@ -12273,7 +12215,7 @@
       "code": "HSAP",
       "name": "House Committee on Appropriations",
       "type": "house",
-      "rank": 27,
+      "rank": 26,
       "title": null,
       "parent": null
     },
@@ -12515,7 +12457,7 @@
       "code": "HSAP",
       "name": "House Committee on Appropriations",
       "type": "house",
-      "rank": 25,
+      "rank": 24,
       "title": null,
       "parent": null
     },
@@ -12523,7 +12465,7 @@
       "code": "HSAP19",
       "name": "Commerce, Justice, Science, and Related Agencies",
       "type": "subcommittee",
-      "rank": 5,
+      "rank": 4,
       "title": null,
       "parent": "House Committee on Appropriations"
     },
@@ -12967,7 +12909,7 @@
       "code": "HSJU",
       "name": "House Committee on the Judiciary",
       "type": "house",
-      "rank": 13,
+      "rank": 12,
       "title": null,
       "parent": null
     },
@@ -13863,7 +13805,7 @@
       "code": "HSAP",
       "name": "House Committee on Appropriations",
       "type": "house",
-      "rank": 21,
+      "rank": 20,
       "title": null,
       "parent": null
     },
@@ -13897,7 +13839,7 @@
       "code": "HSHM",
       "name": "House Committee on Homeland Security",
       "type": "house",
-      "rank": 14,
+      "rank": 13,
       "title": null,
       "parent": null
     },
@@ -13963,7 +13905,7 @@
       "code": "HSAP",
       "name": "House Committee on Appropriations",
       "type": "house",
-      "rank": 28,
+      "rank": 27,
       "title": null,
       "parent": null
     },
@@ -14116,56 +14058,6 @@
       "parent": "House Committee on House Administration"
     }
   ],
-  "FL-20": [
-    {
-      "code": "HSVR",
-      "name": "House Committee on Veterans' Affairs",
-      "type": "house",
-      "rank": 4,
-      "title": null,
-      "parent": null
-    },
-    {
-      "code": "HSFA",
-      "name": "House Committee on Foreign Affairs",
-      "type": "house",
-      "rank": 9,
-      "title": null,
-      "parent": null
-    },
-    {
-      "code": "HSFA13",
-      "name": "Middle East and North Africa",
-      "type": "subcommittee",
-      "rank": 1,
-      "title": "Ranking Member",
-      "parent": "House Committee on Foreign Affairs"
-    },
-    {
-      "code": "HSFA16",
-      "name": "Africa",
-      "type": "subcommittee",
-      "rank": 2,
-      "title": null,
-      "parent": "House Committee on Foreign Affairs"
-    },
-    {
-      "code": "HSVR03",
-      "name": "Health",
-      "type": "subcommittee",
-      "rank": 2,
-      "title": null,
-      "parent": "House Committee on Veterans' Affairs"
-    },
-    {
-      "code": "HSVR11",
-      "name": "Technology Modernization",
-      "type": "subcommittee",
-      "rank": 2,
-      "title": null,
-      "parent": "House Committee on Veterans' Affairs"
-    }
-  ],
   "NE-01": [
     {
       "code": "HSBA",
@@ -14197,7 +14089,7 @@
       "code": "HSSM",
       "name": "House Committee on Small Business",
       "type": "house",
-      "rank": 8,
+      "rank": 7,
       "title": null,
       "parent": null
     },
@@ -14342,6 +14234,14 @@
   ],
   "IN-02": [
     {
+      "code": "HSPW",
+      "name": "House Committee on Transportation and Infrastructure",
+      "type": "house",
+      "rank": 21,
+      "title": null,
+      "parent": null
+    },
+    {
       "code": "HSWM",
       "name": "House Committee on Ways and Means",
       "type": "house",
@@ -14379,7 +14279,7 @@
       "code": "HSFA",
       "name": "House Committee on Foreign Affairs",
       "type": "house",
-      "rank": 21,
+      "rank": 20,
       "title": null,
       "parent": null
     },
@@ -14387,23 +14287,23 @@
       "code": "HSAP",
       "name": "House Committee on Appropriations",
       "type": "house",
-      "rank": 24,
+      "rank": 23,
       "title": null,
       "parent": null
     },
     {
-      "code": "HSAP18",
-      "name": "Military Construction, Veterans Affairs, and Related Agencies",
+      "code": "HSAP20",
+      "name": "Transportation, Housing and Urban Development, and Related Agencies",
       "type": "subcommittee",
       "rank": 4,
       "title": null,
       "parent": "House Committee on Appropriations"
     },
     {
-      "code": "HSAP20",
-      "name": "Transportation, Housing and Urban Development, and Related Agencies",
+      "code": "HSAP18",
+      "name": "Military Construction, Veterans Affairs, and Related Agencies",
       "type": "subcommittee",
-      "rank": 5,
+      "rank": 4,
       "title": null,
       "parent": "House Committee on Appropriations"
     },
@@ -14437,7 +14337,7 @@
       "code": "HSHM",
       "name": "House Committee on Homeland Security",
       "type": "house",
-      "rank": 8,
+      "rank": 7,
       "title": null,
       "parent": null
     },
@@ -14445,7 +14345,7 @@
       "code": "HSAP",
       "name": "House Committee on Appropriations",
       "type": "house",
-      "rank": 33,
+      "rank": 32,
       "title": null,
       "parent": null
     },
@@ -14477,7 +14377,7 @@
       "code": "HSAP19",
       "name": "Commerce, Justice, Science, and Related Agencies",
       "type": "subcommittee",
-      "rank": 7,
+      "rank": 6,
       "title": "Vice Chair",
       "parent": "House Committee on Appropriations"
     },
@@ -14485,7 +14385,7 @@
       "code": "HSAP20",
       "name": "Transportation, Housing and Urban Development, and Related Agencies",
       "type": "subcommittee",
-      "rank": 9,
+      "rank": 8,
       "title": null,
       "parent": "House Committee on Appropriations"
     }
@@ -14495,7 +14395,7 @@
       "code": "HSHM",
       "name": "House Committee on Homeland Security",
       "type": "house",
-      "rank": 10,
+      "rank": 9,
       "title": null,
       "parent": null
     },
@@ -14519,7 +14419,7 @@
       "code": "HSHM11",
       "name": "Border Security and Enforcement",
       "type": "subcommittee",
-      "rank": 3,
+      "rank": 2,
       "title": null,
       "parent": "House Committee on Homeland Security"
     },
@@ -14553,7 +14453,7 @@
       "code": "HSAP",
       "name": "House Committee on Appropriations",
       "type": "house",
-      "rank": 29,
+      "rank": 28,
       "title": null,
       "parent": null
     },
@@ -14585,7 +14485,7 @@
       "code": "HSAP20",
       "name": "Transportation, Housing and Urban Development, and Related Agencies",
       "type": "subcommittee",
-      "rank": 6,
+      "rank": 5,
       "title": null,
       "parent": "House Committee on Appropriations"
     },
@@ -14593,7 +14493,7 @@
       "code": "HSAP15",
       "name": "Homeland Security",
       "type": "subcommittee",
-      "rank": 7,
+      "rank": 6,
       "title": "Vice Chair",
       "parent": "House Committee on Appropriations"
     }
@@ -14646,7 +14546,7 @@
       "code": "HSJU",
       "name": "House Committee on the Judiciary",
       "type": "house",
-      "rank": 16,
+      "rank": 15,
       "title": null,
       "parent": null
     },
@@ -14667,18 +14567,18 @@
       "parent": "House Committee on Foreign Affairs"
     },
     {
-      "code": "HSJU10",
-      "name": "The Constitution and Limited Government",
+      "code": "HSJU03",
+      "name": "Courts, Intellectual Property, Artificial Intelligence, and the Internet",
       "type": "subcommittee",
       "rank": 6,
       "title": null,
       "parent": "House Committee on the Judiciary"
     },
     {
-      "code": "HSJU03",
-      "name": "Courts, Intellectual Property, Artificial Intelligence, and the Internet",
+      "code": "HSJU10",
+      "name": "The Constitution and Limited Government",
       "type": "subcommittee",
-      "rank": 7,
+      "rank": 6,
       "title": null,
       "parent": "House Committee on the Judiciary"
     }
@@ -14898,7 +14798,7 @@
       "code": "HSFA",
       "name": "House Committee on Foreign Affairs",
       "type": "house",
-      "rank": 23,
+      "rank": 22,
       "title": null,
       "parent": null
     },
@@ -14946,7 +14846,7 @@
       "code": "HSFA17",
       "name": "Oversight and Intelligence",
       "type": "subcommittee",
-      "rank": 8,
+      "rank": 7,
       "title": null,
       "parent": "House Committee on Foreign Affairs"
     }
@@ -14996,7 +14896,7 @@
       "code": "HSJU03",
       "name": "Courts, Intellectual Property, Artificial Intelligence, and the Internet",
       "type": "subcommittee",
-      "rank": 7,
+      "rank": 6,
       "title": null,
       "parent": "House Committee on the Judiciary"
     },
@@ -15046,7 +14946,7 @@
       "code": "HSJU",
       "name": "House Committee on the Judiciary",
       "type": "house",
-      "rank": 17,
+      "rank": 16,
       "title": null,
       "parent": null
     },
@@ -15088,15 +14988,7 @@
       "code": "HSSY",
       "name": "House Committee on Science, Space, and Technology",
       "type": "house",
-      "rank": 11,
-      "title": null,
-      "parent": null
-    },
-    {
-      "code": "HSFA",
-      "name": "House Committee on Foreign Affairs",
-      "type": "house",
-      "rank": 20,
+      "rank": 10,
       "title": null,
       "parent": null
     },
@@ -15105,6 +14997,14 @@
       "name": "House Committee on Armed Services",
       "type": "house",
       "rank": 21,
+      "title": null,
+      "parent": null
+    },
+    {
+      "code": "HSGO",
+      "name": "House Committee on Oversight and Government Reform",
+      "type": "house",
+      "rank": 26,
       "title": null,
       "parent": null
     },
@@ -15133,28 +15033,12 @@
       "parent": "House Committee on Armed Services"
     },
     {
-      "code": "HSFA16",
-      "name": "Africa",
-      "type": "subcommittee",
-      "rank": 7,
-      "title": null,
-      "parent": "House Committee on Foreign Affairs"
-    },
-    {
       "code": "HSAS35",
       "name": "Cyber, Information Technologies, and Innovation",
       "type": "subcommittee",
       "rank": 7,
       "title": null,
       "parent": "House Committee on Armed Services"
-    },
-    {
-      "code": "HSFA17",
-      "name": "Oversight and Intelligence",
-      "type": "subcommittee",
-      "rank": 7,
-      "title": null,
-      "parent": "House Committee on Foreign Affairs"
     }
   ],
   "GA-10": [
@@ -15162,7 +15046,7 @@
       "code": "HSSY",
       "name": "House Committee on Science, Space, and Technology",
       "type": "house",
-      "rank": 12,
+      "rank": 11,
       "title": null,
       "parent": null
     },
@@ -15244,7 +15128,7 @@
       "code": "HSFA",
       "name": "House Committee on Foreign Affairs",
       "type": "house",
-      "rank": 22,
+      "rank": 21,
       "title": null,
       "parent": null
     },
@@ -15349,18 +15233,18 @@
   ],
   "IL-03": [
     {
-      "code": "HSVR",
-      "name": "House Committee on Veterans' Affairs",
+      "code": "HSHM",
+      "name": "House Committee on Homeland Security",
       "type": "house",
       "rank": 6,
       "title": null,
       "parent": null
     },
     {
-      "code": "HSHM",
-      "name": "House Committee on Homeland Security",
+      "code": "HSVR",
+      "name": "House Committee on Veterans' Affairs",
       "type": "house",
-      "rank": 7,
+      "rank": 6,
       "title": null,
       "parent": null
     },
@@ -15694,7 +15578,7 @@
       "code": "HSHM",
       "name": "House Committee on Homeland Security",
       "type": "house",
-      "rank": 4,
+      "rank": 3,
       "title": null,
       "parent": null
     },
@@ -15736,7 +15620,7 @@
       "code": "HSAP",
       "name": "House Committee on Appropriations",
       "type": "house",
-      "rank": 31,
+      "rank": 30,
       "title": null,
       "parent": null
     },
@@ -15760,7 +15644,7 @@
       "code": "HSAP19",
       "name": "Commerce, Justice, Science, and Related Agencies",
       "type": "subcommittee",
-      "rank": 6,
+      "rank": 5,
       "title": null,
       "parent": "House Committee on Appropriations"
     },
@@ -16026,7 +15910,7 @@
       "code": "HSAP",
       "name": "House Committee on Appropriations",
       "type": "house",
-      "rank": 30,
+      "rank": 29,
       "title": null,
       "parent": null
     },
@@ -16191,10 +16075,10 @@
   ],
   "NY-01": [
     {
-      "code": "HSSM",
-      "name": "House Committee on Small Business",
+      "code": "HSHM",
+      "name": "House Committee on Homeland Security",
       "type": "house",
-      "rank": 7,
+      "rank": 10,
       "title": null,
       "parent": null
     },
@@ -16202,17 +16086,9 @@
       "code": "HSAP",
       "name": "House Committee on Appropriations",
       "type": "house",
-      "rank": 32,
+      "rank": 31,
       "title": null,
       "parent": null
-    },
-    {
-      "code": "HSSM23",
-      "name": "Contracting and Infrastructure",
-      "type": "subcommittee",
-      "rank": 1,
-      "title": "Chairman",
-      "parent": "House Committee on Small Business"
     },
     {
       "code": "HSAP24",
@@ -16223,12 +16099,20 @@
       "parent": "House Committee on Appropriations"
     },
     {
-      "code": "HSSM27",
-      "name": "Economic Growth, Tax, and Capital Access",
+      "code": "HSHM09",
+      "name": "Oversight, Investigations, and Accountability",
       "type": "subcommittee",
       "rank": 3,
       "title": null,
-      "parent": "House Committee on Small Business"
+      "parent": "House Committee on Homeland Security"
+    },
+    {
+      "code": "HSHM08",
+      "name": "Cybersecurity and Infrastructure Protection",
+      "type": "subcommittee",
+      "rank": 4,
+      "title": null,
+      "parent": "House Committee on Homeland Security"
     },
     {
       "code": "HSAP23",
@@ -16252,7 +16136,7 @@
       "code": "HSHM",
       "name": "House Committee on Homeland Security",
       "type": "house",
-      "rank": 6,
+      "rank": 5,
       "title": null,
       "parent": null
     },
@@ -16260,7 +16144,7 @@
       "code": "HSJU",
       "name": "House Committee on the Judiciary",
       "type": "house",
-      "rank": 18,
+      "rank": 17,
       "title": null,
       "parent": null
     },
@@ -16433,14 +16317,6 @@
   ],
   "OH-07": [
     {
-      "code": "HSSY",
-      "name": "House Committee on Science, Space, and Technology",
-      "type": "house",
-      "rank": 10,
-      "title": null,
-      "parent": null
-    },
-    {
       "code": "HSWM",
       "name": "House Committee on Ways and Means",
       "type": "house",
@@ -16449,12 +16325,12 @@
       "parent": null
     },
     {
-      "code": "HSSY18",
-      "name": "Environment",
-      "type": "subcommittee",
-      "rank": 2,
+      "code": "HSFA",
+      "name": "House Committee on Foreign Affairs",
+      "type": "house",
+      "rank": 28,
       "title": null,
-      "parent": "House Committee on Science, Space, and Technology"
+      "parent": null
     },
     {
       "code": "HSWM03",
@@ -16471,6 +16347,22 @@
       "rank": 6,
       "title": null,
       "parent": "House Committee on Ways and Means"
+    },
+    {
+      "code": "HSFA16",
+      "name": "Africa",
+      "type": "subcommittee",
+      "rank": 7,
+      "title": null,
+      "parent": "House Committee on Foreign Affairs"
+    },
+    {
+      "code": "HSFA17",
+      "name": "Oversight and Intelligence",
+      "type": "subcommittee",
+      "rank": 8,
+      "title": null,
+      "parent": "House Committee on Foreign Affairs"
     }
   ],
   "OH-13": [
@@ -16528,7 +16420,7 @@
       "code": "HSHM",
       "name": "House Committee on Homeland Security",
       "type": "house",
-      "rank": 9,
+      "rank": 8,
       "title": null,
       "parent": null
     },
@@ -16778,7 +16670,7 @@
       "code": "HSJU03",
       "name": "Courts, Intellectual Property, Artificial Intelligence, and the Internet",
       "type": "subcommittee",
-      "rank": 6,
+      "rank": 7,
       "title": null,
       "parent": "House Committee on the Judiciary"
     },
@@ -16841,16 +16733,16 @@
       "parent": "House Committee on Homeland Security"
     },
     {
-      "code": "HSHM09",
-      "name": "Oversight, Investigations, and Accountability",
+      "code": "HSHM11",
+      "name": "Border Security and Enforcement",
       "type": "subcommittee",
       "rank": 3,
       "title": null,
       "parent": "House Committee on Homeland Security"
     },
     {
-      "code": "HSHM11",
-      "name": "Border Security and Enforcement",
+      "code": "HSHM09",
+      "name": "Oversight, Investigations, and Accountability",
       "type": "subcommittee",
       "rank": 4,
       "title": null,
@@ -16944,7 +16836,7 @@
       "code": "HSSY",
       "name": "House Committee on Science, Space, and Technology",
       "type": "house",
-      "rank": 15,
+      "rank": 14,
       "title": null,
       "parent": null
     },
@@ -17002,7 +16894,7 @@
       "code": "HSHM",
       "name": "House Committee on Homeland Security",
       "type": "house",
-      "rank": 7,
+      "rank": 6,
       "title": null,
       "parent": null
     },
@@ -17031,16 +16923,16 @@
       "parent": "House Committee on Veterans' Affairs"
     },
     {
-      "code": "HSHM08",
-      "name": "Cybersecurity and Infrastructure Protection",
+      "code": "HSHM05",
+      "name": "Counterterrorism and Intelligence",
       "type": "subcommittee",
-      "rank": 3,
+      "rank": 2,
       "title": null,
       "parent": "House Committee on Homeland Security"
     },
     {
-      "code": "HSHM05",
-      "name": "Counterterrorism and Intelligence",
+      "code": "HSHM08",
+      "name": "Cybersecurity and Infrastructure Protection",
       "type": "subcommittee",
       "rank": 3,
       "title": null,
@@ -17142,7 +17034,7 @@
       "code": "HSJU",
       "name": "House Committee on the Judiciary",
       "type": "house",
-      "rank": 19,
+      "rank": 18,
       "title": null,
       "parent": null
     },
@@ -17542,7 +17434,7 @@
       "code": "HSAP",
       "name": "House Committee on Appropriations",
       "type": "house",
-      "rank": 34,
+      "rank": 33,
       "title": null,
       "parent": null
     },
@@ -17618,7 +17510,7 @@
       "code": "HSHM",
       "name": "House Committee on Homeland Security",
       "type": "house",
-      "rank": 8,
+      "rank": 7,
       "title": null,
       "parent": null
     },
@@ -17668,7 +17560,7 @@
       "code": "HSSY",
       "name": "House Committee on Science, Space, and Technology",
       "type": "house",
-      "rank": 13,
+      "rank": 12,
       "title": null,
       "parent": null
     },
@@ -17684,7 +17576,7 @@
       "code": "HSPW",
       "name": "House Committee on Transportation and Infrastructure",
       "type": "house",
-      "rank": 21,
+      "rank": 22,
       "title": null,
       "parent": null
     },
@@ -17808,7 +17700,7 @@
       "code": "HSHM",
       "name": "House Committee on Homeland Security",
       "type": "house",
-      "rank": 9,
+      "rank": 8,
       "title": null,
       "parent": null
     },
@@ -17858,7 +17750,7 @@
       "code": "HSSM",
       "name": "House Committee on Small Business",
       "type": "house",
-      "rank": 9,
+      "rank": 8,
       "title": null,
       "parent": null
     },
@@ -17866,7 +17758,7 @@
       "code": "HSPW",
       "name": "House Committee on Transportation and Infrastructure",
       "type": "house",
-      "rank": 22,
+      "rank": 23,
       "title": null,
       "parent": null
     },
@@ -17998,7 +17890,7 @@
       "code": "HSSY",
       "name": "House Committee on Science, Space, and Technology",
       "type": "house",
-      "rank": 21,
+      "rank": 20,
       "title": null,
       "parent": null
     },
@@ -18014,9 +17906,17 @@
       "code": "HSPW",
       "name": "House Committee on Transportation and Infrastructure",
       "type": "house",
-      "rank": 24,
+      "rank": 25,
       "title": null,
       "parent": null
+    },
+    {
+      "code": "HSSY18",
+      "name": "Environment",
+      "type": "subcommittee",
+      "rank": 4,
+      "title": null,
+      "parent": "House Committee on Science, Space, and Technology"
     },
     {
       "code": "HSII15",
@@ -18033,14 +17933,6 @@
       "rank": 5,
       "title": null,
       "parent": "House Committee on Transportation and Infrastructure"
-    },
-    {
-      "code": "HSSY18",
-      "name": "Environment",
-      "type": "subcommittee",
-      "rank": 5,
-      "title": null,
-      "parent": "House Committee on Science, Space, and Technology"
     },
     {
       "code": "HSSY21",
@@ -18538,7 +18430,7 @@
       "code": "HSSY",
       "name": "House Committee on Science, Space, and Technology",
       "type": "house",
-      "rank": 18,
+      "rank": 17,
       "title": null,
       "parent": null
     },
@@ -18554,7 +18446,7 @@
       "code": "HSPW",
       "name": "House Committee on Transportation and Infrastructure",
       "type": "house",
-      "rank": 26,
+      "rank": 27,
       "title": null,
       "parent": null
     },
@@ -18570,7 +18462,7 @@
       "code": "HSSY18",
       "name": "Environment",
       "type": "subcommittee",
-      "rank": 4,
+      "rank": 3,
       "title": null,
       "parent": "House Committee on Science, Space, and Technology"
     },
@@ -18702,7 +18594,7 @@
       "code": "HSHM05",
       "name": "Counterterrorism and Intelligence",
       "type": "subcommittee",
-      "rank": 4,
+      "rank": 3,
       "title": null,
       "parent": "House Committee on Homeland Security"
     },
@@ -18736,7 +18628,7 @@
       "code": "HSSY",
       "name": "House Committee on Science, Space, and Technology",
       "type": "house",
-      "rank": 19,
+      "rank": 18,
       "title": null,
       "parent": null
     },
@@ -18794,7 +18686,7 @@
       "code": "HSSM",
       "name": "House Committee on Small Business",
       "type": "house",
-      "rank": 11,
+      "rank": 10,
       "title": null,
       "parent": null
     },
@@ -18860,7 +18752,7 @@
       "code": "HSFA",
       "name": "House Committee on Foreign Affairs",
       "type": "house",
-      "rank": 24,
+      "rank": 23,
       "title": null,
       "parent": null
     },
@@ -18868,7 +18760,7 @@
       "code": "HSPW",
       "name": "House Committee on Transportation and Infrastructure",
       "type": "house",
-      "rank": 27,
+      "rank": 28,
       "title": null,
       "parent": null
     },
@@ -19000,7 +18892,7 @@
       "code": "HSSM",
       "name": "House Committee on Small Business",
       "type": "house",
-      "rank": 14,
+      "rank": 12,
       "title": null,
       "parent": null
     },
@@ -19021,20 +18913,20 @@
       "parent": null
     },
     {
+      "code": "HSSM22",
+      "name": "Innovation, Entrepreneurship, and Workforce Development",
+      "type": "subcommittee",
+      "rank": 4,
+      "title": null,
+      "parent": "House Committee on Small Business"
+    },
+    {
       "code": "HSJU13",
       "name": "Oversight",
       "type": "subcommittee",
       "rank": 4,
       "title": null,
       "parent": "House Committee on the Judiciary"
-    },
-    {
-      "code": "HSSM22",
-      "name": "Innovation, Entrepreneurship, and Workforce Development",
-      "type": "subcommittee",
-      "rank": 5,
-      "title": null,
-      "parent": "House Committee on Small Business"
     },
     {
       "code": "HSSM21",
@@ -19398,7 +19290,7 @@
       "code": "HSPW",
       "name": "House Committee on Transportation and Infrastructure",
       "type": "house",
-      "rank": 33,
+      "rank": 34,
       "title": null,
       "parent": null
     },
@@ -19469,16 +19361,16 @@
   ],
   "MP-00": [
     {
-      "code": "HSVR",
-      "name": "House Committee on Veterans' Affairs",
+      "code": "HSSM",
+      "name": "House Committee on Small Business",
       "type": "house",
-      "rank": 13,
+      "rank": 11,
       "title": null,
       "parent": null
     },
     {
-      "code": "HSSM",
-      "name": "House Committee on Small Business",
+      "code": "HSVR",
+      "name": "House Committee on Veterans' Affairs",
       "type": "house",
       "rank": 13,
       "title": null,
@@ -19488,7 +19380,7 @@
       "code": "HSPW",
       "name": "House Committee on Transportation and Infrastructure",
       "type": "house",
-      "rank": 31,
+      "rank": 32,
       "title": null,
       "parent": null
     },
@@ -19501,20 +19393,20 @@
       "parent": "House Committee on Small Business"
     },
     {
+      "code": "HSSM27",
+      "name": "Economic Growth, Tax, and Capital Access",
+      "type": "subcommittee",
+      "rank": 4,
+      "title": null,
+      "parent": "House Committee on Small Business"
+    },
+    {
       "code": "HSVR10",
       "name": "Economic Opportunity",
       "type": "subcommittee",
       "rank": 4,
       "title": null,
       "parent": "House Committee on Veterans' Affairs"
-    },
-    {
-      "code": "HSSM27",
-      "name": "Economic Growth, Tax, and Capital Access",
-      "type": "subcommittee",
-      "rank": 5,
-      "title": null,
-      "parent": "House Committee on Small Business"
     },
     {
       "code": "HSPW13",
@@ -19551,10 +19443,10 @@
   ],
   "MT-02": [
     {
-      "code": "HSSM",
-      "name": "House Committee on Small Business",
+      "code": "HSII",
+      "name": "House Committee on Natural Resources",
       "type": "house",
-      "rank": 12,
+      "rank": 25,
       "title": null,
       "parent": null
     },
@@ -19567,20 +19459,12 @@
       "parent": null
     },
     {
-      "code": "HSSM22",
-      "name": "Innovation, Entrepreneurship, and Workforce Development",
+      "code": "HSII24",
+      "name": "Indian and Insular Affairs",
       "type": "subcommittee",
-      "rank": 4,
+      "rank": 6,
       "title": null,
-      "parent": "House Committee on Small Business"
-    },
-    {
-      "code": "HSSM24",
-      "name": "Oversight, Investigations, and Regulations",
-      "type": "subcommittee",
-      "rank": 4,
-      "title": null,
-      "parent": "House Committee on Small Business"
+      "parent": "House Committee on Natural Resources"
     },
     {
       "code": "HSBA21",
@@ -19605,6 +19489,14 @@
       "rank": 13,
       "title": null,
       "parent": "House Committee on Financial Services"
+    },
+    {
+      "code": "HSII13",
+      "name": "Water, Wildlife and Fisheries",
+      "type": "subcommittee",
+      "rank": 14,
+      "title": null,
+      "parent": "House Committee on Natural Resources"
     }
   ],
   "NC-06": [
@@ -19628,7 +19520,7 @@
       "code": "HSPW",
       "name": "House Committee on Transportation and Infrastructure",
       "type": "house",
-      "rank": 28,
+      "rank": 29,
       "title": null,
       "parent": null
     },
@@ -19636,7 +19528,7 @@
       "code": "HSII24",
       "name": "Indian and Insular Affairs",
       "type": "subcommittee",
-      "rank": 5,
+      "rank": 4,
       "title": null,
       "parent": "House Committee on Natural Resources"
     },
@@ -19760,7 +19652,7 @@
       "code": "HSSY",
       "name": "House Committee on Science, Space, and Technology",
       "type": "house",
-      "rank": 16,
+      "rank": 15,
       "title": null,
       "parent": null
     },
@@ -19918,7 +19810,7 @@
       "code": "HSHM",
       "name": "House Committee on Homeland Security",
       "type": "house",
-      "rank": 12,
+      "rank": 11,
       "title": null,
       "parent": null
     },
@@ -20176,7 +20068,7 @@
       "code": "HSPW",
       "name": "House Committee on Transportation and Infrastructure",
       "type": "house",
-      "rank": 29,
+      "rank": 30,
       "title": null,
       "parent": null
     },
@@ -20268,7 +20160,7 @@
       "code": "HSFA",
       "name": "House Committee on Foreign Affairs",
       "type": "house",
-      "rank": 27,
+      "rank": 26,
       "title": null,
       "parent": null
     },
@@ -20289,18 +20181,10 @@
       "parent": "House Committee on Homeland Security"
     },
     {
-      "code": "HSHM08",
-      "name": "Cybersecurity and Infrastructure Protection",
-      "type": "subcommittee",
-      "rank": 4,
-      "title": null,
-      "parent": "House Committee on Homeland Security"
-    },
-    {
       "code": "HSHM05",
       "name": "Counterterrorism and Intelligence",
       "type": "subcommittee",
-      "rank": 5,
+      "rank": 4,
       "title": null,
       "parent": "House Committee on Homeland Security"
     },
@@ -20342,15 +20226,7 @@
       "code": "HSSM",
       "name": "House Committee on Small Business",
       "type": "house",
-      "rank": 10,
-      "title": null,
-      "parent": null
-    },
-    {
-      "code": "HSPW",
-      "name": "House Committee on Transportation and Infrastructure",
-      "type": "house",
-      "rank": 25,
+      "rank": 9,
       "title": null,
       "parent": null
     },
@@ -20359,6 +20235,14 @@
       "name": "House Committee on Agriculture",
       "type": "house",
       "rank": 25,
+      "title": null,
+      "parent": null
+    },
+    {
+      "code": "HSPW",
+      "name": "House Committee on Transportation and Infrastructure",
+      "type": "house",
+      "rank": 26,
       "title": null,
       "parent": null
     },
@@ -20374,7 +20258,7 @@
       "code": "HSSM27",
       "name": "Economic Growth, Tax, and Capital Access",
       "type": "subcommittee",
-      "rank": 4,
+      "rank": 3,
       "title": null,
       "parent": "House Committee on Small Business"
     },
@@ -20432,7 +20316,7 @@
       "code": "HSHM",
       "name": "House Committee on Homeland Security",
       "type": "house",
-      "rank": 11,
+      "rank": 10,
       "title": null,
       "parent": null
     },
@@ -20590,7 +20474,7 @@
       "code": "HSHM",
       "name": "House Committee on Homeland Security",
       "type": "house",
-      "rank": 10,
+      "rank": 9,
       "title": null,
       "parent": null
     },
@@ -20846,7 +20730,7 @@
       "code": "HSFA",
       "name": "House Committee on Foreign Affairs",
       "type": "house",
-      "rank": 26,
+      "rank": 25,
       "title": null,
       "parent": null
     },
@@ -20954,7 +20838,7 @@
       "code": "HSSM",
       "name": "House Committee on Small Business",
       "type": "house",
-      "rank": 15,
+      "rank": 13,
       "title": null,
       "parent": null
     },
@@ -20962,7 +20846,7 @@
       "code": "HSPW",
       "name": "House Committee on Transportation and Infrastructure",
       "type": "house",
-      "rank": 34,
+      "rank": 35,
       "title": null,
       "parent": null
     },
@@ -20970,7 +20854,7 @@
       "code": "HSSM24",
       "name": "Oversight, Investigations, and Regulations",
       "type": "subcommittee",
-      "rank": 5,
+      "rank": 4,
       "title": null,
       "parent": "House Committee on Small Business"
     },
@@ -20978,7 +20862,7 @@
       "code": "HSSM22",
       "name": "Innovation, Entrepreneurship, and Workforce Development",
       "type": "subcommittee",
-      "rank": 6,
+      "rank": 5,
       "title": null,
       "parent": "House Committee on Small Business"
     },
@@ -21028,7 +20912,7 @@
       "code": "HSFA",
       "name": "House Committee on Foreign Affairs",
       "type": "house",
-      "rank": 28,
+      "rank": 27,
       "title": null,
       "parent": null
     },
@@ -21078,7 +20962,7 @@
       "code": "HSHM",
       "name": "House Committee on Homeland Security",
       "type": "house",
-      "rank": 13,
+      "rank": 12,
       "title": null,
       "parent": null
     },
@@ -21183,5 +21067,6 @@
       "parent": null
     }
   ],
-  "GA-14": []
+  "GA-14": [],
+  "NJ-11": []
 }

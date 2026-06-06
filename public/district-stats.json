@@ -1,0 +1,2612 @@
+{
+  "AK-00": {
+    "age": 38.7,
+    "education": 30.5,
+    "poverty": 10.7,
+    "population": 779670
+  },
+  "AL-01": {
+    "age": 41.9,
+    "education": 18.8,
+    "poverty": 17.4,
+    "population": 806653
+  },
+  "AL-02": {
+    "age": 38.3,
+    "education": 25.6,
+    "poverty": 15.7,
+    "population": 718325
+  },
+  "AL-03": {
+    "age": 41.5,
+    "education": 17.7,
+    "poverty": 16.9,
+    "population": 802081
+  },
+  "AL-04": {
+    "age": 43.3,
+    "education": 13.7,
+    "poverty": 18.7,
+    "population": 785083
+  },
+  "AL-05": {
+    "age": 40.6,
+    "education": 18,
+    "poverty": 17.5,
+    "population": 743517
+  },
+  "AL-06": {
+    "age": 42.7,
+    "education": 16.9,
+    "poverty": 18.6,
+    "population": 778607
+  },
+  "AL-07": {
+    "age": 35.3,
+    "education": 31.7,
+    "poverty": 17.7,
+    "population": 759358
+  },
+  "AR-01": {
+    "age": 42,
+    "education": 22.3,
+    "poverty": 13.5,
+    "population": 760884
+  },
+  "AR-02": {
+    "age": 39.4,
+    "education": 24.2,
+    "poverty": 12.8,
+    "population": 745825
+  },
+  "AR-03": {
+    "age": 40.9,
+    "education": 21.5,
+    "poverty": 14.5,
+    "population": 716421
+  },
+  "AR-04": {
+    "age": 41.5,
+    "education": 22.4,
+    "poverty": 12.9,
+    "population": 771779
+  },
+  "AZ-01": {
+    "age": 38.3,
+    "education": 33.5,
+    "poverty": 8.2,
+    "population": 729814
+  },
+  "AZ-02": {
+    "age": 39,
+    "education": 30.7,
+    "poverty": 8.7,
+    "population": 727732
+  },
+  "AZ-03": {
+    "age": 36.8,
+    "education": 34.5,
+    "poverty": 10.5,
+    "population": 724863
+  },
+  "AZ-04": {
+    "age": 37.7,
+    "education": 37.5,
+    "poverty": 8.4,
+    "population": 732053
+  },
+  "AZ-05": {
+    "age": 40,
+    "education": 30.1,
+    "poverty": 8.9,
+    "population": 803403
+  },
+  "AZ-06": {
+    "age": 38.9,
+    "education": 31.7,
+    "poverty": 8.5,
+    "population": 725391
+  },
+  "AZ-07": {
+    "age": 37.2,
+    "education": 35.4,
+    "poverty": 9.4,
+    "population": 749564
+  },
+  "AZ-08": {
+    "age": 39.6,
+    "education": 22.6,
+    "poverty": 14.6,
+    "population": 762725
+  },
+  "AZ-09": {
+    "age": 40.8,
+    "education": 21.5,
+    "poverty": 15.4,
+    "population": 773571
+  },
+  "CA-01": {
+    "age": 39.5,
+    "education": 32.7,
+    "poverty": 5.5,
+    "population": 713110
+  },
+  "CA-02": {
+    "age": 34.8,
+    "education": 43,
+    "poverty": 7.4,
+    "population": 770436
+  },
+  "CA-03": {
+    "age": 38.7,
+    "education": 36.8,
+    "poverty": 6.5,
+    "population": 778532
+  },
+  "CA-04": {
+    "age": 35.6,
+    "education": 42.4,
+    "poverty": 5,
+    "population": 803441
+  },
+  "CA-05": {
+    "age": 39.6,
+    "education": 35.4,
+    "poverty": 4.8,
+    "population": 799507
+  },
+  "CA-06": {
+    "age": 37.3,
+    "education": 42,
+    "poverty": 4.2,
+    "population": 762536
+  },
+  "CA-07": {
+    "age": 36.6,
+    "education": 44.5,
+    "poverty": 6,
+    "population": 752380
+  },
+  "CA-08": {
+    "age": 35.7,
+    "education": 40.3,
+    "poverty": 9.1,
+    "population": 791881
+  },
+  "CA-09": {
+    "age": 37.9,
+    "education": 35.9,
+    "poverty": 7.2,
+    "population": 762831
+  },
+  "CA-10": {
+    "age": 36.6,
+    "education": 43.6,
+    "poverty": 6.8,
+    "population": 785283
+  },
+  "CA-11": {
+    "age": 33.6,
+    "education": 45.6,
+    "poverty": 8.1,
+    "population": 736909
+  },
+  "CA-12": {
+    "age": 34.4,
+    "education": 45.2,
+    "poverty": 7.3,
+    "population": 807964
+  },
+  "CA-13": {
+    "age": 38.6,
+    "education": 38.1,
+    "poverty": 5.7,
+    "population": 799499
+  },
+  "CA-14": {
+    "age": 36.4,
+    "education": 43.5,
+    "poverty": 4.9,
+    "population": 747607
+  },
+  "CA-15": {
+    "age": 35.9,
+    "education": 44.5,
+    "poverty": 4.8,
+    "population": 797535
+  },
+  "CA-16": {
+    "age": 37.3,
+    "education": 43.5,
+    "poverty": 4.8,
+    "population": 748011
+  },
+  "CA-17": {
+    "age": 36.2,
+    "education": 41.6,
+    "poverty": 6.2,
+    "population": 779298
+  },
+  "CA-18": {
+    "age": 35.5,
+    "education": 40.7,
+    "poverty": 8.2,
+    "population": 765699
+  },
+  "CA-19": {
+    "age": 35.7,
+    "education": 38.6,
+    "poverty": 7.6,
+    "population": 738993
+  },
+  "CA-20": {
+    "age": 40.8,
+    "education": 30.1,
+    "poverty": 7.8,
+    "population": 791387
+  },
+  "CA-21": {
+    "age": 36.5,
+    "education": 40.1,
+    "poverty": 6.6,
+    "population": 798177
+  },
+  "CA-22": {
+    "age": 37.7,
+    "education": 36.6,
+    "poverty": 5.7,
+    "population": 775527
+  },
+  "CA-23": {
+    "age": 39.7,
+    "education": 32,
+    "poverty": 6.7,
+    "population": 765502
+  },
+  "CA-24": {
+    "age": 36.3,
+    "education": 39.8,
+    "poverty": 5.2,
+    "population": 737800
+  },
+  "CA-25": {
+    "age": 35.9,
+    "education": 40.8,
+    "poverty": 6.6,
+    "population": 722883
+  },
+  "CA-26": {
+    "age": 36.6,
+    "education": 43,
+    "poverty": 6,
+    "population": 722251
+  },
+  "CA-27": {
+    "age": 38.6,
+    "education": 39.6,
+    "poverty": 3.8,
+    "population": 736152
+  },
+  "CA-28": {
+    "age": 36,
+    "education": 38,
+    "poverty": 8.9,
+    "population": 796160
+  },
+  "CA-29": {
+    "age": 37,
+    "education": 39.3,
+    "poverty": 9.1,
+    "population": 729348
+  },
+  "CA-30": {
+    "age": 35.9,
+    "education": 39.6,
+    "poverty": 7.1,
+    "population": 768412
+  },
+  "CA-31": {
+    "age": 38,
+    "education": 40.1,
+    "poverty": 7.1,
+    "population": 725039
+  },
+  "CA-32": {
+    "age": 35.6,
+    "education": 42.5,
+    "poverty": 7.2,
+    "population": 783423
+  },
+  "CA-33": {
+    "age": 35.9,
+    "education": 41,
+    "poverty": 7.3,
+    "population": 806353
+  },
+  "CA-34": {
+    "age": 35.9,
+    "education": 45.5,
+    "poverty": 7.2,
+    "population": 760914
+  },
+  "CA-35": {
+    "age": 35.7,
+    "education": 43.3,
+    "poverty": 7,
+    "population": 713041
+  },
+  "CA-36": {
+    "age": 35.3,
+    "education": 43.5,
+    "poverty": 6.4,
+    "population": 774950
+  },
+  "CA-37": {
+    "age": 36.3,
+    "education": 45.7,
+    "poverty": 7.4,
+    "population": 779245
+  },
+  "CA-38": {
+    "age": 37,
+    "education": 37.3,
+    "poverty": 10,
+    "population": 715601
+  },
+  "CA-39": {
+    "age": 36.5,
+    "education": 37.1,
+    "poverty": 10.3,
+    "population": 713418
+  },
+  "CA-40": {
+    "age": 39.5,
+    "education": 38.1,
+    "poverty": 3,
+    "population": 789409
+  },
+  "CA-41": {
+    "age": 38.6,
+    "education": 38.8,
+    "poverty": 3.5,
+    "population": 761420
+  },
+  "CA-42": {
+    "age": 35.3,
+    "education": 45.2,
+    "poverty": 5.5,
+    "population": 796413
+  },
+  "CA-43": {
+    "age": 34.8,
+    "education": 46.1,
+    "poverty": 5.2,
+    "population": 767823
+  },
+  "CA-44": {
+    "age": 35.7,
+    "education": 45.6,
+    "poverty": 6.1,
+    "population": 796653
+  },
+  "CA-45": {
+    "age": 38.7,
+    "education": 40.3,
+    "poverty": 4.7,
+    "population": 720524
+  },
+  "CA-46": {
+    "age": 37.2,
+    "education": 43.1,
+    "poverty": 5.8,
+    "population": 800693
+  },
+  "CA-47": {
+    "age": 37.1,
+    "education": 40.5,
+    "poverty": 5.1,
+    "population": 735024
+  },
+  "CA-48": {
+    "age": 39.6,
+    "education": 35.4,
+    "poverty": 6,
+    "population": 776923
+  },
+  "CA-49": {
+    "age": 36.9,
+    "education": 38.7,
+    "poverty": 5.3,
+    "population": 797771
+  },
+  "CA-50": {
+    "age": 35.7,
+    "education": 45.9,
+    "poverty": 3.2,
+    "population": 790275
+  },
+  "CA-51": {
+    "age": 36.4,
+    "education": 46.9,
+    "poverty": 5.1,
+    "population": 778901
+  },
+  "CA-52": {
+    "age": 35.2,
+    "education": 46.3,
+    "poverty": 5.6,
+    "population": 760146
+  },
+  "CO-01": {
+    "age": 35.8,
+    "education": 37.6,
+    "poverty": 11.8,
+    "population": 733311
+  },
+  "CO-02": {
+    "age": 37.8,
+    "education": 34.7,
+    "poverty": 11.6,
+    "population": 727666
+  },
+  "CO-03": {
+    "age": 40.7,
+    "education": 26.3,
+    "poverty": 10.2,
+    "population": 802948
+  },
+  "CO-04": {
+    "age": 39.9,
+    "education": 36.2,
+    "poverty": 4.6,
+    "population": 710848
+  },
+  "CO-05": {
+    "age": 39.2,
+    "education": 36,
+    "poverty": 5,
+    "population": 806833
+  },
+  "CO-06": {
+    "age": 37.4,
+    "education": 31.1,
+    "poverty": 10.8,
+    "population": 760247
+  },
+  "CO-07": {
+    "age": 38.9,
+    "education": 31.8,
+    "poverty": 11,
+    "population": 750696
+  },
+  "CO-08": {
+    "age": 38.7,
+    "education": 31.8,
+    "poverty": 8.9,
+    "population": 807585
+  },
+  "CT-01": {
+    "age": 36.5,
+    "education": 40.3,
+    "poverty": 7.5,
+    "population": 726057
+  },
+  "CT-02": {
+    "age": 37.7,
+    "education": 37.1,
+    "poverty": 9.5,
+    "population": 767449
+  },
+  "CT-03": {
+    "age": 35.7,
+    "education": 38.4,
+    "poverty": 9.8,
+    "population": 796402
+  },
+  "CT-04": {
+    "age": 36.6,
+    "education": 35.7,
+    "poverty": 8.1,
+    "population": 737662
+  },
+  "CT-05": {
+    "age": 37.2,
+    "education": 34.9,
+    "poverty": 8.4,
+    "population": 808957
+  },
+  "DE-00": {
+    "age": 38,
+    "education": 39.3,
+    "poverty": 6.3,
+    "population": 771363
+  },
+  "FL-01": {
+    "age": 41.5,
+    "education": 25.6,
+    "poverty": 11.3,
+    "population": 795484
+  },
+  "FL-02": {
+    "age": 40.6,
+    "education": 22.2,
+    "poverty": 12.5,
+    "population": 730937
+  },
+  "FL-03": {
+    "age": 41.2,
+    "education": 26.3,
+    "poverty": 12.2,
+    "population": 734590
+  },
+  "FL-04": {
+    "age": 39.7,
+    "education": 25.2,
+    "poverty": 10.8,
+    "population": 791196
+  },
+  "FL-05": {
+    "age": 40.4,
+    "education": 27.7,
+    "poverty": 9.8,
+    "population": 755010
+  },
+  "FL-06": {
+    "age": 39.7,
+    "education": 26.9,
+    "poverty": 10.3,
+    "population": 805055
+  },
+  "FL-07": {
+    "age": 40.3,
+    "education": 27.3,
+    "poverty": 10.8,
+    "population": 721482
+  },
+  "FL-08": {
+    "age": 40.3,
+    "education": 29.9,
+    "poverty": 9,
+    "population": 721265
+  },
+  "FL-09": {
+    "age": 37.8,
+    "education": 34.3,
+    "poverty": 8.1,
+    "population": 744043
+  },
+  "FL-10": {
+    "age": 36.8,
+    "education": 34.1,
+    "poverty": 9.4,
+    "population": 797178
+  },
+  "FL-11": {
+    "age": 40,
+    "education": 27.9,
+    "poverty": 10.5,
+    "population": 734283
+  },
+  "FL-12": {
+    "age": 40.7,
+    "education": 25.9,
+    "poverty": 10.1,
+    "population": 802946
+  },
+  "FL-13": {
+    "age": 39.8,
+    "education": 29.6,
+    "poverty": 11.2,
+    "population": 752416
+  },
+  "FL-14": {
+    "age": 37.1,
+    "education": 36,
+    "poverty": 10.4,
+    "population": 720589
+  },
+  "FL-15": {
+    "age": 40.2,
+    "education": 28.5,
+    "poverty": 10.3,
+    "population": 783041
+  },
+  "FL-16": {
+    "age": 40.8,
+    "education": 29.7,
+    "poverty": 10.3,
+    "population": 757350
+  },
+  "FL-17": {
+    "age": 41.8,
+    "education": 25.6,
+    "poverty": 11.2,
+    "population": 776417
+  },
+  "FL-18": {
+    "age": 40.9,
+    "education": 29.4,
+    "poverty": 9,
+    "population": 809456
+  },
+  "FL-19": {
+    "age": 39.6,
+    "education": 28.9,
+    "poverty": 8.3,
+    "population": 769429
+  },
+  "FL-20": {
+    "age": 37.8,
+    "education": 33.9,
+    "poverty": 12.6,
+    "population": 800065
+  },
+  "FL-21": {
+    "age": 40.1,
+    "education": 24.9,
+    "poverty": 11.6,
+    "population": 738352
+  },
+  "FL-22": {
+    "age": 37.1,
+    "education": 35.3,
+    "poverty": 12.5,
+    "population": 751916
+  },
+  "FL-23": {
+    "age": 36.9,
+    "education": 33.4,
+    "poverty": 12.3,
+    "population": 806176
+  },
+  "FL-24": {
+    "age": 35.9,
+    "education": 39.4,
+    "poverty": 12.6,
+    "population": 793264
+  },
+  "FL-25": {
+    "age": 37.2,
+    "education": 34,
+    "poverty": 11.5,
+    "population": 758610
+  },
+  "FL-26": {
+    "age": 40.2,
+    "education": 25.9,
+    "poverty": 11.6,
+    "population": 728933
+  },
+  "FL-27": {
+    "age": 39.2,
+    "education": 30.7,
+    "poverty": 11.1,
+    "population": 784550
+  },
+  "FL-28": {
+    "age": 39.3,
+    "education": 27.1,
+    "poverty": 10.8,
+    "population": 774652
+  },
+  "GA-01": {
+    "age": 39.9,
+    "education": 27.5,
+    "poverty": 11.6,
+    "population": 790584
+  },
+  "GA-02": {
+    "age": 37.9,
+    "education": 33.9,
+    "poverty": 11.5,
+    "population": 729730
+  },
+  "GA-03": {
+    "age": 40.9,
+    "education": 24.8,
+    "poverty": 11.6,
+    "population": 782829
+  },
+  "GA-04": {
+    "age": 35.7,
+    "education": 35.9,
+    "poverty": 13.8,
+    "population": 722528
+  },
+  "GA-05": {
+    "age": 35.9,
+    "education": 38.9,
+    "poverty": 12.8,
+    "population": 802582
+  },
+  "GA-06": {
+    "age": 37.5,
+    "education": 30.5,
+    "poverty": 12.7,
+    "population": 754262
+  },
+  "GA-07": {
+    "age": 39.1,
+    "education": 27.3,
+    "poverty": 11.4,
+    "population": 754520
+  },
+  "GA-08": {
+    "age": 40.9,
+    "education": 20,
+    "poverty": 13.4,
+    "population": 735990
+  },
+  "GA-09": {
+    "age": 41.4,
+    "education": 21.3,
+    "poverty": 14.4,
+    "population": 715904
+  },
+  "GA-10": {
+    "age": 41.3,
+    "education": 23.2,
+    "poverty": 11.9,
+    "population": 791763
+  },
+  "GA-11": {
+    "age": 40.9,
+    "education": 26.3,
+    "poverty": 11.2,
+    "population": 757210
+  },
+  "GA-12": {
+    "age": 40.2,
+    "education": 22.9,
+    "poverty": 12,
+    "population": 755604
+  },
+  "GA-13": {
+    "age": 36.9,
+    "education": 35.8,
+    "poverty": 12.8,
+    "population": 769700
+  },
+  "GA-14": {
+    "age": 41.8,
+    "education": 22.6,
+    "poverty": 12.7,
+    "population": 738836
+  },
+  "HI-01": {
+    "age": 37.4,
+    "education": 45.9,
+    "poverty": 3,
+    "population": 750986
+  },
+  "HI-02": {
+    "age": 37.4,
+    "education": 37.1,
+    "poverty": 10.1,
+    "population": 747212
+  },
+  "IA-01": {
+    "age": 40,
+    "education": 28.5,
+    "poverty": 9.7,
+    "population": 718361
+  },
+  "IA-02": {
+    "age": 40.2,
+    "education": 29.2,
+    "poverty": 9.9,
+    "population": 778030
+  },
+  "IA-03": {
+    "age": 38.5,
+    "education": 31.2,
+    "poverty": 10.3,
+    "population": 783350
+  },
+  "IA-04": {
+    "age": 42,
+    "education": 26.7,
+    "poverty": 9.8,
+    "population": 786448
+  },
+  "ID-01": {
+    "age": 40.6,
+    "education": 19.6,
+    "poverty": 15.8,
+    "population": 798487
+  },
+  "ID-02": {
+    "age": 41.3,
+    "education": 20.5,
+    "poverty": 14.9,
+    "population": 736645
+  },
+  "IL-01": {
+    "age": 36.4,
+    "education": 36.3,
+    "poverty": 12.8,
+    "population": 790661
+  },
+  "IL-02": {
+    "age": 35.8,
+    "education": 38.2,
+    "poverty": 11.6,
+    "population": 728463
+  },
+  "IL-03": {
+    "age": 35.7,
+    "education": 35.4,
+    "poverty": 12.8,
+    "population": 751038
+  },
+  "IL-04": {
+    "age": 35.1,
+    "education": 38,
+    "poverty": 15,
+    "population": 758452
+  },
+  "IL-05": {
+    "age": 36.4,
+    "education": 34.9,
+    "poverty": 14.2,
+    "population": 796744
+  },
+  "IL-06": {
+    "age": 38.6,
+    "education": 31.2,
+    "poverty": 11.9,
+    "population": 783410
+  },
+  "IL-07": {
+    "age": 35.2,
+    "education": 37.5,
+    "poverty": 14.3,
+    "population": 776417
+  },
+  "IL-08": {
+    "age": 37.3,
+    "education": 30.3,
+    "poverty": 14.4,
+    "population": 773573
+  },
+  "IL-09": {
+    "age": 35.2,
+    "education": 43.7,
+    "poverty": 6,
+    "population": 740431
+  },
+  "IL-10": {
+    "age": 36.8,
+    "education": 34,
+    "poverty": 12.2,
+    "population": 718309
+  },
+  "IL-11": {
+    "age": 37.3,
+    "education": 31.2,
+    "poverty": 11.8,
+    "population": 727783
+  },
+  "IL-12": {
+    "age": 39.9,
+    "education": 28.6,
+    "poverty": 10.9,
+    "population": 761074
+  },
+  "IL-13": {
+    "age": 38.6,
+    "education": 31.7,
+    "poverty": 10,
+    "population": 732511
+  },
+  "IL-14": {
+    "age": 39.2,
+    "education": 28.8,
+    "poverty": 12.7,
+    "population": 776100
+  },
+  "IL-15": {
+    "age": 41.6,
+    "education": 23.1,
+    "poverty": 14,
+    "population": 810000
+  },
+  "IL-16": {
+    "age": 41.4,
+    "education": 24.1,
+    "poverty": 11.7,
+    "population": 798126
+  },
+  "IL-17": {
+    "age": 39.3,
+    "education": 30.6,
+    "poverty": 10.4,
+    "population": 774375
+  },
+  "IN-01": {
+    "age": 37.6,
+    "education": 32.9,
+    "poverty": 10.1,
+    "population": 807205
+  },
+  "IN-02": {
+    "age": 39.8,
+    "education": 27.8,
+    "poverty": 11.3,
+    "population": 723938
+  },
+  "IN-03": {
+    "age": 40.2,
+    "education": 27.3,
+    "poverty": 10.3,
+    "population": 735751
+  },
+  "IN-04": {
+    "age": 41.3,
+    "education": 24,
+    "poverty": 12.4,
+    "population": 715520
+  },
+  "IN-05": {
+    "age": 40.3,
+    "education": 26.4,
+    "poverty": 11.6,
+    "population": 718842
+  },
+  "IN-06": {
+    "age": 40.8,
+    "education": 24.8,
+    "poverty": 11,
+    "population": 782651
+  },
+  "IN-07": {
+    "age": 37.9,
+    "education": 32.9,
+    "poverty": 11.8,
+    "population": 728357
+  },
+  "IN-08": {
+    "age": 42,
+    "education": 24.4,
+    "poverty": 13.3,
+    "population": 770810
+  },
+  "IN-09": {
+    "age": 40.8,
+    "education": 23.8,
+    "poverty": 12,
+    "population": 761070
+  },
+  "KS-01": {
+    "age": 41.5,
+    "education": 20.1,
+    "poverty": 13.3,
+    "population": 749278
+  },
+  "KS-02": {
+    "age": 40.8,
+    "education": 24.5,
+    "poverty": 12.8,
+    "population": 732591
+  },
+  "KS-03": {
+    "age": 38,
+    "education": 29.8,
+    "poverty": 11.9,
+    "population": 732305
+  },
+  "KS-04": {
+    "age": 41.5,
+    "education": 24.2,
+    "poverty": 13.6,
+    "population": 711982
+  },
+  "KY-01": {
+    "age": 41.4,
+    "education": 21.5,
+    "poverty": 12.9,
+    "population": 807507
+  },
+  "KY-02": {
+    "age": 41.9,
+    "education": 23.9,
+    "poverty": 12.4,
+    "population": 771545
+  },
+  "KY-03": {
+    "age": 37.1,
+    "education": 32,
+    "poverty": 11.3,
+    "population": 790349
+  },
+  "KY-04": {
+    "age": 41.6,
+    "education": 25.7,
+    "poverty": 11.6,
+    "population": 747505
+  },
+  "KY-05": {
+    "age": 41.9,
+    "education": 23.9,
+    "poverty": 12.3,
+    "population": 727606
+  },
+  "KY-06": {
+    "age": 41.1,
+    "education": 27.3,
+    "poverty": 11,
+    "population": 784221
+  },
+  "LA-01": {
+    "age": 41.6,
+    "education": 23.5,
+    "poverty": 11.8,
+    "population": 739361
+  },
+  "LA-02": {
+    "age": 35.8,
+    "education": 28.6,
+    "poverty": 19.5,
+    "population": 778777
+  },
+  "LA-03": {
+    "age": 41,
+    "education": 14.3,
+    "poverty": 19.4,
+    "population": 747278
+  },
+  "LA-04": {
+    "age": 42.7,
+    "education": 22.5,
+    "poverty": 11.8,
+    "population": 717645
+  },
+  "LA-05": {
+    "age": 40.8,
+    "education": 24,
+    "poverty": 13.3,
+    "population": 768266
+  },
+  "LA-06": {
+    "age": 36.4,
+    "education": 34.5,
+    "poverty": 11.7,
+    "population": 756138
+  },
+  "MA-01": {
+    "age": 36.8,
+    "education": 44.1,
+    "poverty": 5.7,
+    "population": 724071
+  },
+  "MA-02": {
+    "age": 35.3,
+    "education": 43.5,
+    "poverty": 5.2,
+    "population": 738275
+  },
+  "MA-03": {
+    "age": 36.6,
+    "education": 43,
+    "poverty": 3.8,
+    "population": 779924
+  },
+  "MA-04": {
+    "age": 37.2,
+    "education": 41.1,
+    "poverty": 6.7,
+    "population": 803062
+  },
+  "MA-05": {
+    "age": 35.7,
+    "education": 44.4,
+    "poverty": 7.1,
+    "population": 762994
+  },
+  "MA-06": {
+    "age": 36.5,
+    "education": 43.4,
+    "poverty": 6.5,
+    "population": 798897
+  },
+  "MA-07": {
+    "age": 35.2,
+    "education": 48.1,
+    "poverty": 7.2,
+    "population": 726475
+  },
+  "MA-08": {
+    "age": 34.8,
+    "education": 46.4,
+    "poverty": 4.2,
+    "population": 808058
+  },
+  "MA-09": {
+    "age": 36.2,
+    "education": 46.5,
+    "poverty": 3.1,
+    "population": 773870
+  },
+  "MD-01": {
+    "age": 39.6,
+    "education": 32.5,
+    "poverty": 7.8,
+    "population": 765557
+  },
+  "MD-02": {
+    "age": 35.8,
+    "education": 42.6,
+    "poverty": 6.4,
+    "population": 745568
+  },
+  "MD-03": {
+    "age": 37.4,
+    "education": 40.5,
+    "poverty": 6.9,
+    "population": 800034
+  },
+  "MD-04": {
+    "age": 36.8,
+    "education": 42.6,
+    "poverty": 5.6,
+    "population": 715834
+  },
+  "MD-05": {
+    "age": 37.5,
+    "education": 41.2,
+    "poverty": 5.3,
+    "population": 773140
+  },
+  "MD-06": {
+    "age": 37.8,
+    "education": 41.8,
+    "poverty": 5.1,
+    "population": 801237
+  },
+  "MD-07": {
+    "age": 34.7,
+    "education": 45.3,
+    "poverty": 6.8,
+    "population": 711699
+  },
+  "MD-08": {
+    "age": 36.2,
+    "education": 43.5,
+    "poverty": 5.9,
+    "population": 767526
+  },
+  "ME-01": {
+    "age": 37.9,
+    "education": 33.8,
+    "poverty": 11.8,
+    "population": 795590
+  },
+  "ME-02": {
+    "age": 37.6,
+    "education": 30.4,
+    "poverty": 11.4,
+    "population": 725251
+  },
+  "MI-01": {
+    "age": 40.6,
+    "education": 26.6,
+    "poverty": 10.5,
+    "population": 746719
+  },
+  "MI-02": {
+    "age": 41.1,
+    "education": 27.7,
+    "poverty": 11.5,
+    "population": 788044
+  },
+  "MI-03": {
+    "age": 38.7,
+    "education": 32.6,
+    "poverty": 10.5,
+    "population": 726056
+  },
+  "MI-04": {
+    "age": 40.7,
+    "education": 25.8,
+    "poverty": 11.3,
+    "population": 805002
+  },
+  "MI-05": {
+    "age": 39.1,
+    "education": 26,
+    "poverty": 11.2,
+    "population": 768855
+  },
+  "MI-06": {
+    "age": 36.9,
+    "education": 33.2,
+    "poverty": 11.3,
+    "population": 725100
+  },
+  "MI-07": {
+    "age": 38.8,
+    "education": 27.9,
+    "poverty": 10.3,
+    "population": 744606
+  },
+  "MI-08": {
+    "age": 38.3,
+    "education": 29.4,
+    "poverty": 11.8,
+    "population": 790466
+  },
+  "MI-09": {
+    "age": 40.2,
+    "education": 24.5,
+    "poverty": 14.1,
+    "population": 789516
+  },
+  "MI-10": {
+    "age": 38.9,
+    "education": 27.9,
+    "poverty": 11.5,
+    "population": 789226
+  },
+  "MI-11": {
+    "age": 37.5,
+    "education": 30.4,
+    "poverty": 11.2,
+    "population": 790847
+  },
+  "MI-12": {
+    "age": 36.6,
+    "education": 34.9,
+    "poverty": 11.6,
+    "population": 761388
+  },
+  "MI-13": {
+    "age": 36.2,
+    "education": 35,
+    "poverty": 11,
+    "population": 738632
+  },
+  "MN-01": {
+    "age": 39.4,
+    "education": 32.8,
+    "poverty": 7.4,
+    "population": 719467
+  },
+  "MN-02": {
+    "age": 38.1,
+    "education": 37.5,
+    "poverty": 6.1,
+    "population": 742141
+  },
+  "MN-03": {
+    "age": 37.8,
+    "education": 38,
+    "poverty": 6.1,
+    "population": 751882
+  },
+  "MN-04": {
+    "age": 36,
+    "education": 43.5,
+    "poverty": 6.5,
+    "population": 806312
+  },
+  "MN-05": {
+    "age": 36.5,
+    "education": 44.6,
+    "poverty": 5.1,
+    "population": 747609
+  },
+  "MN-06": {
+    "age": 39.4,
+    "education": 32.6,
+    "poverty": 6.3,
+    "population": 798063
+  },
+  "MN-07": {
+    "age": 39.6,
+    "education": 32.7,
+    "poverty": 6,
+    "population": 795776
+  },
+  "MN-08": {
+    "age": 38.9,
+    "education": 30.3,
+    "poverty": 7.4,
+    "population": 781306
+  },
+  "MO-01": {
+    "age": 37.1,
+    "education": 30.7,
+    "poverty": 17,
+    "population": 774184
+  },
+  "MO-02": {
+    "age": 40.6,
+    "education": 22.5,
+    "poverty": 16.8,
+    "population": 736629
+  },
+  "MO-03": {
+    "age": 42,
+    "education": 17.8,
+    "poverty": 16.8,
+    "population": 722548
+  },
+  "MO-04": {
+    "age": 40.6,
+    "education": 20,
+    "poverty": 16.3,
+    "population": 790307
+  },
+  "MO-05": {
+    "age": 38.5,
+    "education": 29.6,
+    "poverty": 14.5,
+    "population": 739162
+  },
+  "MO-06": {
+    "age": 40.8,
+    "education": 20.1,
+    "poverty": 16.7,
+    "population": 715332
+  },
+  "MO-07": {
+    "age": 42,
+    "education": 17.7,
+    "poverty": 15.8,
+    "population": 724212
+  },
+  "MO-08": {
+    "age": 42.3,
+    "education": 25.3,
+    "poverty": 11.5,
+    "population": 739476
+  },
+  "MS-01": {
+    "age": 41.7,
+    "education": 13.2,
+    "poverty": 19.2,
+    "population": 769570
+  },
+  "MS-02": {
+    "age": 37.6,
+    "education": 23,
+    "poverty": 19.1,
+    "population": 734982
+  },
+  "MS-03": {
+    "age": 42.4,
+    "education": 14.1,
+    "poverty": 20.2,
+    "population": 723786
+  },
+  "MS-04": {
+    "age": 41.7,
+    "education": 13.1,
+    "poverty": 20.9,
+    "population": 726336
+  },
+  "MT-01": {
+    "age": 40.2,
+    "education": 23.3,
+    "poverty": 14.2,
+    "population": 717459
+  },
+  "MT-02": {
+    "age": 39.4,
+    "education": 25.1,
+    "poverty": 13.9,
+    "population": 740450
+  },
+  "NC-01": {
+    "age": 37.8,
+    "education": 28.8,
+    "poverty": 11.8,
+    "population": 774858
+  },
+  "NC-02": {
+    "age": 38.3,
+    "education": 31.3,
+    "poverty": 11.7,
+    "population": 785302
+  },
+  "NC-03": {
+    "age": 40.9,
+    "education": 21.9,
+    "poverty": 11.9,
+    "population": 723404
+  },
+  "NC-04": {
+    "age": 36.7,
+    "education": 32.4,
+    "poverty": 15.1,
+    "population": 722943
+  },
+  "NC-05": {
+    "age": 39.9,
+    "education": 22.9,
+    "poverty": 14.1,
+    "population": 728165
+  },
+  "NC-06": {
+    "age": 40.3,
+    "education": 23.4,
+    "poverty": 12.9,
+    "population": 804621
+  },
+  "NC-07": {
+    "age": 39.8,
+    "education": 23.2,
+    "poverty": 13.2,
+    "population": 791317
+  },
+  "NC-08": {
+    "age": 41.1,
+    "education": 27.7,
+    "poverty": 11.5,
+    "population": 744003
+  },
+  "NC-09": {
+    "age": 39.3,
+    "education": 28.4,
+    "poverty": 10.5,
+    "population": 797015
+  },
+  "NC-10": {
+    "age": 40.9,
+    "education": 22.8,
+    "poverty": 13,
+    "population": 782998
+  },
+  "NC-11": {
+    "age": 41.1,
+    "education": 23.8,
+    "poverty": 14.5,
+    "population": 745932
+  },
+  "NC-12": {
+    "age": 35.8,
+    "education": 35.4,
+    "poverty": 15.1,
+    "population": 715286
+  },
+  "NC-13": {
+    "age": 39.2,
+    "education": 24.4,
+    "poverty": 12.1,
+    "population": 722186
+  },
+  "NC-14": {
+    "age": 39.6,
+    "education": 24,
+    "poverty": 14.1,
+    "population": 739637
+  },
+  "ND-00": {
+    "age": 41,
+    "education": 26.8,
+    "poverty": 9,
+    "population": 716950
+  },
+  "NE-01": {
+    "age": 39.8,
+    "education": 32.1,
+    "poverty": 6.8,
+    "population": 769855
+  },
+  "NE-02": {
+    "age": 37.5,
+    "education": 36.3,
+    "poverty": 6.4,
+    "population": 733437
+  },
+  "NE-03": {
+    "age": 42.5,
+    "education": 28.2,
+    "poverty": 8.2,
+    "population": 758766
+  },
+  "NH-01": {
+    "age": 37.6,
+    "education": 42,
+    "poverty": 4.6,
+    "population": 733208
+  },
+  "NH-02": {
+    "age": 36.8,
+    "education": 40.7,
+    "poverty": 4,
+    "population": 754332
+  },
+  "NJ-01": {
+    "age": 37.7,
+    "education": 37.4,
+    "poverty": 9.1,
+    "population": 790978
+  },
+  "NJ-02": {
+    "age": 40.6,
+    "education": 32.2,
+    "poverty": 7.7,
+    "population": 712145
+  },
+  "NJ-03": {
+    "age": 38.5,
+    "education": 37.6,
+    "poverty": 7.8,
+    "population": 728109
+  },
+  "NJ-04": {
+    "age": 38.7,
+    "education": 30.6,
+    "poverty": 8.6,
+    "population": 744615
+  },
+  "NJ-05": {
+    "age": 38.3,
+    "education": 35.5,
+    "poverty": 8.8,
+    "population": 746953
+  },
+  "NJ-06": {
+    "age": 36.6,
+    "education": 38.8,
+    "poverty": 10.1,
+    "population": 796633
+  },
+  "NJ-07": {
+    "age": 39.1,
+    "education": 32.9,
+    "poverty": 9.1,
+    "population": 737686
+  },
+  "NJ-08": {
+    "age": 37.7,
+    "education": 42.4,
+    "poverty": 3,
+    "population": 789844
+  },
+  "NJ-09": {
+    "age": 35.6,
+    "education": 47.6,
+    "poverty": 3.9,
+    "population": 754880
+  },
+  "NJ-10": {
+    "age": 36.2,
+    "education": 41.6,
+    "poverty": 7.4,
+    "population": 737805
+  },
+  "NJ-11": {
+    "age": 37.7,
+    "education": 35.7,
+    "poverty": 6.7,
+    "population": 806715
+  },
+  "NJ-12": {
+    "age": 35.8,
+    "education": 41.3,
+    "poverty": 7.6,
+    "population": 710557
+  },
+  "NM-01": {
+    "age": 37.2,
+    "education": 34.7,
+    "poverty": 10.9,
+    "population": 744984
+  },
+  "NM-02": {
+    "age": 38.6,
+    "education": 32,
+    "poverty": 11.3,
+    "population": 767530
+  },
+  "NM-03": {
+    "age": 37.4,
+    "education": 33.6,
+    "poverty": 11.2,
+    "population": 712715
+  },
+  "NV-01": {
+    "age": 37.1,
+    "education": 33,
+    "poverty": 13.2,
+    "population": 756895
+  },
+  "NV-02": {
+    "age": 40.2,
+    "education": 24.6,
+    "poverty": 13.6,
+    "population": 807745
+  },
+  "NV-03": {
+    "age": 37.4,
+    "education": 30.6,
+    "poverty": 11.2,
+    "population": 809738
+  },
+  "NV-04": {
+    "age": 37.1,
+    "education": 31.7,
+    "poverty": 11,
+    "population": 719915
+  },
+  "NY-01": {
+    "age": 39.7,
+    "education": 26.9,
+    "poverty": 13.1,
+    "population": 803304
+  },
+  "NY-02": {
+    "age": 39.4,
+    "education": 23.9,
+    "poverty": 12.4,
+    "population": 715906
+  },
+  "NY-03": {
+    "age": 36.7,
+    "education": 38.9,
+    "poverty": 4.3,
+    "population": 734923
+  },
+  "NY-04": {
+    "age": 37.9,
+    "education": 38.6,
+    "poverty": 4.4,
+    "population": 752482
+  },
+  "NY-05": {
+    "age": 34.9,
+    "education": 45.5,
+    "poverty": 6.5,
+    "population": 724051
+  },
+  "NY-06": {
+    "age": 35.4,
+    "education": 43.7,
+    "poverty": 7.8,
+    "population": 769142
+  },
+  "NY-07": {
+    "age": 35.1,
+    "education": 45.6,
+    "poverty": 8.2,
+    "population": 739191
+  },
+  "NY-08": {
+    "age": 35.2,
+    "education": 47.1,
+    "poverty": 7.7,
+    "population": 716414
+  },
+  "NY-09": {
+    "age": 35.8,
+    "education": 43.5,
+    "poverty": 7.3,
+    "population": 742030
+  },
+  "NY-10": {
+    "age": 35.2,
+    "education": 45.5,
+    "poverty": 6.5,
+    "population": 792036
+  },
+  "NY-11": {
+    "age": 38.6,
+    "education": 35.5,
+    "poverty": 5.2,
+    "population": 793553
+  },
+  "NY-12": {
+    "age": 35,
+    "education": 44.2,
+    "poverty": 8,
+    "population": 795635
+  },
+  "NY-13": {
+    "age": 34.7,
+    "education": 46,
+    "poverty": 7.8,
+    "population": 772446
+  },
+  "NY-14": {
+    "age": 36,
+    "education": 41,
+    "poverty": 6.8,
+    "population": 785709
+  },
+  "NY-15": {
+    "age": 35.4,
+    "education": 45.2,
+    "poverty": 7.9,
+    "population": 739725
+  },
+  "NY-16": {
+    "age": 37.3,
+    "education": 37.5,
+    "poverty": 6.4,
+    "population": 782981
+  },
+  "NY-17": {
+    "age": 38.4,
+    "education": 34.5,
+    "poverty": 6.8,
+    "population": 724849
+  },
+  "NY-18": {
+    "age": 37.6,
+    "education": 35.2,
+    "poverty": 7.8,
+    "population": 734683
+  },
+  "NY-19": {
+    "age": 37.8,
+    "education": 35.5,
+    "poverty": 7.5,
+    "population": 798925
+  },
+  "NY-20": {
+    "age": 36.5,
+    "education": 40.7,
+    "poverty": 5.2,
+    "population": 803737
+  },
+  "NY-21": {
+    "age": 40.1,
+    "education": 32.3,
+    "poverty": 6.7,
+    "population": 768754
+  },
+  "NY-22": {
+    "age": 37.6,
+    "education": 27,
+    "poverty": 13,
+    "population": 748061
+  },
+  "NY-23": {
+    "age": 40.2,
+    "education": 35.1,
+    "poverty": 5.2,
+    "population": 717118
+  },
+  "NY-24": {
+    "age": 40.2,
+    "education": 33.6,
+    "poverty": 7.2,
+    "population": 736201
+  },
+  "NY-25": {
+    "age": 37.2,
+    "education": 40.8,
+    "poverty": 7,
+    "population": 771224
+  },
+  "NY-26": {
+    "age": 37.3,
+    "education": 42.8,
+    "poverty": 6.7,
+    "population": 721013
+  },
+  "OH-01": {
+    "age": 37.7,
+    "education": 28,
+    "poverty": 14.4,
+    "population": 744282
+  },
+  "OH-02": {
+    "age": 41.2,
+    "education": 21,
+    "poverty": 14.9,
+    "population": 802384
+  },
+  "OH-03": {
+    "age": 37.6,
+    "education": 31.2,
+    "poverty": 15,
+    "population": 788279
+  },
+  "OH-04": {
+    "age": 40.9,
+    "education": 20,
+    "poverty": 14.9,
+    "population": 756923
+  },
+  "OH-05": {
+    "age": 40.3,
+    "education": 20.5,
+    "poverty": 16.2,
+    "population": 721292
+  },
+  "OH-06": {
+    "age": 40,
+    "education": 21.6,
+    "poverty": 16,
+    "population": 803999
+  },
+  "OH-07": {
+    "age": 39.8,
+    "education": 20.6,
+    "poverty": 14.8,
+    "population": 784545
+  },
+  "OH-08": {
+    "age": 40.9,
+    "education": 17.6,
+    "poverty": 15.7,
+    "population": 775986
+  },
+  "OH-09": {
+    "age": 39.1,
+    "education": 23.3,
+    "poverty": 15,
+    "population": 750865
+  },
+  "OH-10": {
+    "age": 40.3,
+    "education": 23.2,
+    "poverty": 13.3,
+    "population": 724757
+  },
+  "OH-11": {
+    "age": 36.3,
+    "education": 35.5,
+    "poverty": 14.7,
+    "population": 719422
+  },
+  "OH-12": {
+    "age": 40.7,
+    "education": 22.4,
+    "poverty": 14.2,
+    "population": 739332
+  },
+  "OH-13": {
+    "age": 38.5,
+    "education": 28,
+    "poverty": 12.9,
+    "population": 784362
+  },
+  "OH-14": {
+    "age": 40.2,
+    "education": 21.9,
+    "poverty": 14.4,
+    "population": 766551
+  },
+  "OH-15": {
+    "age": 41,
+    "education": 21.6,
+    "poverty": 13.9,
+    "population": 785085
+  },
+  "OK-01": {
+    "age": 42,
+    "education": 19.4,
+    "poverty": 17.9,
+    "population": 767889
+  },
+  "OK-02": {
+    "age": 41.5,
+    "education": 15.5,
+    "poverty": 16.2,
+    "population": 750654
+  },
+  "OK-03": {
+    "age": 42.9,
+    "education": 16.5,
+    "poverty": 17.6,
+    "population": 743984
+  },
+  "OK-04": {
+    "age": 41.2,
+    "education": 26.4,
+    "poverty": 11.3,
+    "population": 716238
+  },
+  "OK-05": {
+    "age": 40.9,
+    "education": 15.9,
+    "poverty": 16.9,
+    "population": 771129
+  },
+  "OR-01": {
+    "age": 36.3,
+    "education": 39.7,
+    "poverty": 6.1,
+    "population": 803017
+  },
+  "OR-02": {
+    "age": 40.6,
+    "education": 33.8,
+    "poverty": 5.6,
+    "population": 742719
+  },
+  "OR-03": {
+    "age": 37.4,
+    "education": 42,
+    "poverty": 6.3,
+    "population": 767523
+  },
+  "OR-04": {
+    "age": 38.2,
+    "education": 37.7,
+    "poverty": 8.1,
+    "population": 771704
+  },
+  "OR-05": {
+    "age": 37.3,
+    "education": 34.2,
+    "poverty": 6.5,
+    "population": 787571
+  },
+  "OR-06": {
+    "age": 38.8,
+    "education": 37.3,
+    "poverty": 7.1,
+    "population": 765303
+  },
+  "PA-01": {
+    "age": 40.1,
+    "education": 26.7,
+    "poverty": 12.2,
+    "population": 788940
+  },
+  "PA-02": {
+    "age": 37,
+    "education": 33.2,
+    "poverty": 13,
+    "population": 758882
+  },
+  "PA-03": {
+    "age": 35.2,
+    "education": 34.9,
+    "poverty": 13.8,
+    "population": 715360
+  },
+  "PA-04": {
+    "age": 37.3,
+    "education": 31.9,
+    "poverty": 12,
+    "population": 765416
+  },
+  "PA-05": {
+    "age": 37,
+    "education": 30.1,
+    "poverty": 11.9,
+    "population": 802781
+  },
+  "PA-06": {
+    "age": 37.7,
+    "education": 32.1,
+    "poverty": 11.3,
+    "population": 749302
+  },
+  "PA-07": {
+    "age": 39.7,
+    "education": 27.3,
+    "poverty": 10.8,
+    "population": 784032
+  },
+  "PA-08": {
+    "age": 38.4,
+    "education": 33.5,
+    "poverty": 6.6,
+    "population": 738180
+  },
+  "PA-09": {
+    "age": 40.3,
+    "education": 28.4,
+    "poverty": 8.1,
+    "population": 792998
+  },
+  "PA-10": {
+    "age": 40.1,
+    "education": 24.2,
+    "poverty": 14.8,
+    "population": 794317
+  },
+  "PA-11": {
+    "age": 40.9,
+    "education": 20,
+    "poverty": 15.2,
+    "population": 759810
+  },
+  "PA-12": {
+    "age": 38,
+    "education": 30.3,
+    "poverty": 13.3,
+    "population": 784775
+  },
+  "PA-13": {
+    "age": 41,
+    "education": 19.9,
+    "poverty": 14.4,
+    "population": 727302
+  },
+  "PA-14": {
+    "age": 41.7,
+    "education": 23.3,
+    "poverty": 13,
+    "population": 779280
+  },
+  "PA-15": {
+    "age": 41.7,
+    "education": 20.9,
+    "poverty": 14,
+    "population": 783310
+  },
+  "PA-16": {
+    "age": 40,
+    "education": 24.6,
+    "poverty": 12.1,
+    "population": 711063
+  },
+  "PA-17": {
+    "age": 37.9,
+    "education": 29.1,
+    "poverty": 13,
+    "population": 731908
+  },
+  "RI-01": {
+    "age": 38,
+    "education": 34.6,
+    "poverty": 13.2,
+    "population": 804840
+  },
+  "RI-02": {
+    "age": 37,
+    "education": 32.5,
+    "poverty": 12.5,
+    "population": 728493
+  },
+  "SC-01": {
+    "age": 39.3,
+    "education": 22.9,
+    "poverty": 14.9,
+    "population": 710693
+  },
+  "SC-02": {
+    "age": 40.4,
+    "education": 22.7,
+    "poverty": 14.2,
+    "population": 728340
+  },
+  "SC-03": {
+    "age": 40.7,
+    "education": 21.5,
+    "poverty": 13.4,
+    "population": 780361
+  },
+  "SC-04": {
+    "age": 41.2,
+    "education": 23.1,
+    "poverty": 13.8,
+    "population": 714306
+  },
+  "SC-05": {
+    "age": 41.3,
+    "education": 23.9,
+    "poverty": 12.8,
+    "population": 768196
+  },
+  "SC-06": {
+    "age": 37.4,
+    "education": 33.6,
+    "poverty": 12.8,
+    "population": 792412
+  },
+  "SC-07": {
+    "age": 41.1,
+    "education": 23.6,
+    "poverty": 12.5,
+    "population": 757074
+  },
+  "SD-00": {
+    "age": 40.9,
+    "education": 25.5,
+    "poverty": 12.6,
+    "population": 737889
+  },
+  "TN-01": {
+    "age": 40.8,
+    "education": 20,
+    "poverty": 14.5,
+    "population": 771586
+  },
+  "TN-02": {
+    "age": 41.5,
+    "education": 18.6,
+    "poverty": 15.4,
+    "population": 710001
+  },
+  "TN-03": {
+    "age": 40.7,
+    "education": 19.5,
+    "poverty": 15.2,
+    "population": 758190
+  },
+  "TN-04": {
+    "age": 41.6,
+    "education": 20.4,
+    "poverty": 14.9,
+    "population": 775099
+  },
+  "TN-05": {
+    "age": 39.7,
+    "education": 24.5,
+    "poverty": 13.5,
+    "population": 769052
+  },
+  "TN-06": {
+    "age": 40.2,
+    "education": 20.8,
+    "poverty": 15,
+    "population": 720311
+  },
+  "TN-07": {
+    "age": 40.9,
+    "education": 22.7,
+    "poverty": 13.6,
+    "population": 769270
+  },
+  "TN-08": {
+    "age": 41.3,
+    "education": 22.4,
+    "poverty": 12.8,
+    "population": 738462
+  },
+  "TN-09": {
+    "age": 37.3,
+    "education": 35.6,
+    "poverty": 12.2,
+    "population": 752428
+  },
+  "TX-01": {
+    "age": 40.6,
+    "education": 26,
+    "poverty": 9.8,
+    "population": 723201
+  },
+  "TX-02": {
+    "age": 38.9,
+    "education": 30.1,
+    "poverty": 8.9,
+    "population": 800407
+  },
+  "TX-03": {
+    "age": 41.2,
+    "education": 27.9,
+    "poverty": 9.7,
+    "population": 801872
+  },
+  "TX-04": {
+    "age": 42.1,
+    "education": 23.5,
+    "poverty": 12,
+    "population": 755574
+  },
+  "TX-05": {
+    "age": 41,
+    "education": 26,
+    "poverty": 10.6,
+    "population": 770236
+  },
+  "TX-06": {
+    "age": 39.5,
+    "education": 27.4,
+    "poverty": 10.9,
+    "population": 760254
+  },
+  "TX-07": {
+    "age": 37.2,
+    "education": 35.3,
+    "poverty": 10.4,
+    "population": 792094
+  },
+  "TX-08": {
+    "age": 41.2,
+    "education": 29.4,
+    "poverty": 7.9,
+    "population": 763286
+  },
+  "TX-09": {
+    "age": 35.9,
+    "education": 31.6,
+    "poverty": 15.7,
+    "population": 770236
+  },
+  "TX-10": {
+    "age": 38.8,
+    "education": 30.3,
+    "poverty": 8.7,
+    "population": 745790
+  },
+  "TX-11": {
+    "age": 41.3,
+    "education": 24.2,
+    "poverty": 10.9,
+    "population": 728888
+  },
+  "TX-12": {
+    "age": 41.1,
+    "education": 31.3,
+    "poverty": 8.6,
+    "population": 793959
+  },
+  "TX-13": {
+    "age": 42.4,
+    "education": 25.6,
+    "poverty": 10.6,
+    "population": 735018
+  },
+  "TX-14": {
+    "age": 41.4,
+    "education": 25.2,
+    "poverty": 10.3,
+    "population": 760302
+  },
+  "TX-15": {
+    "age": 38.4,
+    "education": 31.2,
+    "poverty": 8.6,
+    "population": 769537
+  },
+  "TX-16": {
+    "age": 35.3,
+    "education": 37.8,
+    "poverty": 10.5,
+    "population": 809637
+  },
+  "TX-17": {
+    "age": 39.8,
+    "education": 28.6,
+    "poverty": 9.2,
+    "population": 774866
+  },
+  "TX-18": {
+    "age": 36,
+    "education": 34.3,
+    "poverty": 14.8,
+    "population": 807750
+  },
+  "TX-19": {
+    "age": 41.8,
+    "education": 17.2,
+    "poverty": 15.9,
+    "population": 783192
+  },
+  "TX-20": {
+    "age": 35.7,
+    "education": 39.5,
+    "poverty": 9.8,
+    "population": 797709
+  },
+  "TX-21": {
+    "age": 40.5,
+    "education": 31,
+    "poverty": 8.8,
+    "population": 718660
+  },
+  "TX-22": {
+    "age": 40,
+    "education": 26.7,
+    "poverty": 10,
+    "population": 788300
+  },
+  "TX-23": {
+    "age": 38.5,
+    "education": 31.2,
+    "poverty": 9.3,
+    "population": 729429
+  },
+  "TX-24": {
+    "age": 40.1,
+    "education": 30.8,
+    "poverty": 9.5,
+    "population": 764546
+  },
+  "TX-25": {
+    "age": 40.6,
+    "education": 27.7,
+    "poverty": 8.7,
+    "population": 743719
+  },
+  "TX-26": {
+    "age": 38.9,
+    "education": 27.2,
+    "poverty": 10.2,
+    "population": 763610
+  },
+  "TX-27": {
+    "age": 39.7,
+    "education": 26.8,
+    "poverty": 9.6,
+    "population": 801767
+  },
+  "TX-28": {
+    "age": 37.6,
+    "education": 25.5,
+    "poverty": 13.6,
+    "population": 766312
+  },
+  "TX-29": {
+    "age": 36.1,
+    "education": 31.6,
+    "poverty": 14.7,
+    "population": 719291
+  },
+  "TX-30": {
+    "age": 35.8,
+    "education": 43.2,
+    "poverty": 8.9,
+    "population": 805372
+  },
+  "TX-31": {
+    "age": 39.7,
+    "education": 29.5,
+    "poverty": 8.8,
+    "population": 754935
+  },
+  "TX-32": {
+    "age": 37.6,
+    "education": 36.7,
+    "poverty": 8.6,
+    "population": 770223
+  },
+  "TX-33": {
+    "age": 36.6,
+    "education": 38.2,
+    "poverty": 9.3,
+    "population": 732908
+  },
+  "TX-34": {
+    "age": 38.6,
+    "education": 37.2,
+    "poverty": 7.3,
+    "population": 772220
+  },
+  "TX-35": {
+    "age": 37.6,
+    "education": 38.1,
+    "poverty": 9.5,
+    "population": 759369
+  },
+  "TX-36": {
+    "age": 40.7,
+    "education": 28.5,
+    "poverty": 8.9,
+    "population": 746277
+  },
+  "TX-37": {
+    "age": 36.1,
+    "education": 38.1,
+    "poverty": 10.3,
+    "population": 736283
+  },
+  "TX-38": {
+    "age": 41.1,
+    "education": 22.5,
+    "poverty": 14,
+    "population": 792684
+  },
+  "UT-01": {
+    "age": 40.1,
+    "education": 26.1,
+    "poverty": 10,
+    "population": 804316
+  },
+  "UT-02": {
+    "age": 39.5,
+    "education": 30.7,
+    "poverty": 9.9,
+    "population": 772983
+  },
+  "UT-03": {
+    "age": 41.3,
+    "education": 28.5,
+    "poverty": 10.4,
+    "population": 733992
+  },
+  "UT-04": {
+    "age": 38.7,
+    "education": 32.3,
+    "poverty": 8.2,
+    "population": 761161
+  },
+  "VA-01": {
+    "age": 39.4,
+    "education": 27.2,
+    "poverty": 9.7,
+    "population": 798587
+  },
+  "VA-02": {
+    "age": 40,
+    "education": 30.3,
+    "poverty": 9.9,
+    "population": 713593
+  },
+  "VA-03": {
+    "age": 34.7,
+    "education": 39.9,
+    "poverty": 11.9,
+    "population": 712430
+  },
+  "VA-04": {
+    "age": 35.8,
+    "education": 35.1,
+    "poverty": 10.8,
+    "population": 796722
+  },
+  "VA-05": {
+    "age": 39.1,
+    "education": 40.6,
+    "poverty": 3,
+    "population": 732455
+  },
+  "VA-06": {
+    "age": 40.7,
+    "education": 35,
+    "poverty": 3.8,
+    "population": 794927
+  },
+  "VA-07": {
+    "age": 37.3,
+    "education": 41.4,
+    "poverty": 4.1,
+    "population": 731562
+  },
+  "VA-08": {
+    "age": 34.9,
+    "education": 44.8,
+    "poverty": 4.8,
+    "population": 757619
+  },
+  "VA-09": {
+    "age": 40.7,
+    "education": 34.4,
+    "poverty": 5.4,
+    "population": 756947
+  },
+  "VA-10": {
+    "age": 38.5,
+    "education": 33,
+    "poverty": 9.7,
+    "population": 774658
+  },
+  "VA-11": {
+    "age": 37.9,
+    "education": 32.6,
+    "poverty": 10.2,
+    "population": 764520
+  },
+  "VT-00": {
+    "age": 36.4,
+    "education": 40.1,
+    "poverty": 7.6,
+    "population": 739995
+  },
+  "WA-01": {
+    "age": 37.7,
+    "education": 43.6,
+    "poverty": 3.4,
+    "population": 717884
+  },
+  "WA-02": {
+    "age": 37.6,
+    "education": 42.1,
+    "poverty": 5.3,
+    "population": 722675
+  },
+  "WA-03": {
+    "age": 37.7,
+    "education": 39.8,
+    "poverty": 4.1,
+    "population": 726501
+  },
+  "WA-04": {
+    "age": 38.5,
+    "education": 36.3,
+    "poverty": 5.4,
+    "population": 742359
+  },
+  "WA-05": {
+    "age": 40.1,
+    "education": 35.1,
+    "poverty": 5.6,
+    "population": 749319
+  },
+  "WA-06": {
+    "age": 37.8,
+    "education": 39.5,
+    "poverty": 5.2,
+    "population": 719172
+  },
+  "WA-07": {
+    "age": 34.7,
+    "education": 44.7,
+    "poverty": 6.8,
+    "population": 796127
+  },
+  "WA-08": {
+    "age": 36.7,
+    "education": 37.2,
+    "poverty": 6.6,
+    "population": 755266
+  },
+  "WA-09": {
+    "age": 36.1,
+    "education": 40.9,
+    "poverty": 6.4,
+    "population": 772757
+  },
+  "WA-10": {
+    "age": 37.2,
+    "education": 42.2,
+    "poverty": 3.5,
+    "population": 738808
+  },
+  "WI-01": {
+    "age": 38.7,
+    "education": 32.8,
+    "poverty": 7.8,
+    "population": 788941
+  },
+  "WI-02": {
+    "age": 35.4,
+    "education": 37.9,
+    "poverty": 9.5,
+    "population": 767624
+  },
+  "WI-03": {
+    "age": 39.4,
+    "education": 31.4,
+    "poverty": 7.5,
+    "population": 804402
+  },
+  "WI-04": {
+    "age": 34.7,
+    "education": 41.2,
+    "poverty": 11.1,
+    "population": 754929
+  },
+  "WI-05": {
+    "age": 40.3,
+    "education": 29,
+    "poverty": 10,
+    "population": 768726
+  },
+  "WI-06": {
+    "age": 40.8,
+    "education": 29.8,
+    "poverty": 10.4,
+    "population": 723343
+  },
+  "WI-07": {
+    "age": 40.1,
+    "education": 28.2,
+    "poverty": 9.6,
+    "population": 781828
+  },
+  "WI-08": {
+    "age": 40.2,
+    "education": 22,
+    "poverty": 15,
+    "population": 758095
+  },
+  "WV-01": {
+    "age": 41.6,
+    "education": 21,
+    "poverty": 14.7,
+    "population": 777361
+  },
+  "WV-02": {
+    "age": 40.5,
+    "education": 24.6,
+    "poverty": 11.5,
+    "population": 725744
+  },
+  "WY-00": {
+    "age": 41.9,
+    "education": 25.6,
+    "poverty": 11.2,
+    "population": 800260
+  }
+}

@@ -22,6 +22,9 @@ interface LegislatorMeta {
   office: string | null;
   contactForm: string | null;
   twitter: string | null;
+  birthday: string | null;
+  gender: string | null;
+  religion: string | null;
 }
 
 interface CommitteeEntry {
@@ -67,14 +70,37 @@ interface Bill {
   url: string | null;
 }
 
+interface CosponsorPartner {
+  name: string;
+  party: string;
+  count: number;
+}
+
 interface CongressData {
   noKey?: boolean;
   sponsored?: Bill[];
   cosponsored?: Bill[];
+  becameLaw?: number;
+  totalSponsored?: number;
+  totalCosponsored?: number;
+  cosponsorNetwork?: CosponsorPartner[];
   error?: string;
 }
 
 // ── Helpers ───────────────────────────────────────────────────────────────────
+
+function bioguidePhotoUrl(bioguide: string) {
+  return `https://bioguide.congress.gov/bioguide/photo/${bioguide[0].toUpperCase()}/${bioguide}.jpg`;
+}
+
+function ageFromBirthday(birthday: string): number {
+  const born = new Date(birthday);
+  const today = new Date();
+  let age = today.getFullYear() - born.getFullYear();
+  const m = today.getMonth() - born.getMonth();
+  if (m < 0 || (m === 0 && today.getDate() < born.getDate())) age--;
+  return age;
+}
 
 function ordinalSuffix(n: number) {
   const v = n % 100;
@@ -170,6 +196,7 @@ export default function RepProfile({ districtId, repName, data, onClose }: Props
   const dPct = 100 - rPct;
 
   // ── Fetched state ──────────────────────────────────────────────────────────
+  const [photoError, setPhotoError] = useState(false);
   const [meta, setMeta] = useState<LegislatorMeta | null>(null);
   const [committees, setCommittees] = useState<CommitteeEntry[] | null>(null);
   const [fec, setFec] = useState<FecData | null>(null);
@@ -248,20 +275,31 @@ export default function RepProfile({ districtId, repName, data, onClose }: Props
 
           {/* Hero */}
           <div className="flex items-center gap-5 mb-2">
-            <div
-              className="w-20 h-20 rounded-full flex items-center justify-center text-3xl font-bold shrink-0"
-              style={{
-                background: `radial-gradient(circle at 35% 35%, ${partyColor}50, ${partyColor}20)`,
-                border: `2px solid ${partyColor}40`,
-                color: partyColor,
-              }}
-            >
-              {partyShort}
-            </div>
+            {meta?.bioguide && !photoError ? (
+              <img
+                src={bioguidePhotoUrl(meta.bioguide)}
+                alt={repName}
+                loading="lazy"
+                onError={() => setPhotoError(true)}
+                className="w-20 h-20 rounded-full object-cover object-top shrink-0"
+                style={{ border: `2px solid ${partyColor}40` }}
+              />
+            ) : (
+              <div
+                className="w-20 h-20 rounded-full flex items-center justify-center text-3xl font-bold shrink-0"
+                style={{
+                  background: `radial-gradient(circle at 35% 35%, ${partyColor}50, ${partyColor}20)`,
+                  border: `2px solid ${partyColor}40`,
+                  color: partyColor,
+                }}
+              >
+                {partyShort}
+              </div>
+            )}
             <div>
               <h1 className="text-white text-2xl font-bold leading-tight">{repName}</h1>
               <p className="text-slate-400 text-sm mt-0.5">{stateName} · {districtLabel}</p>
-              <div className="flex items-center gap-2 mt-2">
+              <div className="flex items-center gap-2 mt-2 flex-wrap">
                 <span
                   className="text-xs font-semibold px-2.5 py-1 rounded-full"
                   style={{ backgroundColor: partyColor + "20", color: partyColor, border: `1px solid ${partyColor}40` }}
@@ -270,6 +308,9 @@ export default function RepProfile({ districtId, repName, data, onClose }: Props
                 </span>
                 {data.caucus && <span className="text-xs text-slate-500">Caucuses with {data.caucus}s</span>}
                 <span className="text-xs text-slate-600">{districtId}</span>
+                {meta?.birthday && (
+                  <span className="text-xs text-slate-600">Age {ageFromBirthday(meta.birthday)}</span>
+                )}
               </div>
             </div>
           </div>
@@ -339,6 +380,19 @@ export default function RepProfile({ districtId, repName, data, onClose }: Props
                       className="text-[12px] font-semibold text-indigo-400 hover:text-indigo-300 transition-colors"
                     >
                       Open form →
+                    </a>
+                  </div>
+                )}
+                {meta?.bioguide && (
+                  <div className="flex justify-between items-center py-1.5 last:border-0">
+                    <span className="text-[12px] text-slate-500">Financial Disclosure</span>
+                    <a
+                      href={`https://disclosures-clerk.house.gov/PublicDisclosure/FinancialDisclosure#Search`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-[12px] font-semibold text-indigo-400 hover:text-indigo-300 transition-colors"
+                    >
+                      House Clerk →
                     </a>
                   </div>
                 )}
@@ -461,60 +515,65 @@ export default function RepProfile({ districtId, repName, data, onClose }: Props
               <>
                 <PlaceholderRow label="Bills sponsored" />
                 <PlaceholderRow label="Bills co-sponsored" />
-                <PlaceholderRow label="Party unity score" />
               </>
             ) : (
               <>
+                {/* Summary stats */}
+                <div className="grid grid-cols-3 gap-3 mb-4">
+                  {[
+                    { label: "Sponsored", value: congress.totalSponsored != null ? String(congress.totalSponsored) : String(congress.sponsored?.length ?? 0) },
+                    { label: "Cosponsored", value: congress.totalCosponsored != null ? String(congress.totalCosponsored) : String(congress.cosponsored?.length ?? 0) },
+                    { label: "Became Law", value: String(congress.becameLaw ?? 0) },
+                  ].map(({ label, value }) => (
+                    <div key={label} className="text-center py-2 rounded-lg" style={{ backgroundColor: "rgba(30,41,59,0.6)" }}>
+                      <p className="text-white font-bold text-lg">{value}</p>
+                      <p className="text-slate-600 text-[10px] uppercase tracking-wider">{label}</p>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Co-sponsorship network */}
+                {congress.cosponsorNetwork && congress.cosponsorNetwork.length > 0 && (
+                  <>
+                    <p className="text-[10px] text-slate-600 uppercase tracking-widest mb-2">Most Frequent Co-sponsors</p>
+                    {congress.cosponsorNetwork.map((partner, i) => {
+                      const pc = partner.party === "R" ? PARTY_COLORS.Republican : partner.party === "D" ? PARTY_COLORS.Democrat : "#64748b";
+                      return (
+                        <div key={i} className="flex items-center justify-between py-1.5 border-b border-slate-800/60 last:border-0 gap-2">
+                          <div className="flex items-center gap-2 min-w-0">
+                            <div className="w-1.5 h-1.5 rounded-full shrink-0" style={{ backgroundColor: pc }} />
+                            <span className="text-[12px] text-slate-300 truncate">{partner.name}</span>
+                          </div>
+                          <span className="text-[11px] text-slate-600 shrink-0">{partner.count} bills</span>
+                        </div>
+                      );
+                    })}
+                    <div className="mt-3 border-t border-slate-800/60 pt-3" />
+                  </>
+                )}
+
+                {/* Recent sponsored bills */}
                 {congress.sponsored && congress.sponsored.length > 0 && (
                   <>
-                    <p className="text-[10px] text-slate-600 uppercase tracking-widest mb-2">
-                      Sponsored Bills ({congress.sponsored.length} shown)
-                    </p>
+                    <p className="text-[10px] text-slate-600 uppercase tracking-widest mb-2">Recent Sponsored Bills</p>
                     {congress.sponsored.map((bill, i) => (
                       <div key={i} className="py-1.5 border-b border-slate-800/60 last:border-0">
                         <div className="flex items-baseline justify-between gap-2">
-                          <span className="text-[11px] font-semibold text-slate-400 shrink-0">
-                            {bill.type} {bill.number}
-                          </span>
+                          <span className="text-[11px] font-semibold text-slate-400 shrink-0">{bill.type} {bill.number}</span>
                           {bill.latestActionDate && (
-                            <span className="text-[10px] text-slate-700 shrink-0">
-                              {bill.latestActionDate}
-                            </span>
+                            <span className="text-[10px] text-slate-700 shrink-0">{bill.latestActionDate}</span>
                           )}
                         </div>
-                        <p className="text-[11px] text-slate-300 mt-0.5 leading-snug line-clamp-2">
-                          {bill.title}
-                        </p>
+                        <p className="text-[11px] text-slate-300 mt-0.5 leading-snug line-clamp-2">{bill.title}</p>
                         {bill.latestAction && (
-                          <p className="text-[10px] text-slate-600 mt-0.5 line-clamp-1">
-                            {bill.latestAction}
-                          </p>
+                          <p className="text-[10px] text-slate-600 mt-0.5 line-clamp-1">{bill.latestAction}</p>
                         )}
                       </div>
                     ))}
                   </>
                 )}
-                {congress.cosponsored && congress.cosponsored.length > 0 && (
-                  <>
-                    <p className="text-[10px] text-slate-600 uppercase tracking-widest mt-3 mb-2">
-                      Co-sponsored ({congress.cosponsored.length} shown)
-                    </p>
-                    {congress.cosponsored.map((bill, i) => (
-                      <div key={i} className="py-1.5 border-b border-slate-800/60 last:border-0">
-                        <div className="flex items-baseline justify-between gap-2">
-                          <span className="text-[11px] font-semibold text-slate-400 shrink-0">
-                            {bill.type} {bill.number}
-                          </span>
-                        </div>
-                        <p className="text-[11px] text-slate-300 mt-0.5 leading-snug line-clamp-1">
-                          {bill.title}
-                        </p>
-                      </div>
-                    ))}
-                  </>
-                )}
-                {(!congress.sponsored || congress.sponsored.length === 0) &&
-                  (!congress.cosponsored || congress.cosponsored.length === 0) && (
+
+                {(!congress.sponsored || congress.sponsored.length === 0) && (
                   <p className="text-[12px] text-slate-700 italic">No legislation found</p>
                 )}
                 <p className="text-[10px] text-slate-700 mt-2">Source: Congress.gov API</p>
@@ -522,13 +581,27 @@ export default function RepProfile({ districtId, repName, data, onClose }: Props
             )}
           </SectionCard>
 
-          {/* Biography — still placeholder, data not yet available */}
+          {/* Biography */}
           <SectionCard title="Biography">
-            <PlaceholderRow label="Age" />
-            <PlaceholderRow label="Born" />
-            <PlaceholderRow label="Education" />
-            <PlaceholderRow label="Career background" />
-            <PlaceholderRow label="Religion" />
+            {meta === null ? (
+              <LoadingRows count={3} />
+            ) : (
+              <>
+                {meta.birthday ? (
+                  <StatRow label="Age" value={`${ageFromBirthday(meta.birthday)} (born ${new Date(meta.birthday).toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" })})`} />
+                ) : (
+                  <PlaceholderRow label="Age" />
+                )}
+                {meta.gender && (
+                  <StatRow label="Gender" value={meta.gender === "M" ? "Male" : "Female"} />
+                )}
+                {meta.religion && (
+                  <StatRow label="Religion" value={meta.religion} />
+                )}
+                <PlaceholderRow label="Education" />
+                <PlaceholderRow label="Career background" />
+              </>
+            )}
           </SectionCard>
 
           <p className="text-[10px] text-slate-700 text-center pb-4">

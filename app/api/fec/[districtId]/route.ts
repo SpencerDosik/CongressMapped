@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { cacheGet, cacheSet } from "@/lib/apiCache";
 
 const FEC_BASE = "https://api.open.fec.gov/v1";
 const API_KEY = process.env.FEC_API_KEY ?? "DEMO_KEY";
@@ -8,6 +9,8 @@ export async function GET(
   { params }: { params: Promise<{ districtId: string }> }
 ) {
   const { districtId } = await params;
+  const cached = cacheGet<object>(`fec:${districtId}`);
+  if (cached) return NextResponse.json(cached);
   const [state, rawNum] = districtId.split("-");
   if (!state || !rawNum) {
     return NextResponse.json({ error: "Invalid district ID" }, { status: 400 });
@@ -83,7 +86,7 @@ export async function GET(
       // industries are optional — skip on error
     }
 
-    return NextResponse.json({
+    const result = {
       name: winner.name,
       party: winner.party,
       raised: winner.raised,
@@ -95,7 +98,9 @@ export async function GET(
         party: c!.party,
         raised: c!.raised,
       })),
-    });
+    };
+    cacheSet(`fec:${districtId}`, result);
+    return NextResponse.json(result);
   } catch (err) {
     console.error("[FEC route]", err);
     return NextResponse.json({ error: "FEC API unavailable" }, { status: 502 });

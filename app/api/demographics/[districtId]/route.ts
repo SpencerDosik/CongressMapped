@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { STATE_TO_FIPS } from "@/lib/stateFips";
+import { cacheGet, cacheSet } from "@/lib/apiCache";
 
 const CENSUS_BASE = "https://api.census.gov/data/2022/acs/acs5";
 
@@ -22,6 +23,8 @@ export async function GET(
   { params }: { params: Promise<{ districtId: string }> }
 ) {
   const { districtId } = await params;
+  const cached = cacheGet<object>(`demo:${districtId}`);
+  if (cached) return NextResponse.json(cached);
   const [stateAbbr, rawNum] = districtId.split("-");
   if (!stateAbbr || !rawNum) {
     return NextResponse.json({ error: "Invalid district ID" }, { status: 400 });
@@ -72,16 +75,18 @@ export async function GET(
         ? Math.round((num / den) * 1000) / 10
         : null;
 
-    return NextResponse.json({
+    const result = {
       population: totalPop,
-      medianAge: medianAge != null ? medianAge / 10 : null, // Census stores as tenths
+      medianAge: medianAge != null ? medianAge / 10 : null,
       medianIncome,
       pctWhite: pct(white, totalPop),
       pctBlack: pct(black, totalPop),
       pctHispanic: pct(hispanic, totalPop),
       pctCollegeEducated: pct(bachelors, edu25Plus),
       pctPoverty: pct(poverty, povertyTotal),
-    });
+    };
+    cacheSet(`demo:${districtId}`, result);
+    return NextResponse.json(result);
   } catch (err) {
     console.error("[demographics route]", err);
     return NextResponse.json({ error: "Census API unavailable" }, { status: 502 });

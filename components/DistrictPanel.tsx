@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { DistrictStaticData } from "@/lib/types";
 import { PARTY_COLORS } from "@/lib/colors";
 import { STATE_NAMES, AT_LARGE_STATES } from "@/lib/stateFips";
@@ -12,10 +13,35 @@ interface Props {
   onShowProfile: () => void;
 }
 
+interface LegMeta {
+  bioguide: string | null;
+  birthday: string | null;
+  twitter: string | null;
+}
+
 function ordinalSuffix(n: number) {
   const v = n % 100;
   if (v >= 11 && v <= 13) return "th";
   return ["th", "st", "nd", "rd"][n % 10] ?? "th";
+}
+
+function bioguidePhotoUrl(bioguide: string) {
+  return `https://bioguide.congress.gov/bioguide/photo/${bioguide[0].toUpperCase()}/${bioguide}.jpg`;
+}
+
+function ageFromBirthday(birthday: string): number {
+  const born = new Date(birthday);
+  const today = new Date();
+  let age = today.getFullYear() - born.getFullYear();
+  const m = today.getMonth() - born.getMonth();
+  if (m < 0 || (m === 0 && today.getDate() < born.getDate())) age--;
+  return age;
+}
+
+function daysUntil(dateStr: string): number {
+  const target = new Date(dateStr + "T00:00:00");
+  const now = new Date();
+  return Math.ceil((target.getTime() - now.getTime()) / (1000 * 60 * 60 * 24));
 }
 
 export default function DistrictPanel({ districtId, repName, data, onClose, onShowProfile }: Props) {
@@ -35,11 +61,8 @@ export default function DistrictPanel({ districtId, repName, data, onClose, onSh
     data.party === "Independent" ? "I" :
     data.party === "Vacant" ? "V" : "?";
 
-
-  // Vote bar
   const rPct = Math.max(0, Math.min(100, 50 + data.margin / 2));
   const dPct = 100 - rPct;
-
   const marginAbs = Math.abs(data.margin);
   const competitiveness =
     marginAbs < 5 ? "Toss-Up" :
@@ -47,7 +70,6 @@ export default function DistrictPanel({ districtId, repName, data, onClose, onSh
     marginAbs < 20 ? `Lean ${data.margin > 0 ? "R" : "D"}` :
     marginAbs < 35 ? `Likely ${data.margin > 0 ? "R" : "D"}` :
     `Safe ${data.margin > 0 ? "R" : "D"}`;
-
   const competitivenessColor =
     marginAbs < 5 ? "#F59E0B" :
     marginAbs < 10 ? "#F97316" :
@@ -56,8 +78,53 @@ export default function DistrictPanel({ districtId, repName, data, onClose, onSh
   const yearsServing = Math.max(0, 2026 - data.termStart);
   const pviLabel = data.pvi === 0 ? "EVEN" : data.pvi > 0 ? `R+${data.pvi}` : `D+${Math.abs(data.pvi)}`;
 
+  const [meta, setMeta] = useState<LegMeta | null>(null);
+  const [photoError, setPhotoError] = useState(false);
+  const [copied, setCopied] = useState(false);
+
+  useEffect(() => {
+    fetch("/legislator-meta.json")
+      .then((r) => r.json())
+      .then((all) => setMeta(all[districtId] ?? null))
+      .catch(() => setMeta(null));
+  }, [districtId]);
+
+  // Mobile swipe-down to close
+  useEffect(() => {
+    let startY = 0;
+    const panel = document.getElementById("district-panel");
+    if (!panel) return;
+    const onStart = (e: TouchEvent) => { startY = e.touches[0].clientY; };
+    const onEnd = (e: TouchEvent) => {
+      if (e.changedTouches[0].clientY - startY > 80) onClose();
+    };
+    panel.addEventListener("touchstart", onStart, { passive: true });
+    panel.addEventListener("touchend", onEnd, { passive: true });
+    return () => {
+      panel.removeEventListener("touchstart", onStart);
+      panel.removeEventListener("touchend", onEnd);
+    };
+  }, [onClose]);
+
+  const handleCopyLink = () => {
+    const url = `${window.location.origin}?d=${districtId}`;
+    navigator.clipboard.writeText(url).then(() => {
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    });
+  };
+
+  // Next general election: Nov 3, 2026
+  const NEXT_ELECTION = "2026-11-03";
+  const daysToElection = daysUntil(NEXT_ELECTION);
+
+  const bioguide = meta?.bioguide;
+  const age = meta?.birthday ? ageFromBirthday(meta.birthday) : null;
+  const showPhoto = bioguide && !photoError && !isVacant;
+
   return (
     <div
+      id="district-panel"
       className="w-80 xl:w-96 flex flex-col bg-slate-900 border-l border-slate-700/40 animate-slide-in overflow-hidden shrink-0"
       style={{ boxShadow: "-8px 0 32px rgba(0,0,0,0.4)" }}
     >
@@ -70,13 +137,32 @@ export default function DistrictPanel({ districtId, repName, data, onClose, onSh
           <p className="text-white font-semibold text-sm leading-tight truncate">{stateName}</p>
           <p className="text-slate-500 text-[11px]">{districtLabel}</p>
         </div>
-        <button
-          onClick={onClose}
-          className="w-6 h-6 rounded-full flex items-center justify-center text-slate-600 hover:text-slate-300 hover:bg-slate-700/60 transition-colors text-xs shrink-0"
-          aria-label="Close"
-        >
-          ✕
-        </button>
+        <div className="flex items-center gap-1.5">
+          {/* Copy link button */}
+          <button
+            onClick={handleCopyLink}
+            title="Copy shareable link"
+            className="w-6 h-6 rounded-full flex items-center justify-center transition-colors text-slate-600 hover:text-slate-300 hover:bg-slate-700/60"
+            aria-label="Copy link"
+          >
+            {copied ? (
+              <svg className="w-3 h-3 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+              </svg>
+            ) : (
+              <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
+              </svg>
+            )}
+          </button>
+          <button
+            onClick={onClose}
+            className="w-6 h-6 rounded-full flex items-center justify-center text-slate-600 hover:text-slate-300 hover:bg-slate-700/60 transition-colors text-xs shrink-0"
+            aria-label="Close"
+          >
+            ✕
+          </button>
+        </div>
       </div>
 
       {/* Scrollable body */}
@@ -85,20 +171,33 @@ export default function DistrictPanel({ districtId, repName, data, onClose, onSh
         {/* Rep card */}
         <div className="px-4 py-5">
           <div className="flex items-center gap-3.5">
-            <div
-              className="w-14 h-14 rounded-full flex items-center justify-center text-2xl font-bold shrink-0 select-none"
-              style={isVacant ? {
-                background: "rgba(55,65,81,0.3)",
-                border: "2px dashed #374151",
-                color: "#4B5563",
-              } : {
-                background: `radial-gradient(circle at 35% 35%, ${partyColor}40, ${partyColor}15)`,
-                border: `2px solid ${partyColor}35`,
-                color: partyColor,
-              }}
-            >
-              {partyShort}
-            </div>
+            {/* Photo or party initial */}
+            {showPhoto ? (
+              <img
+                src={bioguidePhotoUrl(bioguide!)}
+                alt={repName}
+                loading="lazy"
+                onError={() => setPhotoError(true)}
+                className="w-14 h-14 rounded-full object-cover shrink-0 object-top"
+                style={{ border: `2px solid ${partyColor}35` }}
+              />
+            ) : (
+              <div
+                className="w-14 h-14 rounded-full flex items-center justify-center text-2xl font-bold shrink-0 select-none"
+                style={isVacant ? {
+                  background: "rgba(55,65,81,0.3)",
+                  border: "2px dashed #374151",
+                  color: "#4B5563",
+                } : {
+                  background: `radial-gradient(circle at 35% 35%, ${partyColor}40, ${partyColor}15)`,
+                  border: `2px solid ${partyColor}35`,
+                  color: partyColor,
+                }}
+              >
+                {partyShort}
+              </div>
+            )}
+
             <div className="min-w-0 flex-1">
               <p className="text-[10px] text-slate-600 uppercase tracking-widest mb-0.5">
                 {isVacant ? "Seat Status" : "Representative"}
@@ -106,7 +205,7 @@ export default function DistrictPanel({ districtId, repName, data, onClose, onSh
               <h3 className={`font-bold text-sm leading-snug ${isVacant ? "text-slate-500 italic" : "text-white"}`}>
                 {isVacant ? "Vacant" : repName}
               </h3>
-              <div className="flex items-center gap-2 mt-1.5">
+              <div className="flex items-center gap-2 mt-1.5 flex-wrap">
                 <span
                   className="text-[11px] font-semibold px-2 py-0.5 rounded-full"
                   style={{
@@ -118,11 +217,12 @@ export default function DistrictPanel({ districtId, repName, data, onClose, onSh
                   {isVacant ? "Vacant" : data.party}
                 </span>
                 <span className="text-[11px] text-slate-600">{stateCode}-{rawNum}</span>
+                {age !== null && !isVacant && (
+                  <span className="text-[11px] text-slate-600">Age {age}</span>
+                )}
               </div>
               {data.caucus && (
-                <p className="text-[11px] text-slate-500 mt-1">
-                  Caucuses with {data.caucus}s
-                </p>
+                <p className="text-[11px] text-slate-500 mt-1">Caucuses with {data.caucus}s</p>
               )}
               {isVacant && data.repElect && (
                 <div className="mt-2 px-2 py-1.5 rounded-md" style={{ backgroundColor: "rgba(30,41,59,0.6)", border: "1px solid rgba(71,85,105,0.4)" }}>
@@ -148,14 +248,11 @@ export default function DistrictPanel({ districtId, repName, data, onClose, onSh
           </div>
         </div>
 
-        {/* Divider */}
         <div className="mx-4 border-t border-slate-700/40" />
 
         {/* 2024 Election */}
         <div className="px-4 py-4">
           <p className="text-[10px] font-bold text-slate-600 uppercase tracking-widest mb-3">2024 Election</p>
-
-          {/* Vote share bar */}
           <div className="mb-3">
             <div className="flex h-5 rounded-md overflow-hidden bg-slate-800">
               <div
@@ -171,23 +268,11 @@ export default function DistrictPanel({ districtId, repName, data, onClose, onSh
                 {dPct > 12 ? `${dPct.toFixed(1)}%` : ""}
               </div>
             </div>
-            <div className="flex justify-between mt-1 text-[10px] text-slate-500">
-              <span>R  {rPct.toFixed(1)}%</span>
-              <span>D  {dPct.toFixed(1)}%</span>
-            </div>
           </div>
-
           <div className="space-y-2">
-            <Row
-              label="Margin"
-              value={data.margin === 0 ? "Tie" : `${data.margin > 0 ? "R" : "D"} +${marginAbs}%`}
-              valueColor={data.margin >= 0 ? PARTY_COLORS.Republican : PARTY_COLORS.Democrat}
-            />
-            <Row
-              label="Race Rating"
-              value={competitiveness}
-              valueColor={competitivenessColor}
-            />
+            <Row label="Margin" value={data.margin === 0 ? "Tie" : `${data.margin > 0 ? "R" : "D"} +${marginAbs}%`}
+              valueColor={data.margin >= 0 ? PARTY_COLORS.Republican : PARTY_COLORS.Democrat} />
+            <Row label="Race Rating" value={competitiveness} valueColor={competitivenessColor} />
           </div>
         </div>
 
@@ -197,15 +282,9 @@ export default function DistrictPanel({ districtId, repName, data, onClose, onSh
         <div className="px-4 py-4">
           <p className="text-[10px] font-bold text-slate-600 uppercase tracking-widest mb-3">District Profile</p>
           <div className="space-y-2">
-            <Row
-              label="Median Income"
-              value={`$${(data.income * 1000).toLocaleString()}`}
-            />
-            <Row
-              label="Cook PVI"
-              value={pviLabel}
-              valueColor={data.pvi > 0 ? PARTY_COLORS.Republican : data.pvi < 0 ? PARTY_COLORS.Democrat : undefined}
-            />
+            <Row label="Median Income" value={`$${(data.income * 1000).toLocaleString()}`} />
+            <Row label="Cook PVI" value={pviLabel}
+              valueColor={data.pvi > 0 ? PARTY_COLORS.Republican : data.pvi < 0 ? PARTY_COLORS.Democrat : undefined} />
           </div>
         </div>
 
@@ -215,11 +294,7 @@ export default function DistrictPanel({ districtId, repName, data, onClose, onSh
             <button
               onClick={onShowProfile}
               className="w-full flex items-center justify-between px-4 py-3 rounded-lg text-sm font-medium transition-all duration-150 group"
-              style={{
-                backgroundColor: "rgba(30,41,59,0.5)",
-                border: "1px solid rgba(71,85,105,0.4)",
-                color: "#94a3b8",
-              }}
+              style={{ backgroundColor: "rgba(30,41,59,0.5)", border: "1px solid rgba(71,85,105,0.4)", color: "#94a3b8" }}
               onMouseEnter={e => { (e.currentTarget as HTMLButtonElement).style.backgroundColor = "rgba(51,65,85,0.6)"; (e.currentTarget as HTMLButtonElement).style.color = "#e2e8f0"; }}
               onMouseLeave={e => { (e.currentTarget as HTMLButtonElement).style.backgroundColor = "rgba(30,41,59,0.5)"; (e.currentTarget as HTMLButtonElement).style.color = "#94a3b8"; }}
             >
@@ -231,17 +306,22 @@ export default function DistrictPanel({ districtId, repName, data, onClose, onSh
 
         {!isVacant && <div className="mx-4 border-t border-slate-700/40" />}
 
-        {/* Tenure */}
-        {!isVacant && <div className="px-4 py-4">
-          <p className="text-[10px] font-bold text-slate-600 uppercase tracking-widest mb-3">Tenure</p>
-          <div className="space-y-2">
-            <Row label="First Elected" value={String(data.termStart)} />
-            <Row
-              label="Time Served"
-              value={yearsServing < 1 ? "< 1 year" : `${yearsServing} year${yearsServing !== 1 ? "s" : ""}`}
-            />
+        {/* Tenure + Next election */}
+        {!isVacant && (
+          <div className="px-4 py-4">
+            <p className="text-[10px] font-bold text-slate-600 uppercase tracking-widest mb-3">Tenure</p>
+            <div className="space-y-2">
+              <Row label="First Elected" value={String(data.termStart)} />
+              <Row label="Time Served"
+                value={yearsServing < 1 ? "< 1 year" : `${yearsServing} year${yearsServing !== 1 ? "s" : ""}`} />
+              <Row
+                label="Next Election"
+                value={daysToElection > 0 ? `Nov 3, 2026 · ${daysToElection}d` : "Nov 3, 2026"}
+                valueColor="#94a3b8"
+              />
+            </div>
           </div>
-        </div>}
+        )}
 
         {/* Footer */}
         <div className="px-4 py-3 border-t border-slate-700/30">
@@ -254,22 +334,11 @@ export default function DistrictPanel({ districtId, repName, data, onClose, onSh
   );
 }
 
-function Row({
-  label,
-  value,
-  valueColor,
-}: {
-  label: string;
-  value: string;
-  valueColor?: string;
-}) {
+function Row({ label, value, valueColor }: { label: string; value: string; valueColor?: string }) {
   return (
     <div className="flex justify-between items-center">
       <span className="text-[12px] text-slate-500">{label}</span>
-      <span
-        className="text-[12px] font-semibold text-right"
-        style={valueColor ? { color: valueColor } : { color: "#e2e8f0" }}
-      >
+      <span className="text-[12px] font-semibold text-right" style={valueColor ? { color: valueColor } : { color: "#e2e8f0" }}>
         {value}
       </span>
     </div>

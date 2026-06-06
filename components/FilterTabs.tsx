@@ -14,9 +14,12 @@ const PRIMARY: FilterMode[] = ["party", "margin"];
 
 // Secondary filters behind the "More" dropdown
 const SECONDARY: { mode: FilterMode; desc: string }[] = [
-  { mode: "pvi",    desc: "Cook Partisan Voting Index — structural lean of the district" },
-  { mode: "income", desc: "Median household income per district (Census ACS)" },
-  { mode: "tenure", desc: "Years the current rep has held the seat" },
+  { mode: "pvi",       desc: "Cook Partisan Voting Index — structural lean of the district" },
+  { mode: "income",    desc: "Median household income per district (Census ACS)" },
+  { mode: "tenure",    desc: "Years the current rep has held the seat" },
+  { mode: "age",       desc: "Median age of district residents (Census ACS estimate)" },
+  { mode: "education", desc: "Share of residents with a bachelor's degree or higher" },
+  { mode: "poverty",   desc: "Share of residents below the federal poverty line" },
 ];
 
 const SECONDARY_MODES = new Set<FilterMode>(SECONDARY.map((s) => s.mode));

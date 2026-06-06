@@ -10,7 +10,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1962-02-17",
+    "gender": "F",
+    "religion": null
   },
   "VT-00": {
     "bioguide": "B001318",
@@ -23,7 +26,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1968-05-04",
+    "gender": "F",
+    "religion": null
   },
   "MS-01": {
     "bioguide": "K000388",
@@ -36,7 +42,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1966-03-01",
+    "gender": "M",
+    "religion": null
   },
   "IL-20": {
     "bioguide": "D000563",
@@ -50,7 +59,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1944-11-21",
+    "gender": "M",
+    "religion": null
   },
   "SC-03": {
     "bioguide": "B001325",
@@ -63,7 +75,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1970-03-28",
+    "gender": "F",
+    "religion": null
   },
   "RI-02": {
     "bioguide": "M001223",
@@ -76,7 +91,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1983-07-22",
+    "gender": "M",
+    "religion": null
   },
   "NY-20": {
     "bioguide": "T000469",
@@ -89,7 +107,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1949-06-18",
+    "gender": "M",
+    "religion": null
   },
   "AL-04": {
     "bioguide": "A000055",
@@ -102,7 +123,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1965-07-22",
+    "gender": "M",
+    "religion": null
   },
   "WI-02": {
     "bioguide": "P000607",
@@ -115,7 +139,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1964-08-14",
+    "gender": "M",
+    "religion": null
   },
   "FL-12": {
     "bioguide": "B001257",
@@ -128,7 +155,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1963-02-08",
+    "gender": "M",
+    "religion": null
   },
   "GA-02": {
     "bioguide": "B000490",
@@ -141,7 +171,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1947-02-04",
+    "gender": "M",
+    "religion": null
   },
   "TN-07": {
     "bioguide": "V000139",
@@ -149,12 +182,15 @@
       "H6TN07161"
     ],
     "phone": "202-225-2811",
-    "url": "https://vanepps.house.gov/",
+    "url": "https://vanepps.house.gov",
     "office": "2446 Rayburn House Office Building",
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1983-03-29",
+    "gender": "M",
+    "religion": null
   },
   "AR-03": {
     "bioguide": "W000809",
@@ -167,7 +203,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1957-02-18",
+    "gender": "M",
+    "religion": null
   },
   "FL-16": {
     "bioguide": "B001260",
@@ -180,7 +219,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1951-05-08",
+    "gender": "M",
+    "religion": null
   },
   "CA-41": {
     "bioguide": "C000059",
@@ -193,7 +235,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1953-06-08",
+    "gender": "M",
+    "religion": null
   },
   "WV-02": {
     "bioguide": "M001235",
@@ -206,7 +251,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1980-07-01",
+    "gender": "M",
+    "religion": null
   },
   "IN-07": {
     "bioguide": "C001072",
@@ -219,7 +267,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1974-10-16",
+    "gender": "M",
+    "religion": null
   },
   "TX-31": {
     "bioguide": "C001051",
@@ -232,7 +283,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1941-11-06",
+    "gender": "M",
+    "religion": null
   },
   "LA-06": {
     "bioguide": "F000110",
@@ -245,7 +299,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1962-11-22",
+    "gender": "M",
+    "religion": null
   },
   "FL-14": {
     "bioguide": "C001066",
@@ -259,7 +316,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1966-08-20",
+    "gender": "F",
+    "religion": null
   },
   "CA-28": {
     "bioguide": "C001080",
@@ -272,7 +332,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1953-07-07",
+    "gender": "F",
+    "religion": null
   },
   "NY-09": {
     "bioguide": "S000148",
@@ -286,7 +349,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1950-11-23",
+    "gender": "M",
+    "religion": null
   },
   "MO-05": {
     "bioguide": "C001061",
@@ -299,7 +365,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1944-10-26",
+    "gender": "M",
+    "religion": null
   },
   "SC-06": {
     "bioguide": "C000537",
@@ -312,7 +381,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1940-07-21",
+    "gender": "M",
+    "religion": null
   },
   "TN-09": {
     "bioguide": "C001068",
@@ -325,7 +397,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1949-05-24",
+    "gender": "M",
+    "religion": null
   },
   "OK-04": {
     "bioguide": "C001053",
@@ -338,7 +413,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1949-04-28",
+    "gender": "M",
+    "religion": null
   },
   "CA-21": {
     "bioguide": "C001059",
@@ -351,7 +429,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1952-04-13",
+    "gender": "M",
+    "religion": null
   },
   "CT-02": {
     "bioguide": "C001069",
@@ -364,7 +445,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1953-04-06",
+    "gender": "M",
+    "religion": null
   },
   "ID-02": {
     "bioguide": "S001148",
@@ -377,7 +461,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1950-09-08",
+    "gender": "M",
+    "religion": null
   },
   "AR-01": {
     "bioguide": "C001087",
@@ -390,7 +477,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1966-01-22",
+    "gender": "M",
+    "religion": null
   },
   "TX-28": {
     "bioguide": "C001063",
@@ -403,7 +493,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1955-09-19",
+    "gender": "M",
+    "religion": null
   },
   "IL-07": {
     "bioguide": "D000096",
@@ -416,7 +509,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1941-09-06",
+    "gender": "M",
+    "religion": null
   },
   "CO-01": {
     "bioguide": "D000197",
@@ -429,7 +525,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1957-07-29",
+    "gender": "F",
+    "religion": null
   },
   "CT-03": {
     "bioguide": "D000216",
@@ -442,7 +541,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1943-03-02",
+    "gender": "F",
+    "religion": null
   },
   "TN-04": {
     "bioguide": "D000616",
@@ -455,7 +557,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1964-02-21",
+    "gender": "M",
+    "religion": null
   },
   "FL-26": {
     "bioguide": "D000600",
@@ -468,7 +573,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1961-09-25",
+    "gender": "M",
+    "religion": null
   },
   "TX-37": {
     "bioguide": "D000399",
@@ -481,7 +589,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1946-10-06",
+    "gender": "M",
+    "religion": null
   },
   "TN-03": {
     "bioguide": "F000459",
@@ -494,7 +605,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1962-10-11",
+    "gender": "M",
+    "religion": null
   },
   "NC-05": {
     "bioguide": "F000450",
@@ -507,7 +621,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1943-06-29",
+    "gender": "F",
+    "religion": null
   },
   "CA-08": {
     "bioguide": "G000559",
@@ -520,7 +637,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1945-01-24",
+    "gender": "M",
+    "religion": null
   },
   "AZ-09": {
     "bioguide": "G000565",
@@ -533,7 +653,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1958-11-22",
+    "gender": "M",
+    "religion": null
   },
   "IA-03": {
     "bioguide": "N000193",
@@ -546,7 +669,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1979-05-04",
+    "gender": "M",
+    "religion": null
   },
   "MO-06": {
     "bioguide": "G000546",
@@ -559,7 +685,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1963-11-07",
+    "gender": "M",
+    "religion": null
   },
   "TX-09": {
     "bioguide": "G000553",
@@ -572,7 +701,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1947-09-01",
+    "gender": "M",
+    "religion": null
   },
   "VA-09": {
     "bioguide": "G000568",
@@ -585,7 +717,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1958-03-15",
+    "gender": "M",
+    "religion": null
   },
   "KY-02": {
     "bioguide": "G000558",
@@ -598,7 +733,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1964-02-18",
+    "gender": "M",
+    "religion": null
   },
   "MD-01": {
     "bioguide": "H001052",
@@ -611,7 +749,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1957-01-25",
+    "gender": "M",
+    "religion": null
   },
   "NM-01": {
     "bioguide": "S001218",
@@ -624,7 +765,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1979-01-31",
+    "gender": "F",
+    "religion": null
   },
   "CT-04": {
     "bioguide": "H001047",
@@ -637,7 +781,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1966-07-05",
+    "gender": "M",
+    "religion": null
   },
   "HI-02": {
     "bioguide": "T000487",
@@ -650,7 +797,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1976-03-28",
+    "gender": "F",
+    "religion": null
   },
   "MD-05": {
     "bioguide": "H000874",
@@ -663,7 +813,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1939-06-14",
+    "gender": "M",
+    "religion": null
   },
   "MI-04": {
     "bioguide": "H001058",
@@ -676,7 +829,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1969-01-31",
+    "gender": "M",
+    "religion": null
   },
   "GA-04": {
     "bioguide": "J000288",
@@ -689,7 +845,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1954-10-02",
+    "gender": "M",
+    "religion": null
   },
   "OH-04": {
     "bioguide": "J000289",
@@ -702,7 +861,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1964-02-17",
+    "gender": "M",
+    "religion": null
   },
   "OH-09": {
     "bioguide": "K000009",
@@ -715,7 +877,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1946-06-17",
+    "gender": "F",
+    "religion": null
   },
   "MA-09": {
     "bioguide": "K000375",
@@ -728,7 +893,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1952-09-06",
+    "gender": "M",
+    "religion": null
   },
   "PA-16": {
     "bioguide": "K000376",
@@ -741,7 +909,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1948-05-10",
+    "gender": "M",
+    "religion": null
   },
   "OK-05": {
     "bioguide": "B000740",
@@ -754,7 +925,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1973-11-11",
+    "gender": "F",
+    "religion": null
   },
   "WA-02": {
     "bioguide": "L000560",
@@ -767,7 +941,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1965-06-15",
+    "gender": "M",
+    "religion": null
   },
   "CT-01": {
     "bioguide": "L000557",
@@ -780,7 +957,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1948-07-22",
+    "gender": "M",
+    "religion": null
   },
   "OH-05": {
     "bioguide": "L000566",
@@ -793,7 +973,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1956-04-18",
+    "gender": "M",
+    "religion": null
   },
   "CA-18": {
     "bioguide": "L000397",
@@ -806,7 +989,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1947-12-21",
+    "gender": "F",
+    "religion": null
   },
   "OK-03": {
     "bioguide": "L000491",
@@ -819,7 +1005,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1960-01-06",
+    "gender": "M",
+    "religion": null
   },
   "NM-03": {
     "bioguide": "L000273",
@@ -832,7 +1021,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1959-07-01",
+    "gender": "F",
+    "religion": null
   },
   "MA-08": {
     "bioguide": "L000562",
@@ -846,7 +1038,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1955-03-31",
+    "gender": "M",
+    "religion": null
   },
   "MA-05": {
     "bioguide": "C001101",
@@ -859,7 +1054,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1963-07-17",
+    "gender": "F",
+    "religion": null
   },
   "CA-07": {
     "bioguide": "M001163",
@@ -872,7 +1070,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1944-09-25",
+    "gender": "F",
+    "religion": null
   },
   "TX-10": {
     "bioguide": "M001157",
@@ -885,7 +1086,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1962-01-14",
+    "gender": "M",
+    "religion": null
   },
   "CA-05": {
     "bioguide": "M001177",
@@ -899,7 +1103,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1956-07-10",
+    "gender": "M",
+    "religion": null
   },
   "MN-04": {
     "bioguide": "M001143",
@@ -912,7 +1119,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1954-07-12",
+    "gender": "F",
+    "religion": null
   },
   "MA-02": {
     "bioguide": "M000312",
@@ -925,7 +1135,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1959-11-20",
+    "gender": "M",
+    "religion": null
   },
   "NY-05": {
     "bioguide": "M001137",
@@ -938,7 +1151,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1953-09-25",
+    "gender": "M",
+    "religion": null
   },
   "WI-04": {
     "bioguide": "M001160",
@@ -951,7 +1167,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1951-04-18",
+    "gender": "F",
+    "religion": null
   },
   "KS-01": {
     "bioguide": "M000871",
@@ -964,7 +1183,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1976-12-17",
+    "gender": "M",
+    "religion": null
   },
   "CT-05": {
     "bioguide": "H001081",
@@ -977,7 +1199,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1973-03-08",
+    "gender": "F",
+    "religion": null
   },
   "NY-12": {
     "bioguide": "N000002",
@@ -990,7 +1215,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1947-06-13",
+    "gender": "M",
+    "religion": null
   },
   "MA-01": {
     "bioguide": "N000015",
@@ -1003,7 +1231,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1949-02-14",
+    "gender": "M",
+    "religion": null
   },
   "DC-00": {
     "bioguide": "N000147",
@@ -1016,7 +1247,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1937-06-13",
+    "gender": "F",
+    "religion": null
   },
   "NJ-06": {
     "bioguide": "P000034",
@@ -1030,7 +1264,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1951-10-30",
+    "gender": "M",
+    "religion": null
   },
   "CA-11": {
     "bioguide": "P000197",
@@ -1043,7 +1280,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1940-03-26",
+    "gender": "F",
+    "religion": null
   },
   "MI-14": {
     "bioguide": "P000595",
@@ -1057,7 +1297,10 @@
     "contactForm": "https://petersforms.house.gov/contact-us-form",
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1958-12-01",
+    "gender": "M",
+    "religion": null
   },
   "ME-01": {
     "bioguide": "P000597",
@@ -1071,7 +1314,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1955-04-02",
+    "gender": "F",
+    "religion": null
   },
   "IL-05": {
     "bioguide": "Q000023",
@@ -1084,7 +1330,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1958-10-17",
+    "gender": "M",
+    "religion": null
   },
   "KY-05": {
     "bioguide": "R000395",
@@ -1097,7 +1346,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1937-12-31",
+    "gender": "M",
+    "religion": null
   },
   "AL-03": {
     "bioguide": "R000575",
@@ -1110,7 +1362,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1958-07-16",
+    "gender": "M",
+    "religion": null
   },
   "LA-01": {
     "bioguide": "S001176",
@@ -1123,7 +1378,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1965-10-06",
+    "gender": "M",
+    "religion": null
   },
   "IL-09": {
     "bioguide": "S001145",
@@ -1136,7 +1394,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1944-05-26",
+    "gender": "F",
+    "religion": null
   },
   "CA-30": {
     "bioguide": "F000483",
@@ -1149,7 +1410,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1966-12-03",
+    "gender": "F",
+    "religion": null
   },
   "AZ-01": {
     "bioguide": "S001183",
@@ -1163,7 +1427,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1962-03-03",
+    "gender": "M",
+    "religion": null
   },
   "GA-08": {
     "bioguide": "S001189",
@@ -1176,20 +1443,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
-  },
-  "GA-13": {
-    "bioguide": "S001157",
-    "fecIds": [
-      "H2GA13012"
-    ],
-    "phone": "202-225-2939",
-    "url": "https://davidscott.house.gov",
-    "office": "468 Cannon House Office Building",
-    "contactForm": null,
-    "twitter": null,
-    "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1969-12-10",
+    "gender": "M",
+    "religion": null
   },
   "VA-03": {
     "bioguide": "S000185",
@@ -1202,7 +1459,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1947-04-30",
+    "gender": "M",
+    "religion": null
   },
   "SC-01": {
     "bioguide": "M000194",
@@ -1215,7 +1475,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1977-12-04",
+    "gender": "F",
+    "religion": null
   },
   "AL-07": {
     "bioguide": "S001185",
@@ -1228,7 +1491,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1965-01-01",
+    "gender": "F",
+    "religion": null
   },
   "CA-32": {
     "bioguide": "S000344",
@@ -1241,7 +1507,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1954-10-24",
+    "gender": "M",
+    "religion": null
   },
   "WA-09": {
     "bioguide": "S000510",
@@ -1254,7 +1523,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1965-06-15",
+    "gender": "M",
+    "religion": null
   },
   "NE-03": {
     "bioguide": "S001172",
@@ -1267,7 +1539,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1970-12-19",
+    "gender": "M",
+    "religion": null
   },
   "NJ-04": {
     "bioguide": "S000522",
@@ -1280,7 +1555,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1953-03-04",
+    "gender": "M",
+    "religion": null
   },
   "CA-38": {
     "bioguide": "S001156",
@@ -1293,7 +1571,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1969-01-28",
+    "gender": "F",
+    "religion": null
   },
   "MS-02": {
     "bioguide": "T000193",
@@ -1306,7 +1587,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1948-01-28",
+    "gender": "M",
+    "religion": null
   },
   "CA-04": {
     "bioguide": "T000460",
@@ -1319,7 +1603,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1951-01-24",
+    "gender": "M",
+    "religion": null
   },
   "PA-15": {
     "bioguide": "T000467",
@@ -1332,7 +1619,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1959-07-27",
+    "gender": "M",
+    "religion": null
   },
   "SD-00": {
     "bioguide": "J000301",
@@ -1345,7 +1635,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1976-09-30",
+    "gender": "M",
+    "religion": null
   },
   "OH-10": {
     "bioguide": "T000463",
@@ -1359,7 +1652,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1960-01-11",
+    "gender": "M",
+    "religion": null
   },
   "MD-08": {
     "bioguide": "R000606",
@@ -1372,7 +1668,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1962-12-13",
+    "gender": "M",
+    "religion": null
   },
   "NY-07": {
     "bioguide": "V000081",
@@ -1385,7 +1684,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1953-03-28",
+    "gender": "F",
+    "religion": null
   },
   "MI-05": {
     "bioguide": "W000798",
@@ -1398,7 +1700,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1951-04-12",
+    "gender": "M",
+    "religion": null
   },
   "FL-25": {
     "bioguide": "W000797",
@@ -1411,7 +1716,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1966-09-27",
+    "gender": "F",
+    "religion": null
   },
   "CA-43": {
     "bioguide": "W000187",
@@ -1424,7 +1732,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1938-08-15",
+    "gender": "F",
+    "religion": null
   },
   "FL-11": {
     "bioguide": "W000806",
@@ -1438,7 +1749,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1949-04-27",
+    "gender": "M",
+    "religion": null
   },
   "SC-02": {
     "bioguide": "W000795",
@@ -1451,7 +1765,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1947-07-31",
+    "gender": "M",
+    "religion": null
   },
   "FL-24": {
     "bioguide": "W000808",
@@ -1464,7 +1781,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1942-11-05",
+    "gender": "F",
+    "religion": null
   },
   "VA-01": {
     "bioguide": "W000804",
@@ -1477,7 +1797,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1959-02-03",
+    "gender": "M",
+    "religion": null
   },
   "OR-03": {
     "bioguide": "D000635",
@@ -1490,7 +1813,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1972-12-05",
+    "gender": "F",
+    "religion": null
   },
   "IN-09": {
     "bioguide": "H001093",
@@ -1503,7 +1829,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1976-09-24",
+    "gender": "F",
+    "religion": null
   },
   "NV-02": {
     "bioguide": "A000369",
@@ -1518,7 +1847,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1958-06-12",
+    "gender": "M",
+    "religion": null
   },
   "OR-01": {
     "bioguide": "B001278",
@@ -1531,7 +1863,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1954-10-14",
+    "gender": "F",
+    "religion": null
   },
   "KY-04": {
     "bioguide": "M001184",
@@ -1544,7 +1879,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1971-01-13",
+    "gender": "M",
+    "religion": null
   },
   "IL-11": {
     "bioguide": "F000454",
@@ -1558,7 +1896,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1955-10-07",
+    "gender": "M",
+    "religion": null
   },
   "NV-01": {
     "bioguide": "T000468",
@@ -1571,7 +1912,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1950-05-23",
+    "gender": "F",
+    "religion": null
   },
   "AR-04": {
     "bioguide": "W000821",
@@ -1584,7 +1928,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1967-11-18",
+    "gender": "M",
+    "religion": null
   },
   "CA-02": {
     "bioguide": "H001068",
@@ -1597,7 +1944,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1964-02-18",
+    "gender": "M",
+    "religion": null
   },
   "CA-06": {
     "bioguide": "B001287",
@@ -1610,7 +1960,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1965-03-02",
+    "gender": "M",
+    "religion": null
   },
   "CA-26": {
     "bioguide": "B001285",
@@ -1623,7 +1976,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1952-08-28",
+    "gender": "F",
+    "religion": null
   },
   "CA-25": {
     "bioguide": "R000599",
@@ -1636,7 +1992,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1972-08-25",
+    "gender": "M",
+    "religion": null
   },
   "CA-39": {
     "bioguide": "T000472",
@@ -1649,7 +2008,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1960-12-10",
+    "gender": "M",
+    "religion": null
   },
   "CA-52": {
     "bioguide": "V000130",
@@ -1662,7 +2024,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1961-03-07",
+    "gender": "M",
+    "religion": null
   },
   "CA-50": {
     "bioguide": "P000608",
@@ -1675,7 +2040,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1958-06-17",
+    "gender": "M",
+    "religion": null
   },
   "FL-22": {
     "bioguide": "F000462",
@@ -1689,7 +2057,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1948-05-16",
+    "gender": "F",
+    "religion": null
   },
   "IL-08": {
     "bioguide": "K000391",
@@ -1702,7 +2073,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1973-07-19",
+    "gender": "M",
+    "religion": null
   },
   "KY-06": {
     "bioguide": "B001282",
@@ -1715,7 +2089,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1973-07-24",
+    "gender": "M",
+    "religion": null
   },
   "MO-02": {
     "bioguide": "W000812",
@@ -1728,7 +2105,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1962-09-13",
+    "gender": "F",
+    "religion": null
   },
   "MT-00": {
     "bioguide": "D000618",
@@ -1742,7 +2122,10 @@
     "contactForm": "https://daines.house.gov/email-me",
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1962-08-20",
+    "gender": "M",
+    "religion": null
   },
   "NC-09": {
     "bioguide": "H001067",
@@ -1755,7 +2138,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1971-11-04",
+    "gender": "M",
+    "religion": null
   },
   "ND-00": {
     "bioguide": "F000482",
@@ -1768,7 +2154,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1968-09-28",
+    "gender": "F",
+    "religion": null
   },
   "NY-06": {
     "bioguide": "M001188",
@@ -1781,7 +2170,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1975-10-01",
+    "gender": "F",
+    "religion": null
   },
   "NY-08": {
     "bioguide": "J000294",
@@ -1794,7 +2186,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1970-08-04",
+    "gender": "M",
+    "religion": null
   },
   "OH-03": {
     "bioguide": "B001281",
@@ -1807,7 +2202,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1950-03-12",
+    "gender": "F",
+    "religion": null
   },
   "OH-14": {
     "bioguide": "J000295",
@@ -1820,7 +2218,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1957-03-17",
+    "gender": "M",
+    "religion": null
   },
   "PA-10": {
     "bioguide": "P000605",
@@ -1833,7 +2234,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1962-05-27",
+    "gender": "M",
+    "religion": null
   },
   "TX-14": {
     "bioguide": "W000814",
@@ -1846,7 +2250,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1953-07-02",
+    "gender": "M",
+    "religion": null
   },
   "TX-20": {
     "bioguide": "C001091",
@@ -1859,7 +2266,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1974-09-16",
+    "gender": "M",
+    "religion": null
   },
   "TX-25": {
     "bioguide": "W000816",
@@ -1873,7 +2283,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1949-09-13",
+    "gender": "M",
+    "religion": null
   },
   "TX-33": {
     "bioguide": "V000131",
@@ -1886,7 +2299,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1971-01-03",
+    "gender": "M",
+    "religion": null
   },
   "IL-02": {
     "bioguide": "K000385",
@@ -1899,7 +2315,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1956-04-30",
+    "gender": "F",
+    "religion": null
   },
   "MO-08": {
     "bioguide": "S001195",
@@ -1912,7 +2331,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1980-06-16",
+    "gender": "M",
+    "religion": null
   },
   "NJ-01": {
     "bioguide": "N000188",
@@ -1925,7 +2347,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1958-12-13",
+    "gender": "M",
+    "religion": null
   },
   "NC-12": {
     "bioguide": "A000370",
@@ -1938,7 +2363,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1946-05-27",
+    "gender": "F",
+    "religion": null
   },
   "AL-06": {
     "bioguide": "P000609",
@@ -1951,7 +2379,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1954-05-14",
+    "gender": "M",
+    "religion": null
   },
   "AR-02": {
     "bioguide": "H001072",
@@ -1964,7 +2395,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1956-12-05",
+    "gender": "M",
+    "religion": null
   },
   "AZ-03": {
     "bioguide": "A000381",
@@ -1977,7 +2411,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1992-04-07",
+    "gender": "F",
+    "religion": null
   },
   "CA-10": {
     "bioguide": "D000623",
@@ -1990,7 +2427,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1952-03-31",
+    "gender": "M",
+    "religion": null
   },
   "CA-33": {
     "bioguide": "A000371",
@@ -2003,7 +2443,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1979-06-19",
+    "gender": "M",
+    "religion": null
   },
   "CA-36": {
     "bioguide": "L000582",
@@ -2016,7 +2459,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1969-03-29",
+    "gender": "M",
+    "religion": null
   },
   "CA-35": {
     "bioguide": "T000474",
@@ -2029,7 +2475,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1965-04-04",
+    "gender": "F",
+    "religion": null
   },
   "GA-01": {
     "bioguide": "C001103",
@@ -2042,7 +2491,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1957-09-06",
+    "gender": "M",
+    "religion": null
   },
   "GA-11": {
     "bioguide": "L000583",
@@ -2055,7 +2507,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1963-12-22",
+    "gender": "M",
+    "religion": null
   },
   "GA-12": {
     "bioguide": "A000372",
@@ -2068,7 +2523,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1951-11-07",
+    "gender": "M",
+    "religion": null
   },
   "IL-12": {
     "bioguide": "B001295",
@@ -2081,7 +2539,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1960-12-30",
+    "gender": "M",
+    "religion": null
   },
   "MA-06": {
     "bioguide": "M001196",
@@ -2094,7 +2555,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1978-10-24",
+    "gender": "M",
+    "religion": null
   },
   "MI-02": {
     "bioguide": "M001194",
@@ -2107,7 +2571,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1961-05-08",
+    "gender": "M",
+    "religion": null
   },
   "MI-06": {
     "bioguide": "D000624",
@@ -2120,7 +2587,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1953-11-23",
+    "gender": "F",
+    "religion": null
   },
   "MN-06": {
     "bioguide": "E000294",
@@ -2133,7 +2603,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1961-03-03",
+    "gender": "M",
+    "religion": null
   },
   "NC-07": {
     "bioguide": "R000603",
@@ -2146,7 +2619,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1972-02-16",
+    "gender": "M",
+    "religion": null
   },
   "NJ-12": {
     "bioguide": "W000822",
@@ -2159,7 +2635,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1945-02-06",
+    "gender": "F",
+    "religion": null
   },
   "NY-21": {
     "bioguide": "S001196",
@@ -2172,7 +2651,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1984-07-02",
+    "gender": "F",
+    "religion": null
   },
   "PA-02": {
     "bioguide": "B001296",
@@ -2185,7 +2667,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1977-02-06",
+    "gender": "M",
+    "religion": null
   },
   "TX-36": {
     "bioguide": "B001291",
@@ -2198,7 +2683,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1948-03-23",
+    "gender": "M",
+    "religion": null
   },
   "VA-08": {
     "bioguide": "B001292",
@@ -2211,7 +2699,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1950-06-20",
+    "gender": "M",
+    "religion": null
   },
   "VI-00": {
     "bioguide": "P000610",
@@ -2224,7 +2715,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1966-05-13",
+    "gender": "F",
+    "religion": null
   },
   "WA-04": {
     "bioguide": "N000189",
@@ -2237,7 +2731,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1955-07-10",
+    "gender": "M",
+    "religion": null
   },
   "WI-06": {
     "bioguide": "G000576",
@@ -2250,7 +2747,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1955-07-03",
+    "gender": "M",
+    "religion": null
   },
   "AS-00": {
     "bioguide": "R000600",
@@ -2263,7 +2763,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1947-12-29",
+    "gender": "F",
+    "religion": null
   },
   "IL-16": {
     "bioguide": "L000585",
@@ -2276,7 +2779,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1968-07-05",
+    "gender": "M",
+    "religion": null
   },
   "OH-08": {
     "bioguide": "D000626",
@@ -2289,7 +2795,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1970-03-01",
+    "gender": "M",
+    "religion": null
   },
   "KY-01": {
     "bioguide": "C001108",
@@ -2302,7 +2811,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1972-08-19",
+    "gender": "M",
+    "religion": null
   },
   "PA-03": {
     "bioguide": "E000296",
@@ -2315,7 +2827,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1954-05-16",
+    "gender": "M",
+    "religion": null
   },
   "IL-10": {
     "bioguide": "S001190",
@@ -2328,7 +2843,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1961-08-20",
+    "gender": "M",
+    "religion": null
   },
   "AZ-05": {
     "bioguide": "B001302",
@@ -2341,7 +2859,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1958-11-07",
+    "gender": "M",
+    "religion": null
   },
   "CA-17": {
     "bioguide": "K000389",
@@ -2354,7 +2875,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1976-09-13",
+    "gender": "M",
+    "religion": null
   },
   "CA-19": {
     "bioguide": "P000613",
@@ -2367,7 +2891,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1969-10-01",
+    "gender": "M",
+    "religion": null
   },
   "CA-24": {
     "bioguide": "C001112",
@@ -2380,7 +2907,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1964-11-18",
+    "gender": "M",
+    "religion": null
   },
   "CA-44": {
     "bioguide": "B001300",
@@ -2393,7 +2923,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1976-09-15",
+    "gender": "F",
+    "religion": null
   },
   "CA-46": {
     "bioguide": "C001110",
@@ -2406,7 +2939,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1958-01-24",
+    "gender": "M",
+    "religion": null
   },
   "DE-00": {
     "bioguide": "M001238",
@@ -2419,7 +2955,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1990-08-09",
+    "gender": "F",
+    "religion": null
   },
   "FL-02": {
     "bioguide": "D000628",
@@ -2432,7 +2971,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1953-02-16",
+    "gender": "M",
+    "religion": null
   },
   "FL-05": {
     "bioguide": "R000609",
@@ -2445,7 +2987,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1952-09-02",
+    "gender": "M",
+    "religion": null
   },
   "FL-09": {
     "bioguide": "S001200",
@@ -2458,7 +3003,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1978-02-25",
+    "gender": "M",
+    "religion": null
   },
   "FL-21": {
     "bioguide": "M001199",
@@ -2471,7 +3019,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1980-07-10",
+    "gender": "M",
+    "religion": null
   },
   "IN-03": {
     "bioguide": "S001188",
@@ -2485,7 +3036,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1976-08-31",
+    "gender": "M",
+    "religion": null
   },
   "LA-03": {
     "bioguide": "H001077",
@@ -2498,7 +3052,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1961-08-24",
+    "gender": "M",
+    "religion": null
   },
   "LA-04": {
     "bioguide": "J000299",
@@ -2511,7 +3068,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1972-01-30",
+    "gender": "M",
+    "religion": null
   },
   "MI-01": {
     "bioguide": "B001301",
@@ -2524,7 +3084,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1947-02-02",
+    "gender": "M",
+    "religion": null
   },
   "NC-13": {
     "bioguide": "K000405",
@@ -2537,7 +3100,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1986-04-17",
+    "gender": "M",
+    "religion": null
   },
   "NE-02": {
     "bioguide": "B001298",
@@ -2550,7 +3116,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1963-08-16",
+    "gender": "M",
+    "religion": null
   },
   "NJ-05": {
     "bioguide": "G000583",
@@ -2563,7 +3132,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1975-03-08",
+    "gender": "M",
+    "religion": null
   },
   "NV-03": {
     "bioguide": "L000590",
@@ -2576,7 +3148,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1966-11-07",
+    "gender": "F",
+    "religion": null
   },
   "NY-13": {
     "bioguide": "E000297",
@@ -2589,7 +3164,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1954-09-27",
+    "gender": "M",
+    "religion": null
   },
   "PA-01": {
     "bioguide": "F000466",
@@ -2602,7 +3180,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1973-12-17",
+    "gender": "M",
+    "religion": null
   },
   "PA-11": {
     "bioguide": "S001199",
@@ -2615,7 +3196,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1964-01-23",
+    "gender": "M",
+    "religion": null
   },
   "TN-08": {
     "bioguide": "K000392",
@@ -2628,7 +3212,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1966-10-08",
+    "gender": "M",
+    "religion": null
   },
   "TX-34": {
     "bioguide": "G000581",
@@ -2641,7 +3228,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1967-09-04",
+    "gender": "M",
+    "religion": null
   },
   "TX-19": {
     "bioguide": "A000375",
@@ -2654,7 +3244,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1972-03-09",
+    "gender": "M",
+    "religion": null
   },
   "WA-07": {
     "bioguide": "J000298",
@@ -2667,7 +3260,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1965-09-21",
+    "gender": "F",
+    "religion": null
   },
   "KS-04": {
     "bioguide": "E000298",
@@ -2680,7 +3276,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1956-07-19",
+    "gender": "M",
+    "religion": null
   },
   "SC-05": {
     "bioguide": "N000190",
@@ -2693,7 +3292,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1953-06-20",
+    "gender": "M",
+    "religion": null
   },
   "CA-34": {
     "bioguide": "G000585",
@@ -2706,7 +3308,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1974-11-25",
+    "gender": "M",
+    "religion": null
   },
   "UT-03": {
     "bioguide": "K000403",
@@ -2719,7 +3324,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1969-02-02",
+    "gender": "M",
+    "religion": null
   },
   "TX-27": {
     "bioguide": "C001115",
@@ -2732,7 +3340,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1975-05-13",
+    "gender": "M",
+    "religion": null
   },
   "OH-12": {
     "bioguide": "B001306",
@@ -2745,7 +3356,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1962-01-16",
+    "gender": "M",
+    "religion": null
   },
   "OK-01": {
     "bioguide": "H001082",
@@ -2758,7 +3372,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1961-12-04",
+    "gender": "M",
+    "religion": null
   },
   "NY-25": {
     "bioguide": "M001206",
@@ -2771,7 +3388,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1957-04-29",
+    "gender": "M",
+    "religion": null
   },
   "PA-05": {
     "bioguide": "S001205",
@@ -2784,7 +3404,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1959-08-30",
+    "gender": "F",
+    "religion": null
   },
   "HI-01": {
     "bioguide": "C001055",
@@ -2797,7 +3420,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1952-09-27",
+    "gender": "M",
+    "religion": null
   },
   "NV-04": {
     "bioguide": "H001066",
@@ -2810,7 +3436,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1973-04-29",
+    "gender": "M",
+    "religion": null
   },
   "AZ-04": {
     "bioguide": "S001211",
@@ -2823,7 +3452,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1970-03-08",
+    "gender": "M",
+    "religion": null
   },
   "CA-09": {
     "bioguide": "H001090",
@@ -2836,7 +3468,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1986-08-01",
+    "gender": "M",
+    "religion": null
   },
   "CA-49": {
     "bioguide": "L000593",
@@ -2849,7 +3484,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1978-10-28",
+    "gender": "M",
+    "religion": null
   },
   "CO-02": {
     "bioguide": "N000191",
@@ -2862,7 +3500,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1984-05-13",
+    "gender": "M",
+    "religion": null
   },
   "CO-06": {
     "bioguide": "C001121",
@@ -2875,7 +3516,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1979-03-15",
+    "gender": "M",
+    "religion": null
   },
   "FL-17": {
     "bioguide": "S001214",
@@ -2888,7 +3532,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1978-05-19",
+    "gender": "M",
+    "religion": null
   },
   "GA-06": {
     "bioguide": "M001208",
@@ -2901,7 +3548,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1960-06-01",
+    "gender": "F",
+    "religion": null
   },
   "ID-01": {
     "bioguide": "F000469",
@@ -2914,7 +3564,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1973-07-19",
+    "gender": "M",
+    "religion": null
   },
   "IL-04": {
     "bioguide": "G000586",
@@ -2927,7 +3580,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1956-04-12",
+    "gender": "M",
+    "religion": null
   },
   "IL-06": {
     "bioguide": "C001117",
@@ -2940,7 +3596,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1971-11-23",
+    "gender": "M",
+    "religion": null
   },
   "IL-14": {
     "bioguide": "U000040",
@@ -2953,7 +3612,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1986-10-04",
+    "gender": "F",
+    "religion": null
   },
   "IN-04": {
     "bioguide": "B001307",
@@ -2966,7 +3628,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1945-06-04",
+    "gender": "M",
+    "religion": null
   },
   "KS-03": {
     "bioguide": "D000629",
@@ -2979,7 +3644,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1980-05-22",
+    "gender": "F",
+    "religion": null
   },
   "MA-03": {
     "bioguide": "T000482",
@@ -2992,7 +3660,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1973-10-27",
+    "gender": "F",
+    "religion": null
   },
   "MA-07": {
     "bioguide": "P000617",
@@ -3005,7 +3676,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1974-02-03",
+    "gender": "F",
+    "religion": null
   },
   "MI-07": {
     "bioguide": "B001321",
@@ -3018,7 +3692,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1981-04-30",
+    "gender": "M",
+    "religion": null
   },
   "MI-11": {
     "bioguide": "S001215",
@@ -3031,7 +3708,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1983-06-24",
+    "gender": "F",
+    "religion": null
   },
   "MI-12": {
     "bioguide": "T000481",
@@ -3044,7 +3724,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1976-07-24",
+    "gender": "F",
+    "religion": null
   },
   "MN-02": {
     "bioguide": "C001119",
@@ -3057,7 +3740,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1972-02-14",
+    "gender": "F",
+    "religion": null
   },
   "MN-05": {
     "bioguide": "O000173",
@@ -3070,7 +3756,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1981-10-04",
+    "gender": "F",
+    "religion": null
   },
   "MN-08": {
     "bioguide": "S001212",
@@ -3083,7 +3772,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1966-05-10",
+    "gender": "M",
+    "religion": null
   },
   "MS-03": {
     "bioguide": "G000591",
@@ -3096,7 +3788,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1970-02-04",
+    "gender": "M",
+    "religion": null
   },
   "NH-01": {
     "bioguide": "P000614",
@@ -3109,7 +3804,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1980-06-04",
+    "gender": "M",
+    "religion": null
   },
   "NJ-02": {
     "bioguide": "V000133",
@@ -3122,7 +3820,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1953-02-23",
+    "gender": "M",
+    "religion": null
   },
   "NJ-03": {
     "bioguide": "C001136",
@@ -3135,7 +3836,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1963-01-30",
+    "gender": "M",
+    "religion": null
   },
   "NY-14": {
     "bioguide": "O000172",
@@ -3148,7 +3852,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1989-10-13",
+    "gender": "F",
+    "religion": null
   },
   "PA-04": {
     "bioguide": "D000631",
@@ -3161,7 +3868,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1959-06-06",
+    "gender": "F",
+    "religion": null
   },
   "PA-06": {
     "bioguide": "H001085",
@@ -3174,7 +3884,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1967-06-05",
+    "gender": "F",
+    "religion": null
   },
   "PA-09": {
     "bioguide": "M001204",
@@ -3187,7 +3900,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1964-02-10",
+    "gender": "M",
+    "religion": null
   },
   "PA-13": {
     "bioguide": "J000302",
@@ -3200,7 +3916,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1957-02-08",
+    "gender": "M",
+    "religion": null
   },
   "PA-14": {
     "bioguide": "R000610",
@@ -3213,7 +3932,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1983-04-17",
+    "gender": "M",
+    "religion": null
   },
   "SC-04": {
     "bioguide": "T000480",
@@ -3226,7 +3948,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1984-04-30",
+    "gender": "M",
+    "religion": null
   },
   "TN-02": {
     "bioguide": "B001309",
@@ -3239,7 +3964,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1964-08-25",
+    "gender": "M",
+    "religion": null
   },
   "TN-06": {
     "bioguide": "R000612",
@@ -3252,7 +3980,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1965-02-23",
+    "gender": "M",
+    "religion": null
   },
   "TX-02": {
     "bioguide": "C001120",
@@ -3265,7 +3996,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1984-03-14",
+    "gender": "M",
+    "religion": null
   },
   "TX-05": {
     "bioguide": "G000589",
@@ -3278,7 +4012,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1982-12-01",
+    "gender": "M",
+    "religion": null
   },
   "TX-07": {
     "bioguide": "F000468",
@@ -3291,7 +4028,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1975-02-13",
+    "gender": "F",
+    "religion": null
   },
   "TX-16": {
     "bioguide": "E000299",
@@ -3304,7 +4044,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1969-09-15",
+    "gender": "F",
+    "religion": null
   },
   "TX-21": {
     "bioguide": "R000614",
@@ -3317,7 +4060,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1972-08-07",
+    "gender": "M",
+    "religion": null
   },
   "TX-29": {
     "bioguide": "G000587",
@@ -3330,7 +4076,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1950-09-06",
+    "gender": "F",
+    "religion": null
   },
   "VA-06": {
     "bioguide": "C001118",
@@ -3343,7 +4092,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1972-02-29",
+    "gender": "M",
+    "religion": null
   },
   "WA-08": {
     "bioguide": "S001216",
@@ -3356,7 +4108,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1968-08-23",
+    "gender": "F",
+    "religion": null
   },
   "WI-01": {
     "bioguide": "S001213",
@@ -3369,7 +4124,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1981-03-30",
+    "gender": "M",
+    "religion": null
   },
   "WV-01": {
     "bioguide": "M001205",
@@ -3382,7 +4140,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1950-11-04",
+    "gender": "F",
+    "religion": null
   },
   "ME-02": {
     "bioguide": "G000592",
@@ -3395,7 +4156,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1982-07-25",
+    "gender": "M",
+    "religion": null
   },
   "NC-03": {
     "bioguide": "M001210",
@@ -3408,7 +4172,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1963-03-05",
+    "gender": "M",
+    "religion": null
   },
   "MD-07": {
     "bioguide": "M000687",
@@ -3423,7 +4190,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1948-10-24",
+    "gender": "M",
+    "religion": null
   },
   "WI-07": {
     "bioguide": "T000165",
@@ -3436,7 +4206,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1957-12-30",
+    "gender": "M",
+    "religion": null
   },
   "WY-00": {
     "bioguide": "H001096",
@@ -3449,7 +4222,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1962-10-18",
+    "gender": "F",
+    "religion": null
   },
   "CA-48": {
     "bioguide": "I000056",
@@ -3463,7 +4239,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1953-11-01",
+    "gender": "M",
+    "religion": null
   },
   "TX-17": {
     "bioguide": "S000250",
@@ -3476,7 +4255,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1955-03-22",
+    "gender": "M",
+    "religion": null
   },
   "CA-22": {
     "bioguide": "V000129",
@@ -3489,7 +4271,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1977-04-14",
+    "gender": "M",
+    "religion": null
   },
   "AL-01": {
     "bioguide": "M001212",
@@ -3502,7 +4287,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1966-09-26",
+    "gender": "M",
+    "religion": null
   },
   "CA-23": {
     "bioguide": "O000019",
@@ -3515,7 +4303,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1970-08-18",
+    "gender": "M",
+    "religion": null
   },
   "CA-40": {
     "bioguide": "K000397",
@@ -3528,7 +4319,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1962-10-18",
+    "gender": "F",
+    "religion": null
   },
   "CA-51": {
     "bioguide": "J000305",
@@ -3541,7 +4335,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1989-02-01",
+    "gender": "F",
+    "religion": null
   },
   "CO-04": {
     "bioguide": "B000825",
@@ -3554,7 +4351,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1986-12-15",
+    "gender": "F",
+    "religion": null
   },
   "FL-03": {
     "bioguide": "C001039",
@@ -3567,7 +4367,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1988-02-16",
+    "gender": "F",
+    "religion": null
   },
   "FL-18": {
     "bioguide": "F000472",
@@ -3580,7 +4383,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1964-08-23",
+    "gender": "M",
+    "religion": null
   },
   "FL-19": {
     "bioguide": "D000032",
@@ -3593,7 +4399,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1978-10-28",
+    "gender": "M",
+    "religion": null
   },
   "FL-28": {
     "bioguide": "G000593",
@@ -3606,7 +4415,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1954-01-17",
+    "gender": "M",
+    "religion": null
   },
   "FL-27": {
     "bioguide": "S000168",
@@ -3619,7 +4431,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1961-11-01",
+    "gender": "F",
+    "religion": null
   },
   "GA-05": {
     "bioguide": "W000788",
@@ -3632,7 +4447,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1978-07-30",
+    "gender": "F",
+    "religion": null
   },
   "GA-09": {
     "bioguide": "C001116",
@@ -3645,7 +4463,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1963-11-22",
+    "gender": "M",
+    "religion": null
   },
   "IA-02": {
     "bioguide": "H001091",
@@ -3658,7 +4479,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1983-06-27",
+    "gender": "F",
+    "religion": null
   },
   "IA-01": {
     "bioguide": "M001215",
@@ -3671,7 +4495,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1955-09-06",
+    "gender": "F",
+    "religion": null
   },
   "IA-04": {
     "bioguide": "F000446",
@@ -3684,7 +4511,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1969-01-14",
+    "gender": "M",
+    "religion": null
   },
   "IL-15": {
     "bioguide": "M001211",
@@ -3697,7 +4527,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1959-08-27",
+    "gender": "F",
+    "religion": null
   },
   "IN-01": {
     "bioguide": "M001214",
@@ -3710,7 +4543,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1969-04-16",
+    "gender": "M",
+    "religion": null
   },
   "IN-05": {
     "bioguide": "S000929",
@@ -3723,7 +4559,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1978-10-06",
+    "gender": "F",
+    "religion": null
   },
   "MA-04": {
     "bioguide": "A000148",
@@ -3736,7 +4575,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1988-01-29",
+    "gender": "M",
+    "religion": null
   },
   "MI-09": {
     "bioguide": "M001136",
@@ -3749,7 +4591,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1966-04-07",
+    "gender": "F",
+    "religion": null
   },
   "MN-07": {
     "bioguide": "F000470",
@@ -3762,7 +4607,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1965-11-03",
+    "gender": "F",
+    "religion": null
   },
   "NC-02": {
     "bioguide": "R000305",
@@ -3775,7 +4623,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1963-06-20",
+    "gender": "F",
+    "religion": null
   },
   "NY-02": {
     "bioguide": "G000597",
@@ -3788,7 +4639,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1984-09-27",
+    "gender": "M",
+    "religion": null
   },
   "NY-11": {
     "bioguide": "M000317",
@@ -3801,7 +4655,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1980-11-11",
+    "gender": "F",
+    "religion": null
   },
   "NY-15": {
     "bioguide": "T000486",
@@ -3814,7 +4671,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1988-03-12",
+    "gender": "M",
+    "religion": null
   },
   "OR-02": {
     "bioguide": "B000668",
@@ -3827,7 +4687,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1952-01-12",
+    "gender": "M",
+    "religion": null
   },
   "TN-01": {
     "bioguide": "H001086",
@@ -3840,7 +4703,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1960-01-01",
+    "gender": "F",
+    "religion": null
   },
   "TX-04": {
     "bioguide": "F000246",
@@ -3853,7 +4719,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1967-12-19",
+    "gender": "M",
+    "religion": null
   },
   "TX-11": {
     "bioguide": "P000048",
@@ -3866,7 +4735,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1978-12-28",
+    "gender": "M",
+    "religion": null
   },
   "TX-13": {
     "bioguide": "J000304",
@@ -3879,7 +4751,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1967-05-04",
+    "gender": "M",
+    "religion": null
   },
   "TX-22": {
     "bioguide": "N000026",
@@ -3892,7 +4767,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1968-04-07",
+    "gender": "M",
+    "religion": null
   },
   "TX-24": {
     "bioguide": "V000134",
@@ -3905,7 +4783,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1970-11-16",
+    "gender": "F",
+    "religion": null
   },
   "UT-01": {
     "bioguide": "M001213",
@@ -3918,7 +4799,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1980-06-22",
+    "gender": "M",
+    "religion": null
   },
   "UT-04": {
     "bioguide": "O000086",
@@ -3931,7 +4815,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1951-08-02",
+    "gender": "M",
+    "religion": null
   },
   "WA-10": {
     "bioguide": "S001159",
@@ -3944,7 +4831,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1962-09-25",
+    "gender": "F",
+    "religion": null
   },
   "WI-05": {
     "bioguide": "F000471",
@@ -3957,7 +4847,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1963-11-16",
+    "gender": "M",
+    "religion": null
   },
   "NY-24": {
     "bioguide": "T000478",
@@ -3970,7 +4863,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1961-02-04",
+    "gender": "F",
+    "religion": null
   },
   "LA-05": {
     "bioguide": "L000595",
@@ -3983,7 +4879,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1981-03-16",
+    "gender": "F",
+    "religion": null
   },
   "LA-02": {
     "bioguide": "C001125",
@@ -3996,7 +4895,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1963-10-26",
+    "gender": "M",
+    "religion": null
   },
   "TX-06": {
     "bioguide": "E000071",
@@ -4009,7 +4911,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1970-01-24",
+    "gender": "M",
+    "religion": null
   },
   "OH-11": {
     "bioguide": "B001313",
@@ -4022,7 +4927,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1975-06-24",
+    "gender": "F",
+    "religion": null
   },
   "OH-15": {
     "bioguide": "C001126",
@@ -4035,20 +4943,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
-  },
-  "FL-20": {
-    "bioguide": "C001127",
-    "fecIds": [
-      "H8FL20032"
-    ],
-    "phone": "202-225-1313",
-    "url": "https://cherfilus-mccormick.house.gov",
-    "office": "2442 Rayburn House Office Building",
-    "contactForm": null,
-    "twitter": null,
-    "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1971-03-13",
+    "gender": "M",
+    "religion": null
   },
   "NE-01": {
     "bioguide": "F000474",
@@ -4061,7 +4959,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1975-02-23",
+    "gender": "M",
+    "religion": null
   },
   "MN-01": {
     "bioguide": "F000475",
@@ -4074,7 +4975,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1976-05-30",
+    "gender": "M",
+    "religion": null
   },
   "NY-18": {
     "bioguide": "R000579",
@@ -4087,7 +4991,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1982-03-28",
+    "gender": "M",
+    "religion": null
   },
   "IN-02": {
     "bioguide": "Y000067",
@@ -4100,7 +5007,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1984-02-24",
+    "gender": "M",
+    "religion": null
   },
   "MT-01": {
     "bioguide": "Z000018",
@@ -4113,7 +5023,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1961-11-01",
+    "gender": "M",
+    "religion": null
   },
   "AL-05": {
     "bioguide": "S001220",
@@ -4126,7 +5039,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1970-05-08",
+    "gender": "M",
+    "religion": null
   },
   "AZ-02": {
     "bioguide": "C001132",
@@ -4139,7 +5055,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1980-01-03",
+    "gender": "M",
+    "religion": null
   },
   "AZ-06": {
     "bioguide": "C001133",
@@ -4152,7 +5071,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1982-08-30",
+    "gender": "M",
+    "religion": null
   },
   "CA-03": {
     "bioguide": "K000401",
@@ -4165,7 +5087,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1985-01-30",
+    "gender": "M",
+    "religion": null
   },
   "CA-15": {
     "bioguide": "M001225",
@@ -4178,7 +5103,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1970-06-15",
+    "gender": "M",
+    "religion": null
   },
   "CA-37": {
     "bioguide": "K000400",
@@ -4191,7 +5119,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1972-07-20",
+    "gender": "F",
+    "religion": null
   },
   "CA-42": {
     "bioguide": "G000598",
@@ -4204,7 +5135,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1977-12-02",
+    "gender": "M",
+    "religion": null
   },
   "CO-07": {
     "bioguide": "P000620",
@@ -4217,7 +5151,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1981-12-06",
+    "gender": "F",
+    "religion": null
   },
   "FL-04": {
     "bioguide": "B001314",
@@ -4230,7 +5167,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1967-01-25",
+    "gender": "M",
+    "religion": null
   },
   "FL-07": {
     "bioguide": "M001216",
@@ -4243,7 +5183,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1980-07-30",
+    "gender": "M",
+    "religion": null
   },
   "FL-10": {
     "bioguide": "F000476",
@@ -4256,7 +5199,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1997-01-17",
+    "gender": "M",
+    "religion": null
   },
   "FL-13": {
     "bioguide": "L000596",
@@ -4269,7 +5215,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1989-05-06",
+    "gender": "F",
+    "religion": null
   },
   "FL-15": {
     "bioguide": "L000597",
@@ -4282,7 +5231,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1974-03-26",
+    "gender": "F",
+    "religion": null
   },
   "FL-23": {
     "bioguide": "M001217",
@@ -4295,7 +5247,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1980-12-18",
+    "gender": "M",
+    "religion": null
   },
   "GA-07": {
     "bioguide": "M001218",
@@ -4308,7 +5263,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1968-10-07",
+    "gender": "M",
+    "religion": null
   },
   "GA-10": {
     "bioguide": "C001129",
@@ -4321,7 +5279,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1967-07-02",
+    "gender": "M",
+    "religion": null
   },
   "GU-00": {
     "bioguide": "M001219",
@@ -4334,7 +5295,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1962-07-18",
+    "gender": "M",
+    "religion": null
   },
   "IL-01": {
     "bioguide": "J000309",
@@ -4347,7 +5311,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1966-01-07",
+    "gender": "M",
+    "religion": null
   },
   "IL-03": {
     "bioguide": "R000617",
@@ -4360,7 +5327,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1983-06-02",
+    "gender": "F",
+    "religion": null
   },
   "IL-13": {
     "bioguide": "B001315",
@@ -4373,7 +5343,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1977-03-11",
+    "gender": "F",
+    "religion": null
   },
   "IL-17": {
     "bioguide": "S001225",
@@ -4386,7 +5359,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1976-03-18",
+    "gender": "M",
+    "religion": null
   },
   "KY-03": {
     "bioguide": "M001220",
@@ -4399,7 +5375,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1979-12-23",
+    "gender": "M",
+    "religion": null
   },
   "MD-04": {
     "bioguide": "I000058",
@@ -4412,7 +5391,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1961-02-27",
+    "gender": "M",
+    "religion": null
   },
   "MI-03": {
     "bioguide": "S001221",
@@ -4425,7 +5407,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1982-02-22",
+    "gender": "F",
+    "religion": null
   },
   "MI-10": {
     "bioguide": "J000307",
@@ -4438,7 +5423,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1981-06-08",
+    "gender": "M",
+    "religion": null
   },
   "MI-13": {
     "bioguide": "T000488",
@@ -4451,7 +5439,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1955-02-22",
+    "gender": "M",
+    "religion": null
   },
   "MO-04": {
     "bioguide": "A000379",
@@ -4464,7 +5455,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1963-10-04",
+    "gender": "M",
+    "religion": null
   },
   "MO-07": {
     "bioguide": "B001316",
@@ -4477,7 +5471,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1976-10-02",
+    "gender": "M",
+    "religion": null
   },
   "MS-04": {
     "bioguide": "E000235",
@@ -4490,7 +5487,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1959-04-06",
+    "gender": "M",
+    "religion": null
   },
   "NC-01": {
     "bioguide": "D000230",
@@ -4503,7 +5503,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1971-08-29",
+    "gender": "M",
+    "religion": null
   },
   "NC-04": {
     "bioguide": "F000477",
@@ -4516,7 +5519,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1956-05-07",
+    "gender": "F",
+    "religion": null
   },
   "NC-11": {
     "bioguide": "E000246",
@@ -4529,7 +5535,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1960-09-13",
+    "gender": "M",
+    "religion": null
   },
   "NJ-07": {
     "bioguide": "K000398",
@@ -4542,7 +5551,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1968-09-05",
+    "gender": "M",
+    "religion": null
   },
   "NJ-08": {
     "bioguide": "M001226",
@@ -4555,7 +5567,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1985-07-12",
+    "gender": "M",
+    "religion": null
   },
   "NM-02": {
     "bioguide": "V000136",
@@ -4568,7 +5583,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1984-08-03",
+    "gender": "M",
+    "religion": null
   },
   "NY-01": {
     "bioguide": "L000598",
@@ -4581,7 +5599,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1978-06-23",
+    "gender": "M",
+    "religion": null
   },
   "NY-10": {
     "bioguide": "G000599",
@@ -4594,7 +5615,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1976-02-26",
+    "gender": "M",
+    "religion": null
   },
   "NY-17": {
     "bioguide": "L000599",
@@ -4607,7 +5631,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1986-09-09",
+    "gender": "M",
+    "religion": null
   },
   "NY-23": {
     "bioguide": "L000600",
@@ -4620,7 +5647,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1981-02-27",
+    "gender": "M",
+    "religion": null
   },
   "OH-01": {
     "bioguide": "L000601",
@@ -4633,7 +5663,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1976-12-04",
+    "gender": "M",
+    "religion": null
   },
   "OH-07": {
     "bioguide": "M001222",
@@ -4646,7 +5679,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1988-11-13",
+    "gender": "M",
+    "religion": null
   },
   "OH-13": {
     "bioguide": "S001223",
@@ -4659,7 +5695,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1986-01-04",
+    "gender": "F",
+    "religion": null
   },
   "OK-02": {
     "bioguide": "B001317",
@@ -4672,7 +5711,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1979-06-19",
+    "gender": "M",
+    "religion": null
   },
   "OR-04": {
     "bioguide": "H001094",
@@ -4685,7 +5727,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1964-02-14",
+    "gender": "F",
+    "religion": null
   },
   "OR-06": {
     "bioguide": "S001226",
@@ -4698,7 +5743,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1969-12-06",
+    "gender": "F",
+    "religion": null
   },
   "PA-12": {
     "bioguide": "L000602",
@@ -4711,7 +5759,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1987-11-26",
+    "gender": "F",
+    "religion": null
   },
   "PA-17": {
     "bioguide": "D000530",
@@ -4724,7 +5775,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1984-07-13",
+    "gender": "M",
+    "religion": null
   },
   "SC-07": {
     "bioguide": "F000478",
@@ -4737,7 +5791,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1985-01-31",
+    "gender": "M",
+    "religion": null
   },
   "TN-05": {
     "bioguide": "O000175",
@@ -4750,7 +5807,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1971-06-18",
+    "gender": "M",
+    "religion": null
   },
   "TX-01": {
     "bioguide": "M001224",
@@ -4763,7 +5823,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1974-07-22",
+    "gender": "M",
+    "religion": null
   },
   "TX-03": {
     "bioguide": "S001224",
@@ -4776,7 +5839,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1953-03-20",
+    "gender": "M",
+    "religion": null
   },
   "TX-08": {
     "bioguide": "L000603",
@@ -4789,7 +5855,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1975-11-07",
+    "gender": "M",
+    "religion": null
   },
   "TX-15": {
     "bioguide": "D000594",
@@ -4802,7 +5871,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1974-11-11",
+    "gender": "F",
+    "religion": null
   },
   "TX-30": {
     "bioguide": "C001130",
@@ -4815,7 +5887,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1981-03-29",
+    "gender": "F",
+    "religion": null
   },
   "TX-35": {
     "bioguide": "C001131",
@@ -4828,7 +5903,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1989-05-04",
+    "gender": "M",
+    "religion": null
   },
   "TX-38": {
     "bioguide": "H001095",
@@ -4841,7 +5919,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1981-11-13",
+    "gender": "M",
+    "religion": null
   },
   "VA-02": {
     "bioguide": "K000399",
@@ -4854,7 +5935,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1971-06-18",
+    "gender": "F",
+    "religion": null
   },
   "WA-03": {
     "bioguide": "G000600",
@@ -4867,7 +5951,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1988-06-06",
+    "gender": "F",
+    "religion": null
   },
   "WI-03": {
     "bioguide": "V000135",
@@ -4880,7 +5967,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1969-09-15",
+    "gender": "M",
+    "religion": null
   },
   "VA-04": {
     "bioguide": "M001227",
@@ -4893,7 +5983,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1972-12-28",
+    "gender": "F",
+    "religion": null
   },
   "RI-01": {
     "bioguide": "A000380",
@@ -4906,7 +5999,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1987-12-11",
+    "gender": "M",
+    "religion": null
   },
   "UT-02": {
     "bioguide": "M001228",
@@ -4919,7 +6015,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1981-05-22",
+    "gender": "F",
+    "religion": null
   },
   "NY-03": {
     "bioguide": "S001201",
@@ -4932,7 +6031,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1962-08-31",
+    "gender": "M",
+    "religion": null
   },
   "NY-26": {
     "bioguide": "K000402",
@@ -4945,7 +6047,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1976-10-20",
+    "gender": "M",
+    "religion": null
   },
   "CA-20": {
     "bioguide": "F000480",
@@ -4958,7 +6063,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1979-10-24",
+    "gender": "M",
+    "religion": null
   },
   "OH-06": {
     "bioguide": "R000619",
@@ -4971,7 +6079,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1969-03-11",
+    "gender": "M",
+    "religion": null
   },
   "NJ-10": {
     "bioguide": "M001229",
@@ -4984,7 +6095,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1986-06-20",
+    "gender": "F",
+    "religion": null
   },
   "WI-08": {
     "bioguide": "W000829",
@@ -4997,7 +6111,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1976-05-03",
+    "gender": "M",
+    "religion": null
   },
   "CA-31": {
     "bioguide": "C001123",
@@ -5011,7 +6128,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1971-02-12",
+    "gender": "M",
+    "religion": null
   },
   "AK-00": {
     "bioguide": "B001323",
@@ -5024,7 +6144,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1977-10-21",
+    "gender": "M",
+    "religion": null
   },
   "AL-02": {
     "bioguide": "F000481",
@@ -5037,7 +6160,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1985-09-03",
+    "gender": "M",
+    "religion": null
   },
   "AZ-08": {
     "bioguide": "H001098",
@@ -5050,7 +6176,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1991-05-15",
+    "gender": "M",
+    "religion": null
   },
   "CA-12": {
     "bioguide": "S001231",
@@ -5063,7 +6192,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1977-01-29",
+    "gender": "F",
+    "religion": null
   },
   "CA-13": {
     "bioguide": "G000605",
@@ -5076,7 +6208,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1977-09-23",
+    "gender": "M",
+    "religion": null
   },
   "CA-16": {
     "bioguide": "L000607",
@@ -5089,7 +6224,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1970-04-16",
+    "gender": "M",
+    "religion": null
   },
   "CA-27": {
     "bioguide": "W000830",
@@ -5102,7 +6240,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1974-03-03",
+    "gender": "M",
+    "religion": null
   },
   "CA-29": {
     "bioguide": "R000620",
@@ -5115,7 +6256,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1974-02-06",
+    "gender": "F",
+    "religion": null
   },
   "CA-45": {
     "bioguide": "T000491",
@@ -5128,7 +6272,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1980-12-22",
+    "gender": "M",
+    "religion": null
   },
   "CA-47": {
     "bioguide": "M001241",
@@ -5141,7 +6288,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1976-03-05",
+    "gender": "M",
+    "religion": null
   },
   "CO-03": {
     "bioguide": "H001100",
@@ -5154,7 +6304,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1979-08-15",
+    "gender": "M",
+    "religion": null
   },
   "CO-05": {
     "bioguide": "C001137",
@@ -5167,7 +6320,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1967-01-28",
+    "gender": "M",
+    "religion": null
   },
   "CO-08": {
     "bioguide": "E000300",
@@ -5180,7 +6336,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1986-07-28",
+    "gender": "M",
+    "religion": null
   },
   "FL-08": {
     "bioguide": "H001099",
@@ -5193,7 +6352,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1970-03-15",
+    "gender": "M",
+    "religion": null
   },
   "GA-03": {
     "bioguide": "J000311",
@@ -5206,7 +6368,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1988-02-17",
+    "gender": "M",
+    "religion": null
   },
   "IN-06": {
     "bioguide": "S001229",
@@ -5219,7 +6384,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1965-09-24",
+    "gender": "M",
+    "religion": null
   },
   "IN-08": {
     "bioguide": "M001233",
@@ -5232,7 +6400,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1967-12-16",
+    "gender": "M",
+    "religion": null
   },
   "KS-02": {
     "bioguide": "S001228",
@@ -5245,7 +6416,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1968-01-23",
+    "gender": "M",
+    "religion": null
   },
   "MD-02": {
     "bioguide": "O000176",
@@ -5258,7 +6432,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1982-09-10",
+    "gender": "M",
+    "religion": null
   },
   "MD-03": {
     "bioguide": "E000301",
@@ -5271,7 +6448,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1988-09-09",
+    "gender": "F",
+    "religion": null
   },
   "MD-06": {
     "bioguide": "M001232",
@@ -5284,7 +6464,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1964-05-28",
+    "gender": "F",
+    "religion": null
   },
   "MI-08": {
     "bioguide": "M001237",
@@ -5297,7 +6480,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1970-07-11",
+    "gender": "F",
+    "religion": null
   },
   "MN-03": {
     "bioguide": "M001234",
@@ -5310,7 +6496,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1969-02-02",
+    "gender": "F",
+    "religion": null
   },
   "MO-01": {
     "bioguide": "B001324",
@@ -5323,7 +6512,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1974-11-05",
+    "gender": "M",
+    "religion": null
   },
   "MO-03": {
     "bioguide": "O000177",
@@ -5337,7 +6529,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1962-01-06",
+    "gender": "M",
+    "religion": null
   },
   "MP-00": {
     "bioguide": "K000404",
@@ -5350,7 +6545,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1975-04-10",
+    "gender": "F",
+    "religion": null
   },
   "MT-02": {
     "bioguide": "D000634",
@@ -5363,7 +6561,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1967-03-04",
+    "gender": "M",
+    "religion": null
   },
   "NC-06": {
     "bioguide": "M001240",
@@ -5376,7 +6577,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1994-01-21",
+    "gender": "M",
+    "religion": null
   },
   "NC-08": {
     "bioguide": "H001102",
@@ -5390,7 +6594,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1966-04-24",
+    "gender": "M",
+    "religion": null
   },
   "NC-10": {
     "bioguide": "H001101",
@@ -5403,7 +6610,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1987-06-21",
+    "gender": "M",
+    "religion": null
   },
   "NC-14": {
     "bioguide": "M001236",
@@ -5416,7 +6626,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1970-10-02",
+    "gender": "M",
+    "religion": null
   },
   "NH-02": {
     "bioguide": "G000604",
@@ -5429,7 +6642,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1986-11-04",
+    "gender": "F",
+    "religion": null
   },
   "NJ-09": {
     "bioguide": "P000621",
@@ -5442,7 +6658,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1956-05-20",
+    "gender": "F",
+    "religion": null
   },
   "NY-04": {
     "bioguide": "G000602",
@@ -5455,7 +6674,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1969-07-10",
+    "gender": "F",
+    "religion": null
   },
   "NY-16": {
     "bioguide": "L000606",
@@ -5468,7 +6690,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1953-11-22",
+    "gender": "M",
+    "religion": null
   },
   "NY-19": {
     "bioguide": "R000622",
@@ -5481,7 +6706,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1981-01-21",
+    "gender": "M",
+    "religion": null
   },
   "NY-22": {
     "bioguide": "M001231",
@@ -5494,7 +6722,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1968-07-08",
+    "gender": "M",
+    "religion": null
   },
   "OH-02": {
     "bioguide": "T000490",
@@ -5507,7 +6738,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1969-11-16",
+    "gender": "M",
+    "religion": null
   },
   "OR-05": {
     "bioguide": "B001326",
@@ -5520,7 +6754,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1975-01-31",
+    "gender": "F",
+    "religion": null
   },
   "PA-07": {
     "bioguide": "M001230",
@@ -5533,7 +6770,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1982-08-03",
+    "gender": "M",
+    "religion": null
   },
   "PA-08": {
     "bioguide": "B001327",
@@ -5546,7 +6786,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1990-04-22",
+    "gender": "M",
+    "religion": null
   },
   "PR-00": {
     "bioguide": "H001103",
@@ -5559,7 +6802,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1991-05-11",
+    "gender": "M",
+    "religion": null
   },
   "TX-12": {
     "bioguide": "G000601",
@@ -5572,7 +6818,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1968-10-03",
+    "gender": "M",
+    "religion": null
   },
   "TX-26": {
     "bioguide": "G000603",
@@ -5585,7 +6834,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1994-02-26",
+    "gender": "M",
+    "religion": null
   },
   "TX-32": {
     "bioguide": "J000310",
@@ -5598,7 +6850,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1966-05-02",
+    "gender": "F",
+    "religion": null
   },
   "VA-05": {
     "bioguide": "M001239",
@@ -5612,7 +6867,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1968-08-24",
+    "gender": "M",
+    "religion": null
   },
   "VA-07": {
     "bioguide": "V000138",
@@ -5625,7 +6883,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1975-06-06",
+    "gender": "M",
+    "religion": null
   },
   "VA-10": {
     "bioguide": "S001230",
@@ -5638,7 +6899,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1986-09-26",
+    "gender": "M",
+    "religion": null
   },
   "WA-05": {
     "bioguide": "B001322",
@@ -5651,7 +6915,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1975-12-13",
+    "gender": "M",
+    "religion": null
   },
   "WA-06": {
     "bioguide": "R000621",
@@ -5664,7 +6931,10 @@
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1985-10-30",
+    "gender": "F",
+    "religion": null
   },
   "FL-01": {
     "bioguide": "P000622",
@@ -5677,7 +6947,10 @@
     "contactForm": "https://patronis.house.gov/contact/email-me",
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1972-04-13",
+    "gender": "M",
+    "religion": null
   },
   "FL-06": {
     "bioguide": "F000484",
@@ -5690,7 +6963,10 @@
     "contactForm": "hhttps://fine.house.gov/address_authentication?form=/contact/email-me",
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1974-04-20",
+    "gender": "M",
+    "religion": null
   },
   "VA-11": {
     "bioguide": "W000831",
@@ -5698,12 +6974,15 @@
       "H6VA11066"
     ],
     "phone": "202-225-1492",
-    "url": "https://walkinshaw.house.gov/",
+    "url": "https://walkinshaw.house.gov",
     "office": "2265 Rayburn House Office Building",
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1982-10-22",
+    "gender": "M",
+    "religion": null
   },
   "AZ-07": {
     "bioguide": "G000606",
@@ -5711,12 +6990,15 @@
       "H6AZ07121"
     ],
     "phone": "202-225-2435",
-    "url": "https://grijalva.house.gov/",
+    "url": "https://grijalva.house.gov",
     "office": "1203 Longworth House Office Building",
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1970-10-30",
+    "gender": "F",
+    "religion": null
   },
   "TX-18": {
     "bioguide": "M001245",
@@ -5724,12 +7006,15 @@
       "H6TX18232"
     ],
     "phone": "202-225-3816",
-    "url": "https://menefee.house.gov/",
+    "url": "https://menefee.house.gov",
     "office": "1318 Longworth House Office Building",
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1988-04-18",
+    "gender": "M",
+    "religion": null
   },
   "GA-14": {
     "bioguide": "F000485",
@@ -5737,11 +7022,30 @@
       "H0GA14030"
     ],
     "phone": "202-225-5211",
-    "url": null,
+    "url": "https://fuller.house.gov",
     "office": "2201 Rayburn House Office Building",
     "contactForm": null,
     "twitter": null,
     "facebook": null,
-    "youtube": null
+    "youtube": null,
+    "birthday": "1981-04-09",
+    "gender": "M",
+    "religion": null
+  },
+  "NJ-11": {
+    "bioguide": "M001246",
+    "fecIds": [
+      "H6NJ11286"
+    ],
+    "phone": "202-225-5034",
+    "url": "https://mejia.house.gov",
+    "office": "1427 Longworth House Office Building",
+    "contactForm": null,
+    "twitter": null,
+    "facebook": null,
+    "youtube": null,
+    "birthday": "1977-08-19",
+    "gender": "F",
+    "religion": null
   }
 }
