@@ -411,7 +411,7 @@ export default function HouseMap() {
 
   const handleExportCSV = () => {
     const allStates = Object.keys(STATE_NAMES) as string[];
-    const rows: string[] = ["District,Representative,Party,Margin (%),Median Income ($K),Cook PVI,Term Start,Years Served"];
+    const rows: string[] = ["District,Representative,Party,Margin (%),Median Income ($K),Computed PVI,Term Start,Years Served"];
     for (const state of allStates) {
       const numSeats = getStateSeats(state);
       const atLarge = AT_LARGE_STATES.has(state);

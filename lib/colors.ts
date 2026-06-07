@@ -169,7 +169,7 @@ export function filterModeLabel(mode: FilterMode): string {
     margin:    "2024 Margin",
     income:    "Median Income",
     tenure:    "Tenure",
-    pvi:       "Cook PVI",
+    pvi:       "Computed PVI",
     age:       "Median Age",
     education: "College Educated",
     poverty:   "Poverty Rate",

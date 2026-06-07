@@ -332,7 +332,7 @@ export default function RepProfile({ districtId, repName, data, onClose }: Props
               />
               <StatRow label="Race Rating" value={competitiveness} />
               <StatRow
-                label="Cook PVI"
+                label="Computed PVI"
                 value={pviLabel}
                 valueColor={data.pvi > 0 ? PARTY_COLORS.Republican : data.pvi < 0 ? PARTY_COLORS.Democrat : undefined}
               />

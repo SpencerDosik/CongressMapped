@@ -14,7 +14,7 @@ const PRIMARY: FilterMode[] = ["party", "margin"];
 
 // Secondary filters behind the "More" dropdown
 const SECONDARY: { mode: FilterMode; desc: string }[] = [
-  { mode: "pvi",       desc: "Cook Partisan Voting Index — structural lean of the district" },
+  { mode: "pvi",       desc: "Computed PVI — structural partisan lean, derived from 2020+2024 presidential results" },
   { mode: "income",    desc: "Median household income per district (Census ACS)" },
   { mode: "tenure",    desc: "Years the current rep has held the seat" },
   { mode: "age",       desc: "Median age of district residents (Census ACS estimate)" },

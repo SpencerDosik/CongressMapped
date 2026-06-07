@@ -18,7 +18,7 @@ export interface Representative {
 export interface DistrictStaticData {
   margin: number; // 2024 margin: positive = R won, negative = D won (integer %)
   income: number; // Median HH income in $K (Census ACS ~2022)
-  pvi: number; // Cook PVI equivalent: positive = R lean, negative = D lean
+  pvi: number; // Computed PVI: positive = R lean, negative = D lean (see lib/provenance.ts)
   termStart: number; // Year current incumbent first won this seat
   party: Party;
   caucus?: string;        // For independents who caucus with a party

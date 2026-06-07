@@ -283,7 +283,7 @@ export default function DistrictPanel({ districtId, repName, data, onClose, onSh
           <p className="text-[10px] font-bold text-slate-600 uppercase tracking-widest mb-3">District Profile</p>
           <div className="space-y-2">
             <Row label="Median Income" value={`$${(data.income * 1000).toLocaleString()}`} />
-            <Row label="Cook PVI" value={pviLabel}
+            <Row label="Computed PVI" value={pviLabel}
               valueColor={data.pvi > 0 ? PARTY_COLORS.Republican : data.pvi < 0 ? PARTY_COLORS.Democrat : undefined} />
           </div>
         </div>
