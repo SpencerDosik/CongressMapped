@@ -479,6 +479,28 @@ export default function HouseMap() {
 
         {/* Right controls */}
         <div className="flex items-center gap-2 shrink-0">
+          {/* Nav links */}
+          <div className="hidden md:flex items-center gap-0.5">
+            <a
+              href="/rankings"
+              className="px-2 py-1 rounded text-[10px] font-medium transition-colors"
+              style={{ color: "#64748b" }}
+              onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.color = "#cbd5e1"; }}
+              onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.color = "#64748b"; }}
+            >
+              Rankings
+            </a>
+            <a
+              href="/compare"
+              className="px-2 py-1 rounded text-[10px] font-medium transition-colors"
+              style={{ color: "#64748b" }}
+              onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.color = "#cbd5e1"; }}
+              onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.color = "#64748b"; }}
+            >
+              Compare
+            </a>
+          </div>
+          <div className="w-px h-4 bg-slate-700/60 hidden md:block shrink-0" />
           {/* Label toggles */}
           <div className="hidden md:flex items-center gap-1">
             <button
