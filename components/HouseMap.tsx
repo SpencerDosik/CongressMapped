@@ -19,7 +19,7 @@ import RepProfile from "./RepProfile";
 
 import { FilterMode } from "@/lib/types";
 import { getDistrictColor, PARTY_COLORS } from "@/lib/colors";
-import { getDistrictData, getRepName } from "@/lib/districtData";
+import { getDistrictData, getRepName, getAllDistricts } from "@/lib/districtData";
 import { toDistrictId, STATE_NAMES, AT_LARGE_STATES, FIPS_TO_STATE, STATE_TO_FIPS } from "@/lib/stateFips";
 
 // ── Constants ─────────────────────────────────────────────────────────────────
@@ -340,6 +340,69 @@ function ZoomControls({ zoom, onIn, onOut, onReset }: {
   );
 }
 
+// ── State Panel ───────────────────────────────────────────────────────────────
+const ALL_DISTRICTS = getAllDistricts();
+
+function StatePanel({ stateAbbr, onSelectDistrict }: { stateAbbr: string; onSelectDistrict: (id: string) => void }) {
+  const stateName = STATE_NAMES[stateAbbr] ?? stateAbbr;
+  const districts = ALL_DISTRICTS.filter((d) => d.districtId.startsWith(`${stateAbbr}-`));
+  const rSeats = districts.filter((d) => d.data.party === "Republican" || d.data.caucus === "Republican").length;
+  const dSeats = districts.filter((d) => d.data.party === "Democrat").length;
+  const total = districts.length;
+  const rPct = total > 0 ? (rSeats / total) * 100 : 0;
+  const dPct = total > 0 ? (dSeats / total) * 100 : 0;
+
+  return (
+    <div
+      className="absolute top-14 left-4 w-52 rounded-xl overflow-hidden z-20 flex flex-col"
+      style={{
+        backgroundColor: "rgba(13,17,23,0.95)",
+        border: "1px solid rgba(51,65,85,0.6)",
+        backdropFilter: "blur(12px)",
+        maxHeight: "calc(100vh - 120px)",
+        boxShadow: "0 8px 32px rgba(0,0,0,0.5)",
+      }}
+    >
+      {/* Header */}
+      <div className="px-3 py-2.5 border-b border-slate-700/40 shrink-0">
+        <p className="text-white font-semibold text-[12px] leading-tight">{stateName}</p>
+        <p className="text-slate-600 text-[10px] mt-0.5">{total} congressional district{total !== 1 ? "s" : ""}</p>
+        {/* Seat bar */}
+        <div className="flex h-2 rounded-full overflow-hidden mt-2 bg-slate-800">
+          <div style={{ width: `${rPct}%`, backgroundColor: PARTY_COLORS.Republican }} />
+          <div style={{ width: `${dPct}%`, backgroundColor: PARTY_COLORS.Democrat }} />
+        </div>
+        <div className="flex justify-between mt-1">
+          <span className="text-[10px] text-red-400">{rSeats} R</span>
+          <span className="text-[10px] text-blue-400">{dSeats} D</span>
+        </div>
+      </div>
+      {/* District list */}
+      <div className="overflow-y-auto flex-1">
+        {districts.sort((a, b) => a.districtId.localeCompare(b.districtId)).map(({ districtId, data }) => {
+          const color = PARTY_COLORS[data.party] ?? "#64748B";
+          const [, num] = districtId.split("-");
+          const label = AT_LARGE_STATES.has(stateAbbr) ? "AL" : String(parseInt(num ?? "0", 10));
+          return (
+            <button
+              key={districtId}
+              onClick={() => onSelectDistrict(districtId)}
+              className="w-full flex items-center gap-2 px-3 py-2 text-left transition-colors border-b border-slate-800/40 last:border-0"
+              style={{ fontSize: 11 }}
+              onMouseEnter={(e) => { (e.currentTarget as HTMLButtonElement).style.backgroundColor = "rgba(30,41,59,0.5)"; }}
+              onMouseLeave={(e) => { (e.currentTarget as HTMLButtonElement).style.backgroundColor = "transparent"; }}
+            >
+              <div className="w-1 h-4 rounded-full shrink-0" style={{ backgroundColor: color }} />
+              <span className="text-slate-600 w-5 shrink-0 tabular-nums">{label}</span>
+              <span className="text-slate-300 truncate text-[11px]">{data.repName.split(" ").slice(-1)[0]}</span>
+            </button>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
+
 // ── Main Component ────────────────────────────────────────────────────────────
 export default function HouseMap() {
   const [filterMode, setFilterMode] = useState<FilterMode>("party");
@@ -370,10 +433,17 @@ export default function HouseMap() {
     history.replaceState({}, "", url);
   }, [selectedId]);
 
-  // On mount: read ?d=XX-NN from URL and open that district
+  // On mount: read ?d=XX-NN and ?s=XX from URL
   useEffect(() => {
-    const param = new URLSearchParams(window.location.search).get("d");
-    if (param && getDistrictData(param)) setSelectedId(param);
+    const sp = new URLSearchParams(window.location.search);
+    const d = sp.get("d");
+    if (d && getDistrictData(d)) setSelectedId(d);
+    const s = sp.get("s")?.toUpperCase();
+    if (s && STATE_NAMES[s]) {
+      setIsolatedState(s);
+      const view = STATE_VIEW[s];
+      if (view) { setZoom(view.zoom); setCenter(view.center); }
+    }
   }, []);
 
   useEffect(() => {
@@ -536,6 +606,7 @@ export default function HouseMap() {
               if (view) { setZoom(view.zoom); setCenter(view.center); }
               setSelectedId(null);
               setShowProfile(false);
+              history.replaceState({}, "", `?s=${abbr}`);
             }}
           />
           {/* Export CSV */}
@@ -767,20 +838,33 @@ export default function HouseMap() {
           {/* Legend */}
           <MapLegend mode={filterMode} />
 
-          {/* Isolation exit button */}
+          {/* Isolation exit button + state panel */}
           {isolatedState && (
-            <button
-              onClick={() => { setIsolatedState(null); setZoom(1); setCenter([-98, 38]); }}
-              className="absolute top-4 left-4 flex items-center gap-2 px-3 py-2 rounded-lg text-xs font-medium transition-all z-20"
-              style={{
-                backgroundColor: "rgba(13,17,23,0.92)",
-                border: "1px solid rgba(99,102,241,0.5)",
-                color: "#a5b4fc",
-                backdropFilter: "blur(8px)",
-              }}
-            >
-              ← All States
-            </button>
+            <>
+              <button
+                onClick={() => {
+                  setIsolatedState(null);
+                  setZoom(1);
+                  setCenter([-98, 38]);
+                  history.replaceState({}, "", window.location.pathname);
+                }}
+                className="absolute top-4 left-4 flex items-center gap-2 px-3 py-2 rounded-lg text-xs font-medium transition-all z-30"
+                style={{
+                  backgroundColor: "rgba(13,17,23,0.92)",
+                  border: "1px solid rgba(99,102,241,0.5)",
+                  color: "#a5b4fc",
+                  backdropFilter: "blur(8px)",
+                }}
+              >
+                ← All States
+              </button>
+              {!selectedId && (
+                <StatePanel
+                  stateAbbr={isolatedState}
+                  onSelectDistrict={(id) => setSelectedId(id)}
+                />
+              )}
+            </>
           )}
         </div>
 
