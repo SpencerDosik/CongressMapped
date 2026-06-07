@@ -484,21 +484,93 @@ export default function RepProfile({ districtId, repName, data, onClose }: Props
               </>
             ) : (
               <>
-                {fec.raised != null && <StatRow label="Total Raised" value={fmt$(fec.raised)} />}
-                {fec.spent != null && <StatRow label="Total Spent" value={fmt$(fec.spent)} />}
-                {fec.cashOnHand != null && <StatRow label="Cash on Hand" value={fmt$(fec.cashOnHand)} />}
-                {fec.topIndustries && fec.topIndustries.length > 0 && (
-                  <>
-                    <p className="text-[10px] text-slate-600 uppercase tracking-widest mt-3 mb-2">Top Donor Industries</p>
-                    {fec.topIndustries.slice(0, 5).map((ind, i) => (
-                      <div key={i} className="flex justify-between items-center py-1.5 border-b border-slate-800/60 last:border-0">
-                        <span className="text-[12px] text-slate-500 truncate mr-2">{ind.name || "Unknown"}</span>
-                        <span className="text-[12px] font-semibold text-slate-300 shrink-0">{fmt$(ind.total)}</span>
-                      </div>
-                    ))}
-                  </>
-                )}
-                <p className="text-[10px] text-slate-700 mt-2">Source: FEC Open Data</p>
+                {/* Raised vs Spent SVG bar */}
+                {fec.raised != null && fec.spent != null && (() => {
+                  const max = Math.max(fec.raised!, fec.spent!);
+                  const W = 240;
+                  const BAR_H = 12;
+                  const rW = max > 0 ? (fec.raised! / max) * W : 0;
+                  const sW = max > 0 ? (fec.spent! / max) * W : 0;
+                  return (
+                    <div className="mb-4">
+                      <svg width="100%" viewBox={`0 0 ${W + 80} 50`} className="overflow-visible">
+                        {/* Raised row */}
+                        <text x="0" y="10" fontSize="9" fill="#64748b" fontFamily="system-ui, sans-serif">Raised</text>
+                        <rect x="0" y="16" width={W} height={BAR_H} rx="3" fill="rgba(30,41,59,0.8)" />
+                        <rect x="0" y="16" width={Math.max(rW, 2)} height={BAR_H} rx="3" fill="#10b981" />
+                        <text x={rW + 4} y="26" fontSize="9" fill="#10b981" fontFamily="system-ui, sans-serif" fontWeight="600">
+                          {fmt$(fec.raised!)}
+                        </text>
+                        {/* Spent row */}
+                        <text x="0" y="40" fontSize="9" fill="#64748b" fontFamily="system-ui, sans-serif">Spent</text>
+                        <rect x="0" y="38" width={W} height={BAR_H} rx="3" fill="rgba(30,41,59,0.8)" />
+                        <rect x="0" y="38" width={Math.max(sW, 2)} height={BAR_H} rx="3" fill="#f59e0b" />
+                        <text x={sW + 4} y="48" fontSize="9" fill="#f59e0b" fontFamily="system-ui, sans-serif" fontWeight="600">
+                          {fmt$(fec.spent!)}
+                        </text>
+                      </svg>
+                    </div>
+                  );
+                })()}
+
+                {/* Summary row */}
+                <div className="flex gap-4 mb-3 flex-wrap">
+                  {fec.raised != null && (
+                    <div>
+                      <p className="text-[10px] text-slate-600 uppercase tracking-widest">Raised</p>
+                      <p className="text-[13px] font-semibold text-emerald-400">{fmt$(fec.raised)}</p>
+                    </div>
+                  )}
+                  {fec.spent != null && (
+                    <div>
+                      <p className="text-[10px] text-slate-600 uppercase tracking-widest">Spent</p>
+                      <p className="text-[13px] font-semibold text-amber-400">{fmt$(fec.spent)}</p>
+                    </div>
+                  )}
+                  {fec.cashOnHand != null && (
+                    <div>
+                      <p className="text-[10px] text-slate-600 uppercase tracking-widest">Cash on hand</p>
+                      <p className="text-[13px] font-semibold text-slate-200">{fmt$(fec.cashOnHand)}</p>
+                    </div>
+                  )}
+                </div>
+
+                {/* Top industries SVG bar chart */}
+                {fec.topIndustries && fec.topIndustries.length > 0 && (() => {
+                  const top = fec.topIndustries!.slice(0, 5);
+                  const maxInd = Math.max(...top.map((i) => i.total));
+                  const W = 160;
+                  const ROW_H = 18;
+                  const LABEL_W = 110;
+                  const TOTAL_H = top.length * ROW_H + 14;
+                  return (
+                    <div>
+                      <p className="text-[10px] text-slate-600 uppercase tracking-widest mb-2">Top Donor Industries</p>
+                      <svg width="100%" viewBox={`0 0 ${LABEL_W + W + 60} ${TOTAL_H}`} className="overflow-visible">
+                        {top.map((ind, i) => {
+                          const y = 14 + i * ROW_H;
+                          const barW = maxInd > 0 ? (ind.total / maxInd) * W : 0;
+                          const shade = `rgba(99,102,241,${0.6 - i * 0.1})`;
+                          const name = (ind.name || "Unknown").slice(0, 18);
+                          return (
+                            <g key={i}>
+                              <text x="0" y={y} fontSize="8.5" fill="#94a3b8" fontFamily="system-ui, sans-serif">
+                                {name}
+                              </text>
+                              <rect x={LABEL_W} y={y - 10} width={W} height={10} rx="2" fill="rgba(30,41,59,0.8)" />
+                              <rect x={LABEL_W} y={y - 10} width={Math.max(barW, 2)} height={10} rx="2" fill={shade} />
+                              <text x={LABEL_W + barW + 4} y={y} fontSize="8.5" fill="#6366f1" fontFamily="system-ui, sans-serif" fontWeight="600">
+                                {fmt$(ind.total)}
+                              </text>
+                            </g>
+                          );
+                        })}
+                      </svg>
+                    </div>
+                  );
+                })()}
+
+                <p className="text-[10px] text-slate-700 mt-3">Source: FEC Open Data · 2024 cycle</p>
               </>
             )}
           </SectionCard>
