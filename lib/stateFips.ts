@@ -39,7 +39,7 @@ export const AT_LARGE_STATES = new Set([
   "AK", "DE", "ND", "SD", "VT", "WY",
 ]);
 
-// Convert Census TIGER STATEFP + CD118FP to our district ID
+// Convert Census TIGER STATEFP + CD119FP (or CD118FP for legacy files) to our district ID
 export function toDistrictId(stateFp: string, cdFp: string): string {
   const state = FIPS_TO_STATE[stateFp];
   if (!state) return "";

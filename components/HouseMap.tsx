@@ -590,7 +590,7 @@ export default function HouseMap() {
                   geographies.map((geo) => {
                     // eslint-disable-next-line @typescript-eslint/no-explicit-any
                     const props = (geo as any).properties ?? {};
-                    const id = toDistrictId(props.STATEFP, props.CD118FP);
+                    const id = toDistrictId(props.STATEFP, props.CD119FP ?? props.CD118FP);
                     if (!id) return null;
                     if (isolatedState && props.STATEFP !== STATE_TO_FIPS[isolatedState]) return null;
 
@@ -668,7 +668,7 @@ export default function HouseMap() {
                     geographies.map((geo) => {
                       // eslint-disable-next-line @typescript-eslint/no-explicit-any
                       const props = (geo as any).properties ?? {};
-                      const id = toDistrictId(props.STATEFP, props.CD118FP);
+                      const id = toDistrictId(props.STATEFP, props.CD119FP ?? props.CD118FP);
                       if (!id) return null;
                       if (isolatedState && props.STATEFP !== STATE_TO_FIPS[isolatedState]) return null;
                       const [stateCode, rawNum] = id.split("-");
