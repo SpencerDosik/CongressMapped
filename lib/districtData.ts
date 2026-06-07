@@ -458,3 +458,7 @@ export function getRepName(districtId: string): string {
   return DISTRICT_DATA[districtId]?.repName ?? "Vacant";
 }
 
+export function getAllDistricts(): { districtId: string; data: DistrictFullData }[] {
+  return Object.entries(DISTRICT_DATA).map(([districtId, data]) => ({ districtId, data }));
+}
+
