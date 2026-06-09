@@ -268,7 +268,15 @@ function getStateSeats(state: string): number {
 }
 
 // ── Tooltip ──────────────────────────────────────────────────────────────────
-function Tooltip({ districtId, x, y }: { districtId: string; x: number; y: number }) {
+function Tooltip({
+  districtId, x, y, filterMode, districtStats
+}: {
+  districtId: string;
+  x: number;
+  y: number;
+  filterMode: FilterMode;
+  districtStats: Record<string, { age?: number; education?: number; poverty?: number }>;
+}) {
   const rawData = getDistrictData(districtId);
   const data = rawData ?? { party: "Unknown" as const, margin: 0, income: 65, pvi: 0, termStart: 2025, repName: "Vacant" };
   const [stateCode, rawNum] = districtId.split("-");
@@ -281,7 +289,39 @@ function Tooltip({ districtId, x, y }: { districtId: string; x: number; y: numbe
 
   const partyColor = PARTY_COLORS[data.party] ?? "#64748B";
   const marginAbs = Math.abs(data.margin);
-  const marginLabel = data.margin === 0 ? "Toss-up" : `${data.margin > 0 ? "R" : "D"} +${marginAbs}%`;
+  const marginLabel = data.margin === 0 ? "Toss-up" : `${data.margin > 0 ? "R" : "D"} +${marginAbs.toFixed(1)}%`;
+  const tenure = Math.max(0, 2026 - data.termStart);
+  const dStats = districtStats[districtId];
+
+  // Build the secondary stat line based on filter mode
+  let statLabel = "2024 Margin";
+  let statValue = marginLabel;
+  let statColor: string = data.margin >= 0 ? PARTY_COLORS.Republican : PARTY_COLORS.Democrat;
+  if (filterMode === "pvi") {
+    statLabel = "Computed PVI";
+    statValue = data.pvi === 0 ? "EVEN" : `${data.pvi > 0 ? "R" : "D"}+${Math.abs(data.pvi)}`;
+    statColor = data.pvi > 0 ? PARTY_COLORS.Republican : data.pvi < 0 ? PARTY_COLORS.Democrat : "#94a3b8";
+  } else if (filterMode === "income") {
+    statLabel = "Median Income";
+    statValue = `$${(data.income * 1000).toLocaleString()}`;
+    statColor = "#f59e0b";
+  } else if (filterMode === "tenure") {
+    statLabel = "Tenure";
+    statValue = tenure < 1 ? "< 1 yr" : `${tenure} yr`;
+    statColor = "#818cf8";
+  } else if (filterMode === "age") {
+    statLabel = "Median Age";
+    statValue = dStats?.age != null ? `${dStats.age.toFixed(1)} yrs` : "—";
+    statColor = "#22d3ee";
+  } else if (filterMode === "education") {
+    statLabel = "College Edu.";
+    statValue = dStats?.education != null ? `${dStats.education.toFixed(1)}%` : "—";
+    statColor = "#a78bfa";
+  } else if (filterMode === "poverty") {
+    statLabel = "Poverty Rate";
+    statValue = dStats?.poverty != null ? `${dStats.poverty.toFixed(1)}%` : "—";
+    statColor = "#f87171";
+  }
 
   const tipW = 210;
   const left = x + tipW + 20 > window.innerWidth ? x - tipW - 8 : x + 14;
@@ -305,11 +345,15 @@ function Tooltip({ districtId, x, y }: { districtId: string; x: number; y: numbe
           </div>
           <p className="text-slate-500 text-[11px] mb-2">{stateName} · {districtLabel}</p>
           <div className="flex items-center justify-between text-[11px]">
-            <span className="text-slate-600">2024 Margin</span>
-            <span className="font-semibold" style={{ color: data.margin >= 0 ? PARTY_COLORS.Republican : PARTY_COLORS.Democrat }}>
-              {marginLabel}
-            </span>
+            <span className="text-slate-600">{statLabel}</span>
+            <span className="font-semibold" style={{ color: statColor }}>{statValue}</span>
           </div>
+          {filterMode !== "party" && filterMode !== "margin" && (
+            <div className="flex items-center justify-between text-[11px] mt-1">
+              <span className="text-slate-700">Margin</span>
+              <span style={{ color: data.margin >= 0 ? PARTY_COLORS.Republican : PARTY_COLORS.Democrat }}>{marginLabel}</span>
+            </div>
+          )}
         </div>
       </div>
     </div>
@@ -415,8 +459,6 @@ export default function HouseMap() {
   const [showProfile, setShowProfile] = useState(false);
   const [isolatedState, setIsolatedState] = useState<string | null>(null);
   const [fullscreen, setFullscreen] = useState(false);
-  const [showDistrictLabels, setShowDistrictLabels] = useState(true);
-  const [showStateLabels, setShowStateLabels] = useState(false);
   const [districtStats, setDistrictStats] = useState<Record<string, { age?: number; education?: number; poverty?: number }>>({});
 
   // Load district stats for age/education/poverty filters
@@ -506,6 +548,19 @@ export default function HouseMap() {
   };
 
   const loadedRef = useRef(false);
+  const mapContainerRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    const el = mapContainerRef.current;
+    if (!el) return;
+    const handler = (e: WheelEvent) => {
+      if (!e.ctrlKey) return;
+      e.preventDefault();
+      const factor = e.deltaY > 0 ? 1 / 1.15 : 1.15;
+      setZoom((z) => Math.min(Math.max(z * factor, ZOOM_MIN), ZOOM_MAX));
+    };
+    el.addEventListener("wheel", handler, { passive: false });
+    return () => el.removeEventListener("wheel", handler);
+  }, []);
   const parseGeographies = useCallback((geos: Record<string, unknown>[]) => {
     if (geos.length > 0 && !loadedRef.current) {
       loadedRef.current = true;
@@ -570,34 +625,6 @@ export default function HouseMap() {
               Compare
             </a>
           </div>
-          <div className="w-px h-4 bg-slate-700/60 hidden md:block shrink-0" />
-          {/* Label toggles */}
-          <div className="hidden md:flex items-center gap-1">
-            <button
-              onClick={() => setShowDistrictLabels((v) => !v)}
-              title="Toggle district number labels"
-              className="px-2 py-1 rounded text-[10px] font-medium transition-all"
-              style={{
-                backgroundColor: showDistrictLabels ? "rgba(99,102,241,0.2)" : "rgba(15,23,42,0.7)",
-                border: showDistrictLabels ? "1px solid rgba(99,102,241,0.4)" : "1px solid rgba(30,41,59,0.9)",
-                color: showDistrictLabels ? "#a5b4fc" : "#64748b",
-              }}
-            >
-              #
-            </button>
-            <button
-              onClick={() => setShowStateLabels((v) => !v)}
-              title="Toggle state name labels"
-              className="px-2 py-1 rounded text-[10px] font-medium transition-all"
-              style={{
-                backgroundColor: showStateLabels ? "rgba(99,102,241,0.2)" : "rgba(15,23,42,0.7)",
-                border: showStateLabels ? "1px solid rgba(99,102,241,0.4)" : "1px solid rgba(30,41,59,0.9)",
-                color: showStateLabels ? "#a5b4fc" : "#64748b",
-              }}
-            >
-              ST
-            </button>
-          </div>
           <SearchBar
             onSelect={(id) => setSelectedId(id)}
             onIsolate={(abbr) => {
@@ -648,7 +675,7 @@ export default function HouseMap() {
       <div className="flex flex-1 min-h-0 overflow-hidden">
 
         {/* Map area */}
-        <div className="flex-1 relative min-w-0" style={{ backgroundColor: "#0a0e14" }}>
+        <div ref={mapContainerRef} className="flex-1 relative min-w-0" style={{ backgroundColor: "#0a0e14" }}>
           {/* Loading overlay */}
           {!mapReady && (
             <div className="absolute inset-0 flex flex-col items-center justify-center z-10 pointer-events-none">
@@ -746,87 +773,6 @@ export default function HouseMap() {
             </ZoomableGroup>
           </ComposableMap>
 
-          {/* District number labels (shown at zoom ≥ 4) */}
-          {showDistrictLabels && zoom >= 4 && (
-            <ComposableMap
-              projection="geoAlbersUsa"
-              projectionConfig={{ scale: 900 }}
-              width={800}
-              height={500}
-              style={{ width: "100%", height: "100%", display: "block", position: "absolute", inset: 0, pointerEvents: "none" }}
-            >
-              <ZoomableGroup zoom={zoom} center={center} minZoom={ZOOM_MIN} maxZoom={ZOOM_MAX}>
-                <Geographies geography={DISTRICTS_URL}>
-                  {({ geographies }) =>
-                    geographies.map((geo) => {
-                      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-                      const props = (geo as any).properties ?? {};
-                      const id = toDistrictId(props.STATEFP, props.CD119FP ?? props.CD118FP);
-                      if (!id) return null;
-                      if (isolatedState && props.STATEFP !== STATE_TO_FIPS[isolatedState]) return null;
-                      const [stateCode, rawNum] = id.split("-");
-                      const districtNum = parseInt(rawNum ?? "0", 10);
-                      if (!districtNum) return null;
-                      const atLarge = AT_LARGE_STATES.has(stateCode);
-                      const label = atLarge ? "AL" : String(districtNum);
-                      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-                      const centroid = geoCentroid(geo as any);
-                      if (!centroid || !isFinite(centroid[0]) || !isFinite(centroid[1])) return null;
-                      const fontSize = Math.max(1.5, Math.min(4, 8 / zoom));
-                      return (
-                        <Annotation
-                          // eslint-disable-next-line @typescript-eslint/no-explicit-any
-                          key={(geo as any).rsmKey + "-label"}
-                          subject={centroid}
-                          dx={0}
-                          dy={0}
-                          connectorProps={{}}
-                        >
-                          <text
-                            textAnchor="middle"
-                            dominantBaseline="central"
-                            style={{ fontSize, fill: "rgba(255,255,255,0.55)", fontWeight: 600, pointerEvents: "none", userSelect: "none", fontFamily: "system-ui, sans-serif" }}
-                          >
-                            {label}
-                          </text>
-                        </Annotation>
-                      );
-                    })
-                  }
-                </Geographies>
-              </ZoomableGroup>
-            </ComposableMap>
-          )}
-
-          {/* State name labels (shown at zoom < 4 when enabled) */}
-          {showStateLabels && zoom < 4 && (
-            <ComposableMap
-              projection="geoAlbersUsa"
-              projectionConfig={{ scale: 900 }}
-              width={800}
-              height={500}
-              style={{ width: "100%", height: "100%", display: "block", position: "absolute", inset: 0, pointerEvents: "none" }}
-            >
-              <ZoomableGroup zoom={zoom} center={center} minZoom={ZOOM_MIN} maxZoom={ZOOM_MAX}>
-                {Object.entries(STATE_ABBR_CENTROIDS).map(([abbr, centroid]) => {
-                  if (isolatedState && abbr !== isolatedState) return null;
-                  const fontSize = Math.max(2.5, Math.min(6, 5 / zoom));
-                  return (
-                    <Annotation key={abbr} subject={centroid as [number, number]} dx={0} dy={0} connectorProps={{}}>
-                      <text
-                        textAnchor="middle"
-                        dominantBaseline="central"
-                        style={{ fontSize, fill: "rgba(255,255,255,0.45)", fontWeight: 700, pointerEvents: "none", userSelect: "none", fontFamily: "system-ui, sans-serif", letterSpacing: "0.05em" }}
-                      >
-                        {abbr}
-                      </text>
-                    </Annotation>
-                  );
-                })}
-              </ZoomableGroup>
-            </ComposableMap>
-          )}
-
           {/* Zoom controls */}
           <ZoomControls
             zoom={zoom}
@@ -882,7 +828,7 @@ export default function HouseMap() {
 
       {/* Tooltip */}
       {hoveredId && !selectedId && (
-        <Tooltip districtId={hoveredId} x={mousePos.x} y={mousePos.y} />
+        <Tooltip districtId={hoveredId} x={mousePos.x} y={mousePos.y} filterMode={filterMode} districtStats={districtStats} />
       )}
 
       {/* Full Profile Overlay */}
