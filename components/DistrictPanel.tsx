@@ -270,7 +270,7 @@ export default function DistrictPanel({ districtId, repName, data, onClose, onSh
             </div>
           </div>
           <div className="space-y-2">
-            <Row label="Margin" value={data.margin === 0 ? "Tie" : `${data.margin > 0 ? "R" : "D"} +${marginAbs}%`}
+            <Row label="Margin" value={data.margin === 0 ? "Tie" : `${data.margin > 0 ? "R" : "D"} +${marginAbs.toFixed(1)}%`}
               valueColor={data.margin >= 0 ? PARTY_COLORS.Republican : PARTY_COLORS.Democrat} />
             <Row label="Race Rating" value={competitiveness} valueColor={competitivenessColor} />
           </div>

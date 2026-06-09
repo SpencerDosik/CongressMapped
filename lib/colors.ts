@@ -1,5 +1,5 @@
-import { scaleLinear, scaleSequential } from "d3-scale";
-import { interpolateRdBu, interpolateBlues } from "d3-scale-chromatic";
+import { scaleLinear } from "d3-scale";
+import { interpolateRdBu } from "d3-scale-chromatic";
 import { Party, FilterMode } from "./types";
 
 // Party colors
@@ -26,18 +26,19 @@ export function marginColor(margin: number): string {
   return interpolateRdBu(1 - t);
 }
 
-// Income color scale optimized for dark backgrounds.
+// Income color scale: low (blue) → mid (teal) → high (amber/yellow)
 const incomeScale = scaleLinear<string>()
   .domain([35, 65, 100, 175])
-  .range(["#0f2336", "#0f766e", "#d97706", "#fde047"])
+  .range(["#1d4ed8", "#0f766e", "#d97706", "#fde047"])
   .clamp(true);
 export function incomeColor(incomeK: number): string { return incomeScale(incomeK); }
 
-// Tenure color scale: faint → saturated blue
-const tenureScale = scaleSequential(interpolateBlues).domain([0, 35]);
-export function tenureColor(years: number): string {
-  return tenureScale(Math.max(0, Math.min(40, years)));
-}
+// Tenure color scale: new (light blue) → long-serving (deep blue)
+const tenureScale = scaleLinear<string>()
+  .domain([0, 12, 35])
+  .range(["#93c5fd", "#3b82f6", "#1e40af"])
+  .clamp(true);
+export function tenureColor(years: number): string { return tenureScale(years); }
 
 // PVI color scale: red (R lean) ↔ blue (D lean)
 export function pviColor(pvi: number): string {
@@ -49,21 +50,21 @@ export function pviColor(pvi: number): string {
 // Age color scale: young (teal) → median (slate) → older (amber)
 const ageScale = scaleLinear<string>()
   .domain([30, 38, 46])
-  .range(["#0d9488", "#475569", "#d97706"])
+  .range(["#2dd4bf", "#64748b", "#f59e0b"])
   .clamp(true);
 export function ageColor(age: number): string { return ageScale(age); }
 
-// Education color scale: low (dark navy) → high (bright indigo/white)
+// Education color scale: low (indigo) → high (near-white)
 const educationScale = scaleLinear<string>()
   .domain([10, 25, 40, 65])
-  .range(["#1e1b4b", "#3730a3", "#818cf8", "#e0e7ff"])
+  .range(["#4338ca", "#818cf8", "#c7d2fe", "#f0f9ff"])
   .clamp(true);
 export function educationColor(pct: number): string { return educationScale(pct); }
 
-// Poverty color scale: low (dark neutral) → high (deep red)
+// Poverty color scale: low (green = good) → high (red = bad)
 const povertyScale = scaleLinear<string>()
   .domain([3, 10, 18, 30])
-  .range(["#0f172a", "#7c2d12", "#dc2626", "#fca5a5"])
+  .range(["#059669", "#f59e0b", "#dc2626", "#fca5a5"])
   .clamp(true);
 export function povertyColor(pct: number): string { return povertyScale(pct); }
 

@@ -87,6 +87,23 @@ interface CongressData {
   error?: string;
 }
 
+interface GuardianArticle {
+  id: string;
+  webTitle: string;
+  webUrl: string;
+  webPublicationDate: string;
+  fields?: {
+    trailText?: string;
+    thumbnail?: string;
+  };
+}
+
+interface GuardianData {
+  noKey?: boolean;
+  articles?: GuardianArticle[];
+  error?: string;
+}
+
 // ── Helpers ───────────────────────────────────────────────────────────────────
 
 function bioguidePhotoUrl(bioguide: string) {
@@ -202,6 +219,7 @@ export default function RepProfile({ districtId, repName, data, onClose }: Props
   const [fec, setFec] = useState<FecData | null>(null);
   const [demographics, setDemographics] = useState<Demographics | null>(null);
   const [congress, setCongress] = useState<CongressData | null>(null);
+  const [guardian, setGuardian] = useState<GuardianData | null>(null);
 
   // Load static JSON (contact + committees)
   useEffect(() => {
@@ -240,6 +258,15 @@ export default function RepProfile({ districtId, repName, data, onClose }: Props
       .then(setCongress)
       .catch(() => setCongress({ error: "unavailable" }));
   }, [meta]);
+
+  // Load Guardian news
+  useEffect(() => {
+    const rep = encodeURIComponent(repName);
+    fetch(`/api/guardian/${districtId}?rep=${rep}`)
+      .then((r) => r.json())
+      .then(setGuardian)
+      .catch(() => setGuardian({ error: "unavailable" }));
+  }, [districtId, repName]);
 
   // Escape key handler
   useEffect(() => {
@@ -327,7 +354,7 @@ export default function RepProfile({ districtId, repName, data, onClose }: Props
               </div>
               <StatRow
                 label="Margin"
-                value={data.margin === 0 ? "Tie" : `${data.margin > 0 ? "R" : "D"} +${marginAbs}%`}
+                value={data.margin === 0 ? "Tie" : `${data.margin > 0 ? "R" : "D"} +${marginAbs.toFixed(1)}%`}
                 valueColor={data.margin >= 0 ? PARTY_COLORS.Republican : PARTY_COLORS.Democrat}
               />
               <StatRow label="Race Rating" value={competitiveness} />
@@ -383,19 +410,7 @@ export default function RepProfile({ districtId, repName, data, onClose }: Props
                     </a>
                   </div>
                 )}
-                {meta?.bioguide && (
-                  <div className="flex justify-between items-center py-1.5 last:border-0">
-                    <span className="text-[12px] text-slate-500">Financial Disclosure</span>
-                    <a
-                      href={`https://disclosures-clerk.house.gov/PublicDisclosure/FinancialDisclosure#Search`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-[12px] font-semibold text-indigo-400 hover:text-indigo-300 transition-colors"
-                    >
-                      House Clerk →
-                    </a>
-                  </div>
-                )}
+
                 {!meta?.phone && !meta?.url && (
                   <p className="text-[12px] text-slate-700 italic">No contact data available</p>
                 )}
@@ -484,93 +499,17 @@ export default function RepProfile({ districtId, repName, data, onClose }: Props
               </>
             ) : (
               <>
-                {/* Raised vs Spent SVG bar */}
-                {fec.raised != null && fec.spent != null && (() => {
-                  const max = Math.max(fec.raised!, fec.spent!);
-                  const W = 240;
-                  const BAR_H = 12;
-                  const rW = max > 0 ? (fec.raised! / max) * W : 0;
-                  const sW = max > 0 ? (fec.spent! / max) * W : 0;
-                  return (
-                    <div className="mb-4">
-                      <svg width="100%" viewBox={`0 0 ${W + 80} 50`} className="overflow-visible">
-                        {/* Raised row */}
-                        <text x="0" y="10" fontSize="9" fill="#64748b" fontFamily="system-ui, sans-serif">Raised</text>
-                        <rect x="0" y="16" width={W} height={BAR_H} rx="3" fill="rgba(30,41,59,0.8)" />
-                        <rect x="0" y="16" width={Math.max(rW, 2)} height={BAR_H} rx="3" fill="#10b981" />
-                        <text x={rW + 4} y="26" fontSize="9" fill="#10b981" fontFamily="system-ui, sans-serif" fontWeight="600">
-                          {fmt$(fec.raised!)}
-                        </text>
-                        {/* Spent row */}
-                        <text x="0" y="40" fontSize="9" fill="#64748b" fontFamily="system-ui, sans-serif">Spent</text>
-                        <rect x="0" y="38" width={W} height={BAR_H} rx="3" fill="rgba(30,41,59,0.8)" />
-                        <rect x="0" y="38" width={Math.max(sW, 2)} height={BAR_H} rx="3" fill="#f59e0b" />
-                        <text x={sW + 4} y="48" fontSize="9" fill="#f59e0b" fontFamily="system-ui, sans-serif" fontWeight="600">
-                          {fmt$(fec.spent!)}
-                        </text>
-                      </svg>
-                    </div>
-                  );
-                })()}
-
-                {/* Summary row */}
-                <div className="flex gap-4 mb-3 flex-wrap">
-                  {fec.raised != null && (
-                    <div>
-                      <p className="text-[10px] text-slate-600 uppercase tracking-widest">Raised</p>
-                      <p className="text-[13px] font-semibold text-emerald-400">{fmt$(fec.raised)}</p>
-                    </div>
-                  )}
-                  {fec.spent != null && (
-                    <div>
-                      <p className="text-[10px] text-slate-600 uppercase tracking-widest">Spent</p>
-                      <p className="text-[13px] font-semibold text-amber-400">{fmt$(fec.spent)}</p>
-                    </div>
-                  )}
-                  {fec.cashOnHand != null && (
-                    <div>
-                      <p className="text-[10px] text-slate-600 uppercase tracking-widest">Cash on hand</p>
-                      <p className="text-[13px] font-semibold text-slate-200">{fmt$(fec.cashOnHand)}</p>
-                    </div>
-                  )}
-                </div>
-
-                {/* Top industries SVG bar chart */}
-                {fec.topIndustries && fec.topIndustries.length > 0 && (() => {
-                  const top = fec.topIndustries!.slice(0, 5);
-                  const maxInd = Math.max(...top.map((i) => i.total));
-                  const W = 160;
-                  const ROW_H = 18;
-                  const LABEL_W = 110;
-                  const TOTAL_H = top.length * ROW_H + 14;
-                  return (
-                    <div>
-                      <p className="text-[10px] text-slate-600 uppercase tracking-widest mb-2">Top Donor Industries</p>
-                      <svg width="100%" viewBox={`0 0 ${LABEL_W + W + 60} ${TOTAL_H}`} className="overflow-visible">
-                        {top.map((ind, i) => {
-                          const y = 14 + i * ROW_H;
-                          const barW = maxInd > 0 ? (ind.total / maxInd) * W : 0;
-                          const shade = `rgba(99,102,241,${0.6 - i * 0.1})`;
-                          const name = (ind.name || "Unknown").slice(0, 18);
-                          return (
-                            <g key={i}>
-                              <text x="0" y={y} fontSize="8.5" fill="#94a3b8" fontFamily="system-ui, sans-serif">
-                                {name}
-                              </text>
-                              <rect x={LABEL_W} y={y - 10} width={W} height={10} rx="2" fill="rgba(30,41,59,0.8)" />
-                              <rect x={LABEL_W} y={y - 10} width={Math.max(barW, 2)} height={10} rx="2" fill={shade} />
-                              <text x={LABEL_W + barW + 4} y={y} fontSize="8.5" fill="#6366f1" fontFamily="system-ui, sans-serif" fontWeight="600">
-                                {fmt$(ind.total)}
-                              </text>
-                            </g>
-                          );
-                        })}
-                      </svg>
-                    </div>
-                  );
-                })()}
-
-                <p className="text-[10px] text-slate-700 mt-3">Source: FEC Open Data · 2024 cycle</p>
+                {fec.raised != null && <StatRow label="Total Raised" value={fmt$(fec.raised)} />}
+                {fec.spent != null && <StatRow label="Total Spent" value={fmt$(fec.spent)} />}
+                {fec.cashOnHand != null && <StatRow label="Cash on Hand" value={fmt$(fec.cashOnHand)} />}
+                {fec.topIndustries && fec.topIndustries.slice(0, 3).map((ind, i) => (
+                  <StatRow
+                    key={i}
+                    label={i === 0 ? "Top Industry" : `Industry #${i + 1}`}
+                    value={`${ind.name} (${fmt$(ind.total)})`}
+                  />
+                ))}
+                <p className="text-[10px] text-slate-700 mt-2">Source: FEC Open Data · 2024 cycle</p>
               </>
             )}
           </SectionCard>
@@ -673,6 +612,55 @@ export default function RepProfile({ districtId, repName, data, onClose }: Props
                 <PlaceholderRow label="Education" />
                 <PlaceholderRow label="Career background" />
               </>
+            )}
+          </SectionCard>
+
+          {/* Recent News */}
+          <SectionCard title="Recent News">
+            {guardian === null ? (
+              <LoadingRows count={3} />
+            ) : guardian.noKey ? (
+              <p className="text-[12px] text-slate-600 italic">
+                Set <code className="text-slate-500 bg-slate-800 px-1 rounded">GUARDIAN_API_KEY</code> in your environment to enable news.
+              </p>
+            ) : guardian.error ? (
+              <p className="text-[12px] text-slate-700 italic">News unavailable</p>
+            ) : !guardian.articles?.length ? (
+              <p className="text-[12px] text-slate-700 italic">No recent articles found</p>
+            ) : (
+              <div className="space-y-0">
+                {guardian.articles.map((article) => (
+                  <a
+                    key={article.id}
+                    href={article.webUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex gap-3 py-3 border-b border-slate-800/60 last:border-0 hover:bg-slate-800/30 transition-colors rounded group"
+                  >
+                    {article.fields?.thumbnail && (
+                      <img
+                        src={article.fields.thumbnail}
+                        alt=""
+                        className="w-16 h-12 object-cover rounded shrink-0"
+                      />
+                    )}
+                    <div className="min-w-0 flex-1">
+                      <p className="text-[12px] font-semibold text-slate-300 group-hover:text-white leading-snug line-clamp-2 transition-colors">
+                        {article.webTitle}
+                      </p>
+                      {article.fields?.trailText && (
+                        <p className="text-[11px] text-slate-600 mt-0.5 line-clamp-2 leading-snug">
+                          {article.fields.trailText}
+                        </p>
+                      )}
+                      <p className="text-[10px] text-slate-700 mt-1">
+                        {new Date(article.webPublicationDate).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" })}
+                        {" · The Guardian"}
+                      </p>
+                    </div>
+                  </a>
+                ))}
+              </div>
             )}
           </SectionCard>
 

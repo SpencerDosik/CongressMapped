@@ -9,32 +9,44 @@ interface Props {
   onModeChange: (mode: FilterMode) => void;
 }
 
-// Always-visible primary filters
-const PRIMARY: FilterMode[] = ["party", "margin"];
+interface FilterGroup {
+  label: string;
+  modes: { mode: FilterMode; desc: string }[];
+}
 
-// Secondary filters behind the "More" dropdown
-const SECONDARY: { mode: FilterMode; desc: string }[] = [
-  { mode: "pvi",       desc: "Computed PVI — structural partisan lean, derived from 2020+2024 presidential results" },
-  { mode: "income",    desc: "Median household income per district (Census ACS)" },
-  { mode: "tenure",    desc: "Years the current rep has held the seat" },
-  { mode: "age",       desc: "Median age of district residents (Census ACS estimate)" },
-  { mode: "education", desc: "Share of residents with a bachelor's degree or higher" },
-  { mode: "poverty",   desc: "Share of residents below the federal poverty line" },
+const FILTER_GROUPS: FilterGroup[] = [
+  {
+    label: "Political",
+    modes: [
+      { mode: "margin",    desc: "2024 general election margin — positive = R won, negative = D won" },
+      { mode: "pvi",       desc: "Computed PVI — structural partisan lean from 2020 + 2024 presidential results" },
+    ],
+  },
+  {
+    label: "Economic",
+    modes: [
+      { mode: "income",    desc: "Median household income per district (Census ACS 5-Year)" },
+      { mode: "poverty",   desc: "Share of residents below the federal poverty line" },
+      { mode: "education", desc: "Share of residents with a bachelor's degree or higher" },
+    ],
+  },
+  {
+    label: "Representative",
+    modes: [
+      { mode: "tenure",    desc: "Years the current representative has held the seat" },
+      { mode: "age",       desc: "Median age of district residents (Census ACS estimate)" },
+    ],
+  },
 ];
 
-const SECONDARY_MODES = new Set<FilterMode>(SECONDARY.map((s) => s.mode));
-
 export default function FilterTabs({ filterMode, onModeChange }: Props) {
-  const [open, setOpen] = useState(false);
-  const dropdownRef = useRef<HTMLDivElement>(null);
+  const [openGroup, setOpenGroup] = useState<string | null>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
 
-  const activeSecondary = SECONDARY_MODES.has(filterMode) ? filterMode : null;
-
-  // Close dropdown on outside click
   useEffect(() => {
     function handleClick(e: MouseEvent) {
-      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
-        setOpen(false);
+      if (containerRef.current && !containerRef.current.contains(e.target as Node)) {
+        setOpenGroup(null);
       }
     }
     document.addEventListener("mousedown", handleClick);
@@ -46,19 +58,17 @@ export default function FilterTabs({ filterMode, onModeChange }: Props) {
     color: "#a5b4fc",
     border: "1px solid rgba(99,102,241,0.4)",
   };
-  const inactiveStyle = {
-    backgroundColor: "transparent",
+  const groupInactiveStyle = {
+    backgroundColor: "rgba(15,23,42,0.7)",
+    border: "1px solid rgba(30,41,59,0.9)",
     color: "#64748b",
-    border: "1px solid transparent",
   };
 
   return (
     <div
+      ref={containerRef}
       className="flex items-center shrink-0 gap-1.5 px-4 py-2"
-      style={{
-        backgroundColor: "#0d1117",
-        borderBottom: "1px solid rgba(30,41,59,0.8)",
-      }}
+      style={{ backgroundColor: "#0d1117", borderBottom: "1px solid rgba(30,41,59,0.8)" }}
     >
       {/* Funnel icon + label */}
       <div className="flex items-center gap-1.5 mr-2 shrink-0">
@@ -72,102 +82,89 @@ export default function FilterTabs({ filterMode, onModeChange }: Props) {
         </span>
       </div>
 
-      {/* Primary filter buttons */}
-      <div
-        className="flex items-center gap-0.5 px-1.5 py-1 rounded-lg shrink-0"
-        style={{ backgroundColor: "rgba(15,23,42,0.7)", border: "1px solid rgba(30,41,59,0.9)" }}
+      {/* Party — standalone primary button */}
+      <button
+        onClick={() => { onModeChange("party"); setOpenGroup(null); }}
+        className="px-3 py-1 rounded-md text-[11px] font-medium whitespace-nowrap transition-all duration-150"
+        style={filterMode === "party" ? activeStyle : { backgroundColor: "transparent", color: "#64748b", border: "1px solid transparent" }}
+        onMouseEnter={e => { if (filterMode !== "party") (e.currentTarget as HTMLButtonElement).style.color = "#cbd5e1"; }}
+        onMouseLeave={e => { if (filterMode !== "party") (e.currentTarget as HTMLButtonElement).style.color = "#64748b"; }}
       >
-        {PRIMARY.map((mode) => {
-          const active = filterMode === mode;
-          return (
-            <button
-              key={mode}
-              onClick={() => onModeChange(mode)}
-              className="px-3 py-1 rounded-md text-[11px] font-medium whitespace-nowrap transition-all duration-150"
-              style={active ? activeStyle : inactiveStyle}
-              onMouseEnter={e => { if (!active) (e.currentTarget as HTMLButtonElement).style.color = "#cbd5e1"; }}
-              onMouseLeave={e => { if (!active) (e.currentTarget as HTMLButtonElement).style.color = "#64748b"; }}
-            >
-              {filterModeLabel(mode)}
-            </button>
-          );
-        })}
-      </div>
+        Party
+      </button>
 
       {/* Divider */}
       <div className="w-px h-5 bg-slate-700/60 shrink-0" />
 
-      {/* "More" dropdown */}
-      <div ref={dropdownRef} className="relative shrink-0">
-        <button
-          onClick={() => setOpen((o) => !o)}
-          className="flex items-center gap-1.5 px-3 py-1 rounded-lg text-[11px] font-medium transition-all duration-150"
-          style={
-            open || activeSecondary
-              ? { ...activeStyle, border: "1px solid rgba(99,102,241,0.4)" }
-              : { backgroundColor: "rgba(15,23,42,0.7)", border: "1px solid rgba(30,41,59,0.9)", color: "#64748b" }
-          }
-          onMouseEnter={e => {
-            if (!open && !activeSecondary)
-              (e.currentTarget as HTMLButtonElement).style.color = "#cbd5e1";
-          }}
-          onMouseLeave={e => {
-            if (!open && !activeSecondary)
-              (e.currentTarget as HTMLButtonElement).style.color = "#64748b";
-          }}
-        >
-          <span>{activeSecondary ? filterModeLabel(activeSecondary) : "More"}</span>
-          <svg
-            className="w-3 h-3 transition-transform duration-150"
-            style={{ transform: open ? "rotate(180deg)" : "rotate(0deg)" }}
-            fill="none" stroke="currentColor" viewBox="0 0 24 24"
-          >
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-          </svg>
-        </button>
+      {/* Group dropdowns */}
+      {FILTER_GROUPS.map((group) => {
+        const isOpen = openGroup === group.label;
+        const activeMode = group.modes.find((m) => m.mode === filterMode);
+        const hasActive = !!activeMode;
 
-        {open && (
-          <div
-            className="absolute top-full mt-1 left-0 rounded-xl overflow-hidden z-50 shadow-2xl shadow-black/60"
-            style={{
-              backgroundColor: "#0d1117",
-              border: "1px solid rgba(51,65,85,0.7)",
-              minWidth: "220px",
-            }}
-          >
-            {SECONDARY.map(({ mode, desc }) => {
-              const active = filterMode === mode;
-              return (
-                <button
-                  key={mode}
-                  onClick={() => { onModeChange(mode); setOpen(false); }}
-                  className="w-full flex flex-col items-start px-4 py-3 text-left transition-colors border-b border-slate-800/60 last:border-0"
-                  style={{
-                    backgroundColor: active ? "rgba(99,102,241,0.12)" : "transparent",
-                  }}
-                  onMouseEnter={e => {
-                    if (!active)
-                      (e.currentTarget as HTMLButtonElement).style.backgroundColor = "rgba(51,65,85,0.4)";
-                  }}
-                  onMouseLeave={e => {
-                    if (!active)
-                      (e.currentTarget as HTMLButtonElement).style.backgroundColor = "transparent";
-                  }}
-                >
-                  <span
-                    className="text-[12px] font-semibold"
-                    style={{ color: active ? "#a5b4fc" : "#cbd5e1" }}
-                  >
-                    {filterModeLabel(mode)}
-                    {active && <span className="ml-2 text-[10px] text-indigo-400">✓</span>}
-                  </span>
-                  <span className="text-[11px] text-slate-600 mt-0.5 leading-snug">{desc}</span>
-                </button>
-              );
-            })}
+        return (
+          <div key={group.label} className="relative shrink-0">
+            <button
+              onClick={() => setOpenGroup(isOpen ? null : group.label)}
+              className="flex items-center gap-1.5 px-3 py-1 rounded-lg text-[11px] font-medium transition-all duration-150"
+              style={isOpen || hasActive ? activeStyle : groupInactiveStyle}
+              onMouseEnter={e => {
+                if (!isOpen && !hasActive)
+                  (e.currentTarget as HTMLButtonElement).style.color = "#cbd5e1";
+              }}
+              onMouseLeave={e => {
+                if (!isOpen && !hasActive)
+                  (e.currentTarget as HTMLButtonElement).style.color = "#64748b";
+              }}
+            >
+              <span>{activeMode ? filterModeLabel(activeMode.mode) : group.label}</span>
+              <svg
+                className="w-3 h-3 transition-transform duration-150"
+                style={{ transform: isOpen ? "rotate(180deg)" : "rotate(0deg)" }}
+                fill="none" stroke="currentColor" viewBox="0 0 24 24"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+
+            {isOpen && (
+              <div
+                className="absolute top-full mt-1 left-0 rounded-xl overflow-hidden z-50 shadow-2xl shadow-black/60"
+                style={{ backgroundColor: "#0d1117", border: "1px solid rgba(51,65,85,0.7)", minWidth: "240px" }}
+              >
+                {group.modes.map(({ mode, desc }) => {
+                  const active = filterMode === mode;
+                  return (
+                    <button
+                      key={mode}
+                      onClick={() => { onModeChange(mode); setOpenGroup(null); }}
+                      className="w-full flex flex-col items-start px-4 py-3 text-left transition-colors border-b border-slate-800/60 last:border-0"
+                      style={{ backgroundColor: active ? "rgba(99,102,241,0.12)" : "transparent" }}
+                      onMouseEnter={e => {
+                        if (!active)
+                          (e.currentTarget as HTMLButtonElement).style.backgroundColor = "rgba(51,65,85,0.4)";
+                      }}
+                      onMouseLeave={e => {
+                        if (!active)
+                          (e.currentTarget as HTMLButtonElement).style.backgroundColor = "transparent";
+                      }}
+                    >
+                      <span
+                        className="text-[12px] font-semibold"
+                        style={{ color: active ? "#a5b4fc" : "#cbd5e1" }}
+                      >
+                        {filterModeLabel(mode)}
+                        {active && <span className="ml-2 text-[10px] text-indigo-400">✓</span>}
+                      </span>
+                      <span className="text-[11px] text-slate-600 mt-0.5 leading-snug">{desc}</span>
+                    </button>
+                  );
+                })}
+              </div>
+            )}
           </div>
-        )}
-      </div>
+        );
+      })}
     </div>
   );
 }
