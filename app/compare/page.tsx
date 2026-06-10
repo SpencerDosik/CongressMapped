@@ -181,7 +181,7 @@ function ColHeader({ districtId, onClear }: { districtId: string | null; onClear
       <p className="text-slate-500 text-[11px] mt-0.5">{districtTitle(districtId)}</p>
       <p className="text-slate-700 text-[10px]">{districtId}</p>
       <Link
-        href={`/?d=${districtId}`}
+        href={`/house?d=${districtId}`}
         className="mt-2 text-indigo-400 hover:text-indigo-300 text-[10px] transition-colors"
       >
         Open on map →
@@ -297,7 +297,7 @@ function ComparePageInner() {
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
             </svg>
-            HouseMap
+            Menu
           </Link>
           <span className="text-slate-700">/</span>
           <h1 className="text-white font-semibold text-sm">Compare Districts</h1>

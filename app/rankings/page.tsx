@@ -111,7 +111,7 @@ export default function RankingsPage() {
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
             </svg>
-            HouseMap
+            Menu
           </Link>
           <span className="text-slate-700">/</span>
           <h1 className="text-white font-semibold text-sm">District Rankings</h1>
@@ -219,7 +219,7 @@ export default function RankingsPage() {
                     (e.currentTarget as HTMLTableRowElement).style.backgroundColor =
                       i % 2 === 0 ? "transparent" : "rgba(15,23,42,0.3)";
                   }}
-                  onClick={() => window.open(`/?d=${districtId}`, "_self")}
+                  onClick={() => window.open(`/house?d=${districtId}`, "_self")}
                 >
                   {/* District */}
                   <td className="px-3 py-2.5">

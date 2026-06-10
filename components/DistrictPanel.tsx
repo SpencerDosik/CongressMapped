@@ -107,7 +107,7 @@ export default function DistrictPanel({ districtId, repName, data, onClose, onSh
   }, [onClose]);
 
   const handleCopyLink = () => {
-    const url = `${window.location.origin}?d=${districtId}`;
+    const url = `${window.location.origin}/house?d=${districtId}`;
     navigator.clipboard.writeText(url).then(() => {
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);

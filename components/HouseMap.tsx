@@ -20,7 +20,7 @@ import RepProfile from "./RepProfile";
 import { FilterMode } from "@/lib/types";
 import { getDistrictColor, PARTY_COLORS } from "@/lib/colors";
 import { getDistrictData, getRepName, getAllDistricts } from "@/lib/districtData";
-import { toDistrictId, STATE_NAMES, AT_LARGE_STATES, FIPS_TO_STATE, STATE_TO_FIPS } from "@/lib/stateFips";
+import { toDistrictId, STATE_NAMES, AT_LARGE_STATES } from "@/lib/stateFips";
 
 // ── Constants ─────────────────────────────────────────────────────────────────
 const DISTRICTS_URL = "/districts.json";
@@ -124,10 +124,10 @@ function SeatBar() {
 // ── Search Bar ────────────────────────────────────────────────────────────────
 function SearchBar({
   onSelect,
-  onIsolate,
+  onFocusState,
 }: {
   onSelect: (id: string) => void;
-  onIsolate: (abbr: string) => void;
+  onFocusState: (abbr: string) => void;
 }) {
   const [query, setQuery] = useState("");
   const [results, setResults] = useState<{ id: string; name: string; state: string }[]>([]);
@@ -154,14 +154,14 @@ function SearchBar({
       return;
     }
 
-    // State isolation candidates: exact abbreviation or name prefix
-    const isolateCandidates = Object.entries(STATE_NAMES)
+    // State focus candidates: exact abbreviation or name prefix
+    const stateCandidates = Object.entries(STATE_NAMES)
       .filter(([abbr, name]) =>
         abbr.toLowerCase() === q || name.toLowerCase().startsWith(q)
       )
       .map(([abbr, name]) => ({ abbr, name }))
       .slice(0, 4);
-    setStateMatches(isolateCandidates);
+    setStateMatches(stateCandidates);
 
     const stateAbbrs = Object.keys(STATE_NAMES) as string[];
     const matches: { id: string; name: string; state: string }[] = [];
@@ -187,7 +187,7 @@ function SearchBar({
     }
 
     setResults(matches);
-    setOpen(isolateCandidates.length > 0 || matches.length > 0);
+    setOpen(stateCandidates.length > 0 || matches.length > 0);
   }, [query]);
 
   const clear = () => { setQuery(""); setResults([]); setStateMatches([]); setOpen(false); };
@@ -215,18 +215,21 @@ function SearchBar({
       {open && (
         <div className="absolute top-full mt-1 right-0 w-64 bg-slate-900 border border-slate-700/60 rounded-xl shadow-2xl shadow-black/50 overflow-hidden z-50">
 
-          {/* State isolation buttons */}
+          {/* State results */}
           {stateMatches.map(({ abbr, name }) => (
             <button
               key={abbr}
-              onClick={() => { onIsolate(abbr); clear(); }}
-              className="w-full flex items-center gap-2.5 px-3 py-2.5 hover:bg-indigo-900/40 transition-colors text-left border-b border-slate-800/60"
-              style={{ borderBottom: "1px solid rgba(30,41,59,0.8)" }}
+              onClick={() => { onFocusState(abbr); clear(); }}
+              className="w-full flex items-center gap-3 px-3 py-2.5 hover:bg-slate-800 transition-colors text-left"
             >
               <svg className="w-3 h-3 text-indigo-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 10l4.553-2.069A1 1 0 0121 8.87v6.26a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
               </svg>
-              <span className="text-indigo-300 text-xs font-medium">Isolate {name}</span>
+              <div className="min-w-0 flex-1">
+                <p className="text-white text-xs font-medium truncate">
+                  {name} <span className="text-slate-500 font-normal">— zoom to state</span>
+                </p>
+              </div>
             </button>
           ))}
 
@@ -372,7 +375,15 @@ function ZoomControls({ zoom, onIn, onOut, onReset }: {
 // ── State Panel ───────────────────────────────────────────────────────────────
 const ALL_DISTRICTS = getAllDistricts();
 
-function StatePanel({ stateAbbr, onSelectDistrict }: { stateAbbr: string; onSelectDistrict: (id: string) => void }) {
+function StatePanel({
+  stateAbbr,
+  onSelectDistrict,
+  onClose,
+}: {
+  stateAbbr: string;
+  onSelectDistrict: (id: string) => void;
+  onClose: () => void;
+}) {
   const stateName = STATE_NAMES[stateAbbr] ?? stateAbbr;
   const districts = ALL_DISTRICTS.filter((d) => d.districtId.startsWith(`${stateAbbr}-`));
   const rSeats = districts.filter((d) => d.data.party === "Republican" || d.data.caucus === "Republican").length;
@@ -393,8 +404,15 @@ function StatePanel({ stateAbbr, onSelectDistrict }: { stateAbbr: string; onSele
       }}
     >
       {/* Header */}
-      <div className="px-3 py-2.5 border-b border-slate-700/40 shrink-0">
-        <p className="text-white font-semibold text-[12px] leading-tight">{stateName}</p>
+      <div className="px-3 py-2.5 border-b border-slate-700/40 shrink-0 relative">
+        <button
+          onClick={onClose}
+          title="Close"
+          className="absolute top-2 right-2.5 text-slate-600 hover:text-slate-300 text-xs leading-none transition-colors"
+        >
+          ✕
+        </button>
+        <p className="text-white font-semibold text-[12px] leading-tight pr-5">{stateName}</p>
         <p className="text-slate-600 text-[10px] mt-0.5">{total} congressional district{total !== 1 ? "s" : ""}</p>
         {/* Seat bar */}
         <div className="flex h-2 rounded-full overflow-hidden mt-2 bg-slate-800">
@@ -442,7 +460,7 @@ export default function HouseMap() {
   const [center, setCenter] = useState<[number, number]>([-98, 38]);
   const [mapReady, setMapReady] = useState(false);
   const [showProfile, setShowProfile] = useState(false);
-  const [isolatedState, setIsolatedState] = useState<string | null>(null);
+  const [focusedState, setFocusedState] = useState<string | null>(null);
   const [fullscreen, setFullscreen] = useState(false);
 
   // Sync selectedId → URL
@@ -458,7 +476,7 @@ export default function HouseMap() {
     if (d && getDistrictData(d)) setSelectedId(d);
     const s = sp.get("s")?.toUpperCase();
     if (s && STATE_NAMES[s]) {
-      setIsolatedState(s);
+      setFocusedState(s);
       const view = STATE_VIEW[s];
       if (view) { setZoom(view.zoom); setCenter(view.center); }
     }
@@ -583,6 +601,15 @@ export default function HouseMap() {
           {/* Nav links */}
           <div className="hidden md:flex items-center gap-0.5">
             <a
+              href="/"
+              className="px-2 py-1 rounded text-[10px] font-medium transition-colors"
+              style={{ color: "#64748b" }}
+              onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.color = "#cbd5e1"; }}
+              onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.color = "#64748b"; }}
+            >
+              Menu
+            </a>
+            <a
               href="/rankings"
               className="px-2 py-1 rounded text-[10px] font-medium transition-colors"
               style={{ color: "#64748b" }}
@@ -603,8 +630,8 @@ export default function HouseMap() {
           </div>
           <SearchBar
             onSelect={(id) => setSelectedId(id)}
-            onIsolate={(abbr) => {
-              setIsolatedState(abbr);
+            onFocusState={(abbr) => {
+              setFocusedState(abbr);
               const view = STATE_VIEW[abbr];
               if (view) { setZoom(view.zoom); setCenter(view.center); }
               setSelectedId(null);
@@ -688,7 +715,6 @@ export default function HouseMap() {
                     const props = (geo as any).properties ?? {};
                     const id = toDistrictId(props.STATEFP, props.CD119FP ?? props.CD118FP);
                     if (!id) return null;
-                    if (isolatedState && props.STATEFP !== STATE_TO_FIPS[isolatedState]) return null;
 
                     const data = getDistrictData(id) ?? {
                       party: "Unknown" as const,
@@ -756,33 +782,18 @@ export default function HouseMap() {
           {/* Legend */}
           <MapLegend mode={filterMode} />
 
-          {/* Isolation exit button + state panel */}
-          {isolatedState && (
-            <>
-              <button
-                onClick={() => {
-                  setIsolatedState(null);
-                  setZoom(1);
-                  setCenter([-98, 38]);
-                  history.replaceState({}, "", window.location.pathname);
-                }}
-                className="absolute top-4 left-4 flex items-center gap-2 px-3 py-2 rounded-lg text-xs font-medium transition-all z-30"
-                style={{
-                  backgroundColor: "rgba(13,17,23,0.92)",
-                  border: "1px solid rgba(99,102,241,0.5)",
-                  color: "#a5b4fc",
-                  backdropFilter: "blur(8px)",
-                }}
-              >
-                ← All States
-              </button>
-              {!selectedId && (
-                <StatePanel
-                  stateAbbr={isolatedState}
-                  onSelectDistrict={(id) => setSelectedId(id)}
-                />
-              )}
-            </>
+          {/* State panel */}
+          {focusedState && !selectedId && (
+            <StatePanel
+              stateAbbr={focusedState}
+              onSelectDistrict={(id) => setSelectedId(id)}
+              onClose={() => {
+                setFocusedState(null);
+                setZoom(1);
+                setCenter([-98, 38]);
+                history.replaceState({}, "", window.location.pathname);
+              }}
+            />
           )}
         </div>
 
