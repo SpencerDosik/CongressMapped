@@ -7,20 +7,9 @@ export interface Metric {
   shortLabel: string;
   description: string;
   unit: string;
-  getValue: (data: DistrictFullData, stats?: DistrictStats) => number | null;
+  getValue: (data: DistrictFullData) => number | null;
   format: (value: number) => string;
   higherIsBetter?: boolean;
-}
-
-export interface DistrictStats {
-  age?: number;
-  education?: number;
-  poverty?: number;
-  population?: number;
-}
-
-function partyLean(data: DistrictFullData): number {
-  return data.pvi;
 }
 
 export const METRICS: Metric[] = [
@@ -39,7 +28,7 @@ export const METRICS: Metric[] = [
     shortLabel: "PVI",
     description: "Partisan lean derived from the 2020 and 2024 presidential results. Positive = Republican-leaning, negative = Democrat-leaning.",
     unit: "",
-    getValue: partyLean,
+    getValue: (d) => d.pvi,
     format: (v) => v === 0 ? "EVEN" : `${v > 0 ? "R" : "D"}+${Math.abs(v)}`,
   },
   {
@@ -61,35 +50,6 @@ export const METRICS: Metric[] = [
     getValue: (d) => Math.max(0, 2026 - d.termStart),
     format: (v) => v === 1 ? "1 year" : `${v} years`,
   },
-  {
-    id: "age",
-    label: "Median Age",
-    shortLabel: "Median Age",
-    description: "Median age of district residents (Census ACS estimate).",
-    unit: "yr",
-    getValue: (_, stats) => stats?.age ?? null,
-    format: (v) => `${v.toFixed(1)} yr`,
-  },
-  {
-    id: "education",
-    label: "College Educated",
-    shortLabel: "College",
-    description: "Share of residents 25+ with a bachelor's degree or higher (Census ACS estimate).",
-    unit: "%",
-    getValue: (_, stats) => stats?.education ?? null,
-    format: (v) => `${v.toFixed(1)}%`,
-    higherIsBetter: true,
-  },
-  {
-    id: "poverty",
-    label: "Poverty Rate",
-    shortLabel: "Poverty",
-    description: "Share of residents below the federal poverty line (Census ACS estimate).",
-    unit: "%",
-    getValue: (_, stats) => stats?.poverty ?? null,
-    format: (v) => `${v.toFixed(1)}%`,
-    higherIsBetter: false,
-  },
 ];
 
 export const METRICS_BY_ID: Record<FilterMode, Metric> = Object.fromEntries(
@@ -99,9 +59,8 @@ export const METRICS_BY_ID: Record<FilterMode, Metric> = Object.fromEntries(
 export function getMetricValue(
   metricId: FilterMode,
   data: DistrictFullData,
-  stats?: DistrictStats
 ): number | null {
-  return METRICS_BY_ID[metricId]?.getValue(data, stats) ?? null;
+  return METRICS_BY_ID[metricId]?.getValue(data) ?? null;
 }
 
 export function formatMetricValue(metricId: FilterMode, value: number): string {

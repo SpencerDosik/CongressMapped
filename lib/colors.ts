@@ -47,26 +47,6 @@ export function pviColor(pvi: number): string {
   return interpolateRdBu(1 - t);
 }
 
-// Age color scale: young (teal) → median (slate) → older (amber)
-const ageScale = scaleLinear<string>()
-  .domain([30, 38, 46])
-  .range(["#2dd4bf", "#64748b", "#f59e0b"])
-  .clamp(true);
-export function ageColor(age: number): string { return ageScale(age); }
-
-// Education color scale: low (indigo) → high (near-white)
-const educationScale = scaleLinear<string>()
-  .domain([10, 25, 40, 65])
-  .range(["#4338ca", "#818cf8", "#c7d2fe", "#f0f9ff"])
-  .clamp(true);
-export function educationColor(pct: number): string { return educationScale(pct); }
-
-// Poverty color scale: low (green = good) → high (red = bad)
-const povertyScale = scaleLinear<string>()
-  .domain([3, 10, 18, 30])
-  .range(["#059669", "#f59e0b", "#dc2626", "#fca5a5"])
-  .clamp(true);
-export function povertyColor(pct: number): string { return povertyScale(pct); }
 
 // Get color for a district based on filter mode
 export function getDistrictColor(
@@ -76,20 +56,14 @@ export function getDistrictColor(
   income: number,
   pvi: number,
   tenureYears: number,
-  age?: number,
-  education?: number,
-  poverty?: number,
 ): string {
   switch (mode) {
-    case "party":     return PARTY_COLORS[party] ?? PARTY_COLORS.Unknown;
-    case "margin":    return marginColor(margin);
-    case "income":    return incomeColor(income);
-    case "tenure":    return tenureColor(tenureYears);
-    case "pvi":       return pviColor(pvi);
-    case "age":       return age != null ? ageColor(age) : PARTY_COLORS.Unknown;
-    case "education": return education != null ? educationColor(education) : PARTY_COLORS.Unknown;
-    case "poverty":   return poverty != null ? povertyColor(poverty) : PARTY_COLORS.Unknown;
-    default:          return PARTY_COLORS.Unknown;
+    case "party":  return PARTY_COLORS[party] ?? PARTY_COLORS.Unknown;
+    case "margin": return marginColor(margin);
+    case "income": return incomeColor(income);
+    case "tenure": return tenureColor(tenureYears);
+    case "pvi":    return pviColor(pvi);
+    default:       return PARTY_COLORS.Unknown;
   }
 }
 
@@ -139,41 +113,16 @@ export function getLegendItems(mode: FilterMode): LegendItem[] {
         { label: "D+20", color: pviColor(-20) },
         { label: "D+40", color: pviColor(-40) },
       ];
-    case "age":
-      return [
-        { label: "< 33 yrs", color: ageColor(31) },
-        { label: "35 yrs",   color: ageColor(35) },
-        { label: "38 yrs",   color: ageColor(38) },
-        { label: "42 yrs",   color: ageColor(42) },
-        { label: "46+ yrs",  color: ageColor(47) },
-      ];
-    case "education":
-      return [
-        { label: "< 15%", color: educationColor(12) },
-        { label: "25%",   color: educationColor(25) },
-        { label: "40%",   color: educationColor(40) },
-        { label: "55%+",  color: educationColor(58) },
-      ];
-    case "poverty":
-      return [
-        { label: "< 5%",  color: povertyColor(4) },
-        { label: "10%",   color: povertyColor(10) },
-        { label: "18%",   color: povertyColor(18) },
-        { label: "25%+",  color: povertyColor(27) },
-      ];
   }
 }
 
 export function filterModeLabel(mode: FilterMode): string {
   const labels: Record<FilterMode, string> = {
-    party:     "Party",
-    margin:    "2024 Margin",
-    income:    "Median Income",
-    tenure:    "Tenure",
-    pvi:       "Computed PVI",
-    age:       "Median Age",
-    education: "College Educated",
-    poverty:   "Poverty Rate",
+    party:  "Party",
+    margin: "2024 Margin",
+    income: "Median Income",
+    tenure: "Tenure",
+    pvi:    "Computed PVI",
   };
   return labels[mode];
 }

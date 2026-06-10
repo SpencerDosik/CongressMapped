@@ -18,23 +18,20 @@ const FILTER_GROUPS: FilterGroup[] = [
   {
     label: "Political",
     modes: [
-      { mode: "margin",    desc: "2024 general election margin — positive = R won, negative = D won" },
-      { mode: "pvi",       desc: "Computed PVI — structural partisan lean from 2020 + 2024 presidential results" },
+      { mode: "margin", desc: "2024 general election margin — positive = R won, negative = D won" },
+      { mode: "pvi",    desc: "Computed PVI — structural partisan lean from 2020 + 2024 presidential results" },
     ],
   },
   {
     label: "Economic",
     modes: [
-      { mode: "income",    desc: "Median household income per district (Census ACS 5-Year)" },
-      { mode: "poverty",   desc: "Share of residents below the federal poverty line" },
-      { mode: "education", desc: "Share of residents with a bachelor's degree or higher" },
+      { mode: "income", desc: "Median household income per district (Census ACS, approximate)" },
     ],
   },
   {
     label: "Representative",
     modes: [
-      { mode: "tenure",    desc: "Years the current representative has held the seat" },
-      { mode: "age",       desc: "Median age of district residents (Census ACS estimate)" },
+      { mode: "tenure", desc: "Years the current representative has held the seat" },
     ],
   },
 ];

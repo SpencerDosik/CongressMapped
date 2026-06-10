@@ -269,13 +269,12 @@ function getStateSeats(state: string): number {
 
 // ── Tooltip ──────────────────────────────────────────────────────────────────
 function Tooltip({
-  districtId, x, y, filterMode, districtStats
+  districtId, x, y, filterMode
 }: {
   districtId: string;
   x: number;
   y: number;
   filterMode: FilterMode;
-  districtStats: Record<string, { age?: number; education?: number; poverty?: number }>;
 }) {
   const rawData = getDistrictData(districtId);
   const data = rawData ?? { party: "Unknown" as const, margin: 0, income: 65, pvi: 0, termStart: 2025, repName: "Vacant" };
@@ -291,9 +290,7 @@ function Tooltip({
   const marginAbs = Math.abs(data.margin);
   const marginLabel = data.margin === 0 ? "Toss-up" : `${data.margin > 0 ? "R" : "D"} +${marginAbs.toFixed(1)}%`;
   const tenure = Math.max(0, 2026 - data.termStart);
-  const dStats = districtStats[districtId];
 
-  // Build the secondary stat line based on filter mode
   let statLabel = "2024 Margin";
   let statValue = marginLabel;
   let statColor: string = data.margin >= 0 ? PARTY_COLORS.Republican : PARTY_COLORS.Democrat;
@@ -309,18 +306,6 @@ function Tooltip({
     statLabel = "Tenure";
     statValue = tenure < 1 ? "< 1 yr" : `${tenure} yr`;
     statColor = "#818cf8";
-  } else if (filterMode === "age") {
-    statLabel = "Median Age";
-    statValue = dStats?.age != null ? `${dStats.age.toFixed(1)} yrs` : "—";
-    statColor = "#22d3ee";
-  } else if (filterMode === "education") {
-    statLabel = "College Edu.";
-    statValue = dStats?.education != null ? `${dStats.education.toFixed(1)}%` : "—";
-    statColor = "#a78bfa";
-  } else if (filterMode === "poverty") {
-    statLabel = "Poverty Rate";
-    statValue = dStats?.poverty != null ? `${dStats.poverty.toFixed(1)}%` : "—";
-    statColor = "#f87171";
   }
 
   const tipW = 210;
@@ -459,15 +444,6 @@ export default function HouseMap() {
   const [showProfile, setShowProfile] = useState(false);
   const [isolatedState, setIsolatedState] = useState<string | null>(null);
   const [fullscreen, setFullscreen] = useState(false);
-  const [districtStats, setDistrictStats] = useState<Record<string, { age?: number; education?: number; poverty?: number }>>({});
-
-  // Load district stats for age/education/poverty filters
-  useEffect(() => {
-    fetch("/district-stats.json")
-      .then((r) => r.json())
-      .then(setDistrictStats)
-      .catch(() => {});
-  }, []);
 
   // Sync selectedId → URL
   useEffect(() => {
@@ -725,7 +701,6 @@ export default function HouseMap() {
                     const isSelected = id === selectedId;
                     const isHovered = id === hoveredId;
 
-                    const dStats = districtStats[id];
                     const fill = getDistrictColor(
                       filterMode,
                       data.party,
@@ -733,9 +708,6 @@ export default function HouseMap() {
                       data.income,
                       data.pvi,
                       Math.max(0, 2026 - data.termStart),
-                      dStats?.age,
-                      dStats?.education,
-                      dStats?.poverty,
                     );
 
                     const stroke = isSelected
@@ -828,7 +800,7 @@ export default function HouseMap() {
 
       {/* Tooltip */}
       {hoveredId && !selectedId && (
-        <Tooltip districtId={hoveredId} x={mousePos.x} y={mousePos.y} filterMode={filterMode} districtStats={districtStats} />
+        <Tooltip districtId={hoveredId} x={mousePos.x} y={mousePos.y} filterMode={filterMode} />
       )}
 
       {/* Full Profile Overlay */}
