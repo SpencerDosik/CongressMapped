@@ -1,160 +1,117 @@
 /**
- * Fetches urban % for every House district from Wikipedia infoboxes.
+ * Fetches urban % for every House district from the 2020 Decennial Census
+ * via the Census Bureau API (same key as fetch-census-acs.mjs).
  *
- * Wikipedia's congressional district articles (e.g. "California's 1st congressional
- * district") contain a {{United States congressional district infobox}} with:
- *   | urban   = 85.3%
+ * Uses the 2020 Census Redistricting Data (PL 94-171):
+ *   P2_001N = Total population
+ *   P2_002N = Urban population (2020 definition: urbanized area + urban cluster ≥ 2,000)
  *
- * Run from repo root:
- *   node scripts/fetch-urban-pct.mjs
- *
- * Output: public/urban-pct.json  — Record<districtId, urbanPct (0–100)>
- * Then run:
- *   node scripts/apply-urban-pct.mjs
- * to write the values into lib/districtData.ts
+ * Usage: CENSUS_API_KEY=your_key node scripts/fetch-urban-pct.mjs
+ * Output: public/urban-pct.json
+ * Then: node scripts/apply-urban-pct.mjs
  */
 
-import { writeFileSync, existsSync, readFileSync } from "fs";
+import { writeFileSync } from "fs";
 import { join, dirname } from "path";
 import { fileURLToPath } from "url";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, "..");
-const OUT = join(ROOT, "public", "urban-pct.json");
-const CHECKPOINT = join(ROOT, "data-research", "work", "urban-pct-checkpoint.json");
 
-// ── District ID → Wikipedia page title ───────────────────────────────────────
+const KEY = process.env.CENSUS_API_KEY;
+if (!KEY) {
+  console.error("ERROR: CENSUS_API_KEY environment variable is not set.");
+  console.error("Usage: CENSUS_API_KEY=your_key node scripts/fetch-urban-pct.mjs");
+  process.exit(1);
+}
 
-const ORDINALS = [
-  "", "1st", "2nd", "3rd", "4th", "5th", "6th", "7th", "8th", "9th", "10th",
-  "11th", "12th", "13th", "14th", "15th", "16th", "17th", "18th", "19th",
-  "20th", "21st", "22nd", "23rd", "24th", "25th", "26th", "27th", "28th",
-  "29th", "30th", "31st", "32nd", "33rd", "34th", "35th", "36th", "37th",
-  "38th", "39th", "40th", "41st", "42nd", "43rd", "44th", "45th", "46th",
-  "47th", "48th", "49th", "50th", "51st", "52nd", "53rd",
-];
-
-const STATE_NAMES = {
-  AL: "Alabama", AK: "Alaska", AZ: "Arizona", AR: "Arkansas", CA: "California",
-  CO: "Colorado", CT: "Connecticut", DE: "Delaware", FL: "Florida", GA: "Georgia",
-  HI: "Hawaii", ID: "Idaho", IL: "Illinois", IN: "Indiana", IA: "Iowa",
-  KS: "Kansas", KY: "Kentucky", LA: "Louisiana", ME: "Maine", MD: "Maryland",
-  MA: "Massachusetts", MI: "Michigan", MN: "Minnesota", MS: "Mississippi",
-  MO: "Missouri", MT: "Montana", NE: "Nebraska", NV: "Nevada", NH: "New Hampshire",
-  NJ: "New Jersey", NM: "New Mexico", NY: "New York", NC: "North Carolina",
-  ND: "North Dakota", OH: "Ohio", OK: "Oklahoma", OR: "Oregon", PA: "Pennsylvania",
-  RI: "Rhode Island", SC: "South Carolina", SD: "South Dakota", TN: "Tennessee",
-  TX: "Texas", UT: "Utah", VT: "Vermont", VA: "Virginia", WA: "Washington",
-  WV: "West Virginia", WI: "Wisconsin", WY: "Wyoming",
+// FIPS → state abbreviation
+const FIPS_TO_STATE = {
+  "01":"AL","02":"AK","04":"AZ","05":"AR","06":"CA","08":"CO","09":"CT",
+  "10":"DE","12":"FL","13":"GA","15":"HI","16":"ID","17":"IL","18":"IN",
+  "19":"IA","20":"KS","21":"KY","22":"LA","23":"ME","24":"MD","25":"MA",
+  "26":"MI","27":"MN","28":"MS","29":"MO","30":"MT","31":"NE","32":"NV",
+  "33":"NH","34":"NJ","35":"NM","36":"NY","37":"NC","38":"ND","39":"OH",
+  "40":"OK","41":"OR","42":"PA","44":"RI","45":"SC","46":"SD","47":"TN",
+  "48":"TX","49":"UT","50":"VT","51":"VA","53":"WA","54":"WV","55":"WI",
+  "56":"WY",
 };
 
-const AT_LARGE = new Set(["AK", "DE", "ND", "SD", "VT", "WY"]);
+const AT_LARGE = new Set(["AK","DE","MT","ND","SD","VT","WY"]);
 
-function wikiTitle(districtId) {
-  const [state, num] = districtId.split("-");
-  const stateName = STATE_NAMES[state];
-  if (!stateName) return null;
-  const n = parseInt(num, 10);
-  if (AT_LARGE.has(state) || n === 0) {
-    return `${stateName}'s at-large congressional district`;
-  }
-  const ord = ORDINALS[n];
-  if (!ord) return null;
-  return `${stateName}'s ${ord} congressional district`;
-}
+// The 2020 Census PL file has urban/rural breakdown
+// P2_001N = Total, P2_002N = Urban
+const url = `https://api.census.gov/data/2020/dec/pl?get=P2_001N,P2_002N&for=congressional%20district:*&in=state:*&key=${KEY}`;
 
-// ── Wikipedia API fetch ───────────────────────────────────────────────────────
+console.log("Fetching 2020 Census urban/rural data for all congressional districts…");
 
-async function fetchWikitext(title) {
-  const url = new URL("https://en.wikipedia.org/w/api.php");
-  url.searchParams.set("action", "parse");
-  url.searchParams.set("page", title);
-  url.searchParams.set("prop", "wikitext");
-  url.searchParams.set("format", "json");
-  url.searchParams.set("redirects", "1");
+let rows;
+try {
+  const res = await fetch(url);
+  const text = await res.text();
+  if (!text.trim().startsWith("[")) {
+    console.error(`Census API error (HTTP ${res.status}):`);
+    console.error(text.slice(0, 600));
+    console.error("\nTrying alternative dataset (DHC)…");
 
-  const res = await fetch(url.toString(), {
-    headers: { "User-Agent": "CongressMapped/1.0 (data pipeline; contact via github)" },
-  });
-  if (!res.ok) throw new Error(`HTTP ${res.status}`);
-  const json = await res.json();
-  if (json.error) throw new Error(json.error.info);
-  return json.parse?.wikitext?.["*"] ?? null;
-}
-
-function parseUrbanPct(wikitext) {
-  // Match: | urban   = 85.3% or | urban = 85.3 or |urban=85.3%
-  const m = wikitext.match(/\|\s*urban\s*=\s*([\d.]+)\s*%?/i);
-  if (!m) return null;
-  const v = parseFloat(m[1]);
-  return isNaN(v) ? null : v;
-}
-
-// ── Main ──────────────────────────────────────────────────────────────────────
-
-// Build list of all district IDs from districtData.ts
-const srcTs = readFileSync(join(ROOT, "lib", "districtData.ts"), "utf8");
-const districtIds = [...srcTs.matchAll(/"([A-Z]{2}-\d{2})"\s*:/g)].map(m => m[1]);
-console.log(`Total districts: ${districtIds.length}`);
-
-// Resume from checkpoint if it exists
-const checkpoint = existsSync(CHECKPOINT)
-  ? JSON.parse(readFileSync(CHECKPOINT, "utf8"))
-  : {};
-
-const results = { ...checkpoint };
-const remaining = districtIds.filter(id => !(id in results));
-console.log(`Already fetched: ${Object.keys(checkpoint).length}, Remaining: ${remaining.length}`);
-
-let successCount = 0;
-let failCount = 0;
-
-for (let i = 0; i < remaining.length; i++) {
-  const id = remaining[i];
-  const title = wikiTitle(id);
-  if (!title) {
-    console.warn(`  [skip] ${id} — no title mapping`);
-    results[id] = null;
-    continue;
-  }
-
-  try {
-    const wikitext = await fetchWikitext(title);
-    if (!wikitext) {
-      console.warn(`  [miss] ${id} — no wikitext`);
-      results[id] = null;
-    } else {
-      const pct = parseUrbanPct(wikitext);
-      if (pct === null) {
-        console.warn(`  [miss] ${id} — urban% not found in infobox ("${title}")`);
-        results[id] = null;
-      } else {
-        console.log(`  [ok]   ${id} = ${pct}%`);
-        results[id] = pct;
-        successCount++;
-      }
+    // Fallback: try DHC file which also has urban/rural in some vintages
+    const url2 = `https://api.census.gov/data/2020/dec/dhc?get=P2_001N,P2_002N&for=congressional%20district:*&in=state:*&key=${KEY}`;
+    const res2 = await fetch(url2);
+    const text2 = await res2.text();
+    if (!text2.trim().startsWith("[")) {
+      console.error(`DHC also failed (HTTP ${res2.status}):`);
+      console.error(text2.slice(0, 400));
+      process.exit(1);
     }
-  } catch (err) {
-    console.error(`  [err]  ${id}: ${err.message}`);
-    results[id] = null;
-    failCount++;
+    rows = JSON.parse(text2);
+    console.log("DHC dataset worked.");
+  } else {
+    rows = JSON.parse(text);
+    console.log("PL dataset worked.");
   }
-
-  // Save checkpoint every 25 fetches
-  if ((i + 1) % 25 === 0) {
-    writeFileSync(CHECKPOINT, JSON.stringify(results, null, 2));
-    console.log(`  → checkpoint saved (${i + 1}/${remaining.length})`);
-  }
-
-  // Polite delay: 300ms between requests
-  await new Promise(r => setTimeout(r, 300));
+} catch (err) {
+  console.error("Fetch failed:", err.message);
+  process.exit(1);
 }
 
-// Write final output
-writeFileSync(OUT, JSON.stringify(results, null, 2));
-writeFileSync(CHECKPOINT, JSON.stringify(results, null, 2));
+const [header, ...dataRows] = rows;
+const stateIdx = header.indexOf("state");
+const cdIdx    = header.indexOf("congressional district");
+const totalIdx = header.indexOf("P2_001N");
+const urbanIdx = header.indexOf("P2_002N");
 
-const found = Object.values(results).filter(v => v !== null).length;
-console.log(`\nDone. ${found}/${districtIds.length} districts have urban% data.`);
+if (totalIdx === -1 || urbanIdx === -1) {
+  console.error("Unexpected response columns:", header);
+  process.exit(1);
+}
+
+const out = {};
+let matched = 0;
+let skipped = 0;
+
+for (const row of dataRows) {
+  const stateFips = row[stateIdx];
+  const cdNum     = row[cdIdx];
+  const stateAbbr = FIPS_TO_STATE[stateFips];
+  if (!stateAbbr) { skipped++; continue; }
+
+  let distNum;
+  if (AT_LARGE.has(stateAbbr) && cdNum === "01") {
+    distNum = "00";
+  } else {
+    distNum = cdNum.padStart(2, "0");
+  }
+  const districtId = `${stateAbbr}-${distNum}`;
+
+  const total = parseInt(row[totalIdx], 10) || 0;
+  const urban = parseInt(row[urbanIdx], 10) || 0;
+
+  const urbanPct = total > 0 ? Math.round((urban / total) * 1000) / 10 : null;
+  out[districtId] = urbanPct;
+  matched++;
+}
+
+writeFileSync(join(ROOT, "public", "urban-pct.json"), JSON.stringify(out, null, 2));
+console.log(`Done. Matched ${matched} districts, skipped ${skipped}.`);
 console.log(`Output: public/urban-pct.json`);
-console.log(`\nNext step: node scripts/apply-urban-pct.mjs`);
+console.log(`Next: node scripts/apply-urban-pct.mjs`);
