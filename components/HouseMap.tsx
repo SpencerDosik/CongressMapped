@@ -9,7 +9,7 @@ import {
 } from "react-simple-maps";
 // eslint-disable-next-line @typescript-eslint/no-require-imports
 const { Annotation } = require("react-simple-maps") as { Annotation: React.ComponentType<{ subject: [number, number]; dx: number; dy: number; connectorProps: object; children: React.ReactNode }> };
-import { geoCentroid } from "d3-geo";
+import { geoCentroid, geoAlbersUsa } from "d3-geo";
 import React from "react";
 
 import FilterTabs from "./FilterTabs";
@@ -26,6 +26,10 @@ import { toDistrictId, STATE_NAMES, AT_LARGE_STATES } from "@/lib/stateFips";
 const DISTRICTS_URL = "/districts.json";
 const ZOOM_MIN = 0.5;
 const ZOOM_MAX = 25;
+// Mirror the projection used by ComposableMap (projectionConfig.scale=900, viewBox 800×500)
+const MAP_PROJ = geoAlbersUsa().scale(900).translate([400, 250]);
+const SVG_W = 800;
+const SVG_H = 500;
 const R_CAUCUS = 218; // 217 R + Kevin Kiley (I, caucuses R)
 const D_SEATS = 214; // +1: Analilia Mejia won NJ-11 special election Apr 16, 2026
 const V_SEATS = 3;   // CA-01, CA-14, TX-23
@@ -454,6 +458,10 @@ export default function HouseMap() {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const [zoom, setZoom] = useState(1);
   const [center, setCenter] = useState<[number, number]>([-98, 38]);
+  const zoomRef = useRef(1);
+  const centerRef = useRef<[number, number]>([-98, 38]);
+  useEffect(() => { zoomRef.current = zoom; }, [zoom]);
+  useEffect(() => { centerRef.current = center; }, [center]);
   const [mapReady, setMapReady] = useState(false);
   const [showProfile, setShowProfile] = useState(false);
   const [focusedState, setFocusedState] = useState<string | null>(null);
@@ -543,13 +551,39 @@ export default function HouseMap() {
     const el = mapContainerRef.current;
     if (!el) return;
     const handler = (e: WheelEvent) => {
-      if (!e.ctrlKey) return;
       e.preventDefault();
-      const factor = e.deltaY > 0 ? 1 / 1.15 : 1.15;
-      setZoom((z) => Math.min(Math.max(z * factor, ZOOM_MIN), ZOOM_MAX));
+      e.stopPropagation();
+
+      const rect = el.getBoundingClientRect();
+      // Convert cursor position from screen pixels → SVG coordinate space
+      const svgX = (e.clientX - rect.left) * (SVG_W / rect.width);
+      const svgY = (e.clientY - rect.top) * (SVG_H / rect.height);
+
+      const factor = e.deltaY < 0 ? 1.12 : 1 / 1.12;
+      const prevZoom = zoomRef.current;
+      const prevCenter = centerRef.current;
+      const newZoom = Math.min(Math.max(prevZoom * factor, ZOOM_MIN), ZOOM_MAX);
+
+      // Project current center to base SVG coords, compute cursor's geographic position,
+      // then find the new center that keeps the cursor fixed after the zoom change.
+      const cp = MAP_PROJ(prevCenter);
+      if (cp) {
+        const cursorProjX = (svgX - SVG_W / 2) / prevZoom + cp[0];
+        const cursorProjY = (svgY - SVG_H / 2) / prevZoom + cp[1];
+        const newCenterProj: [number, number] = [
+          cursorProjX - (svgX - SVG_W / 2) / newZoom,
+          cursorProjY - (svgY - SVG_H / 2) / newZoom,
+        ];
+        const newCenter = MAP_PROJ.invert?.(newCenterProj);
+        if (newCenter) setCenter(newCenter as [number, number]);
+      }
+      setZoom(newZoom);
+
     };
-    el.addEventListener("wheel", handler, { passive: false });
-    return () => el.removeEventListener("wheel", handler);
+    // capture:true fires before ZoomableGroup's own wheel listener, so stopPropagation
+    // prevents the default zoom-to-center behaviour and we handle it ourselves.
+    el.addEventListener("wheel", handler, { passive: false, capture: true });
+    return () => el.removeEventListener("wheel", handler, { capture: true });
   }, []);
   const parseGeographies = useCallback((geos: Record<string, unknown>[]) => {
     if (geos.length > 0 && !loadedRef.current) {

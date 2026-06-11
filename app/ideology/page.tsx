@@ -6,6 +6,8 @@ import { getAllDistricts, DistrictFullData } from "@/lib/districtData";
 import { PARTY_COLORS } from "@/lib/colors";
 import { STATE_NAMES, AT_LARGE_STATES } from "@/lib/stateFips";
 import IdeologyChart, { AxisConfig, MemberPoint } from "@/components/IdeologyChart";
+import DistrictPanel from "@/components/DistrictPanel";
+import { getDistrictData, getRepName } from "@/lib/districtData";
 
 // ── Axis definitions ──────────────────────────────────────────────────────────
 
@@ -311,6 +313,8 @@ export default function IdeologyPage() {
   const [partyFilter, setPartyFilter] = useState<"All" | MemberParty>("All");
   const [meta, setMeta] = useState<Record<string, LegislatorMeta> | null>(null);
   const [bills, setBills] = useState<Record<string, BillCounts> | null>(null);
+  const [selectedId, setSelectedId] = useState<string | null>(null);
+  const [showProfile, setShowProfile] = useState(false);
   const userChangedY = useRef(false);
 
   useEffect(() => {
@@ -439,12 +443,37 @@ export default function IdeologyPage() {
       {/* Chart */}
       <div className="flex-1 min-h-0 relative">
         {points.length > 0 ? (
-          <IdeologyChart members={points} xAxis={AXES[xKey]} yAxis={AXES[yKey]} />
+          <IdeologyChart
+            members={points}
+            xAxis={AXES[xKey]}
+            yAxis={AXES[yKey]}
+            onMemberClick={(id) => { setSelectedId(id); setShowProfile(false); }}
+          />
         ) : (
           <div className="absolute inset-0 flex items-center justify-center text-slate-600 text-sm">
             No members have data for the selected axes.
           </div>
         )}
+
+        {/* District panel overlay */}
+        {selectedId && (() => {
+          const data = getDistrictData(selectedId);
+          const repName = getRepName(selectedId);
+          if (!data || !repName) return null;
+          return (
+            <div className="absolute inset-y-0 right-0 z-30 pointer-events-none flex items-stretch">
+              <div className="pointer-events-auto">
+                <DistrictPanel
+                  districtId={selectedId}
+                  repName={repName}
+                  data={data}
+                  onClose={() => setSelectedId(null)}
+                  onShowProfile={() => setShowProfile(true)}
+                />
+              </div>
+            </div>
+          );
+        })()}
       </div>
 
       {/* Footnote */}
@@ -453,7 +482,7 @@ export default function IdeologyPage() {
         style={{ backgroundColor: "#0d1117", borderTop: "1px solid rgba(30,41,59,0.8)" }}
       >
         <p className="text-slate-600 text-[10px] truncate">
-          Sources: Computed PVI &amp; margins from 2024 results · Income: Census ACS (approx.) · Portraits:
+          Sources: PVI (estimated) &amp; margins from 2024 results · Income: Census ACS · Portraits:
           Library of Congress bioguide
         </p>
         {hiddenCount > 0 && (

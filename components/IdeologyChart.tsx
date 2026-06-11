@@ -33,6 +33,7 @@ interface Props {
   members: MemberPoint[];
   xAxis: AxisConfig;
   yAxis: AxisConfig;
+  onMemberClick?: (districtId: string) => void;
 }
 
 // ── Layout constants ──────────────────────────────────────────────────────────
@@ -203,7 +204,7 @@ function ChartTooltip({
 
 // ── Chart ─────────────────────────────────────────────────────────────────────
 
-export default function IdeologyChart({ members, xAxis, yAxis }: Props) {
+export default function IdeologyChart({ members, xAxis, yAxis, onMemberClick }: Props) {
   const [hoveredId, setHoveredId] = useState<string | null>(null);
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const [failedPhotos, setFailedPhotos] = useState<Set<string>>(() => new Set());
@@ -340,9 +341,7 @@ export default function IdeologyChart({ members, xAxis, yAxis }: Props) {
             onMouseEnter={() => setHoveredId(m.districtId)}
             onMouseMove={(e) => setMousePos({ x: e.clientX, y: e.clientY })}
             onMouseLeave={() => setHoveredId((id) => (id === m.districtId ? null : id))}
-            onClick={() => {
-              window.location.href = `/house?d=${m.districtId}`;
-            }}
+            onClick={() => onMemberClick?.(m.districtId)}
           >
             <MemberDot
               member={m}
