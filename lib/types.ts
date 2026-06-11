@@ -19,7 +19,9 @@ export interface DistrictStaticData {
   margin: number;    // 2024 margin: positive = R won, negative = D won
   income: number;    // Median HH income in $K (ACS 5-year)
   pvi: number;       // Estimated PVI (not a map filter — kept for ideology chart reference only)
-  urbanPct?: number; // % urban population (2020 Census) — optional until fetch-urban-pct.mjs is run
+  urbanPct?: number;   // % urban population (2020 Census) — optional until fetch-urban-pct.mjs is run
+  collegePct?: number; // % of adults 25+ with bachelor's degree or higher (ACS 5-year 2023)
+  povertyPct?: number; // % of population below the federal poverty line (ACS 5-year 2023)
   termStart: number; // Year current incumbent first won this seat
   party: Party;
   caucus?: string;        // For independents who caucus with a party
@@ -33,7 +35,9 @@ export type FilterMode =
   | "margin"
   | "income"
   | "tenure"
-  | "urban";
+  | "urban"
+  | "college"
+  | "poverty";
 
 export interface DistrictData {
   districtId: string;

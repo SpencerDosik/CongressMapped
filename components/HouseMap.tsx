@@ -313,6 +313,14 @@ function Tooltip({
     statLabel = "Urban";
     statValue = data.urbanPct != null ? `${data.urbanPct.toFixed(1)}%` : "—";
     statColor = "#6366f1";
+  } else if (filterMode === "college") {
+    statLabel = "College %";
+    statValue = data.collegePct != null ? `${data.collegePct.toFixed(1)}%` : "—";
+    statColor = "#a5b4fc";
+  } else if (filterMode === "poverty") {
+    statLabel = "Poverty %";
+    statValue = data.povertyPct != null ? `${data.povertyPct.toFixed(1)}%` : "—";
+    statColor = "#f87171";
   }
 
   const tipW = 210;
@@ -768,6 +776,8 @@ export default function HouseMap() {
                       data.income,
                       Math.max(0, 2026 - data.termStart),
                       data.urbanPct,
+                      data.collegePct,
+                      data.povertyPct,
                     );
 
                     const stroke = isSelected

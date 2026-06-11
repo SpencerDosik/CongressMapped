@@ -47,6 +47,20 @@ const urbanScale = scaleLinear<string>()
   .clamp(true);
 export function urbanColor(pct: number): string { return urbanScale(pct); }
 
+// College % color scale: low (warm brown) → mid (slate) → high (indigo)
+const collegeScale = scaleLinear<string>()
+  .domain([10, 25, 40, 65])
+  .range(["#92400e", "#475569", "#6366f1", "#a5b4fc"])
+  .clamp(true);
+export function collegeColor(pct: number): string { return collegeScale(pct); }
+
+// Poverty % color scale: low (teal/green) → mid (amber) → high (red)
+const povertyScale = scaleLinear<string>()
+  .domain([3, 10, 20, 35])
+  .range(["#0f766e", "#ca8a04", "#dc2626", "#7f1d1d"])
+  .clamp(true);
+export function povertyColor(pct: number): string { return povertyScale(pct); }
+
 // Get color for a district based on filter mode
 export function getDistrictColor(
   mode: FilterMode,
@@ -55,14 +69,18 @@ export function getDistrictColor(
   income: number,
   tenureYears: number,
   urbanPct?: number,
+  collegePct?: number,
+  povertyPct?: number,
 ): string {
   switch (mode) {
-    case "party":  return PARTY_COLORS[party] ?? PARTY_COLORS.Unknown;
-    case "margin": return marginColor(margin);
-    case "income": return incomeColor(income);
-    case "tenure": return tenureColor(tenureYears);
-    case "urban":  return urbanColor(urbanPct ?? 50);
-    default:       return PARTY_COLORS.Unknown;
+    case "party":   return PARTY_COLORS[party] ?? PARTY_COLORS.Unknown;
+    case "margin":  return marginColor(margin);
+    case "income":  return incomeColor(income);
+    case "tenure":  return tenureColor(tenureYears);
+    case "urban":   return urbanColor(urbanPct ?? 50);
+    case "college": return collegeColor(collegePct ?? 30);
+    case "poverty": return povertyColor(povertyPct ?? 13);
+    default:        return PARTY_COLORS.Unknown;
   }
 }
 
@@ -111,16 +129,32 @@ export function getLegendItems(mode: FilterMode): LegendItem[] {
         { label: "80% urban",    color: urbanColor(80) },
         { label: "95%+ urban",   color: urbanColor(97) },
       ];
+    case "college":
+      return [
+        { label: "< 15% college", color: collegeColor(12) },
+        { label: "25% college",   color: collegeColor(25) },
+        { label: "40% college",   color: collegeColor(40) },
+        { label: "55%+ college",  color: collegeColor(60) },
+      ];
+    case "poverty":
+      return [
+        { label: "< 5% poverty",  color: povertyColor(4) },
+        { label: "10% poverty",   color: povertyColor(10) },
+        { label: "20% poverty",   color: povertyColor(20) },
+        { label: "30%+ poverty",  color: povertyColor(32) },
+      ];
   }
 }
 
 export function filterModeLabel(mode: FilterMode): string {
   const labels: Record<FilterMode, string> = {
-    party:  "Party",
-    margin: "2024 Margin",
-    income: "Median Income",
-    tenure: "Tenure",
-    urban:  "Urban %",
+    party:   "Party",
+    margin:  "2024 Margin",
+    income:  "Median Income",
+    tenure:  "Tenure",
+    urban:   "Urban %",
+    college: "College %",
+    poverty: "Poverty %",
   };
   return labels[mode];
 }

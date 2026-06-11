@@ -24,13 +24,15 @@ const FILTER_GROUPS: FilterGroup[] = [
   {
     label: "Economic",
     modes: [
-      { mode: "income", desc: "Median household income per district (ACS 5-year)" },
+      { mode: "income",   desc: "Median household income per district (ACS 5-year 2023)" },
+      { mode: "poverty",  desc: "Share of population below the federal poverty line (ACS 5-year 2023)" },
     ],
   },
   {
     label: "District",
     modes: [
-      { mode: "urban", desc: "Share of population living in urban areas (2020 Census)" },
+      { mode: "urban",   desc: "Share of population living in urban areas (2020 Census)" },
+      { mode: "college", desc: "Share of adults 25+ with a bachelor's degree or higher (ACS 5-year 2023)" },
     ],
   },
   {
