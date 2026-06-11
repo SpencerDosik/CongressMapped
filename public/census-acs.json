@@ -1,0 +1,1754 @@
+{
+  "AL-01": {
+    "collegePct": 26.6,
+    "povertyPct": 14.8
+  },
+  "AL-02": {
+    "collegePct": 25.3,
+    "povertyPct": 16.8
+  },
+  "AL-03": {
+    "collegePct": 23.5,
+    "povertyPct": 17
+  },
+  "AL-04": {
+    "collegePct": 19.1,
+    "povertyPct": 16.3
+  },
+  "AL-05": {
+    "collegePct": 36.1,
+    "povertyPct": 11.4
+  },
+  "AL-06": {
+    "collegePct": 39.2,
+    "povertyPct": 10.4
+  },
+  "AL-07": {
+    "collegePct": 24.1,
+    "povertyPct": 23.1
+  },
+  "AK-00": {
+    "collegePct": 31.2,
+    "povertyPct": 10.2
+  },
+  "AZ-01": {
+    "collegePct": 51.3,
+    "povertyPct": 8.9
+  },
+  "AZ-02": {
+    "collegePct": 25.5,
+    "povertyPct": 17.1
+  },
+  "AZ-03": {
+    "collegePct": 19.3,
+    "povertyPct": 19.7
+  },
+  "AZ-04": {
+    "collegePct": 38.4,
+    "povertyPct": 12.4
+  },
+  "AZ-05": {
+    "collegePct": 40.2,
+    "povertyPct": 5.9
+  },
+  "AZ-06": {
+    "collegePct": 38.9,
+    "povertyPct": 10.3
+  },
+  "AZ-07": {
+    "collegePct": 21.6,
+    "povertyPct": 19.5
+  },
+  "AZ-08": {
+    "collegePct": 32.2,
+    "povertyPct": 10.6
+  },
+  "AZ-09": {
+    "collegePct": 22.6,
+    "povertyPct": 10.9
+  },
+  "AR-01": {
+    "collegePct": 17.7,
+    "povertyPct": 18.6
+  },
+  "AR-02": {
+    "collegePct": 32.7,
+    "povertyPct": 14.3
+  },
+  "AR-03": {
+    "collegePct": 31.6,
+    "povertyPct": 12.5
+  },
+  "AR-04": {
+    "collegePct": 18.7,
+    "povertyPct": 18.8
+  },
+  "CA-01": {
+    "collegePct": 23.3,
+    "povertyPct": 15.4
+  },
+  "CA-02": {
+    "collegePct": 42.4,
+    "povertyPct": 10.9
+  },
+  "CA-03": {
+    "collegePct": 40.8,
+    "povertyPct": 7.9
+  },
+  "CA-04": {
+    "collegePct": 35.7,
+    "povertyPct": 11.3
+  },
+  "CA-05": {
+    "collegePct": 30.8,
+    "povertyPct": 9.9
+  },
+  "CA-06": {
+    "collegePct": 30,
+    "povertyPct": 13.3
+  },
+  "CA-07": {
+    "collegePct": 34.2,
+    "povertyPct": 13
+  },
+  "CA-08": {
+    "collegePct": 29.9,
+    "povertyPct": 11
+  },
+  "CA-09": {
+    "collegePct": 21.6,
+    "povertyPct": 12.6
+  },
+  "CA-10": {
+    "collegePct": 55.2,
+    "povertyPct": 6.2
+  },
+  "CA-11": {
+    "collegePct": 64.2,
+    "povertyPct": 10.8
+  },
+  "CA-12": {
+    "collegePct": 53.6,
+    "povertyPct": 12.6
+  },
+  "CA-13": {
+    "collegePct": 13.7,
+    "povertyPct": 18.7
+  },
+  "CA-14": {
+    "collegePct": 47.1,
+    "povertyPct": 6.9
+  },
+  "CA-15": {
+    "collegePct": 48.2,
+    "povertyPct": 7.1
+  },
+  "CA-16": {
+    "collegePct": 62.7,
+    "povertyPct": 6.2
+  },
+  "CA-17": {
+    "collegePct": 63.3,
+    "povertyPct": 6.3
+  },
+  "CA-18": {
+    "collegePct": 23.9,
+    "povertyPct": 11.5
+  },
+  "CA-19": {
+    "collegePct": 47.2,
+    "povertyPct": 8.2
+  },
+  "CA-20": {
+    "collegePct": 28.8,
+    "povertyPct": 11.4
+  },
+  "CA-21": {
+    "collegePct": 16.5,
+    "povertyPct": 22.4
+  },
+  "CA-22": {
+    "collegePct": 10,
+    "povertyPct": 22.6
+  },
+  "CA-23": {
+    "collegePct": 20.9,
+    "povertyPct": 16.1
+  },
+  "CA-24": {
+    "collegePct": 38.5,
+    "povertyPct": 13.4
+  },
+  "CA-25": {
+    "collegePct": 17.2,
+    "povertyPct": 16
+  },
+  "CA-26": {
+    "collegePct": 37,
+    "povertyPct": 8.6
+  },
+  "CA-27": {
+    "collegePct": 29.7,
+    "povertyPct": 11
+  },
+  "CA-28": {
+    "collegePct": 48.1,
+    "povertyPct": 9.8
+  },
+  "CA-29": {
+    "collegePct": 24.5,
+    "povertyPct": 16.6
+  },
+  "CA-30": {
+    "collegePct": 50.6,
+    "povertyPct": 12.9
+  },
+  "CA-31": {
+    "collegePct": 25,
+    "povertyPct": 11.4
+  },
+  "CA-32": {
+    "collegePct": 51.9,
+    "povertyPct": 10.3
+  },
+  "CA-33": {
+    "collegePct": 20.9,
+    "povertyPct": 13.6
+  },
+  "CA-34": {
+    "collegePct": 28.5,
+    "povertyPct": 20.9
+  },
+  "CA-35": {
+    "collegePct": 22.7,
+    "povertyPct": 11.9
+  },
+  "CA-36": {
+    "collegePct": 66.5,
+    "povertyPct": 8.4
+  },
+  "CA-37": {
+    "collegePct": 28.8,
+    "povertyPct": 20.7
+  },
+  "CA-38": {
+    "collegePct": 30,
+    "povertyPct": 9.6
+  },
+  "CA-39": {
+    "collegePct": 19.7,
+    "povertyPct": 12.2
+  },
+  "CA-40": {
+    "collegePct": 50.7,
+    "povertyPct": 6.7
+  },
+  "CA-41": {
+    "collegePct": 30.5,
+    "povertyPct": 9.2
+  },
+  "CA-42": {
+    "collegePct": 25.5,
+    "povertyPct": 15.4
+  },
+  "CA-43": {
+    "collegePct": 22.1,
+    "povertyPct": 16.6
+  },
+  "CA-44": {
+    "collegePct": 23.1,
+    "povertyPct": 13.5
+  },
+  "CA-45": {
+    "collegePct": 38.1,
+    "povertyPct": 10
+  },
+  "CA-46": {
+    "collegePct": 22.3,
+    "povertyPct": 12.6
+  },
+  "CA-47": {
+    "collegePct": 59,
+    "povertyPct": 9.2
+  },
+  "CA-48": {
+    "collegePct": 34.2,
+    "povertyPct": 8.3
+  },
+  "CA-49": {
+    "collegePct": 48.3,
+    "povertyPct": 7.4
+  },
+  "CA-50": {
+    "collegePct": 59.4,
+    "povertyPct": 9.6
+  },
+  "CA-51": {
+    "collegePct": 45.2,
+    "povertyPct": 11.1
+  },
+  "CA-52": {
+    "collegePct": 24.5,
+    "povertyPct": 12.5
+  },
+  "CO-01": {
+    "collegePct": 55.6,
+    "povertyPct": 11.2
+  },
+  "CO-02": {
+    "collegePct": 58.8,
+    "povertyPct": 11.1
+  },
+  "CO-03": {
+    "collegePct": 32.3,
+    "povertyPct": 13
+  },
+  "CO-04": {
+    "collegePct": 47,
+    "povertyPct": 6.3
+  },
+  "CO-05": {
+    "collegePct": 41.3,
+    "povertyPct": 8.6
+  },
+  "CO-06": {
+    "collegePct": 44.6,
+    "povertyPct": 8.7
+  },
+  "CO-07": {
+    "collegePct": 48.2,
+    "povertyPct": 7.3
+  },
+  "CO-08": {
+    "collegePct": 28.8,
+    "povertyPct": 9.1
+  },
+  "CT-01": {
+    "collegePct": 39.2,
+    "povertyPct": 10.6
+  },
+  "CT-02": {
+    "collegePct": 38.9,
+    "povertyPct": 8.4
+  },
+  "CT-03": {
+    "collegePct": 39.8,
+    "povertyPct": 10.4
+  },
+  "CT-04": {
+    "collegePct": 53.6,
+    "povertyPct": 9.8
+  },
+  "CT-05": {
+    "collegePct": 38.6,
+    "povertyPct": 11
+  },
+  "CT-ZZ": {
+    "collegePct": null,
+    "povertyPct": null
+  },
+  "DE-00": {
+    "collegePct": 35.3,
+    "povertyPct": 10.7
+  },
+  "FL-01": {
+    "collegePct": 31.5,
+    "povertyPct": 11.3
+  },
+  "FL-02": {
+    "collegePct": 30.7,
+    "povertyPct": 16.5
+  },
+  "FL-03": {
+    "collegePct": 28.4,
+    "povertyPct": 17.1
+  },
+  "FL-04": {
+    "collegePct": 26.5,
+    "povertyPct": 14.6
+  },
+  "FL-05": {
+    "collegePct": 44.4,
+    "povertyPct": 9.8
+  },
+  "FL-06": {
+    "collegePct": 24.6,
+    "povertyPct": 14.1
+  },
+  "FL-07": {
+    "collegePct": 36.1,
+    "povertyPct": 9.5
+  },
+  "FL-08": {
+    "collegePct": 33.5,
+    "povertyPct": 10.2
+  },
+  "FL-09": {
+    "collegePct": 32.7,
+    "povertyPct": 11.8
+  },
+  "FL-10": {
+    "collegePct": 36.4,
+    "povertyPct": 15.7
+  },
+  "FL-11": {
+    "collegePct": 35,
+    "povertyPct": 9.3
+  },
+  "FL-12": {
+    "collegePct": 23.5,
+    "povertyPct": 12.5
+  },
+  "FL-13": {
+    "collegePct": 34.3,
+    "povertyPct": 11.2
+  },
+  "FL-14": {
+    "collegePct": 40.3,
+    "povertyPct": 13.2
+  },
+  "FL-15": {
+    "collegePct": 32.9,
+    "povertyPct": 14.1
+  },
+  "FL-16": {
+    "collegePct": 34.9,
+    "povertyPct": 10.1
+  },
+  "FL-17": {
+    "collegePct": 32.2,
+    "povertyPct": 9.8
+  },
+  "FL-18": {
+    "collegePct": 19.9,
+    "povertyPct": 16.4
+  },
+  "FL-19": {
+    "collegePct": 37,
+    "povertyPct": 10.6
+  },
+  "FL-20": {
+    "collegePct": 25.1,
+    "povertyPct": 16.6
+  },
+  "FL-21": {
+    "collegePct": 35.2,
+    "povertyPct": 10
+  },
+  "FL-22": {
+    "collegePct": 37.3,
+    "povertyPct": 11.2
+  },
+  "FL-23": {
+    "collegePct": 44.5,
+    "povertyPct": 10
+  },
+  "FL-24": {
+    "collegePct": 30.4,
+    "povertyPct": 16.7
+  },
+  "FL-25": {
+    "collegePct": 41,
+    "povertyPct": 10.8
+  },
+  "FL-26": {
+    "collegePct": 29.6,
+    "povertyPct": 14.2
+  },
+  "FL-27": {
+    "collegePct": 42.1,
+    "povertyPct": 13.1
+  },
+  "FL-28": {
+    "collegePct": 29.6,
+    "povertyPct": 13.8
+  },
+  "GA-01": {
+    "collegePct": 27.9,
+    "povertyPct": 14.9
+  },
+  "GA-02": {
+    "collegePct": 21.3,
+    "povertyPct": 22.1
+  },
+  "GA-03": {
+    "collegePct": 28.6,
+    "povertyPct": 12.5
+  },
+  "GA-04": {
+    "collegePct": 40.9,
+    "povertyPct": 13.5
+  },
+  "GA-05": {
+    "collegePct": 54.9,
+    "povertyPct": 16.6
+  },
+  "GA-06": {
+    "collegePct": 59.1,
+    "povertyPct": 5.8
+  },
+  "GA-07": {
+    "collegePct": 40.9,
+    "povertyPct": 10.7
+  },
+  "GA-08": {
+    "collegePct": 23,
+    "povertyPct": 18.1
+  },
+  "GA-09": {
+    "collegePct": 30.3,
+    "povertyPct": 11.4
+  },
+  "GA-10": {
+    "collegePct": 29.6,
+    "povertyPct": 13.5
+  },
+  "GA-11": {
+    "collegePct": 42.7,
+    "povertyPct": 8.8
+  },
+  "GA-12": {
+    "collegePct": 23.9,
+    "povertyPct": 17.5
+  },
+  "GA-13": {
+    "collegePct": 30.7,
+    "povertyPct": 12.6
+  },
+  "GA-14": {
+    "collegePct": 23.3,
+    "povertyPct": 11.7
+  },
+  "HI-01": {
+    "collegePct": 38.9,
+    "povertyPct": 8.9
+  },
+  "HI-02": {
+    "collegePct": 31.9,
+    "povertyPct": 11
+  },
+  "ID-01": {
+    "collegePct": 29.6,
+    "povertyPct": 9.8
+  },
+  "ID-02": {
+    "collegePct": 32.9,
+    "povertyPct": 11.5
+  },
+  "IL-01": {
+    "collegePct": 32.1,
+    "povertyPct": 15.3
+  },
+  "IL-02": {
+    "collegePct": 24.1,
+    "povertyPct": 17.8
+  },
+  "IL-03": {
+    "collegePct": 35.7,
+    "povertyPct": 11.7
+  },
+  "IL-04": {
+    "collegePct": 24,
+    "povertyPct": 13
+  },
+  "IL-05": {
+    "collegePct": 65.4,
+    "povertyPct": 7.1
+  },
+  "IL-06": {
+    "collegePct": 43.9,
+    "povertyPct": 7.3
+  },
+  "IL-07": {
+    "collegePct": 47.1,
+    "povertyPct": 18.4
+  },
+  "IL-08": {
+    "collegePct": 39.8,
+    "povertyPct": 7.5
+  },
+  "IL-09": {
+    "collegePct": 55.3,
+    "povertyPct": 10.6
+  },
+  "IL-10": {
+    "collegePct": 46.5,
+    "povertyPct": 8.2
+  },
+  "IL-11": {
+    "collegePct": 44.8,
+    "povertyPct": 7
+  },
+  "IL-12": {
+    "collegePct": 24.1,
+    "povertyPct": 12.9
+  },
+  "IL-13": {
+    "collegePct": 31.7,
+    "povertyPct": 17
+  },
+  "IL-14": {
+    "collegePct": 33.1,
+    "povertyPct": 9.2
+  },
+  "IL-15": {
+    "collegePct": 25.5,
+    "povertyPct": 10.5
+  },
+  "IL-16": {
+    "collegePct": 31.3,
+    "povertyPct": 8.4
+  },
+  "IL-17": {
+    "collegePct": 24.2,
+    "povertyPct": 17.7
+  },
+  "IL-ZZ": {
+    "collegePct": null,
+    "povertyPct": null
+  },
+  "IN-01": {
+    "collegePct": 25.8,
+    "povertyPct": 13.4
+  },
+  "IN-02": {
+    "collegePct": 24.3,
+    "povertyPct": 12.9
+  },
+  "IN-03": {
+    "collegePct": 25,
+    "povertyPct": 11.1
+  },
+  "IN-04": {
+    "collegePct": 31.2,
+    "povertyPct": 10.4
+  },
+  "IN-05": {
+    "collegePct": 40.3,
+    "povertyPct": 10.2
+  },
+  "IN-06": {
+    "collegePct": 28.2,
+    "povertyPct": 10.6
+  },
+  "IN-07": {
+    "collegePct": 35.5,
+    "povertyPct": 16.2
+  },
+  "IN-08": {
+    "collegePct": 22.6,
+    "povertyPct": 13.2
+  },
+  "IN-09": {
+    "collegePct": 26.6,
+    "povertyPct": 11.8
+  },
+  "IA-01": {
+    "collegePct": 32.2,
+    "povertyPct": 11.9
+  },
+  "IA-02": {
+    "collegePct": 28.8,
+    "povertyPct": 10.4
+  },
+  "IA-03": {
+    "collegePct": 36,
+    "povertyPct": 10.3
+  },
+  "IA-04": {
+    "collegePct": 26.3,
+    "povertyPct": 11.4
+  },
+  "KS-01": {
+    "collegePct": 29.9,
+    "povertyPct": 13
+  },
+  "KS-02": {
+    "collegePct": 27.7,
+    "povertyPct": 13.7
+  },
+  "KS-03": {
+    "collegePct": 51.6,
+    "povertyPct": 6.4
+  },
+  "KS-04": {
+    "collegePct": 30.6,
+    "povertyPct": 13.1
+  },
+  "KY-01": {
+    "collegePct": 20.4,
+    "povertyPct": 17.1
+  },
+  "KY-02": {
+    "collegePct": 23.5,
+    "povertyPct": 14.7
+  },
+  "KY-03": {
+    "collegePct": 35.6,
+    "povertyPct": 15
+  },
+  "KY-04": {
+    "collegePct": 31.4,
+    "povertyPct": 10.8
+  },
+  "KY-05": {
+    "collegePct": 15.5,
+    "povertyPct": 24.7
+  },
+  "KY-06": {
+    "collegePct": 35.9,
+    "povertyPct": 14.8
+  },
+  "LA-01": {
+    "collegePct": 33.7,
+    "povertyPct": 13.6
+  },
+  "LA-02": {
+    "collegePct": 27.5,
+    "povertyPct": 22.6
+  },
+  "LA-03": {
+    "collegePct": 23.9,
+    "povertyPct": 18.8
+  },
+  "LA-04": {
+    "collegePct": 20.6,
+    "povertyPct": 21.7
+  },
+  "LA-05": {
+    "collegePct": 20.5,
+    "povertyPct": 23.4
+  },
+  "LA-06": {
+    "collegePct": 32.9,
+    "povertyPct": 13.6
+  },
+  "ME-01": {
+    "collegePct": 42.7,
+    "povertyPct": 8.1
+  },
+  "ME-02": {
+    "collegePct": 27.9,
+    "povertyPct": 13.5
+  },
+  "MD-01": {
+    "collegePct": 34.2,
+    "povertyPct": 9.5
+  },
+  "MD-02": {
+    "collegePct": 45.2,
+    "povertyPct": 8.4
+  },
+  "MD-03": {
+    "collegePct": 52.8,
+    "povertyPct": 5.4
+  },
+  "MD-04": {
+    "collegePct": 32.8,
+    "povertyPct": 11.9
+  },
+  "MD-05": {
+    "collegePct": 41,
+    "povertyPct": 5.4
+  },
+  "MD-06": {
+    "collegePct": 40.3,
+    "povertyPct": 9.1
+  },
+  "MD-07": {
+    "collegePct": 31.9,
+    "povertyPct": 18.7
+  },
+  "MD-08": {
+    "collegePct": 63.4,
+    "povertyPct": 6.7
+  },
+  "MA-01": {
+    "collegePct": 31.8,
+    "povertyPct": 13.1
+  },
+  "MA-02": {
+    "collegePct": 45.7,
+    "povertyPct": 10.8
+  },
+  "MA-03": {
+    "collegePct": 39.6,
+    "povertyPct": 9.8
+  },
+  "MA-04": {
+    "collegePct": 49.5,
+    "povertyPct": 8.1
+  },
+  "MA-05": {
+    "collegePct": 60.9,
+    "povertyPct": 7.8
+  },
+  "MA-06": {
+    "collegePct": 49.2,
+    "povertyPct": 7
+  },
+  "MA-07": {
+    "collegePct": 49,
+    "povertyPct": 17
+  },
+  "MA-08": {
+    "collegePct": 51.8,
+    "povertyPct": 8.5
+  },
+  "MA-09": {
+    "collegePct": 42,
+    "povertyPct": 8
+  },
+  "MI-01": {
+    "collegePct": 27.4,
+    "povertyPct": 12.6
+  },
+  "MI-02": {
+    "collegePct": 22,
+    "povertyPct": 13
+  },
+  "MI-03": {
+    "collegePct": 37.6,
+    "povertyPct": 11.7
+  },
+  "MI-04": {
+    "collegePct": 32.6,
+    "povertyPct": 12.2
+  },
+  "MI-05": {
+    "collegePct": 23.3,
+    "povertyPct": 12
+  },
+  "MI-06": {
+    "collegePct": 51.5,
+    "povertyPct": 9.9
+  },
+  "MI-07": {
+    "collegePct": 37,
+    "povertyPct": 10.4
+  },
+  "MI-08": {
+    "collegePct": 24.3,
+    "povertyPct": 15.7
+  },
+  "MI-09": {
+    "collegePct": 28.7,
+    "povertyPct": 8.7
+  },
+  "MI-10": {
+    "collegePct": 29.9,
+    "povertyPct": 10
+  },
+  "MI-11": {
+    "collegePct": 50.2,
+    "povertyPct": 8.7
+  },
+  "MI-12": {
+    "collegePct": 26.6,
+    "povertyPct": 19.8
+  },
+  "MI-13": {
+    "collegePct": 22.2,
+    "povertyPct": 25
+  },
+  "MN-01": {
+    "collegePct": 31.7,
+    "povertyPct": 10.1
+  },
+  "MN-02": {
+    "collegePct": 42.8,
+    "povertyPct": 5.2
+  },
+  "MN-03": {
+    "collegePct": 50.8,
+    "povertyPct": 6.5
+  },
+  "MN-04": {
+    "collegePct": 47.5,
+    "povertyPct": 10.8
+  },
+  "MN-05": {
+    "collegePct": 50.6,
+    "povertyPct": 13.5
+  },
+  "MN-06": {
+    "collegePct": 35.1,
+    "povertyPct": 6.4
+  },
+  "MN-07": {
+    "collegePct": 24.6,
+    "povertyPct": 10.2
+  },
+  "MN-08": {
+    "collegePct": 27.5,
+    "povertyPct": 11
+  },
+  "MS-01": {
+    "collegePct": 23.7,
+    "povertyPct": 15.2
+  },
+  "MS-02": {
+    "collegePct": 21,
+    "povertyPct": 25.9
+  },
+  "MS-03": {
+    "collegePct": 27.9,
+    "povertyPct": 18.2
+  },
+  "MS-04": {
+    "collegePct": 24,
+    "povertyPct": 17.2
+  },
+  "MO-01": {
+    "collegePct": 37.2,
+    "povertyPct": 16.4
+  },
+  "MO-02": {
+    "collegePct": 49.6,
+    "povertyPct": 5.7
+  },
+  "MO-03": {
+    "collegePct": 35.2,
+    "povertyPct": 9.8
+  },
+  "MO-04": {
+    "collegePct": 24.9,
+    "povertyPct": 13.2
+  },
+  "MO-05": {
+    "collegePct": 33.9,
+    "povertyPct": 14.1
+  },
+  "MO-06": {
+    "collegePct": 26.4,
+    "povertyPct": 11.7
+  },
+  "MO-07": {
+    "collegePct": 27.1,
+    "povertyPct": 14.7
+  },
+  "MO-08": {
+    "collegePct": 20.4,
+    "povertyPct": 15.5
+  },
+  "MT-00": {
+    "collegePct": 38,
+    "povertyPct": 12
+  },
+  "MT-02": {
+    "collegePct": 31,
+    "povertyPct": 12.1
+  },
+  "NE-01": {
+    "collegePct": 35.7,
+    "povertyPct": 9.4
+  },
+  "NE-02": {
+    "collegePct": 42.5,
+    "povertyPct": 10.5
+  },
+  "NE-03": {
+    "collegePct": 24.4,
+    "povertyPct": 11
+  },
+  "NV-01": {
+    "collegePct": 25.2,
+    "povertyPct": 14.6
+  },
+  "NV-02": {
+    "collegePct": 28.9,
+    "povertyPct": 10.6
+  },
+  "NV-03": {
+    "collegePct": 34.2,
+    "povertyPct": 11.5
+  },
+  "NV-04": {
+    "collegePct": 20.7,
+    "povertyPct": 13.8
+  },
+  "NH-01": {
+    "collegePct": 40.4,
+    "povertyPct": 7
+  },
+  "NH-02": {
+    "collegePct": 39.2,
+    "povertyPct": 7.3
+  },
+  "NH-ZZ": {
+    "collegePct": null,
+    "povertyPct": null
+  },
+  "NJ-01": {
+    "collegePct": 35,
+    "povertyPct": 10.9
+  },
+  "NJ-02": {
+    "collegePct": 30.5,
+    "povertyPct": 11.5
+  },
+  "NJ-03": {
+    "collegePct": 45.9,
+    "povertyPct": 6.1
+  },
+  "NJ-04": {
+    "collegePct": 39.5,
+    "povertyPct": 9.4
+  },
+  "NJ-05": {
+    "collegePct": 54.5,
+    "povertyPct": 5.6
+  },
+  "NJ-06": {
+    "collegePct": 42.1,
+    "povertyPct": 9.7
+  },
+  "NJ-07": {
+    "collegePct": 54.4,
+    "povertyPct": 4.8
+  },
+  "NJ-08": {
+    "collegePct": 40.3,
+    "povertyPct": 15.1
+  },
+  "NJ-09": {
+    "collegePct": 33.4,
+    "povertyPct": 13.1
+  },
+  "NJ-10": {
+    "collegePct": 32,
+    "povertyPct": 17
+  },
+  "NJ-11": {
+    "collegePct": 58.2,
+    "povertyPct": 5.1
+  },
+  "NJ-12": {
+    "collegePct": 48.3,
+    "povertyPct": 9.4
+  },
+  "NM-01": {
+    "collegePct": 38.9,
+    "povertyPct": 14
+  },
+  "NM-02": {
+    "collegePct": 24,
+    "povertyPct": 20.4
+  },
+  "NM-03": {
+    "collegePct": 26.8,
+    "povertyPct": 19.9
+  },
+  "NY-01": {
+    "collegePct": 47.6,
+    "povertyPct": 6
+  },
+  "NY-02": {
+    "collegePct": 32.4,
+    "povertyPct": 6.6
+  },
+  "NY-03": {
+    "collegePct": 52,
+    "povertyPct": 5.7
+  },
+  "NY-04": {
+    "collegePct": 43.8,
+    "povertyPct": 5.8
+  },
+  "NY-05": {
+    "collegePct": 27.9,
+    "povertyPct": 12.2
+  },
+  "NY-06": {
+    "collegePct": 38.9,
+    "povertyPct": 12.5
+  },
+  "NY-07": {
+    "collegePct": 44.5,
+    "povertyPct": 17
+  },
+  "NY-08": {
+    "collegePct": 34.2,
+    "povertyPct": 22.1
+  },
+  "NY-09": {
+    "collegePct": 37.7,
+    "povertyPct": 17.7
+  },
+  "NY-10": {
+    "collegePct": 61.7,
+    "povertyPct": 15.3
+  },
+  "NY-11": {
+    "collegePct": 36.7,
+    "povertyPct": 12.8
+  },
+  "NY-12": {
+    "collegePct": 80.2,
+    "povertyPct": 9.2
+  },
+  "NY-13": {
+    "collegePct": 35.5,
+    "povertyPct": 25
+  },
+  "NY-14": {
+    "collegePct": 28,
+    "povertyPct": 18.6
+  },
+  "NY-15": {
+    "collegePct": 21.9,
+    "povertyPct": 30
+  },
+  "NY-16": {
+    "collegePct": 47.9,
+    "povertyPct": 11.2
+  },
+  "NY-17": {
+    "collegePct": 48.7,
+    "povertyPct": 10.1
+  },
+  "NY-18": {
+    "collegePct": 35.3,
+    "povertyPct": 12.1
+  },
+  "NY-19": {
+    "collegePct": 33.8,
+    "povertyPct": 14.8
+  },
+  "NY-20": {
+    "collegePct": 41.9,
+    "povertyPct": 11.6
+  },
+  "NY-21": {
+    "collegePct": 26.9,
+    "povertyPct": 12.4
+  },
+  "NY-22": {
+    "collegePct": 34.1,
+    "povertyPct": 13.8
+  },
+  "NY-23": {
+    "collegePct": 30.3,
+    "povertyPct": 12.5
+  },
+  "NY-24": {
+    "collegePct": 26.1,
+    "povertyPct": 12.4
+  },
+  "NY-25": {
+    "collegePct": 40.7,
+    "povertyPct": 13
+  },
+  "NY-26": {
+    "collegePct": 34.8,
+    "povertyPct": 16.8
+  },
+  "NC-01": {
+    "collegePct": 22.4,
+    "povertyPct": 18.2
+  },
+  "NC-02": {
+    "collegePct": 59.3,
+    "povertyPct": 7.6
+  },
+  "NC-03": {
+    "collegePct": 24.9,
+    "povertyPct": 14.1
+  },
+  "NC-04": {
+    "collegePct": 44.7,
+    "povertyPct": 13.1
+  },
+  "NC-05": {
+    "collegePct": 28.7,
+    "povertyPct": 15.2
+  },
+  "NC-06": {
+    "collegePct": 33.3,
+    "povertyPct": 15.2
+  },
+  "NC-07": {
+    "collegePct": 30.7,
+    "povertyPct": 15.7
+  },
+  "NC-08": {
+    "collegePct": 26.6,
+    "povertyPct": 12.9
+  },
+  "NC-09": {
+    "collegePct": 28.5,
+    "povertyPct": 15.2
+  },
+  "NC-10": {
+    "collegePct": 25,
+    "povertyPct": 12.9
+  },
+  "NC-11": {
+    "collegePct": 34.8,
+    "povertyPct": 13
+  },
+  "NC-12": {
+    "collegePct": 40,
+    "povertyPct": 10.7
+  },
+  "NC-13": {
+    "collegePct": 37.9,
+    "povertyPct": 10.7
+  },
+  "NC-14": {
+    "collegePct": 49.1,
+    "povertyPct": 10.2
+  },
+  "ND-00": {
+    "collegePct": 32.3,
+    "povertyPct": 10.6
+  },
+  "OH-01": {
+    "collegePct": 46.1,
+    "povertyPct": 13.4
+  },
+  "OH-02": {
+    "collegePct": 21,
+    "povertyPct": 15
+  },
+  "OH-03": {
+    "collegePct": 44.6,
+    "povertyPct": 15.9
+  },
+  "OH-04": {
+    "collegePct": 28.6,
+    "povertyPct": 10.4
+  },
+  "OH-05": {
+    "collegePct": 24.8,
+    "povertyPct": 11.6
+  },
+  "OH-06": {
+    "collegePct": 20.6,
+    "povertyPct": 15
+  },
+  "OH-07": {
+    "collegePct": 37.4,
+    "povertyPct": 7.2
+  },
+  "OH-08": {
+    "collegePct": 30.3,
+    "povertyPct": 11.2
+  },
+  "OH-09": {
+    "collegePct": 27.2,
+    "povertyPct": 14.5
+  },
+  "OH-10": {
+    "collegePct": 31.5,
+    "povertyPct": 14.2
+  },
+  "OH-11": {
+    "collegePct": 32.6,
+    "povertyPct": 21.8
+  },
+  "OH-12": {
+    "collegePct": 27.2,
+    "povertyPct": 11.8
+  },
+  "OH-13": {
+    "collegePct": 33.2,
+    "povertyPct": 12.7
+  },
+  "OH-14": {
+    "collegePct": 27.3,
+    "povertyPct": 12
+  },
+  "OH-15": {
+    "collegePct": 32.8,
+    "povertyPct": 12.1
+  },
+  "OK-01": {
+    "collegePct": 32.6,
+    "povertyPct": 13.8
+  },
+  "OK-02": {
+    "collegePct": 19.4,
+    "povertyPct": 18.2
+  },
+  "OK-03": {
+    "collegePct": 21.9,
+    "povertyPct": 17.9
+  },
+  "OK-04": {
+    "collegePct": 27.4,
+    "povertyPct": 14.3
+  },
+  "OK-05": {
+    "collegePct": 37.6,
+    "povertyPct": 12.5
+  },
+  "OR-01": {
+    "collegePct": 47.2,
+    "povertyPct": 9.4
+  },
+  "OR-02": {
+    "collegePct": 23.7,
+    "povertyPct": 13.9
+  },
+  "OR-03": {
+    "collegePct": 40.9,
+    "povertyPct": 11.9
+  },
+  "OR-04": {
+    "collegePct": 32.4,
+    "povertyPct": 15.7
+  },
+  "OR-05": {
+    "collegePct": 38.2,
+    "povertyPct": 9.4
+  },
+  "OR-06": {
+    "collegePct": 34.6,
+    "povertyPct": 11.1
+  },
+  "PA-01": {
+    "collegePct": 44,
+    "povertyPct": 5.9
+  },
+  "PA-02": {
+    "collegePct": 27.6,
+    "povertyPct": 22.9
+  },
+  "PA-03": {
+    "collegePct": 42.6,
+    "povertyPct": 21
+  },
+  "PA-04": {
+    "collegePct": 48.6,
+    "povertyPct": 6.3
+  },
+  "PA-05": {
+    "collegePct": 41.9,
+    "povertyPct": 11.3
+  },
+  "PA-06": {
+    "collegePct": 48.1,
+    "povertyPct": 8.9
+  },
+  "PA-07": {
+    "collegePct": 32,
+    "povertyPct": 10.6
+  },
+  "PA-08": {
+    "collegePct": 27.1,
+    "povertyPct": 14
+  },
+  "PA-09": {
+    "collegePct": 22.7,
+    "povertyPct": 11.6
+  },
+  "PA-10": {
+    "collegePct": 34.1,
+    "povertyPct": 10
+  },
+  "PA-11": {
+    "collegePct": 30,
+    "povertyPct": 8.3
+  },
+  "PA-12": {
+    "collegePct": 40.8,
+    "povertyPct": 13.7
+  },
+  "PA-13": {
+    "collegePct": 21.7,
+    "povertyPct": 11
+  },
+  "PA-14": {
+    "collegePct": 26.6,
+    "povertyPct": 11.9
+  },
+  "PA-15": {
+    "collegePct": 25.1,
+    "povertyPct": 13.2
+  },
+  "PA-16": {
+    "collegePct": 29.4,
+    "povertyPct": 12.3
+  },
+  "PA-17": {
+    "collegePct": 44.3,
+    "povertyPct": 7.9
+  },
+  "RI-01": {
+    "collegePct": 37.7,
+    "povertyPct": 12.1
+  },
+  "RI-02": {
+    "collegePct": 36.9,
+    "povertyPct": 9.7
+  },
+  "SC-01": {
+    "collegePct": 42.2,
+    "povertyPct": 9.7
+  },
+  "SC-02": {
+    "collegePct": 35.7,
+    "povertyPct": 12.4
+  },
+  "SC-03": {
+    "collegePct": 25.8,
+    "povertyPct": 15.5
+  },
+  "SC-04": {
+    "collegePct": 35.6,
+    "povertyPct": 12.5
+  },
+  "SC-05": {
+    "collegePct": 28.6,
+    "povertyPct": 12.9
+  },
+  "SC-06": {
+    "collegePct": 28.7,
+    "povertyPct": 20.1
+  },
+  "SC-07": {
+    "collegePct": 23.8,
+    "povertyPct": 16.5
+  },
+  "SD-00": {
+    "collegePct": 31.1,
+    "povertyPct": 12
+  },
+  "TN-01": {
+    "collegePct": 22.9,
+    "povertyPct": 15.8
+  },
+  "TN-02": {
+    "collegePct": 33.5,
+    "povertyPct": 12.3
+  },
+  "TN-03": {
+    "collegePct": 28.4,
+    "povertyPct": 13.5
+  },
+  "TN-04": {
+    "collegePct": 25,
+    "povertyPct": 12.6
+  },
+  "TN-05": {
+    "collegePct": 46.3,
+    "povertyPct": 9.1
+  },
+  "TN-06": {
+    "collegePct": 27.9,
+    "povertyPct": 13.9
+  },
+  "TN-07": {
+    "collegePct": 33.8,
+    "povertyPct": 12.6
+  },
+  "TN-08": {
+    "collegePct": 29,
+    "povertyPct": 13.5
+  },
+  "TN-09": {
+    "collegePct": 27,
+    "povertyPct": 20.8
+  },
+  "TX-01": {
+    "collegePct": 22.2,
+    "povertyPct": 15.5
+  },
+  "TX-02": {
+    "collegePct": 39,
+    "povertyPct": 9
+  },
+  "TX-03": {
+    "collegePct": 49.1,
+    "povertyPct": 6.1
+  },
+  "TX-04": {
+    "collegePct": 43.8,
+    "povertyPct": 8.6
+  },
+  "TX-05": {
+    "collegePct": 23.8,
+    "povertyPct": 11.1
+  },
+  "TX-06": {
+    "collegePct": 25.5,
+    "povertyPct": 12.2
+  },
+  "TX-07": {
+    "collegePct": 49.4,
+    "povertyPct": 14.3
+  },
+  "TX-08": {
+    "collegePct": 32.4,
+    "povertyPct": 10.9
+  },
+  "TX-09": {
+    "collegePct": 31.7,
+    "povertyPct": 18.4
+  },
+  "TX-10": {
+    "collegePct": 40.4,
+    "povertyPct": 13.4
+  },
+  "TX-11": {
+    "collegePct": 24,
+    "povertyPct": 13.3
+  },
+  "TX-12": {
+    "collegePct": 34.1,
+    "povertyPct": 9.8
+  },
+  "TX-13": {
+    "collegePct": 25.5,
+    "povertyPct": 14.4
+  },
+  "TX-14": {
+    "collegePct": 25.2,
+    "povertyPct": 12.9
+  },
+  "TX-15": {
+    "collegePct": 22.4,
+    "povertyPct": 23.8
+  },
+  "TX-16": {
+    "collegePct": 26.4,
+    "povertyPct": 18.5
+  },
+  "TX-17": {
+    "collegePct": 26.5,
+    "povertyPct": 15.5
+  },
+  "TX-18": {
+    "collegePct": 27.4,
+    "povertyPct": 21.1
+  },
+  "TX-19": {
+    "collegePct": 25.2,
+    "povertyPct": 15.6
+  },
+  "TX-20": {
+    "collegePct": 25.1,
+    "povertyPct": 17.4
+  },
+  "TX-21": {
+    "collegePct": 45.8,
+    "povertyPct": 8.1
+  },
+  "TX-22": {
+    "collegePct": 45.9,
+    "povertyPct": 7.9
+  },
+  "TX-23": {
+    "collegePct": 30.8,
+    "povertyPct": 14.1
+  },
+  "TX-24": {
+    "collegePct": 53.5,
+    "povertyPct": 5.9
+  },
+  "TX-25": {
+    "collegePct": 30.7,
+    "povertyPct": 11.2
+  },
+  "TX-26": {
+    "collegePct": 46.3,
+    "povertyPct": 6.3
+  },
+  "TX-27": {
+    "collegePct": 20.7,
+    "povertyPct": 16.1
+  },
+  "TX-28": {
+    "collegePct": 20.9,
+    "povertyPct": 19.5
+  },
+  "TX-29": {
+    "collegePct": 12.3,
+    "povertyPct": 22.5
+  },
+  "TX-30": {
+    "collegePct": 29.9,
+    "povertyPct": 16.5
+  },
+  "TX-31": {
+    "collegePct": 37.8,
+    "povertyPct": 8.5
+  },
+  "TX-32": {
+    "collegePct": 39.9,
+    "povertyPct": 14.1
+  },
+  "TX-33": {
+    "collegePct": 22.9,
+    "povertyPct": 17.6
+  },
+  "TX-34": {
+    "collegePct": 18.4,
+    "povertyPct": 26.4
+  },
+  "TX-35": {
+    "collegePct": 31.8,
+    "povertyPct": 16.5
+  },
+  "TX-36": {
+    "collegePct": 23.9,
+    "povertyPct": 13.8
+  },
+  "TX-37": {
+    "collegePct": 61.8,
+    "povertyPct": 11.1
+  },
+  "TX-38": {
+    "collegePct": 50.2,
+    "povertyPct": 8.5
+  },
+  "UT-01": {
+    "collegePct": 37.5,
+    "povertyPct": 8.6
+  },
+  "UT-02": {
+    "collegePct": 32.7,
+    "povertyPct": 9.7
+  },
+  "UT-03": {
+    "collegePct": 43.3,
+    "povertyPct": 9.6
+  },
+  "UT-04": {
+    "collegePct": 34.6,
+    "povertyPct": 6.4
+  },
+  "VT-00": {
+    "collegePct": 42.6,
+    "povertyPct": 10.3
+  },
+  "VA-01": {
+    "collegePct": 47.2,
+    "povertyPct": 6.5
+  },
+  "VA-02": {
+    "collegePct": 38.1,
+    "povertyPct": 8.5
+  },
+  "VA-03": {
+    "collegePct": 29,
+    "povertyPct": 15.2
+  },
+  "VA-04": {
+    "collegePct": 31.7,
+    "povertyPct": 13.5
+  },
+  "VA-05": {
+    "collegePct": 33.5,
+    "povertyPct": 12.9
+  },
+  "VA-06": {
+    "collegePct": 27.9,
+    "povertyPct": 12.1
+  },
+  "VA-07": {
+    "collegePct": 37.3,
+    "povertyPct": 7.4
+  },
+  "VA-08": {
+    "collegePct": 65.4,
+    "povertyPct": 7.7
+  },
+  "VA-09": {
+    "collegePct": 23.7,
+    "povertyPct": 16.2
+  },
+  "VA-10": {
+    "collegePct": 55.1,
+    "povertyPct": 4.7
+  },
+  "VA-11": {
+    "collegePct": 67.6,
+    "povertyPct": 5.1
+  },
+  "WA-01": {
+    "collegePct": 51.8,
+    "povertyPct": 6.2
+  },
+  "WA-02": {
+    "collegePct": 35.7,
+    "povertyPct": 10.8
+  },
+  "WA-03": {
+    "collegePct": 28.3,
+    "povertyPct": 9.8
+  },
+  "WA-04": {
+    "collegePct": 23.8,
+    "povertyPct": 13.8
+  },
+  "WA-05": {
+    "collegePct": 31,
+    "povertyPct": 12.9
+  },
+  "WA-06": {
+    "collegePct": 34.1,
+    "povertyPct": 9.9
+  },
+  "WA-07": {
+    "collegePct": 65.7,
+    "povertyPct": 9.1
+  },
+  "WA-08": {
+    "collegePct": 41.1,
+    "povertyPct": 6.1
+  },
+  "WA-09": {
+    "collegePct": 41.5,
+    "povertyPct": 10.7
+  },
+  "WA-10": {
+    "collegePct": 31.3,
+    "povertyPct": 9.7
+  },
+  "WV-01": {
+    "collegePct": 21.4,
+    "povertyPct": 18.7
+  },
+  "WV-02": {
+    "collegePct": 25.2,
+    "povertyPct": 14.6
+  },
+  "WI-01": {
+    "collegePct": 30.6,
+    "povertyPct": 10.1
+  },
+  "WI-02": {
+    "collegePct": 47.5,
+    "povertyPct": 9.9
+  },
+  "WI-03": {
+    "collegePct": 27.8,
+    "povertyPct": 11.6
+  },
+  "WI-04": {
+    "collegePct": 33.2,
+    "povertyPct": 20
+  },
+  "WI-05": {
+    "collegePct": 40.2,
+    "povertyPct": 6
+  },
+  "WI-06": {
+    "collegePct": 28.4,
+    "povertyPct": 8.9
+  },
+  "WI-07": {
+    "collegePct": 25.6,
+    "povertyPct": 9.8
+  },
+  "WI-08": {
+    "collegePct": 29,
+    "povertyPct": 8.5
+  },
+  "WY-00": {
+    "collegePct": 29.9,
+    "povertyPct": 10.7
+  }
+}
