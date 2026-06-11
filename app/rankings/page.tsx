@@ -7,7 +7,7 @@ import { PARTY_COLORS } from "@/lib/colors";
 import { STATE_NAMES, AT_LARGE_STATES } from "@/lib/stateFips";
 import { Party } from "@/lib/types";
 
-type SortKey = "districtId" | "repName" | "party" | "margin" | "pvi" | "income" | "tenure";
+type SortKey = "districtId" | "repName" | "party" | "margin" | "income" | "tenure";
 type SortDir = "asc" | "desc";
 
 const PARTY_SHORT: Record<Party, string> = {
@@ -23,10 +23,6 @@ function marginLabel(margin: number): string {
   return `${margin > 0 ? "R" : "D"} +${Math.abs(margin)}%`;
 }
 
-function pviLabel(pvi: number): string {
-  if (pvi === 0) return "EVEN";
-  return `${pvi > 0 ? "R" : "D"}+${Math.abs(pvi)}`;
-}
 
 function districtDisplay(districtId: string): string {
   const [state, num] = districtId.split("-");
@@ -41,7 +37,6 @@ const SORT_FNS: Record<SortKey, (a: typeof ALL[0], b: typeof ALL[0]) => number> 
   repName:    (a, b) => a.data.repName.localeCompare(b.data.repName),
   party:      (a, b) => a.data.party.localeCompare(b.data.party),
   margin:     (a, b) => a.data.margin - b.data.margin,
-  pvi:        (a, b) => a.data.pvi - b.data.pvi,
   income:     (a, b) => a.data.income - b.data.income,
   tenure:     (a, b) => (a.data.termStart - b.data.termStart), // lower termStart = more tenure
 };
@@ -186,9 +181,6 @@ export default function RankingsPage() {
               <th className={`${headerBtn} text-right`} onClick={() => handleSort("margin")}>
                 2024 Margin <SortIcon col="margin" />
               </th>
-              <th className={`${headerBtn} text-right`} onClick={() => handleSort("pvi")}>
-                Computed PVI <SortIcon col="pvi" />
-              </th>
               <th className={`${headerBtn} text-right`} onClick={() => handleSort("income")}>
                 Med. Income <SortIcon col="income" />
               </th>
@@ -254,16 +246,6 @@ export default function RankingsPage() {
                       style={{ color: data.margin > 0 ? PARTY_COLORS.Republican : data.margin < 0 ? PARTY_COLORS.Democrat : "#F59E0B" }}
                     >
                       {marginLabel(data.margin)}
-                    </span>
-                  </td>
-
-                  {/* PVI */}
-                  <td className="px-3 py-2.5 text-right">
-                    <span
-                      className="text-[12px] tabular-nums"
-                      style={{ color: data.pvi > 0 ? PARTY_COLORS.Republican : data.pvi < 0 ? PARTY_COLORS.Democrat : "#94a3b8" }}
-                    >
-                      {pviLabel(data.pvi)}
                     </span>
                   </td>
 

@@ -23,15 +23,6 @@ export const METRICS: Metric[] = [
     format: (v) => v === 0 ? "Tie" : `${v > 0 ? "R" : "D"} +${Math.abs(v)}%`,
   },
   {
-    id: "pvi",
-    label: "Computed PVI",
-    shortLabel: "PVI",
-    description: "Partisan lean derived from the 2020 and 2024 presidential results. Positive = Republican-leaning, negative = Democrat-leaning.",
-    unit: "",
-    getValue: (d) => d.pvi,
-    format: (v) => v === 0 ? "EVEN" : `${v > 0 ? "R" : "D"}+${Math.abs(v)}`,
-  },
-  {
     id: "income",
     label: "Median Household Income",
     shortLabel: "Income",

@@ -29,7 +29,7 @@ const pviFormat = (v: number) =>
 const AXES: Record<AxisKey, AxisDef> = {
   pvi: {
     key: "pvi",
-    label: "Computed PVI",
+    label: "PVI (estimated)",
     partisan: true,
     format: pviFormat,
     tickFormat: pviFormat,

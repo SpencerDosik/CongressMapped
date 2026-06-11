@@ -19,13 +19,12 @@ const FILTER_GROUPS: FilterGroup[] = [
     label: "Political",
     modes: [
       { mode: "margin", desc: "2024 general election margin — positive = R won, negative = D won" },
-      { mode: "pvi",    desc: "Computed PVI — structural partisan lean from 2020 + 2024 presidential results" },
     ],
   },
   {
     label: "Economic",
     modes: [
-      { mode: "income", desc: "Median household income per district (Census ACS, approximate)" },
+      { mode: "income", desc: "Median household income per district (ACS 5-year)" },
     ],
   },
   {

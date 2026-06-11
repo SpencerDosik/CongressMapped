@@ -40,21 +40,12 @@ const tenureScale = scaleLinear<string>()
   .clamp(true);
 export function tenureColor(years: number): string { return tenureScale(years); }
 
-// PVI color scale: red (R lean) ↔ blue (D lean)
-export function pviColor(pvi: number): string {
-  const clamped = Math.max(-40, Math.min(40, pvi));
-  const t = (clamped + 40) / 80;
-  return interpolateRdBu(1 - t);
-}
-
-
 // Get color for a district based on filter mode
 export function getDistrictColor(
   mode: FilterMode,
   party: Party,
   margin: number,
   income: number,
-  pvi: number,
   tenureYears: number,
 ): string {
   switch (mode) {
@@ -62,7 +53,6 @@ export function getDistrictColor(
     case "margin": return marginColor(margin);
     case "income": return incomeColor(income);
     case "tenure": return tenureColor(tenureYears);
-    case "pvi":    return pviColor(pvi);
     default:       return PARTY_COLORS.Unknown;
   }
 }
@@ -105,14 +95,6 @@ export function getLegendItems(mode: FilterMode): LegendItem[] {
         { label: "10–20 yrs", color: tenureColor(15) },
         { label: "20+ yrs",   color: tenureColor(28) },
       ];
-    case "pvi":
-      return [
-        { label: "R+40", color: pviColor(40) },
-        { label: "R+20", color: pviColor(20) },
-        { label: "Even", color: pviColor(0) },
-        { label: "D+20", color: pviColor(-20) },
-        { label: "D+40", color: pviColor(-40) },
-      ];
   }
 }
 
@@ -122,7 +104,6 @@ export function filterModeLabel(mode: FilterMode): string {
     margin: "2024 Margin",
     income: "Median Income",
     tenure: "Tenure",
-    pvi:    "Computed PVI",
   };
   return labels[mode];
 }

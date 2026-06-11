@@ -297,11 +297,7 @@ function Tooltip({
   let statLabel = "2024 Margin";
   let statValue = marginLabel;
   let statColor: string = data.margin >= 0 ? PARTY_COLORS.Republican : PARTY_COLORS.Democrat;
-  if (filterMode === "pvi") {
-    statLabel = "Computed PVI";
-    statValue = data.pvi === 0 ? "EVEN" : `${data.pvi > 0 ? "R" : "D"}+${Math.abs(data.pvi)}`;
-    statColor = data.pvi > 0 ? PARTY_COLORS.Republican : data.pvi < 0 ? PARTY_COLORS.Democrat : "#94a3b8";
-  } else if (filterMode === "income") {
+  if (filterMode === "income") {
     statLabel = "Median Income";
     statValue = `$${(data.income * 1000).toLocaleString()}`;
     statColor = "#f59e0b";
@@ -732,7 +728,6 @@ export default function HouseMap() {
                       data.party,
                       data.margin,
                       data.income,
-                      data.pvi,
                       Math.max(0, 2026 - data.termStart),
                     );
 
