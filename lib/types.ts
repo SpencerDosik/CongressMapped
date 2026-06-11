@@ -16,9 +16,10 @@ export interface Representative {
 }
 
 export interface DistrictStaticData {
-  margin: number; // 2024 margin: positive = R won, negative = D won
-  income: number; // Median HH income in $K (ACS 5-year)
-  pvi: number; // Estimated PVI (not a map filter — kept for ideology chart reference only)
+  margin: number;    // 2024 margin: positive = R won, negative = D won
+  income: number;    // Median HH income in $K (ACS 5-year)
+  pvi: number;       // Estimated PVI (not a map filter — kept for ideology chart reference only)
+  urbanPct?: number; // % urban population (2020 Census) — optional until fetch-urban-pct.mjs is run
   termStart: number; // Year current incumbent first won this seat
   party: Party;
   caucus?: string;        // For independents who caucus with a party
@@ -31,7 +32,8 @@ export type FilterMode =
   | "party"
   | "margin"
   | "income"
-  | "tenure";
+  | "tenure"
+  | "urban";
 
 export interface DistrictData {
   districtId: string;

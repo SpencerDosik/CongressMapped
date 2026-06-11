@@ -28,6 +28,12 @@ const FILTER_GROUPS: FilterGroup[] = [
     ],
   },
   {
+    label: "District",
+    modes: [
+      { mode: "urban", desc: "Share of population living in urban areas (2020 Census)" },
+    ],
+  },
+  {
     label: "Representative",
     modes: [
       { mode: "tenure", desc: "Years the current representative has held the seat" },

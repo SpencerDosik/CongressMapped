@@ -40,6 +40,13 @@ const tenureScale = scaleLinear<string>()
   .clamp(true);
 export function tenureColor(years: number): string { return tenureScale(years); }
 
+// Urban % color scale: rural (earthy brown) → suburban (teal) → urban (indigo)
+const urbanScale = scaleLinear<string>()
+  .domain([0, 50, 80, 100])
+  .range(["#92400e", "#0f766e", "#4f46e5", "#818cf8"])
+  .clamp(true);
+export function urbanColor(pct: number): string { return urbanScale(pct); }
+
 // Get color for a district based on filter mode
 export function getDistrictColor(
   mode: FilterMode,
@@ -47,12 +54,14 @@ export function getDistrictColor(
   margin: number,
   income: number,
   tenureYears: number,
+  urbanPct?: number,
 ): string {
   switch (mode) {
     case "party":  return PARTY_COLORS[party] ?? PARTY_COLORS.Unknown;
     case "margin": return marginColor(margin);
     case "income": return incomeColor(income);
     case "tenure": return tenureColor(tenureYears);
+    case "urban":  return urbanColor(urbanPct ?? 50);
     default:       return PARTY_COLORS.Unknown;
   }
 }
@@ -95,6 +104,13 @@ export function getLegendItems(mode: FilterMode): LegendItem[] {
         { label: "10–20 yrs", color: tenureColor(15) },
         { label: "20+ yrs",   color: tenureColor(28) },
       ];
+    case "urban":
+      return [
+        { label: "< 20% urban",  color: urbanColor(10) },
+        { label: "50% urban",    color: urbanColor(50) },
+        { label: "80% urban",    color: urbanColor(80) },
+        { label: "95%+ urban",   color: urbanColor(97) },
+      ];
   }
 }
 
@@ -104,6 +120,7 @@ export function filterModeLabel(mode: FilterMode): string {
     margin: "2024 Margin",
     income: "Median Income",
     tenure: "Tenure",
+    urban:  "Urban %",
   };
   return labels[mode];
 }

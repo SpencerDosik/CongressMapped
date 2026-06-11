@@ -309,6 +309,10 @@ function Tooltip({
     statLabel = "Tenure";
     statValue = tenure < 1 ? "< 1 yr" : `${tenure} yr`;
     statColor = "#818cf8";
+  } else if (filterMode === "urban") {
+    statLabel = "Urban";
+    statValue = data.urbanPct != null ? `${data.urbanPct.toFixed(1)}%` : "—";
+    statColor = "#6366f1";
   }
 
   const tipW = 210;
@@ -763,6 +767,7 @@ export default function HouseMap() {
                       data.margin,
                       data.income,
                       Math.max(0, 2026 - data.termStart),
+                      data.urbanPct,
                     );
 
                     const stroke = isSelected
