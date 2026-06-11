@@ -141,7 +141,7 @@ const DISTRICT_DATA: Record<string, DistrictFullData> = {
   "GA-11": { repName: "Barry Loudermilk", party: "Republican", margin: 33.8, income: 92, pvi: 26, termStart: 2015 },
   "GA-12": { repName: "Rick W. Allen", party: "Republican", margin: 20.6, income: 61, pvi: 27, termStart: 2015 },
   "GA-13": { repName: "David Scott", party: "Democrat", margin: -43.7, income: 76, pvi: -34, termStart: 2003 },
-  "GA-14": { repName: "Marjorie Taylor Greene", party: "Republican", margin: 28.7, income: 70, pvi: 38, termStart: 2021 },
+  "GA-14": { repName: "Clay Fuller", party: "Republican", margin: 28.7, income: 70, pvi: 38, termStart: 2025 },
   "HI-01": { repName: "Ed Case", party: "Democrat", margin: -43.7, income: 102, pvi: -19, termStart: 2003 },
   "HI-02": { repName: "Jill N. Tokuda", party: "Democrat", margin: -36.3, income: 89, pvi: -21, termStart: 2023 },
   "IA-01": { repName: "Mariannette Miller-Meeks", party: "Republican", margin: 0.2, income: 72, pvi: 6, termStart: 2021 },
