@@ -57,17 +57,28 @@ const VARS = [
 
 const url = `https://api.census.gov/data/2023/acs/acs5?get=${VARS}&for=congressional%20district:*&in=state:*&key=${KEY}`;
 
-console.log("Fetching ACS 5-year 2023 data for all congressional districts…");
+// Quick key test first
+console.log("Testing Census API key…");
+const testUrl = `https://api.census.gov/data/2023/acs/acs5?get=NAME&for=state:01&key=${KEY}`;
+const testRes = await fetch(testUrl);
+const testText = await testRes.text();
+if (!testText.trim().startsWith("[")) {
+  console.error(`Key test failed (HTTP ${testRes.status}). Response:`);
+  console.error(testText.slice(0, 400));
+  process.exit(1);
+}
+console.log("Key OK. Fetching all congressional districts…");
 
 let rows;
 try {
   const res = await fetch(url);
-  if (!res.ok) {
-    const text = await res.text();
-    console.error(`Census API error ${res.status}: ${text}`);
+  const text = await res.text();
+  if (!text.trim().startsWith("[")) {
+    console.error(`Census API error (HTTP ${res.status}). Response:`);
+    console.error(text.slice(0, 600));
     process.exit(1);
   }
-  rows = await res.json();
+  rows = JSON.parse(text);
 } catch (err) {
   console.error("Fetch failed:", err.message);
   process.exit(1);
