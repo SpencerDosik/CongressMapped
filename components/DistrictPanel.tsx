@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { DistrictStaticData } from "@/lib/types";
 import { PARTY_COLORS } from "@/lib/colors";
 import { STATE_NAMES, AT_LARGE_STATES } from "@/lib/stateFips";
+import { getAllDistricts } from "@/lib/districtData";
 
 interface Props {
   districtId: string;
@@ -278,11 +279,38 @@ export default function DistrictPanel({ districtId, repName, data, onClose, onSh
 
         <div className="mx-4 border-t border-slate-700/40" />
 
-        {/* District Info */}
+        {/* District Profile */}
         <div className="px-4 py-4">
           <p className="text-[10px] font-bold text-slate-600 uppercase tracking-widest mb-3">District Profile</p>
-          <div className="space-y-2">
-            <Row label="Median Income" value={`$${(data.income * 1000).toLocaleString()}`} />
+          <div className="space-y-3">
+            <CompareBar
+              label="Median Income"
+              value={data.income}
+              avg={NAT_AVG_INCOME}
+              format={(v) => `$${Math.round(v * 1000).toLocaleString()}`}
+              color="#f59e0b"
+            />
+            {NAT_AVG_POVERTY != null && data.povertyPct != null && (
+              <CompareBar
+                label="Poverty Rate"
+                value={data.povertyPct}
+                avg={NAT_AVG_POVERTY}
+                format={(v) => `${v.toFixed(1)}%`}
+                color="#f87171"
+              />
+            )}
+            {NAT_AVG_COLLEGE != null && data.collegePct != null && (
+              <CompareBar
+                label="College Grad %"
+                value={data.collegePct}
+                avg={NAT_AVG_COLLEGE}
+                format={(v) => `${v.toFixed(1)}%`}
+                color="#818cf8"
+              />
+            )}
+            {data.urbanPct != null && (
+              <Row label="Urban %" value={`${data.urbanPct.toFixed(1)}%`} />
+            )}
             <Row label="Computed PVI" value={pviLabel}
               valueColor={data.pvi > 0 ? PARTY_COLORS.Republican : data.pvi < 0 ? PARTY_COLORS.Democrat : undefined} />
           </div>
@@ -341,6 +369,54 @@ function Row({ label, value, valueColor }: { label: string; value: string; value
       <span className="text-[12px] font-semibold text-right" style={valueColor ? { color: valueColor } : { color: "#e2e8f0" }}>
         {value}
       </span>
+    </div>
+  );
+}
+
+// Pre-compute national averages from all 435 districts
+const _all = getAllDistricts();
+const NAT_AVG_INCOME = Math.round(_all.reduce((s, d) => s + d.data.income, 0) / _all.length);
+const _withPoverty = _all.filter(d => d.data.povertyPct != null);
+const NAT_AVG_POVERTY = _withPoverty.length
+  ? _withPoverty.reduce((s, d) => s + (d.data.povertyPct ?? 0), 0) / _withPoverty.length
+  : null;
+const _withCollege = _all.filter(d => d.data.collegePct != null);
+const NAT_AVG_COLLEGE = _withCollege.length
+  ? _withCollege.reduce((s, d) => s + (d.data.collegePct ?? 0), 0) / _withCollege.length
+  : null;
+
+function CompareBar({
+  label,
+  value,
+  avg,
+  format,
+  color,
+}: {
+  label: string;
+  value: number;
+  avg: number;
+  format: (v: number) => string;
+  color: string;
+}) {
+  const pct = Math.min(100, Math.max(0, (value / (avg * 2)) * 100));
+  const avgPct = 50;
+  const diff = ((value - avg) / avg) * 100;
+  const diffLabel = diff >= 0 ? `+${diff.toFixed(0)}%` : `${diff.toFixed(0)}%`;
+  const diffColor = diff >= 0 ? "#34d399" : "#f87171";
+
+  return (
+    <div className="space-y-1">
+      <div className="flex justify-between items-baseline">
+        <span className="text-[11px] text-slate-500">{label}</span>
+        <span className="flex items-center gap-1.5">
+          <span className="text-[12px] font-semibold text-slate-200">{format(value)}</span>
+          <span className="text-[10px] font-medium" style={{ color: diffColor }}>{diffLabel} nat&apos;l</span>
+        </span>
+      </div>
+      <div className="relative h-1.5 rounded-full bg-slate-800">
+        <div className="absolute h-full rounded-full" style={{ width: `${pct}%`, backgroundColor: color, opacity: 0.7 }} />
+        <div className="absolute top-1/2 -translate-y-1/2 w-0.5 h-3 rounded-full" style={{ left: `${avgPct}%`, backgroundColor: "rgba(100,116,139,0.6)" }} />
+      </div>
     </div>
   );
 }

@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { getAllDistricts, DistrictFullData } from "@/lib/districtData";
 import { PARTY_COLORS } from "@/lib/colors";
 import { STATE_NAMES, AT_LARGE_STATES } from "@/lib/stateFips";
@@ -308,6 +309,7 @@ const PARTY_CHIPS: { label: string; value: "All" | MemberParty }[] = [
 ];
 
 export default function IdeologyPage() {
+  const pathname = usePathname();
   const [xKey, setXKey] = useState<AxisKey>("pvi");
   const [yKey, setYKey] = useState<AxisKey>("tenure");
   const [partyFilter, setPartyFilter] = useState<"All" | MemberParty>("All");
@@ -380,19 +382,25 @@ export default function IdeologyPage() {
         style={{ backgroundColor: "#0d1117", borderBottom: "1px solid rgba(30,41,59,0.8)" }}
       >
         <div className="flex items-center gap-3 shrink-0">
-          <Link
-            href="/"
-            className="flex items-center gap-2 text-slate-400 hover:text-white transition-colors text-sm whitespace-nowrap"
-          >
+          <Link href="/" className="flex items-center text-slate-400 hover:text-white transition-colors text-sm whitespace-nowrap">
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
             </svg>
-            Menu
           </Link>
-          <span className="text-slate-700">/</span>
-          <h1 className="text-white font-semibold text-sm whitespace-nowrap">Member Ideology</h1>
+          <div className="flex items-center gap-0.5">
+            {(["/house", "/rankings", "/compare", "/ideology"] as const).map((href) => {
+              const label = { "/house": "Map", "/rankings": "Rankings", "/compare": "Compare", "/ideology": "Ideology" }[href];
+              const active = pathname === href;
+              return (
+                <a key={href} href={href} className="px-2 py-1 rounded text-[10px] font-medium transition-colors whitespace-nowrap"
+                  style={{ color: active ? "#a5b4fc" : "#64748b", backgroundColor: active ? "rgba(99,102,241,0.12)" : "transparent" }}>
+                  {label}
+                </a>
+              );
+            })}
+          </div>
           <span className="text-slate-600 text-[11px] whitespace-nowrap hidden sm:inline">
-            119th Congress · {MEMBERS.length} members
+            {MEMBERS.length} members
           </span>
         </div>
 

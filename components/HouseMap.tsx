@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useCallback, useRef } from "react";
+import { usePathname } from "next/navigation";
 import {
   ComposableMap,
   Geographies,
@@ -20,7 +21,7 @@ import RepProfile from "./RepProfile";
 import { FilterMode } from "@/lib/types";
 import { getDistrictColor, PARTY_COLORS } from "@/lib/colors";
 import { getDistrictData, getRepName, getAllDistricts } from "@/lib/districtData";
-import { toDistrictId, STATE_NAMES, AT_LARGE_STATES } from "@/lib/stateFips";
+import { toDistrictId, STATE_NAMES, AT_LARGE_STATES, FIPS_TO_STATE } from "@/lib/stateFips";
 
 // ── Constants ─────────────────────────────────────────────────────────────────
 const DISTRICTS_URL = "/districts.json";
@@ -276,12 +277,13 @@ function getStateSeats(state: string): number {
 
 // ── Tooltip ──────────────────────────────────────────────────────────────────
 function Tooltip({
-  districtId, x, y, filterMode
+  districtId, x, y, filterMode, repAge
 }: {
   districtId: string;
   x: number;
   y: number;
   filterMode: FilterMode;
+  repAge?: number;
 }) {
   const rawData = getDistrictData(districtId);
   const data = rawData ?? { party: "Unknown" as const, margin: 0, income: 65, pvi: 0, termStart: 2025, repName: "Vacant" };
@@ -321,14 +323,19 @@ function Tooltip({
     statLabel = "Poverty %";
     statValue = data.povertyPct != null ? `${data.povertyPct.toFixed(1)}%` : "—";
     statColor = "#f87171";
+  } else if (filterMode === "age") {
+    statLabel = "Rep. Age";
+    statValue = repAge != null ? `${repAge} yrs` : "—";
+    statColor = "#06b6d4";
   }
 
   const tipW = 210;
+  const tipH = 100;
   const left = x + tipW + 20 > window.innerWidth ? x - tipW - 8 : x + 14;
-  const top = y - 8;
+  const top = y - tipH < 8 ? y + 14 : y - tipH;
 
   return (
-    <div className="fixed pointer-events-none z-50" style={{ left, top, transform: "translateY(-100%)" }}>
+    <div className="fixed pointer-events-none z-50" style={{ left, top }}>
       <div
         className="rounded-xl overflow-hidden shadow-2xl shadow-black/60"
         style={{
@@ -462,8 +469,117 @@ function StatePanel({
   );
 }
 
+// ── Helpers ───────────────────────────────────────────────────────────────────
+function computeAge(birthday: string): number {
+  const born = new Date(birthday);
+  const today = new Date();
+  let age = today.getFullYear() - born.getFullYear();
+  const m = today.getMonth() - born.getMonth();
+  if (m < 0 || (m === 0 && today.getDate() < born.getDate())) age--;
+  return age;
+}
+
+type LegMeta = Record<string, { bioguide: string | null; birthday: string | null; twitter?: string | null }>;
+
+const VALID_FILTER_MODES = new Set<string>(["party","margin","income","tenure","urban","college","poverty","age"]);
+
+// Pre-compute which filter modes have no data populated
+const _allDistricts = getAllDistricts();
+const NO_DATA_MODES: FilterMode[] = [];
+if (!_allDistricts.some(d => d.data.urbanPct !== undefined))   NO_DATA_MODES.push("urban");
+if (!_allDistricts.some(d => d.data.collegePct !== undefined)) NO_DATA_MODES.push("college");
+if (!_allDistricts.some(d => d.data.povertyPct !== undefined)) NO_DATA_MODES.push("poverty");
+
+// ── Find My Rep Modal ─────────────────────────────────────────────────────────
+function FindMyRepModal({ onClose, onFound }: { onClose: () => void; onFound: (id: string) => void }) {
+  const [address, setAddress] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!address.trim()) return;
+    setLoading(true);
+    setError(null);
+
+    try {
+      // Census Geocoder returns congressional district info
+      const params = new URLSearchParams({
+        address: address.trim(),
+        benchmark: "Public_AR_Current",
+        vintage: "Current_Current",
+        layers: "54",
+        format: "json",
+      });
+      const res = await fetch(`https://geocoding.geo.census.gov/geocoder/geographies/onelineaddress?${params}`);
+      const data = await res.json();
+      const match = data?.result?.addressMatches?.[0];
+      if (!match) { setError("Address not found — try including city and state."); setLoading(false); return; }
+
+      // Try to extract congressional district from geographies
+      const geoKeys = Object.keys(match.geographies ?? {});
+      const cdKey = geoKeys.find(k => k.toLowerCase().includes("congressional"));
+      const cdList = cdKey ? match.geographies[cdKey] : null;
+      const cd = cdList?.[0];
+
+      if (!cd) { setError("Congressional district not found for this address."); setLoading(false); return; }
+
+      const stateFips = cd.STATE ?? cd.STATEFP;
+      const cdNum = cd.CD119 ?? cd.CD118 ?? cd.CD116 ?? cd.DISTRICT;
+      const stateAbbr = FIPS_TO_STATE[stateFips];
+
+      if (!stateAbbr || cdNum == null) { setError("Could not determine district from address."); setLoading(false); return; }
+
+      const districtId = `${stateAbbr}-${String(cdNum).padStart(2, "0")}`;
+      onFound(districtId);
+      onClose();
+    } catch {
+      setError("Lookup failed. Check your connection and try again.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  return (
+    <div className="fixed inset-0 z-[60] flex items-center justify-center p-4" style={{ backgroundColor: "rgba(0,0,0,0.7)" }} onClick={onClose}>
+      <div
+        className="w-full max-w-sm rounded-2xl p-5 shadow-2xl"
+        style={{ backgroundColor: "#0d1117", border: "1px solid rgba(51,65,85,0.7)" }}
+        onClick={e => e.stopPropagation()}
+      >
+        <div className="flex items-center justify-between mb-4">
+          <h2 className="text-white font-semibold text-sm">Find My Representative</h2>
+          <button onClick={onClose} className="text-slate-600 hover:text-slate-300 text-xs">✕</button>
+        </div>
+        <form onSubmit={handleSubmit}>
+          <input
+            autoFocus
+            type="text"
+            placeholder="123 Main St, Springfield, IL"
+            value={address}
+            onChange={e => setAddress(e.target.value)}
+            className="w-full rounded-lg px-3 py-2.5 text-sm text-slate-200 placeholder-slate-600 outline-none focus:ring-1 focus:ring-indigo-500/60"
+            style={{ backgroundColor: "rgba(15,23,42,0.9)", border: "1px solid rgba(51,65,85,0.6)" }}
+          />
+          {error && <p className="text-red-400 text-[11px] mt-2">{error}</p>}
+          <button
+            type="submit"
+            disabled={loading || !address.trim()}
+            className="mt-3 w-full py-2 rounded-lg text-sm font-medium transition-all disabled:opacity-40"
+            style={{ backgroundColor: "rgba(99,102,241,0.25)", color: "#a5b4fc", border: "1px solid rgba(99,102,241,0.4)" }}
+          >
+            {loading ? "Looking up…" : "Find My District"}
+          </button>
+        </form>
+        <p className="text-[10px] text-slate-700 mt-3">Address lookup via Census Geocoder — no data stored.</p>
+      </div>
+    </div>
+  );
+}
+
 // ── Main Component ────────────────────────────────────────────────────────────
 export default function HouseMap() {
+  const pathname = usePathname();
   const [filterMode, setFilterMode] = useState<FilterMode>("party");
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [hoveredId, setHoveredId] = useState<string | null>(null);
@@ -478,24 +594,42 @@ export default function HouseMap() {
   const [showProfile, setShowProfile] = useState(false);
   const [focusedState, setFocusedState] = useState<string | null>(null);
   const [fullscreen, setFullscreen] = useState(false);
+  const [showFindMyRep, setShowFindMyRep] = useState(false);
+  const [legMeta, setLegMeta] = useState<LegMeta>({});
 
-  // Sync selectedId → URL
+  // Load legislator meta (for age filter)
   useEffect(() => {
-    const url = selectedId ? `?d=${selectedId}` : window.location.pathname;
-    history.replaceState({}, "", url);
-  }, [selectedId]);
+    fetch("/legislator-meta.json").then(r => r.json()).then(setLegMeta).catch(() => {});
+  }, []);
 
-  // On mount: read ?d=XX-NN and ?s=XX from URL
+  // Sync selectedId + filterMode → URL
+  useEffect(() => {
+    const params = new URLSearchParams();
+    if (selectedId) params.set("d", selectedId);
+    if (filterMode !== "party") params.set("f", filterMode);
+    const query = params.toString();
+    history.replaceState({}, "", query ? `${window.location.pathname}?${query}` : window.location.pathname);
+  }, [selectedId, filterMode]);
+
+  // On mount: read ?d=XX-NN, ?s=XX, ?f=filterMode from URL
   useEffect(() => {
     const sp = new URLSearchParams(window.location.search);
     const d = sp.get("d");
-    if (d && getDistrictData(d)) setSelectedId(d);
+    if (d && getDistrictData(d)) {
+      setSelectedId(d);
+      // Auto-zoom to the district's state
+      const stateCode = d.split("-")[0];
+      const view = STATE_VIEW[stateCode];
+      if (view) { setZoom(view.zoom); setCenter(view.center); }
+    }
     const s = sp.get("s")?.toUpperCase();
     if (s && STATE_NAMES[s]) {
       setFocusedState(s);
       const view = STATE_VIEW[s];
       if (view) { setZoom(view.zoom); setCenter(view.center); }
     }
+    const f = sp.get("f");
+    if (f && VALID_FILTER_MODES.has(f)) setFilterMode(f as FilterMode);
   }, []);
 
   useEffect(() => {
@@ -533,7 +667,9 @@ export default function HouseMap() {
 
   const handleExportCSV = () => {
     const allStates = Object.keys(STATE_NAMES) as string[];
-    const rows: string[] = ["District,Representative,Party,Margin (%),Median Income ($K),Computed PVI,Term Start,Years Served"];
+    const rows: string[] = [
+      "District,Representative,Party,Margin (%),Median Income ($K),Computed PVI,Term Start,Years Served,Urban %,College %,Poverty %",
+    ];
     for (const state of allStates) {
       const numSeats = getStateSeats(state);
       const atLarge = AT_LARGE_STATES.has(state);
@@ -545,7 +681,10 @@ export default function HouseMap() {
         const pviStr = data.pvi === 0 ? "EVEN" : data.pvi > 0 ? `R+${data.pvi}` : `D+${Math.abs(data.pvi)}`;
         const years = Math.max(0, 2026 - data.termStart);
         const repName = data.repName.includes(",") ? `"${data.repName}"` : data.repName;
-        rows.push(`${id},${repName},${data.party},${data.margin},${data.income},${pviStr},${data.termStart},${years}`);
+        const urban = data.urbanPct ?? "";
+        const college = data.collegePct ?? "";
+        const poverty = data.povertyPct ?? "";
+        rows.push(`${id},${repName},${data.party},${data.margin},${data.income},${pviStr},${data.termStart},${years},${urban},${college},${poverty}`);
       }
     }
     const blob = new Blob([rows.join("\n")], { type: "text/csv" });
@@ -642,34 +781,39 @@ export default function HouseMap() {
         <div className="flex items-center gap-2 shrink-0">
           {/* Nav links */}
           <div className="hidden md:flex items-center gap-0.5">
-            <a
-              href="/"
-              className="px-2 py-1 rounded text-[10px] font-medium transition-colors"
-              style={{ color: "#64748b" }}
-              onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.color = "#cbd5e1"; }}
-              onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.color = "#64748b"; }}
-            >
-              Menu
-            </a>
-            <a
-              href="/rankings"
-              className="px-2 py-1 rounded text-[10px] font-medium transition-colors"
-              style={{ color: "#64748b" }}
-              onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.color = "#cbd5e1"; }}
-              onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.color = "#64748b"; }}
-            >
-              Rankings
-            </a>
-            <a
-              href="/compare"
-              className="px-2 py-1 rounded text-[10px] font-medium transition-colors"
-              style={{ color: "#64748b" }}
-              onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.color = "#cbd5e1"; }}
-              onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.color = "#64748b"; }}
-            >
-              Compare
-            </a>
+            {[
+              { href: "/house", label: "Map" },
+              { href: "/rankings", label: "Rankings" },
+              { href: "/compare", label: "Compare" },
+              { href: "/ideology", label: "Ideology" },
+            ].map(({ href, label }) => {
+              const active = pathname === href;
+              return (
+                <a
+                  key={href}
+                  href={href}
+                  className="px-2 py-1 rounded text-[10px] font-medium transition-colors"
+                  style={{ color: active ? "#a5b4fc" : "#64748b", backgroundColor: active ? "rgba(99,102,241,0.12)" : "transparent" }}
+                  onMouseEnter={e => { if (!active) (e.currentTarget as HTMLAnchorElement).style.color = "#cbd5e1"; }}
+                  onMouseLeave={e => { if (!active) (e.currentTarget as HTMLAnchorElement).style.color = "#64748b"; }}
+                >
+                  {label}
+                </a>
+              );
+            })}
           </div>
+          {/* Find My Rep */}
+          <button
+            onClick={() => setShowFindMyRep(true)}
+            title="Find my representative by address"
+            className="w-7 h-7 flex items-center justify-center rounded-lg text-slate-500 hover:text-slate-300 transition-colors shrink-0"
+            style={{ backgroundColor: "rgba(15,23,42,0.7)", border: "1px solid rgba(30,41,59,0.9)" }}
+          >
+            <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+            </svg>
+          </button>
           <SearchBar
             onSelect={(id) => setSelectedId(id)}
             onFocusState={(abbr) => {
@@ -714,7 +858,7 @@ export default function HouseMap() {
       </header>
 
       {/* ── Filter Tabs ─────────────────────────────────────────────────── */}
-      <FilterTabs filterMode={filterMode} onModeChange={setFilterMode} />
+      <FilterTabs filterMode={filterMode} onModeChange={setFilterMode} noDataModes={NO_DATA_MODES} />
 
       {/* ── Body ───────────────────────────────────────────────────────── */}
       <div className="flex flex-1 min-h-0 overflow-hidden">
@@ -768,6 +912,10 @@ export default function HouseMap() {
                     };
                     const isSelected = id === selectedId;
                     const isHovered = id === hoveredId;
+                    const isVacant = data.party === "Vacant";
+
+                    const metaEntry = legMeta[id];
+                    const repAge = metaEntry?.birthday ? computeAge(metaEntry.birthday) : undefined;
 
                     const fill = getDistrictColor(
                       filterMode,
@@ -778,17 +926,22 @@ export default function HouseMap() {
                       data.urbanPct,
                       data.collegePct,
                       data.povertyPct,
+                      repAge,
                     );
 
                     const stroke = isSelected
                       ? "#FFFFFF"
                       : isHovered
                       ? "#94a3b8"
+                      : isVacant
+                      ? "#78350f"
                       : "#0a0e14";
                     const strokeWidth = isSelected
                       ? 2 / zoom
                       : isHovered
                       ? 1 / zoom
+                      : isVacant
+                      ? 0.8 / zoom
                       : 0.35 / zoom;
 
                     return (
@@ -855,7 +1008,26 @@ export default function HouseMap() {
 
       {/* Tooltip */}
       {hoveredId && !selectedId && (
-        <Tooltip districtId={hoveredId} x={mousePos.x} y={mousePos.y} filterMode={filterMode} />
+        <Tooltip
+          districtId={hoveredId}
+          x={mousePos.x}
+          y={mousePos.y}
+          filterMode={filterMode}
+          repAge={legMeta[hoveredId]?.birthday ? computeAge(legMeta[hoveredId].birthday!) : undefined}
+        />
+      )}
+
+      {/* Find My Rep modal */}
+      {showFindMyRep && (
+        <FindMyRepModal
+          onClose={() => setShowFindMyRep(false)}
+          onFound={(id) => {
+            setSelectedId(id);
+            const stateCode = id.split("-")[0];
+            const view = STATE_VIEW[stateCode];
+            if (view) { setZoom(view.zoom); setCenter(view.center); }
+          }}
+        />
       )}
 
       {/* Full Profile Overlay */}

@@ -1,7 +1,7 @@
 "use client";
 
 import { Suspense, useEffect, useState } from "react";
-import { useSearchParams, useRouter } from "next/navigation";
+import { useSearchParams, useRouter, usePathname } from "next/navigation";
 import Link from "next/link";
 import { getAllDistricts, getDistrictData, getRepName } from "@/lib/districtData";
 import { PARTY_COLORS } from "@/lib/colors";
@@ -267,6 +267,7 @@ function CompareContent({ idA, idB }: { idA: string | null; idB: string | null }
 function ComparePageInner() {
   const params = useSearchParams();
   const router = useRouter();
+  const pathname = usePathname();
 
   const [idA, setIdA] = useState<string | null>(params.get("a"));
   const [idB, setIdB] = useState<string | null>(params.get("b"));
@@ -290,17 +291,23 @@ function ComparePageInner() {
         style={{ backgroundColor: "#0d1117", borderBottom: "1px solid rgba(30,41,59,0.8)" }}
       >
         <div className="flex items-center gap-3">
-          <Link
-            href="/"
-            className="flex items-center gap-2 text-slate-400 hover:text-white transition-colors text-sm"
-          >
+          <Link href="/" className="flex items-center gap-2 text-slate-400 hover:text-white transition-colors text-sm">
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
             </svg>
-            Menu
           </Link>
-          <span className="text-slate-700">/</span>
-          <h1 className="text-white font-semibold text-sm">Compare Districts</h1>
+          <div className="flex items-center gap-0.5">
+            {(["/house", "/rankings", "/compare", "/ideology"] as const).map((href) => {
+              const label = { "/house": "Map", "/rankings": "Rankings", "/compare": "Compare", "/ideology": "Ideology" }[href];
+              const active = pathname === href;
+              return (
+                <a key={href} href={href} className="px-2 py-1 rounded text-[10px] font-medium transition-colors"
+                  style={{ color: active ? "#a5b4fc" : "#64748b", backgroundColor: active ? "rgba(99,102,241,0.12)" : "transparent" }}>
+                  {label}
+                </a>
+              );
+            })}
+          </div>
         </div>
         {bothSelected && (
           <button

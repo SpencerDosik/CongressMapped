@@ -2,18 +2,18 @@ import { scaleLinear } from "d3-scale";
 import { interpolateRdBu } from "d3-scale-chromatic";
 import { Party, FilterMode } from "./types";
 
-// Party colors
+// Party colors (vivid against dark backgrounds)
 export const PARTY_COLORS: Record<Party, string> = {
-  Republican: "#DC2626",
-  Democrat: "#2563EB",
+  Republican: "#F03030",
+  Democrat: "#2D7FFF",
   Independent: "#D97706",
   Vacant: "#374151",
   Unknown: "#64748B",
 };
 
 export const PARTY_COLORS_SOFT: Record<Party, string> = {
-  Republican: "#EF4444",
-  Democrat: "#3B82F6",
+  Republican: "#F87171",
+  Democrat: "#60A5FA",
   Independent: "#F59E0B",
   Vacant: "#4B5563",
   Unknown: "#94A3B8",
@@ -61,6 +61,13 @@ const povertyScale = scaleLinear<string>()
   .clamp(true);
 export function povertyColor(pct: number): string { return povertyScale(pct); }
 
+// Age color scale: young (cyan) → middle (indigo) → senior (amber) → old (red)
+const ageScale = scaleLinear<string>()
+  .domain([28, 45, 65, 82])
+  .range(["#06b6d4", "#6366f1", "#f59e0b", "#ef4444"])
+  .clamp(true);
+export function ageColor(years: number): string { return ageScale(years); }
+
 // Get color for a district based on filter mode
 export function getDistrictColor(
   mode: FilterMode,
@@ -71,6 +78,7 @@ export function getDistrictColor(
   urbanPct?: number,
   collegePct?: number,
   povertyPct?: number,
+  repAge?: number,
 ): string {
   switch (mode) {
     case "party":   return PARTY_COLORS[party] ?? PARTY_COLORS.Unknown;
@@ -80,6 +88,7 @@ export function getDistrictColor(
     case "urban":   return urbanColor(urbanPct ?? 50);
     case "college": return collegeColor(collegePct ?? 30);
     case "poverty": return povertyColor(povertyPct ?? 13);
+    case "age":     return ageColor(repAge ?? 58);
     default:        return PARTY_COLORS.Unknown;
   }
 }
@@ -143,6 +152,13 @@ export function getLegendItems(mode: FilterMode): LegendItem[] {
         { label: "20% poverty",   color: povertyColor(20) },
         { label: "30%+ poverty",  color: povertyColor(32) },
       ];
+    case "age":
+      return [
+        { label: "< 40 yrs",  color: ageColor(35) },
+        { label: "50 yrs",    color: ageColor(50) },
+        { label: "65 yrs",    color: ageColor(65) },
+        { label: "75+ yrs",   color: ageColor(78) },
+      ];
   }
 }
 
@@ -155,6 +171,7 @@ export function filterModeLabel(mode: FilterMode): string {
     urban:   "Urban %",
     college: "College %",
     poverty: "Poverty %",
+    age:     "Rep. Age",
   };
   return labels[mode];
 }

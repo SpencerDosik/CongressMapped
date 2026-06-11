@@ -37,7 +37,8 @@ export type FilterMode =
   | "tenure"
   | "urban"
   | "college"
-  | "poverty";
+  | "poverty"
+  | "age";
 
 export interface DistrictData {
   districtId: string;

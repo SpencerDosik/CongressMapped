@@ -7,6 +7,7 @@ import { filterModeLabel } from "@/lib/colors";
 interface Props {
   filterMode: FilterMode;
   onModeChange: (mode: FilterMode) => void;
+  noDataModes?: FilterMode[];
 }
 
 interface FilterGroup {
@@ -39,11 +40,12 @@ const FILTER_GROUPS: FilterGroup[] = [
     label: "Representative",
     modes: [
       { mode: "tenure", desc: "Years the current representative has held the seat" },
+      { mode: "age",    desc: "Current age of the representative" },
     ],
   },
 ];
 
-export default function FilterTabs({ filterMode, onModeChange }: Props) {
+export default function FilterTabs({ filterMode, onModeChange, noDataModes = [] }: Props) {
   const [openGroup, setOpenGroup] = useState<string | null>(null);
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -153,12 +155,14 @@ export default function FilterTabs({ filterMode, onModeChange }: Props) {
                           (e.currentTarget as HTMLButtonElement).style.backgroundColor = "transparent";
                       }}
                     >
-                      <span
-                        className="text-[12px] font-semibold"
-                        style={{ color: active ? "#a5b4fc" : "#cbd5e1" }}
-                      >
+                      <span className="flex items-center gap-1.5 text-[12px] font-semibold" style={{ color: active ? "#a5b4fc" : "#cbd5e1" }}>
                         {filterModeLabel(mode)}
-                        {active && <span className="ml-2 text-[10px] text-indigo-400">✓</span>}
+                        {active && <span className="text-[10px] text-indigo-400">✓</span>}
+                        {noDataModes.includes(mode) && (
+                          <span className="text-[9px] px-1.5 py-0.5 rounded-full font-medium" style={{ backgroundColor: "rgba(245,158,11,0.15)", color: "#f59e0b", border: "1px solid rgba(245,158,11,0.3)" }}>
+                            no data
+                          </span>
+                        )}
                       </span>
                       <span className="text-[11px] text-slate-600 mt-0.5 leading-snug">{desc}</span>
                     </button>
