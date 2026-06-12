@@ -297,8 +297,8 @@ function ComparePageInner() {
             </svg>
           </Link>
           <div className="flex items-center gap-0.5">
-            {(["/house", "/rankings", "/compare", "/ideology"] as const).map((href) => {
-              const label = { "/house": "Map", "/rankings": "Rankings", "/compare": "Compare", "/ideology": "Ideology" }[href];
+            {(["/house", "/rankings", "/compare", "/graph"] as const).map((href) => {
+              const label = { "/house": "Map", "/rankings": "Rankings", "/compare": "Compare", "/graph": "Graph" }[href];
               const active = pathname === href;
               return (
                 <a key={href} href={href} className="px-2 py-1 rounded text-[10px] font-medium transition-colors"

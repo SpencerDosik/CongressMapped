@@ -39,8 +39,9 @@ const FILTER_GROUPS: FilterGroup[] = [
   {
     label: "Representative",
     modes: [
-      { mode: "tenure", desc: "Years the current representative has held the seat" },
-      { mode: "age",    desc: "Current age of the representative" },
+      { mode: "tenure",    desc: "Years the current representative has held the seat" },
+      { mode: "age",       desc: "Current age of the representative" },
+      { mode: "committee", desc: "Highlight districts whose representative serves on a selected committee" },
     ],
   },
 ];

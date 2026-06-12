@@ -21,7 +21,7 @@ import RepProfile from "./RepProfile";
 import { FilterMode } from "@/lib/types";
 import { getDistrictColor, PARTY_COLORS } from "@/lib/colors";
 import { getDistrictData, getRepName, getAllDistricts } from "@/lib/districtData";
-import { toDistrictId, STATE_NAMES, AT_LARGE_STATES, FIPS_TO_STATE } from "@/lib/stateFips";
+import { toDistrictId, STATE_NAMES, AT_LARGE_STATES } from "@/lib/stateFips";
 
 // ── Constants ─────────────────────────────────────────────────────────────────
 const DISTRICTS_URL = "/districts.json";
@@ -277,13 +277,15 @@ function getStateSeats(state: string): number {
 
 // ── Tooltip ──────────────────────────────────────────────────────────────────
 function Tooltip({
-  districtId, x, y, filterMode, repAge
+  districtId, x, y, filterMode, repAge, committeeFilter, districtCommittees
 }: {
   districtId: string;
   x: number;
   y: number;
   filterMode: FilterMode;
   repAge?: number;
+  committeeFilter?: string | null;
+  districtCommittees?: string[];
 }) {
   const rawData = getDistrictData(districtId);
   const data = rawData ?? { party: "Unknown" as const, margin: 0, income: 65, pvi: 0, termStart: 2025, repName: "Vacant" };
@@ -327,6 +329,19 @@ function Tooltip({
     statLabel = "Rep. Age";
     statValue = repAge != null ? `${repAge} yrs` : "—";
     statColor = "#06b6d4";
+  } else if (filterMode === "committee") {
+    const label = committeeFilter ?? "Committee";
+    statLabel = label.length > 24 ? label.slice(0, 22) + "…" : label;
+    if (!committeeFilter) {
+      statValue = "—";
+      statColor = "#64748b";
+    } else if ((districtCommittees ?? []).includes(committeeFilter)) {
+      statValue = "✓ Member";
+      statColor = "#34d399";
+    } else {
+      statValue = "Not a member";
+      statColor = "#64748b";
+    }
   }
 
   const tipW = 210;
@@ -481,7 +496,7 @@ function computeAge(birthday: string): number {
 
 type LegMeta = Record<string, { bioguide: string | null; birthday: string | null; twitter?: string | null }>;
 
-const VALID_FILTER_MODES = new Set<string>(["party","margin","income","tenure","urban","college","poverty","age"]);
+const VALID_FILTER_MODES = new Set<string>(["party","margin","income","tenure","urban","college","poverty","age","committee"]);
 
 // Pre-compute which filter modes have no data populated
 const _allDistricts = getAllDistricts();
@@ -489,93 +504,6 @@ const NO_DATA_MODES: FilterMode[] = [];
 if (!_allDistricts.some(d => d.data.urbanPct !== undefined))   NO_DATA_MODES.push("urban");
 if (!_allDistricts.some(d => d.data.collegePct !== undefined)) NO_DATA_MODES.push("college");
 if (!_allDistricts.some(d => d.data.povertyPct !== undefined)) NO_DATA_MODES.push("poverty");
-
-// ── Find My Rep Modal ─────────────────────────────────────────────────────────
-function FindMyRepModal({ onClose, onFound }: { onClose: () => void; onFound: (id: string) => void }) {
-  const [address, setAddress] = useState("");
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState<string | null>(null);
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!address.trim()) return;
-    setLoading(true);
-    setError(null);
-
-    try {
-      // Census Geocoder returns congressional district info
-      const params = new URLSearchParams({
-        address: address.trim(),
-        benchmark: "Public_AR_Current",
-        vintage: "Current_Current",
-        layers: "54",
-        format: "json",
-      });
-      const res = await fetch(`https://geocoding.geo.census.gov/geocoder/geographies/onelineaddress?${params}`);
-      const data = await res.json();
-      const match = data?.result?.addressMatches?.[0];
-      if (!match) { setError("Address not found — try including city and state."); setLoading(false); return; }
-
-      // Try to extract congressional district from geographies
-      const geoKeys = Object.keys(match.geographies ?? {});
-      const cdKey = geoKeys.find(k => k.toLowerCase().includes("congressional"));
-      const cdList = cdKey ? match.geographies[cdKey] : null;
-      const cd = cdList?.[0];
-
-      if (!cd) { setError("Congressional district not found for this address."); setLoading(false); return; }
-
-      const stateFips = cd.STATE ?? cd.STATEFP;
-      const cdNum = cd.CD119 ?? cd.CD118 ?? cd.CD116 ?? cd.DISTRICT;
-      const stateAbbr = FIPS_TO_STATE[stateFips];
-
-      if (!stateAbbr || cdNum == null) { setError("Could not determine district from address."); setLoading(false); return; }
-
-      const districtId = `${stateAbbr}-${String(cdNum).padStart(2, "0")}`;
-      onFound(districtId);
-      onClose();
-    } catch {
-      setError("Lookup failed. Check your connection and try again.");
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  return (
-    <div className="fixed inset-0 z-[60] flex items-center justify-center p-4" style={{ backgroundColor: "rgba(0,0,0,0.7)" }} onClick={onClose}>
-      <div
-        className="w-full max-w-sm rounded-2xl p-5 shadow-2xl"
-        style={{ backgroundColor: "#0d1117", border: "1px solid rgba(51,65,85,0.7)" }}
-        onClick={e => e.stopPropagation()}
-      >
-        <div className="flex items-center justify-between mb-4">
-          <h2 className="text-white font-semibold text-sm">Find My Representative</h2>
-          <button onClick={onClose} className="text-slate-600 hover:text-slate-300 text-xs">✕</button>
-        </div>
-        <form onSubmit={handleSubmit}>
-          <input
-            autoFocus
-            type="text"
-            placeholder="123 Main St, Springfield, IL"
-            value={address}
-            onChange={e => setAddress(e.target.value)}
-            className="w-full rounded-lg px-3 py-2.5 text-sm text-slate-200 placeholder-slate-600 outline-none focus:ring-1 focus:ring-indigo-500/60"
-            style={{ backgroundColor: "rgba(15,23,42,0.9)", border: "1px solid rgba(51,65,85,0.6)" }}
-          />
-          {error && <p className="text-red-400 text-[11px] mt-2">{error}</p>}
-          <button
-            type="submit"
-            disabled={loading || !address.trim()}
-            className="mt-3 w-full py-2 rounded-lg text-sm font-medium transition-all disabled:opacity-40"
-            style={{ backgroundColor: "rgba(99,102,241,0.25)", color: "#a5b4fc", border: "1px solid rgba(99,102,241,0.4)" }}
-          >
-            {loading ? "Looking up…" : "Find My District"}
-          </button>
-        </form>
-        <p className="text-[10px] text-slate-700 mt-3">Address lookup via Census Geocoder — no data stored.</p>
-      </div>
-    </div>
-  );
-}
 
 // ── Main Component ────────────────────────────────────────────────────────────
 export default function HouseMap() {
@@ -594,12 +522,26 @@ export default function HouseMap() {
   const [showProfile, setShowProfile] = useState(false);
   const [focusedState, setFocusedState] = useState<string | null>(null);
   const [fullscreen, setFullscreen] = useState(false);
-  const [showFindMyRep, setShowFindMyRep] = useState(false);
   const [legMeta, setLegMeta] = useState<LegMeta>({});
+  const [mapCommittees, setMapCommittees] = useState<Record<string, string[]>>({});
+  const [committeeList, setCommitteeList] = useState<string[]>([]);
+  const [selectedCommittee, setSelectedCommittee] = useState<string | null>(null);
 
   // Load legislator meta (for age filter)
   useEffect(() => {
     fetch("/legislator-meta.json").then(r => r.json()).then(setLegMeta).catch(() => {});
+  }, []);
+
+  // Load committee data (for committee filter)
+  useEffect(() => {
+    fetch("/committees.json")
+      .then(r => r.ok ? r.json() : null)
+      .then(data => {
+        if (!data) return;
+        setMapCommittees(data.districts ?? {});
+        setCommitteeList(data.committees ?? []);
+      })
+      .catch(() => {});
   }, []);
 
   // Sync selectedId + filterMode → URL
@@ -785,7 +727,7 @@ export default function HouseMap() {
               { href: "/house", label: "Map" },
               { href: "/rankings", label: "Rankings" },
               { href: "/compare", label: "Compare" },
-              { href: "/ideology", label: "Ideology" },
+              { href: "/graph", label: "Graph" },
             ].map(({ href, label }) => {
               const active = pathname === href;
               return (
@@ -802,18 +744,6 @@ export default function HouseMap() {
               );
             })}
           </div>
-          {/* Find My Rep */}
-          <button
-            onClick={() => setShowFindMyRep(true)}
-            title="Find my representative by address"
-            className="w-7 h-7 flex items-center justify-center rounded-lg text-slate-500 hover:text-slate-300 transition-colors shrink-0"
-            style={{ backgroundColor: "rgba(15,23,42,0.7)", border: "1px solid rgba(30,41,59,0.9)" }}
-          >
-            <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-            </svg>
-          </button>
           <SearchBar
             onSelect={(id) => setSelectedId(id)}
             onFocusState={(abbr) => {
@@ -858,7 +788,61 @@ export default function HouseMap() {
       </header>
 
       {/* ── Filter Tabs ─────────────────────────────────────────────────── */}
-      <FilterTabs filterMode={filterMode} onModeChange={setFilterMode} noDataModes={NO_DATA_MODES} />
+      <FilterTabs
+        filterMode={filterMode}
+        onModeChange={(m) => { setFilterMode(m); if (m !== "committee") setSelectedCommittee(null); }}
+        noDataModes={NO_DATA_MODES}
+      />
+
+      {/* ── Committee secondary picker ──────────────────────────────────── */}
+      {filterMode === "committee" && (
+        <div
+          className="flex items-center gap-3 px-4 py-2 shrink-0 flex-wrap"
+          style={{ backgroundColor: "#0d1117", borderBottom: "1px solid rgba(30,41,59,0.8)" }}
+        >
+          <span className="text-[10px] font-bold text-slate-600 uppercase tracking-widest select-none">
+            Committee
+          </span>
+          {committeeList.length > 0 ? (
+            <>
+              <select
+                value={selectedCommittee ?? ""}
+                onChange={(e) => setSelectedCommittee(e.target.value || null)}
+                style={{
+                  backgroundColor: selectedCommittee ? "rgba(99,102,241,0.18)" : "rgba(15,23,42,0.7)",
+                  color: selectedCommittee ? "#a5b4fc" : "#64748b",
+                  border: selectedCommittee ? "1px solid rgba(99,102,241,0.4)" : "1px solid rgba(30,41,59,0.9)",
+                  borderRadius: "0.5rem",
+                  padding: "4px 10px",
+                  fontSize: "11px",
+                  fontWeight: 500,
+                  outline: "none",
+                  cursor: "pointer",
+                  maxWidth: "300px",
+                }}
+              >
+                <option value="" style={{ backgroundColor: "#0d1117" }}>Select a committee…</option>
+                {committeeList.map((c) => (
+                  <option key={c} value={c} style={{ backgroundColor: "#0d1117" }}>{c}</option>
+                ))}
+              </select>
+              {selectedCommittee && (
+                <button
+                  onClick={() => setSelectedCommittee(null)}
+                  className="text-[11px] text-slate-600 hover:text-slate-400 transition-colors"
+                >
+                  Clear
+                </button>
+              )}
+            </>
+          ) : (
+            <span className="text-[11px] text-amber-600/80">
+              Run <code className="font-mono text-amber-500">scripts/fetch-committees.mjs</code> then{" "}
+              <code className="font-mono text-amber-500">scripts/apply-committees.mjs</code> to enable
+            </span>
+          )}
+        </div>
+      )}
 
       {/* ── Body ───────────────────────────────────────────────────────── */}
       <div className="flex flex-1 min-h-0 overflow-hidden">
@@ -917,17 +901,27 @@ export default function HouseMap() {
                     const metaEntry = legMeta[id];
                     const repAge = metaEntry?.birthday ? computeAge(metaEntry.birthday) : undefined;
 
-                    const fill = getDistrictColor(
-                      filterMode,
-                      data.party,
-                      data.margin,
-                      data.income,
-                      Math.max(0, 2026 - data.termStart),
-                      data.urbanPct,
-                      data.collegePct,
-                      data.povertyPct,
-                      repAge,
-                    );
+                    const fill = (() => {
+                      if (filterMode === "committee") {
+                        const base = PARTY_COLORS[data.party] ?? PARTY_COLORS.Unknown;
+                        if (!selectedCommittee || Object.keys(mapCommittees).length === 0) {
+                          return `${base}28`; // dim hint — select a committee
+                        }
+                        const onCommittee = (mapCommittees[id] ?? []).includes(selectedCommittee);
+                        return onCommittee ? base : "#0c1520";
+                      }
+                      return getDistrictColor(
+                        filterMode,
+                        data.party,
+                        data.margin,
+                        data.income,
+                        Math.max(0, 2026 - data.termStart),
+                        data.urbanPct,
+                        data.collegePct,
+                        data.povertyPct,
+                        repAge,
+                      );
+                    })();
 
                     const stroke = isSelected
                       ? "#FFFFFF"
@@ -1014,19 +1008,8 @@ export default function HouseMap() {
           y={mousePos.y}
           filterMode={filterMode}
           repAge={legMeta[hoveredId]?.birthday ? computeAge(legMeta[hoveredId].birthday!) : undefined}
-        />
-      )}
-
-      {/* Find My Rep modal */}
-      {showFindMyRep && (
-        <FindMyRepModal
-          onClose={() => setShowFindMyRep(false)}
-          onFound={(id) => {
-            setSelectedId(id);
-            const stateCode = id.split("-")[0];
-            const view = STATE_VIEW[stateCode];
-            if (view) { setZoom(view.zoom); setCenter(view.center); }
-          }}
+          committeeFilter={selectedCommittee}
+          districtCommittees={mapCommittees[hoveredId]}
         />
       )}
 
