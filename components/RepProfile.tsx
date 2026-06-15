@@ -25,6 +25,8 @@ interface LegislatorMeta {
   birthday: string | null;
   gender: string | null;
   religion: string | null;
+  education: string | null;
+  career: string | null;
 }
 
 interface CommitteeEntry {
@@ -645,8 +647,12 @@ export default function RepProfile({ districtId, repName, data, onClose }: Props
                 {meta.religion && (
                   <StatRow label="Religion" value={meta.religion} />
                 )}
-                <PlaceholderRow label="Education" />
-                <PlaceholderRow label="Career background" />
+                {meta.education
+                  ? <StatRow label="Education" value={meta.education} />
+                  : <PlaceholderRow label="Education" />}
+                {meta.career
+                  ? <StatRow label="Career background" value={meta.career} />
+                  : <PlaceholderRow label="Career background" />}
               </>
             )}
           </SectionCard>

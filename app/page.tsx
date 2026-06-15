@@ -144,7 +144,7 @@ export default async function Home({
           href="/house"
           icon={<MapIcon />}
           title="House Map"
-          description="All 435 districts on an interactive map — party, margins, PVI, income, tenure."
+          description="All 435 districts on an interactive map."
         />
         <ModeCard
           href="/graph"
@@ -174,7 +174,7 @@ export default async function Home({
           href="/state-leg"
           icon={<BuildingIcon />}
           title="State Legislatures"
-          description="State-level chambers and districts. New Jersey available."
+          description="State-level chambers and districts."
         />
       </div>
 
