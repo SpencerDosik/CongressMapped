@@ -92,7 +92,7 @@ export default function StateLegPage() {
               geographies.map((geo) => {
                 // eslint-disable-next-line @typescript-eslint/no-explicit-any
                 const props = (geo as any).properties ?? {};
-                const fips = props.STATEFP ?? String(props.id ?? "").padStart(2, "0");
+                const fips = props.STATEFP ?? String((geo as any).id ?? props.id ?? "").padStart(2, "0");
                 const abbr = FIPS_TO_STATE[fips] ?? null;
                 if (!abbr) return null;
 

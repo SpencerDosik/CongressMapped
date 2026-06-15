@@ -165,8 +165,8 @@ function SeatTotals({ data }: { data: SenateData }) {
         <div className="relative w-52 h-3 rounded-full overflow-visible bg-slate-800">
           <div className="absolute left-0 top-0 h-full rounded-l-full" style={{ width: `${(rTotal / total) * 100}%`, backgroundColor: "#DC2626" }} />
           <div className="absolute right-0 top-0 h-full rounded-r-full" style={{ width: `${(dTotal / total) * 100}%`, backgroundColor: "#2563EB" }} />
-          <div className="absolute top-1/2 -translate-y-1/2 w-0.5 h-5 bg-slate-400/80 rounded-full z-10" style={{ left: `${majorityPct}%` }}>
-            <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 text-[9px] text-slate-500 whitespace-nowrap">51</div>
+          <div className="absolute top-1/2 -translate-y-1/2 w-0.5 h-5 bg-slate-400/80 rounded-full z-10" style={{ left: `${majorityPct}%` }} title="51 seats needed for majority">
+            <div className="absolute -top-4 left-1/2 -translate-x-1/2 text-[9px] text-slate-500 whitespace-nowrap">51</div>
           </div>
         </div>
         <div className="text-left">
@@ -270,7 +270,7 @@ export default function SenatePage() {
                 geographies.map((geo) => {
                   // eslint-disable-next-line @typescript-eslint/no-explicit-any
                   const props = (geo as any).properties ?? {};
-                  const fips = props.STATEFP ?? String(props.id ?? "").padStart(2, "0");
+                  const fips = props.STATEFP ?? String((geo as any).id ?? props.id ?? "").padStart(2, "0");
                   const abbr = FIPS_TO_STATE[fips] ?? null;
                   if (!abbr) return null;
 
