@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useState } from "react";
 import Link from "next/link";
-import { ComposableMap, Geographies, Geography, ZoomableGroup } from "react-simple-maps";
+import { ComposableMap, Geographies, Geography } from "react-simple-maps";
 import { PARTY_COLORS } from "@/lib/colors";
 
 const NJ_SENATE_URL = "/nj-state-senate.geojson";
@@ -29,10 +29,6 @@ const PARTY_C: Record<string, string> = {
   Independent: PARTY_COLORS.Independent,
 };
 
-const NJ_CENTER: [number, number] = [-74.4, 40.1];
-const NJ_ZOOM = 1;
-const ZOOM_MIN = 0.5;
-const ZOOM_MAX = 20;
 
 function districtFill(distNum: number, data: NJLegData | null, chamber: Chamber, hovered: number | null, selected: number | null): string {
   const isHov = distNum === hovered;
@@ -71,8 +67,6 @@ export default function NJLegPage() {
   const [hoveredDist, setHoveredDist] = useState<number | null>(null);
   const [selectedDist, setSelectedDist] = useState<SelectedDistrict | null>(null);
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
-  const [zoom, setZoom] = useState(NJ_ZOOM);
-  const [center, setCenter] = useState<[number, number]>(NJ_CENTER);
   const [senateReady, setSenateReady] = useState(false);
   const senateLoadedRef = { current: false };
 
@@ -84,11 +78,6 @@ export default function NJLegPage() {
     const h = (e: MouseEvent) => setMousePos({ x: e.clientX, y: e.clientY });
     window.addEventListener("mousemove", h);
     return () => window.removeEventListener("mousemove", h);
-  }, []);
-
-  const handleMoveEnd = useCallback(({ zoom: z, coordinates }: { zoom: number; coordinates: [number, number] }) => {
-    setZoom(z);
-    setCenter(coordinates);
   }, []);
 
   const parseSenateGeos = useCallback((geos: Record<string, unknown>[]) => {
@@ -210,42 +199,40 @@ export default function NJLegPage() {
             </div>
           )}
 
-          <ComposableMap projection="geoMercator" projectionConfig={{ center: [-74.4, 40.1], scale: 11000 }} width={800} height={500}
+          <ComposableMap projection="geoMercator" projectionConfig={{ center: [-74.5, 40.1], scale: 11000 }} width={800} height={500}
             style={{ width: "100%", height: "100%", display: "block" }}>
-            <ZoomableGroup zoom={zoom} center={center} onMoveEnd={handleMoveEnd} minZoom={ZOOM_MIN} maxZoom={ZOOM_MAX}>
-              <Geographies geography={geoUrl} parseGeographies={parseSenateGeos}>
-                {({ geographies }) =>
-                  geographies.map((geo) => {
-                    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-                    const props = (geo as any).properties ?? {};
-                    const num = getDistrictNum(props);
-                    if (num === null) return null;
+            <Geographies geography={geoUrl} parseGeographies={parseSenateGeos}>
+              {({ geographies }) =>
+                geographies.map((geo) => {
+                  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                  const props = (geo as any).properties ?? {};
+                  const num = getDistrictNum(props);
+                  if (num === null) return null;
 
-                    const fill = districtFill(num, legData, chamber, hoveredDist, selectedDist?.num ?? null);
-                    const isSelected = num === (selectedDist?.num ?? null);
+                  const fill = districtFill(num, legData, chamber, hoveredDist, selectedDist?.num ?? null);
+                  const isSelected = num === (selectedDist?.num ?? null);
 
-                    return (
-                      <Geography
-                        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-                        key={(geo as any).rsmKey ?? num}
-                        geography={geo}
-                        fill={fill}
-                        stroke={isSelected ? "#ffffff" : "#0a0e14"}
-                        strokeWidth={isSelected ? 2 / zoom : 0.5 / zoom}
-                        onMouseEnter={() => setHoveredDist(num)}
-                        onMouseLeave={() => setHoveredDist(null)}
-                        onClick={() => handleDistrictClick(num)}
-                        style={{
-                          default: { outline: "none" },
-                          hover: { outline: "none", cursor: "pointer" },
-                          pressed: { outline: "none" },
-                        }}
-                      />
-                    );
-                  })
-                }
-              </Geographies>
-            </ZoomableGroup>
+                  return (
+                    <Geography
+                      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                      key={(geo as any).rsmKey ?? num}
+                      geography={geo}
+                      fill={fill}
+                      stroke={isSelected ? "#ffffff" : "#0f172a"}
+                      strokeWidth={isSelected ? 1.5 : 0.3}
+                      onMouseEnter={() => setHoveredDist(num)}
+                      onMouseLeave={() => setHoveredDist(null)}
+                      onClick={() => handleDistrictClick(num)}
+                      style={{
+                        default: { outline: "none" },
+                        hover: { outline: "none", cursor: "pointer" },
+                        pressed: { outline: "none" },
+                      }}
+                    />
+                  );
+                })
+              }
+            </Geographies>
           </ComposableMap>
 
           {/* Hover tooltip */}
@@ -284,27 +271,6 @@ export default function NJLegPage() {
               </div>
             </div>
           )}
-
-          {/* Zoom controls */}
-          <div className="absolute bottom-5 right-4 flex flex-col gap-1">
-            {[{label: "+", action: () => setZoom(z => Math.min(z * 1.6, ZOOM_MAX))},
-              {label: "−", action: () => setZoom(z => Math.max(z / 1.6, ZOOM_MIN))},
-            ].map(({ label, action }) => (
-              <button key={label} onClick={action}
-                className="w-8 h-8 flex items-center justify-center rounded-lg text-slate-400 hover:text-white transition-all text-sm font-medium"
-                style={{ backgroundColor: "rgba(13,17,23,0.9)", border: "1px solid rgba(51,65,85,0.6)" }}>
-                {label}
-              </button>
-            ))}
-            <button
-              onClick={() => { setZoom(NJ_ZOOM); setCenter(NJ_CENTER); }}
-              className="w-8 h-8 flex items-center justify-center rounded-lg text-slate-400 hover:text-white transition-all"
-              style={{ backgroundColor: "rgba(13,17,23,0.9)", border: "1px solid rgba(51,65,85,0.6)" }}>
-              <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" />
-              </svg>
-            </button>
-          </div>
 
           {/* Legend */}
           <div className="absolute bottom-5 left-4 rounded-xl px-3 py-2.5"
