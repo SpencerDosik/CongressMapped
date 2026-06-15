@@ -95,7 +95,7 @@ function SeatBar() {
           <span className="text-slate-600 text-[10px] ml-1">R</span>
         </div>
 
-        <div className="relative w-52 h-3 rounded-full overflow-visible bg-slate-800">
+        <div className="relative w-52 h-3 rounded-full overflow-hidden bg-slate-800">
           <div
             className="absolute left-0 top-0 h-full rounded-l-full"
             style={{ width: `${rPct}%`, backgroundColor: "#DC2626" }}
@@ -107,11 +107,8 @@ function SeatBar() {
           <div
             className="absolute top-1/2 -translate-y-1/2 w-0.5 h-5 bg-slate-400/80 rounded-full z-10"
             style={{ left: `${majorityPct}%` }}
-          >
-            <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 text-[9px] text-slate-500 whitespace-nowrap">
-              218
-            </div>
-          </div>
+            title="218 seats needed for majority"
+          />
         </div>
 
         <div className="text-left">
@@ -120,7 +117,7 @@ function SeatBar() {
         </div>
       </div>
       <p className="text-[10px] text-slate-700">
-        incl. 1 independent · {V_SEATS} vacant seats
+        {V_SEATS} vacant · majority at 218
       </p>
     </div>
   );

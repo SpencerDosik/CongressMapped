@@ -61,10 +61,10 @@ const povertyScale = scaleLinear<string>()
   .clamp(true);
 export function povertyColor(pct: number): string { return povertyScale(pct); }
 
-// Age color scale: young (cyan) → middle (indigo) → senior (amber) → old (red)
+// Age color scale: young (light green) → middle (teal) → senior (slate blue) → old (deep navy)
 const ageScale = scaleLinear<string>()
-  .domain([28, 45, 65, 82])
-  .range(["#06b6d4", "#6366f1", "#f59e0b", "#ef4444"])
+  .domain([28, 45, 60, 82])
+  .range(["#6ee7b7", "#14b8a6", "#3b82f6", "#1e3a8a"])
   .clamp(true);
 export function ageColor(years: number): string { return ageScale(years); }
 

@@ -47,15 +47,12 @@ function senateSeatBar(senators: [Senator, Senator]) {
 
 function getStateFill(senators: [Senator, Senator] | undefined): string {
   if (!senators) return "#1e293b";
+  // Independents (King ME, Sanders VT) caucus with Democrats — treat as D for map color
   const r = senators.filter((s) => s.party === "Republican").length;
-  const d = senators.filter((s) => s.party === "Democrat").length;
-  const i = senators.filter((s) => s.party === "Independent").length;
+  const d = senators.filter((s) => s.party === "Democrat" || s.party === "Independent").length;
   if (r === 2) return "#b91c1c"; // solid R
   if (d === 2) return "#1d4ed8"; // solid D
-  if (i === 2) return "#b45309"; // solid I
   if (r === 1 && d === 1) return "#7e22ce"; // split R/D
-  if (r === 1 && i === 1) return "#c2410c"; // split R/I
-  if (d === 1 && i === 1) return "#4338ca"; // split D/I
   return "#1e293b";
 }
 
@@ -244,7 +241,7 @@ export default function SenatePage() {
             { href: "/senate", label: "Senate" },
             { href: "/state-leg", label: "State Leg." },
             { href: "/rankings", label: "Rankings" },
-            { href: "/ideology", label: "Ideology" },
+            { href: "/graph", label: "Graph" },
           ] as const).map(({ href, label }) => {
             const active = pathname === href;
             return (

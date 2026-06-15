@@ -147,10 +147,10 @@ export default async function Home({
           description="All 435 districts on an interactive map — party, margins, PVI, income, tenure."
         />
         <ModeCard
-          href="/ideology"
+          href="/graph"
           icon={<ScatterIcon />}
-          title="Member Ideology"
-          description="Every representative on a customizable scatter plot. Animated axis switching."
+          title="Graph"
+          description="Every representative on a customizable scatter plot. Filter by state or committee."
         />
         <ModeCard
           href="/rankings"
@@ -168,13 +168,13 @@ export default async function Home({
           href="/senate"
           icon={<LandmarkIcon />}
           title="U.S. Senate"
-          description="All 100 senators mapped by state — party, split delegations, and composition."
+          description="All 100 senators mapped by state."
         />
         <ModeCard
           href="/state-leg"
           icon={<BuildingIcon />}
           title="State Legislatures"
-          description="State-level chambers and districts. New Jersey now available."
+          description="State-level chambers and districts. New Jersey available."
         />
       </div>
 

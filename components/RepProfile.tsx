@@ -182,6 +182,40 @@ function LoadingRows({ count }: { count: number }) {
   );
 }
 
+const RACE_COLORS: Record<string, string> = {
+  white: "#94a3b8", hispanic: "#f59e0b", black: "#a78bfa",
+  asian: "#34d399", multiracial: "#60a5fa", other: "#f87171",
+  native: "#fb923c", pacific: "#38bdf8",
+};
+const RACE_LABELS: Record<string, string> = {
+  white: "White", hispanic: "Hispanic", black: "Black",
+  asian: "Asian", multiracial: "Two or more", other: "Other",
+  native: "Native American", pacific: "Pacific Islander",
+};
+
+function WikiRacialComposition({ data }: { data: Record<string, number> }) {
+  const entries = Object.entries(data).sort((a, b) => b[1] - a[1]);
+  return (
+    <div className="mt-3">
+      <p className="text-[10px] font-bold text-slate-500 uppercase tracking-wider mb-2">Racial Composition</p>
+      <div className="flex h-2.5 rounded-full overflow-hidden w-full mb-2">
+        {entries.map(([k, v]) => (
+          <div key={k} style={{ width: `${v}%`, backgroundColor: RACE_COLORS[k] ?? "#64748b" }} title={`${RACE_LABELS[k] ?? k}: ${v}%`} />
+        ))}
+      </div>
+      <div className="flex flex-wrap gap-x-3 gap-y-1">
+        {entries.map(([k, v]) => (
+          <div key={k} className="flex items-center gap-1">
+            <div className="w-2 h-2 rounded-full shrink-0" style={{ backgroundColor: RACE_COLORS[k] ?? "#64748b" }} />
+            <span className="text-[11px] text-slate-400">{RACE_LABELS[k] ?? k} <span className="text-slate-300 font-semibold">{v}%</span></span>
+          </div>
+        ))}
+      </div>
+      <p className="text-[10px] text-slate-700 mt-2">Source: Wikipedia / U.S. Census</p>
+    </div>
+  );
+}
+
 // ── Main component ────────────────────────────────────────────────────────────
 
 export default function RepProfile({ districtId, repName, data, onClose }: Props) {
@@ -218,10 +252,11 @@ export default function RepProfile({ districtId, repName, data, onClose }: Props
   const [committees, setCommittees] = useState<CommitteeEntry[] | null>(null);
   const [fec, setFec] = useState<FecData | null>(null);
   const [demographics, setDemographics] = useState<Demographics | null>(null);
+  const [wikiDemographics, setWikiDemographics] = useState<Record<string, number> | null>(null);
   const [congress, setCongress] = useState<CongressData | null>(null);
   const [guardian, setGuardian] = useState<GuardianData | null>(null);
 
-  // Load static JSON (contact + committees)
+  // Load static JSON (contact + committees + Wikipedia demographics)
   useEffect(() => {
     fetch("/legislator-meta.json")
       .then((r) => r.json())
@@ -232,6 +267,11 @@ export default function RepProfile({ districtId, repName, data, onClose }: Props
       .then((r) => r.json())
       .then((all) => setCommittees(all[districtId] ?? []))
       .catch(() => setCommittees([]));
+
+    fetch("/district-demographics.json")
+      .then((r) => r.json())
+      .then((all) => setWikiDemographics(all[districtId] ?? null))
+      .catch(() => setWikiDemographics(null));
   }, [districtId]);
 
   // Load FEC data
@@ -454,15 +494,10 @@ export default function RepProfile({ districtId, repName, data, onClose }: Props
               <LoadingRows count={7} />
             ) : demographics.error || demographics.noData ? (
               <>
-                <PlaceholderRow label="Population" />
-                <PlaceholderRow label="Median age" />
-                <PlaceholderRow label="Median income" />
-                <PlaceholderRow label="White (%)" />
-                <PlaceholderRow label="Black (%)" />
-                <PlaceholderRow label="Hispanic (%)" />
-                <PlaceholderRow label="College-educated (%)" />
-                <PlaceholderRow label="Poverty rate (%)" />
-                <p className="text-[10px] text-slate-700 mt-2">Source: Census ACS 2022</p>
+                {wikiDemographics
+                  ? <WikiRacialComposition data={wikiDemographics} />
+                  : <p className="text-[12px] text-slate-700 italic">No demographic data available</p>
+                }
               </>
             ) : (
               <>
@@ -481,6 +516,7 @@ export default function RepProfile({ districtId, repName, data, onClose }: Props
                 <StatRow label="College-educated" value={fmtPct(demographics.pctCollegeEducated)} />
                 <StatRow label="Poverty rate" value={fmtPct(demographics.pctPoverty)} />
                 <p className="text-[10px] text-slate-700 mt-2">Source: Census ACS 5-Year (2022)</p>
+                {wikiDemographics && <WikiRacialComposition data={wikiDemographics} />}
               </>
             )}
           </SectionCard>
