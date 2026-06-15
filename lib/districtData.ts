@@ -141,7 +141,7 @@ const DISTRICT_DATA: Record<string, DistrictFullData> = {
   "GA-11": { repName: "Barry Loudermilk", party: "Republican", margin: 33.8, income: 92, urbanPct: 12.6, pvi: 26, collegePct: 42.7, povertyPct: 8.8, termStart: 2015 },
   "GA-12": { repName: "Rick W. Allen", party: "Republican", margin: 20.6, income: 61, urbanPct: 6.7, pvi: 27, collegePct: 23.9, povertyPct: 17.5, termStart: 2015 },
   "GA-13": { repName: "David Scott", party: "Democrat", margin: -43.7, income: 76, urbanPct: 12.1, pvi: -34, collegePct: 30.7, povertyPct: 12.6, termStart: 2003 },
-  "GA-14": { repName: "Marjorie Taylor Greene", party: "Republican", margin: 28.7, income: 70, urbanPct: 12.1, pvi: 38, collegePct: 23.3, povertyPct: 11.7, termStart: 2021 },
+  "GA-14": { repName: "Clay Fuller", party: "Republican", margin: 28.7, income: 70, urbanPct: 12.1, pvi: 38, collegePct: 23.3, povertyPct: 11.7, termStart: 2025 },
   "HI-01": { repName: "Ed Case", party: "Democrat", margin: -43.7, income: 102, urbanPct: 7.8, pvi: -19, collegePct: 38.9, povertyPct: 8.9, termStart: 2003 },
   "HI-02": { repName: "Jill N. Tokuda", party: "Democrat", margin: -36.3, income: 89, urbanPct: 11.3, pvi: -21, collegePct: 31.9, povertyPct: 11, termStart: 2023 },
   "IA-01": { repName: "Mariannette Miller-Meeks", party: "Republican", margin: 0.2, income: 72, urbanPct: 4.6, pvi: 6, collegePct: 32.2, povertyPct: 11.9, termStart: 2021 },

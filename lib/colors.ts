@@ -88,8 +88,9 @@ export function getDistrictColor(
     case "urban":   return urbanColor(urbanPct ?? 50);
     case "college": return collegeColor(collegePct ?? 30);
     case "poverty": return povertyColor(povertyPct ?? 13);
-    case "age":     return ageColor(repAge ?? 58);
-    default:        return PARTY_COLORS.Unknown;
+    case "age":       return ageColor(repAge ?? 58);
+    case "committee": return PARTY_COLORS[party] ?? PARTY_COLORS.Unknown;
+    default:          return PARTY_COLORS.Unknown;
   }
 }
 
@@ -159,6 +160,11 @@ export function getLegendItems(mode: FilterMode): LegendItem[] {
         { label: "65 yrs",    color: ageColor(65) },
         { label: "75+ yrs",   color: ageColor(78) },
       ];
+    case "committee":
+      return [
+        { label: "On Committee",    color: "#3b82f6" },
+        { label: "Other Districts", color: "#0c1520" },
+      ];
   }
 }
 
@@ -171,7 +177,8 @@ export function filterModeLabel(mode: FilterMode): string {
     urban:   "Urban %",
     college: "College %",
     poverty: "Poverty %",
-    age:     "Rep. Age",
+    age:       "Rep. Age",
+    committee: "Committee",
   };
   return labels[mode];
 }

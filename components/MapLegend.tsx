@@ -1,7 +1,7 @@
 "use client";
 
 import { FilterMode } from "@/lib/types";
-import { getLegendItems, filterModeLabel } from "@/lib/colors";
+import { getLegendItems, filterModeLabel, PARTY_COLORS } from "@/lib/colors";
 
 interface Props {
   mode: FilterMode;
@@ -24,7 +24,21 @@ export default function MapLegend({ mode }: Props) {
           {filterModeLabel(mode)}
         </p>
 
-        {mode === "party" ? (
+        {mode === "committee" ? (
+          <div className="flex flex-col gap-1.5">
+            <div className="flex items-center gap-2">
+              <div className="flex gap-0.5 shrink-0">
+                <div className="w-1.5 h-2.5 rounded-l-full" style={{ backgroundColor: PARTY_COLORS.Republican }} />
+                <div className="w-1.5 h-2.5 rounded-r-full" style={{ backgroundColor: PARTY_COLORS.Democrat }} />
+              </div>
+              <span className="text-[11px] text-slate-400">On committee</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <div className="w-3 h-2.5 rounded-sm shrink-0" style={{ backgroundColor: "#0c1520", border: "1px solid #1e2d3d" }} />
+              <span className="text-[11px] text-slate-400">Other districts</span>
+            </div>
+          </div>
+        ) : mode === "party" ? (
           <div className="flex flex-col gap-1.5">
             {items.map((item) => (
               <div key={item.label} className="flex items-center gap-2">

@@ -6,6 +6,22 @@ import { PARTY_COLORS } from "@/lib/colors";
 import { STATE_NAMES, AT_LARGE_STATES } from "@/lib/stateFips";
 import { getAllDistricts } from "@/lib/districtData";
 
+// ── Election history cache (module-level singleton) ───────────────────────────
+type HistoryPoint = { year: number; margin: number };
+let _historyData: Record<string, HistoryPoint[]> | null = null;
+let _historyPromise: Promise<Record<string, HistoryPoint[]> | null> | null = null;
+
+function loadHistory(): Promise<Record<string, HistoryPoint[]> | null> {
+  if (_historyData !== null) return Promise.resolve(_historyData);
+  if (!_historyPromise) {
+    _historyPromise = fetch("/election-history.json")
+      .then((r) => (r.ok ? r.json() : null))
+      .then((d) => { _historyData = d; return d; })
+      .catch(() => { _historyData = null; return null; });
+  }
+  return _historyPromise;
+}
+
 interface Props {
   districtId: string;
   repName: string;
@@ -82,12 +98,19 @@ export default function DistrictPanel({ districtId, repName, data, onClose, onSh
   const [meta, setMeta] = useState<LegMeta | null>(null);
   const [photoError, setPhotoError] = useState(false);
   const [copied, setCopied] = useState(false);
+  const [history, setHistory] = useState<HistoryPoint[] | null>(null);
 
   useEffect(() => {
     fetch("/legislator-meta.json")
       .then((r) => r.json())
       .then((all) => setMeta(all[districtId] ?? null))
       .catch(() => setMeta(null));
+  }, [districtId]);
+
+  useEffect(() => {
+    loadHistory().then((all) => {
+      setHistory(all ? (all[districtId] ?? null) : null);
+    });
   }, [districtId]);
 
   // Mobile swipe-down to close
@@ -277,6 +300,26 @@ export default function DistrictPanel({ districtId, repName, data, onClose, onSh
           </div>
         </div>
 
+        {/* Election History Sparkline */}
+        {history && history.length >= 2 && !isVacant && (
+          <>
+            <div className="mx-4 border-t border-slate-700/40" />
+            <div className="px-4 py-4">
+              <p className="text-[10px] font-bold text-slate-600 uppercase tracking-widest mb-2">
+                Election History <span className="font-normal text-slate-700 normal-case tracking-normal">2000–2024</span>
+              </p>
+              <ElectionSparkline
+                history={history}
+                current={data.margin}
+                partyColor={partyColor}
+              />
+              <p className="text-[9px] text-slate-700 mt-1.5 leading-snug">
+                Margins may reflect different district boundaries pre-2022 redistricting.
+              </p>
+            </div>
+          </>
+        )}
+
         <div className="mx-4 border-t border-slate-700/40" />
 
         {/* District Profile */}
@@ -359,6 +402,100 @@ export default function DistrictPanel({ districtId, repName, data, onClose, onSh
         </div>
       </div>
     </div>
+  );
+}
+
+// ── Election Sparkline ────────────────────────────────────────────────────────
+
+function ElectionSparkline({
+  history,
+  current,
+  partyColor,
+}: {
+  history: HistoryPoint[];
+  current: number;
+  partyColor: string;
+}) {
+  // Combine historical data with current 2024, deduplicate by year
+  const combined = [...history.filter((p) => p.year !== 2024), { year: 2024, margin: current }].sort(
+    (a, b) => a.year - b.year
+  );
+  if (combined.length < 2) return null;
+
+  const W = 200;
+  const H = 52;
+  const PAD = { top: 6, bottom: 14, left: 6, right: 6 };
+
+  const years = combined.map((p) => p.year);
+  const margins = combined.map((p) => p.margin);
+  const minYear = Math.min(...years);
+  const maxYear = Math.max(...years);
+  const rawMin = Math.min(...margins);
+  const rawMax = Math.max(...margins);
+  const dataRange = rawMax - rawMin;
+  const domainMin = Math.min(rawMin - dataRange * 0.1, -5);
+  const domainMax = Math.max(rawMax + dataRange * 0.1, 5);
+  const domainRange = domainMax - domainMin;
+
+  const plotW = W - PAD.left - PAD.right;
+  const plotH = H - PAD.top - PAD.bottom;
+  const yearRange = maxYear - minYear || 1;
+
+  const px = (year: number) => PAD.left + ((year - minYear) / yearRange) * plotW;
+  const py = (margin: number) => PAD.top + (1 - (margin - domainMin) / domainRange) * plotH;
+
+  const zeroY = py(0);
+  const polyline = combined.map((p) => `${px(p.year).toFixed(1)},${py(p.margin).toFixed(1)}`).join(" ");
+  const lastPt = combined[combined.length - 1];
+
+  // Year labels: first and last only
+  const firstYear = combined[0].year;
+  const lastYear = combined[combined.length - 1].year;
+
+  return (
+    <svg
+      viewBox={`0 0 ${W} ${H}`}
+      preserveAspectRatio="none"
+      className="w-full"
+      style={{ height: H }}
+    >
+      {/* Zero line */}
+      {zeroY >= PAD.top && zeroY <= PAD.top + plotH && (
+        <line
+          x1={PAD.left}
+          x2={W - PAD.right}
+          y1={zeroY}
+          y2={zeroY}
+          stroke="rgba(100,116,139,0.25)"
+          strokeWidth={0.6}
+          strokeDasharray="2 3"
+        />
+      )}
+      {/* Area fill */}
+      <polyline
+        points={`${px(firstYear).toFixed(1)},${py(0).toFixed(1)} ${polyline} ${px(lastYear).toFixed(1)},${py(0).toFixed(1)}`}
+        fill={`${partyColor}18`}
+        stroke="none"
+      />
+      {/* Line */}
+      <polyline
+        points={polyline}
+        fill="none"
+        stroke={partyColor}
+        strokeWidth={1.4}
+        strokeLinejoin="round"
+        strokeLinecap="round"
+      />
+      {/* Last year dot */}
+      <circle cx={px(lastPt.year)} cy={py(lastPt.margin)} r={2.5} fill={partyColor} />
+      {/* Year labels */}
+      <text x={PAD.left} y={H - 2} fontSize={7.5} fill="#475569" textAnchor="start">
+        {firstYear}
+      </text>
+      <text x={W - PAD.right} y={H - 2} fontSize={7.5} fill="#475569" textAnchor="end">
+        {lastYear}
+      </text>
+    </svg>
   );
 }
 

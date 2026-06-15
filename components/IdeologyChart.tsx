@@ -34,6 +34,7 @@ interface Props {
   xAxis: AxisConfig;
   yAxis: AxisConfig;
   onMemberClick?: (districtId: string) => void;
+  scaleToVisible?: boolean;
 }
 
 // ── Layout constants ──────────────────────────────────────────────────────────
@@ -204,18 +205,24 @@ function ChartTooltip({
 
 // ── Chart ─────────────────────────────────────────────────────────────────────
 
-export default function IdeologyChart({ members, xAxis, yAxis, onMemberClick }: Props) {
+export default function IdeologyChart({ members, xAxis, yAxis, onMemberClick, scaleToVisible = false }: Props) {
   const [hoveredId, setHoveredId] = useState<string | null>(null);
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const [failedPhotos, setFailedPhotos] = useState<Set<string>>(() => new Set());
 
+  const domainSrc = useMemo(() => {
+    if (!scaleToVisible) return members;
+    const visible = members.filter((m) => !m.faded);
+    return visible.length > 0 ? visible : members;
+  }, [members, scaleToVisible]);
+
   const xScale = useMemo(
-    () => scaleLinear().domain(paddedDomain(members.map((m) => m.xValue))).range([M.left, VB_W - M.right]),
-    [members]
+    () => scaleLinear().domain(paddedDomain(domainSrc.map((m) => m.xValue))).range([M.left, VB_W - M.right]),
+    [domainSrc]
   );
   const yScale = useMemo(
-    () => scaleLinear().domain(paddedDomain(members.map((m) => m.yValue))).range([VB_H - M.bottom, M.top]),
-    [members]
+    () => scaleLinear().domain(paddedDomain(domainSrc.map((m) => m.yValue))).range([VB_H - M.bottom, M.top]),
+    [domainSrc]
   );
 
   const xTicks = useMemo(() => xScale.ticks(6), [xScale]);

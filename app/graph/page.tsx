@@ -1,0 +1,600 @@
+"use client";
+
+import { useEffect, useMemo, useRef, useState } from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { getAllDistricts, DistrictFullData } from "@/lib/districtData";
+import { PARTY_COLORS } from "@/lib/colors";
+import { STATE_NAMES, AT_LARGE_STATES } from "@/lib/stateFips";
+import IdeologyChart, { AxisConfig, MemberPoint } from "@/components/IdeologyChart";
+import DistrictPanel from "@/components/DistrictPanel";
+import { getDistrictData, getRepName } from "@/lib/districtData";
+
+// ── Axis definitions ──────────────────────────────────────────────────────────
+
+type AxisKey =
+  | "pvi"
+  | "margin"
+  | "income"
+  | "tenure"
+  | "age"
+  | "sponsored"
+  | "cosponsored"
+  | "becameLaw";
+
+interface AxisDef extends AxisConfig {
+  key: AxisKey;
+}
+
+const pviFormat = (v: number) =>
+  Math.round(v) === 0 ? "EVEN" : `${v > 0 ? "R" : "D"}+${Math.abs(Math.round(v))}`;
+
+const AXES: Record<AxisKey, AxisDef> = {
+  pvi: {
+    key: "pvi",
+    label: "PVI (estimated)",
+    partisan: true,
+    format: pviFormat,
+    tickFormat: pviFormat,
+  },
+  margin: {
+    key: "margin",
+    label: "2024 Margin",
+    partisan: true,
+    format: (v) => (Math.round(v) === 0 ? "Tie" : `${v > 0 ? "R" : "D"} +${Math.abs(Math.round(v))}%`),
+    tickFormat: pviFormat,
+  },
+  income: {
+    key: "income",
+    label: "Median Income",
+    format: (v) => `$${Math.round(v)}k`,
+    tickFormat: (v) => `$${Math.round(v)}k`,
+  },
+  tenure: {
+    key: "tenure",
+    label: "Tenure",
+    format: (v) => (v < 1 ? "< 1 yr" : `${Math.round(v)} yrs`),
+    tickFormat: (v) => `${Math.round(v)}`,
+  },
+  age: {
+    key: "age",
+    label: "Age",
+    format: (v) => `${Math.round(v)} yrs`,
+    tickFormat: (v) => `${Math.round(v)}`,
+  },
+  sponsored: {
+    key: "sponsored",
+    label: "Bills Sponsored",
+    format: (v) => Math.round(v).toLocaleString(),
+    tickFormat: (v) => Math.round(v).toLocaleString(),
+  },
+  cosponsored: {
+    key: "cosponsored",
+    label: "Bills Cosponsored",
+    format: (v) => Math.round(v).toLocaleString(),
+    tickFormat: (v) => Math.round(v).toLocaleString(),
+  },
+  becameLaw: {
+    key: "becameLaw",
+    label: "Became Law",
+    format: (v) => Math.round(v).toLocaleString(),
+    tickFormat: (v) => Math.round(v).toLocaleString(),
+  },
+};
+
+interface AxisGroup {
+  label: string;
+  keys: AxisKey[];
+  requiresBills?: boolean;
+}
+
+const AXIS_GROUPS: AxisGroup[] = [
+  { label: "Political", keys: ["pvi", "margin"] },
+  { label: "Economic", keys: ["income"] },
+  { label: "Representative", keys: ["tenure", "age"] },
+  { label: "Legislative", keys: ["sponsored", "cosponsored", "becameLaw"], requiresBills: true },
+];
+
+// ── Data ──────────────────────────────────────────────────────────────────────
+
+type MemberParty = "Republican" | "Democrat" | "Independent";
+
+interface LegislatorMeta {
+  bioguide: string | null;
+  birthday: string | null;
+}
+
+interface BillCounts {
+  sponsored: number;
+  cosponsored: number;
+  becameLaw: number;
+}
+
+const MEMBERS: { districtId: string; data: DistrictFullData }[] = getAllDistricts().filter(
+  (d): boolean =>
+    d.data.party === "Republican" || d.data.party === "Democrat" || d.data.party === "Independent"
+);
+
+const SORTED_STATES = Object.entries(STATE_NAMES).sort((a, b) => a[1].localeCompare(b[1]));
+
+function districtLabel(districtId: string): string {
+  const [state, raw] = districtId.split("-");
+  const num = parseInt(raw ?? "0", 10);
+  if (num === 0 || AT_LARGE_STATES.has(state)) return "At-Large";
+  const suffix =
+    num % 10 === 1 && num % 100 !== 11
+      ? "st"
+      : num % 10 === 2 && num % 100 !== 12
+      ? "nd"
+      : num % 10 === 3 && num % 100 !== 13
+      ? "rd"
+      : "th";
+  return `${num}${suffix} District`;
+}
+
+function axisValue(
+  key: AxisKey,
+  districtId: string,
+  data: DistrictFullData,
+  meta: Record<string, LegislatorMeta> | null,
+  bills: Record<string, BillCounts> | null
+): number | undefined {
+  switch (key) {
+    case "pvi":
+      return data.pvi;
+    case "margin":
+      return data.margin;
+    case "income":
+      return data.income;
+    case "tenure":
+      return Math.max(0, 2026 - data.termStart);
+    case "age": {
+      const bday = meta?.[districtId]?.birthday;
+      if (!bday) return undefined;
+      const b = new Date(bday);
+      if (isNaN(b.getTime())) return undefined;
+      const now = new Date();
+      let age = now.getFullYear() - b.getFullYear();
+      if (
+        now.getMonth() < b.getMonth() ||
+        (now.getMonth() === b.getMonth() && now.getDate() < b.getDate())
+      ) {
+        age -= 1;
+      }
+      return age;
+    }
+    case "sponsored":
+    case "cosponsored":
+    case "becameLaw": {
+      const bioguide = meta?.[districtId]?.bioguide;
+      if (!bioguide) return undefined;
+      const counts = bills?.[bioguide];
+      if (!counts) return undefined;
+      const v = counts[key];
+      return typeof v === "number" ? v : undefined;
+    }
+  }
+}
+
+// ── Axis picker ───────────────────────────────────────────────────────────────
+
+const ACTIVE_STYLE = {
+  backgroundColor: "rgba(99,102,241,0.25)",
+  color: "#a5b4fc",
+  border: "1px solid rgba(99,102,241,0.4)",
+};
+
+function AxisPicker({
+  label,
+  value,
+  onChange,
+  billsAvailable,
+}: {
+  label: string;
+  value: AxisKey;
+  onChange: (k: AxisKey) => void;
+  billsAvailable: boolean;
+}) {
+  const [open, setOpen] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    function handleClick(e: MouseEvent) {
+      if (containerRef.current && !containerRef.current.contains(e.target as Node)) {
+        setOpen(false);
+      }
+    }
+    document.addEventListener("mousedown", handleClick);
+    return () => document.removeEventListener("mousedown", handleClick);
+  }, []);
+
+  return (
+    <div ref={containerRef} className="relative shrink-0 flex items-center gap-1.5">
+      <span className="text-[10px] font-bold text-slate-600 uppercase tracking-widest select-none">
+        {label}
+      </span>
+      <button
+        onClick={() => setOpen((o) => !o)}
+        className="flex items-center gap-1.5 px-3 py-1 rounded-lg text-[11px] font-medium transition-all duration-150 whitespace-nowrap"
+        style={
+          open
+            ? ACTIVE_STYLE
+            : {
+                backgroundColor: "rgba(15,23,42,0.7)",
+                border: "1px solid rgba(30,41,59,0.9)",
+                color: "#94a3b8",
+              }
+        }
+      >
+        <span>{AXES[value].label}</span>
+        <svg
+          className="w-3 h-3 transition-transform duration-150"
+          style={{ transform: open ? "rotate(180deg)" : "rotate(0deg)" }}
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+        </svg>
+      </button>
+
+      {open && (
+        <div
+          className="absolute top-full right-0 mt-1 rounded-xl overflow-hidden z-50 shadow-2xl shadow-black/60"
+          style={{ backgroundColor: "#0d1117", border: "1px solid rgba(51,65,85,0.7)", minWidth: "240px" }}
+        >
+          {AXIS_GROUPS.map((group) => {
+            const disabled = !!group.requiresBills && !billsAvailable;
+            return (
+              <div key={group.label} className="border-b border-slate-800/60 last:border-0">
+                <p className="px-4 pt-2.5 pb-1 text-[10px] font-bold text-slate-600 uppercase tracking-widest select-none">
+                  {group.label}
+                </p>
+                {group.keys.map((k) => {
+                  const active = value === k;
+                  return (
+                    <button
+                      key={k}
+                      disabled={disabled}
+                      title={disabled ? "Requires bill data — run scripts/generate-bill-counts.mjs" : undefined}
+                      onClick={() => {
+                        onChange(k);
+                        setOpen(false);
+                      }}
+                      className="w-full flex flex-col items-start px-4 py-2 text-left transition-colors"
+                      style={{
+                        backgroundColor: active ? "rgba(99,102,241,0.12)" : "transparent",
+                        cursor: disabled ? "not-allowed" : "pointer",
+                      }}
+                      onMouseEnter={(e) => {
+                        if (!active && !disabled)
+                          (e.currentTarget as HTMLButtonElement).style.backgroundColor =
+                            "rgba(51,65,85,0.4)";
+                      }}
+                      onMouseLeave={(e) => {
+                        if (!active && !disabled)
+                          (e.currentTarget as HTMLButtonElement).style.backgroundColor = "transparent";
+                      }}
+                    >
+                      <span
+                        className="text-[12px] font-semibold"
+                        style={{ color: disabled ? "#475569" : active ? "#a5b4fc" : "#cbd5e1" }}
+                      >
+                        {AXES[k].label}
+                        {active && <span className="ml-2 text-[10px] text-indigo-400">✓</span>}
+                      </span>
+                      {disabled && (
+                        <span className="text-[10px] text-slate-700 mt-0.5 leading-snug">
+                          Requires bill data — run scripts/generate-bill-counts.mjs
+                        </span>
+                      )}
+                    </button>
+                  );
+                })}
+                <div className="pb-1.5" />
+              </div>
+            );
+          })}
+        </div>
+      )}
+    </div>
+  );
+}
+
+// ── FilterSelect — styled native <select> matching the dark UI ────────────────
+
+function FilterSelect({
+  label,
+  value,
+  onChange,
+  options,
+  placeholder,
+}: {
+  label: string;
+  value: string;
+  onChange: (v: string) => void;
+  options: { value: string; label: string }[];
+  placeholder: string;
+}) {
+  const active = value !== "";
+  return (
+    <div className="flex items-center gap-1.5 shrink-0">
+      <span className="text-[10px] font-bold text-slate-600 uppercase tracking-widest select-none">
+        {label}
+      </span>
+      <select
+        value={value}
+        onChange={(e) => onChange(e.target.value)}
+        style={{
+          backgroundColor: active ? "rgba(99,102,241,0.22)" : "rgba(15,23,42,0.7)",
+          color: active ? "#a5b4fc" : "#94a3b8",
+          border: active ? "1px solid rgba(99,102,241,0.4)" : "1px solid rgba(30,41,59,0.9)",
+          borderRadius: "0.5rem",
+          padding: "4px 10px",
+          fontSize: "11px",
+          fontWeight: 500,
+          outline: "none",
+          cursor: "pointer",
+          maxWidth: "200px",
+        }}
+      >
+        <option value="" style={{ backgroundColor: "#0d1117" }}>{placeholder}</option>
+        {options.map((o) => (
+          <option key={o.value} value={o.value} style={{ backgroundColor: "#0d1117" }}>
+            {o.label}
+          </option>
+        ))}
+      </select>
+    </div>
+  );
+}
+
+// ── Page ──────────────────────────────────────────────────────────────────────
+
+const PARTY_CHIPS: { label: string; value: "All" | MemberParty }[] = [
+  { label: "All", value: "All" },
+  { label: "R", value: "Republican" },
+  { label: "D", value: "Democrat" },
+  { label: "I", value: "Independent" },
+];
+
+export default function GraphPage() {
+  const pathname = usePathname();
+  const [xKey, setXKey] = useState<AxisKey>("pvi");
+  const [yKey, setYKey] = useState<AxisKey>("tenure");
+  const [partyFilter, setPartyFilter] = useState<"All" | MemberParty>("All");
+  const [stateFilter, setStateFilter] = useState<string>("");
+  const [committeeFilter, setCommitteeFilter] = useState<string>("");
+  const [committees, setCommittees] = useState<Record<string, string[]> | null>(null);
+  const [committeeList, setCommitteeList] = useState<string[]>([]);
+  const [meta, setMeta] = useState<Record<string, LegislatorMeta> | null>(null);
+  const [bills, setBills] = useState<Record<string, BillCounts> | null>(null);
+  const [selectedId, setSelectedId] = useState<string | null>(null);
+  const [showProfile, setShowProfile] = useState(false);
+  const userChangedY = useRef(false);
+
+  useEffect(() => {
+    let cancelled = false;
+
+    fetch("/legislator-meta.json")
+      .then((r) => (r.ok ? r.json() : null))
+      .then((json) => {
+        if (!cancelled && json && typeof json === "object") setMeta(json);
+      })
+      .catch(() => {});
+
+    fetch("/bill-counts.json")
+      .then((r) => (r.ok ? r.json() : Promise.reject(new Error(`HTTP ${r.status}`))))
+      .then((json) => {
+        if (cancelled || !json || typeof json !== "object") return;
+        setBills(json as Record<string, BillCounts>);
+        if (!userChangedY.current) setYKey("sponsored");
+      })
+      .catch(() => {});
+
+    fetch("/committees.json")
+      .then((r) => (r.ok ? r.json() : null))
+      .then((json) => {
+        if (cancelled || !json) return;
+        setCommittees(json.districts ?? null);
+        setCommitteeList(json.committees ?? []);
+      })
+      .catch(() => {});
+
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
+  const billsAvailable = bills !== null;
+
+  const { points, hiddenCount } = useMemo(() => {
+    const pts: MemberPoint[] = [];
+    let hidden = 0;
+    for (const { districtId, data } of MEMBERS) {
+      const xv = axisValue(xKey, districtId, data, meta, bills);
+      const yv = axisValue(yKey, districtId, data, meta, bills);
+      if (xv === undefined || yv === undefined) {
+        hidden++;
+        continue;
+      }
+      const party = data.party as MemberParty;
+      const [state] = districtId.split("-");
+
+      const partyFade = partyFilter !== "All" && party !== partyFilter;
+      const stateFade = stateFilter !== "" && state !== stateFilter;
+      const committeeFade =
+        committeeFilter !== "" && committees !== null &&
+        !(committees[districtId]?.includes(committeeFilter) ?? false);
+
+      pts.push({
+        districtId,
+        name: data.repName,
+        party,
+        stateName: STATE_NAMES[state] ?? state,
+        districtLabel: districtLabel(districtId),
+        bioguide: meta?.[districtId]?.bioguide ?? null,
+        xValue: xv,
+        yValue: yv,
+        faded: partyFade || stateFade || committeeFade,
+      });
+    }
+    return { points: pts, hiddenCount: hidden };
+  }, [xKey, yKey, partyFilter, stateFilter, committeeFilter, meta, bills, committees]);
+
+  const hasActiveFilter =
+    partyFilter !== "All" ||
+    stateFilter !== "" ||
+    (committeeFilter !== "" && committees !== null);
+
+  return (
+    <div className="h-screen flex flex-col overflow-hidden" style={{ backgroundColor: "#0a0e14", color: "#e2e8f0" }}>
+      {/* Header bar */}
+      <header
+        className="flex items-center justify-between flex-wrap gap-x-4 gap-y-2 px-4 py-2.5 shrink-0 z-20"
+        style={{ backgroundColor: "#0d1117", borderBottom: "1px solid rgba(30,41,59,0.8)" }}
+      >
+        <div className="flex items-center gap-3 shrink-0">
+          <Link href="/" className="flex items-center text-slate-400 hover:text-white transition-colors text-sm whitespace-nowrap">
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+            </svg>
+          </Link>
+          <div className="flex items-center gap-0.5">
+            {(["/house", "/rankings", "/compare", "/graph"] as const).map((href) => {
+              const label = { "/house": "Map", "/rankings": "Rankings", "/compare": "Compare", "/graph": "Graph" }[href];
+              const active = pathname === href;
+              return (
+                <a key={href} href={href} className="px-2 py-1 rounded text-[10px] font-medium transition-colors whitespace-nowrap"
+                  style={{ color: active ? "#a5b4fc" : "#64748b", backgroundColor: active ? "rgba(99,102,241,0.12)" : "transparent" }}>
+                  {label}
+                </a>
+              );
+            })}
+          </div>
+          <span className="text-slate-600 text-[11px] whitespace-nowrap hidden sm:inline">
+            {MEMBERS.length} members
+          </span>
+        </div>
+
+        <div className="flex items-center gap-3 flex-wrap">
+          <AxisPicker label="X Axis" value={xKey} onChange={setXKey} billsAvailable={billsAvailable} />
+          <AxisPicker
+            label="Y Axis"
+            value={yKey}
+            onChange={(k) => {
+              userChangedY.current = true;
+              setYKey(k);
+            }}
+            billsAvailable={billsAvailable}
+          />
+
+          <div className="w-px h-4 bg-slate-700/60 shrink-0" />
+
+          {/* Party filter chips */}
+          <div className="flex items-center gap-1">
+            {PARTY_CHIPS.map(({ label, value }) => {
+              const active = partyFilter === value;
+              const color = value === "All" ? undefined : PARTY_COLORS[value];
+              return (
+                <button
+                  key={value}
+                  onClick={() => setPartyFilter(value)}
+                  className="px-2.5 py-1 rounded-lg text-[11px] font-semibold transition-all whitespace-nowrap"
+                  style={
+                    active
+                      ? {
+                          backgroundColor: color ? `${color}25` : "rgba(99,102,241,0.25)",
+                          color: color ?? "#a5b4fc",
+                          border: `1px solid ${color ? `${color}50` : "rgba(99,102,241,0.4)"}`,
+                        }
+                      : {
+                          backgroundColor: "transparent",
+                          color: "#475569",
+                          border: "1px solid rgba(30,41,59,0.9)",
+                        }
+                  }
+                >
+                  {label}
+                </button>
+              );
+            })}
+          </div>
+
+          {/* State filter */}
+          <FilterSelect
+            label="State"
+            value={stateFilter}
+            onChange={setStateFilter}
+            placeholder="All states"
+            options={SORTED_STATES.map(([abbr, name]) => ({ value: abbr, label: `${abbr} — ${name}` }))}
+          />
+
+          {/* Committee filter (only when data loaded) */}
+          {committeeList.length > 0 && (
+            <FilterSelect
+              label="Committee"
+              value={committeeFilter}
+              onChange={setCommitteeFilter}
+              placeholder="All committees"
+              options={committeeList.map((c) => ({ value: c, label: c }))}
+            />
+          )}
+        </div>
+      </header>
+
+      {/* Chart */}
+      <div className="flex-1 min-h-0 relative">
+        {points.length > 0 ? (
+          <IdeologyChart
+            members={points}
+            xAxis={AXES[xKey]}
+            yAxis={AXES[yKey]}
+            onMemberClick={(id) => { setSelectedId(id); setShowProfile(false); }}
+            scaleToVisible={hasActiveFilter}
+          />
+        ) : (
+          <div className="absolute inset-0 flex items-center justify-center text-slate-600 text-sm">
+            No members have data for the selected axes.
+          </div>
+        )}
+
+        {/* District panel overlay */}
+        {selectedId && (() => {
+          const data = getDistrictData(selectedId);
+          const repName = getRepName(selectedId);
+          if (!data || !repName) return null;
+          return (
+            <div className="absolute inset-y-0 right-0 z-30 pointer-events-none flex items-stretch">
+              <div className="pointer-events-auto">
+                <DistrictPanel
+                  districtId={selectedId}
+                  repName={repName}
+                  data={data}
+                  onClose={() => setSelectedId(null)}
+                  onShowProfile={() => setShowProfile(true)}
+                />
+              </div>
+            </div>
+          );
+        })()}
+      </div>
+
+      {/* Footnote */}
+      <footer
+        className="flex items-center justify-between gap-4 px-6 py-2 shrink-0"
+        style={{ backgroundColor: "#0d1117", borderTop: "1px solid rgba(30,41,59,0.8)" }}
+      >
+        <p className="text-slate-600 text-[10px] truncate">
+          Sources: PVI (estimated) &amp; margins from 2024 results · Income: Census ACS · Portraits:
+          Library of Congress bioguide
+        </p>
+        {hiddenCount > 0 && (
+          <p className="text-slate-500 text-[10px] whitespace-nowrap">
+            {hiddenCount} member{hiddenCount === 1 ? "" : "s"} without data hidden
+          </p>
+        )}
+      </footer>
+    </div>
+  );
+}
