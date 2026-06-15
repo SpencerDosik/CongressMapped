@@ -1,0 +1,1742 @@
+{
+  "AK-00": {
+    "urbanPct": 65.7,
+    "income": 96
+  },
+  "AL-01": {
+    "urbanPct": 66.8,
+    "income": 71
+  },
+  "AL-02": {
+    "urbanPct": 54.7,
+    "income": 55
+  },
+  "AL-03": {
+    "urbanPct": 50.2,
+    "income": 62
+  },
+  "AL-04": {
+    "urbanPct": 34.6,
+    "income": 63
+  },
+  "AL-05": {
+    "urbanPct": 65.5,
+    "income": 80
+  },
+  "AL-06": {
+    "urbanPct": 69.2,
+    "income": 87
+  },
+  "AL-07": {
+    "urbanPct": 72.2,
+    "income": 55
+  },
+  "AR-01": {
+    "urbanPct": 44.5,
+    "income": 52
+  },
+  "AR-02": {
+    "urbanPct": 66.2,
+    "income": 67
+  },
+  "AR-03": {
+    "urbanPct": 54.4,
+    "income": 75
+  },
+  "AR-04": {
+    "urbanPct": 66.2,
+    "income": 55
+  },
+  "AZ-01": {
+    "urbanPct": 91.5,
+    "income": 102
+  },
+  "AZ-02": {
+    "urbanPct": 50.6,
+    "income": 70
+  },
+  "AZ-03": {
+    "urbanPct": 100,
+    "income": 71
+  },
+  "AZ-04": {
+    "urbanPct": 99.9,
+    "income": 83
+  },
+  "AZ-05": {
+    "urbanPct": 86.9,
+    "income": 112
+  },
+  "AZ-06": {
+    "urbanPct": 96.8,
+    "income": 80
+  },
+  "AZ-07": {
+    "urbanPct": 83.6,
+    "income": 61
+  },
+  "AZ-08": {
+    "urbanPct": 87.3,
+    "income": 86
+  },
+  "AZ-09": {
+    "urbanPct": null,
+    "income": 80
+  },
+  "CA-01": {
+    "urbanPct": null,
+    "income": 70
+  },
+  "CA-02": {
+    "urbanPct": null,
+    "income": 97
+  },
+  "CA-03": {
+    "urbanPct": null,
+    "income": 107
+  },
+  "CA-04": {
+    "urbanPct": null,
+    "income": 98
+  },
+  "CA-05": {
+    "urbanPct": null,
+    "income": 95
+  },
+  "CA-06": {
+    "urbanPct": null,
+    "income": 88
+  },
+  "CA-07": {
+    "urbanPct": null,
+    "income": 97
+  },
+  "CA-08": {
+    "urbanPct": null,
+    "income": 96
+  },
+  "CA-09": {
+    "urbanPct": null,
+    "income": 92
+  },
+  "CA-10": {
+    "urbanPct": null,
+    "income": 152
+  },
+  "CA-11": {
+    "urbanPct": 100,
+    "income": 143
+  },
+  "CA-12": {
+    "urbanPct": 100,
+    "income": 111
+  },
+  "CA-13": {
+    "urbanPct": null,
+    "income": 68
+  },
+  "CA-14": {
+    "urbanPct": null,
+    "income": 137
+  },
+  "CA-15": {
+    "urbanPct": null,
+    "income": 151
+  },
+  "CA-16": {
+    "urbanPct": null,
+    "income": 182
+  },
+  "CA-17": {
+    "urbanPct": null,
+    "income": 182
+  },
+  "CA-18": {
+    "urbanPct": null,
+    "income": 103
+  },
+  "CA-19": {
+    "urbanPct": null,
+    "income": 125
+  },
+  "CA-20": {
+    "urbanPct": null,
+    "income": 91
+  },
+  "CA-21": {
+    "urbanPct": null,
+    "income": null
+  },
+  "CA-22": {
+    "urbanPct": null,
+    "income": null
+  },
+  "CA-23": {
+    "urbanPct": null,
+    "income": null
+  },
+  "CA-24": {
+    "urbanPct": null,
+    "income": 98
+  },
+  "CA-25": {
+    "urbanPct": null,
+    "income": 70
+  },
+  "CA-26": {
+    "urbanPct": null,
+    "income": 121
+  },
+  "CA-27": {
+    "urbanPct": null,
+    "income": 104
+  },
+  "CA-28": {
+    "urbanPct": 100,
+    "income": 111
+  },
+  "CA-29": {
+    "urbanPct": null,
+    "income": 77
+  },
+  "CA-30": {
+    "urbanPct": null,
+    "income": 90
+  },
+  "CA-31": {
+    "urbanPct": null,
+    "income": null
+  },
+  "CA-32": {
+    "urbanPct": null,
+    "income": null
+  },
+  "CA-33": {
+    "urbanPct": null,
+    "income": null
+  },
+  "CA-34": {
+    "urbanPct": null,
+    "income": 64
+  },
+  "CA-35": {
+    "urbanPct": null,
+    "income": 94
+  },
+  "CA-36": {
+    "urbanPct": null,
+    "income": 131
+  },
+  "CA-37": {
+    "urbanPct": null,
+    "income": 70
+  },
+  "CA-38": {
+    "urbanPct": null,
+    "income": 101
+  },
+  "CA-39": {
+    "urbanPct": null,
+    "income": 91
+  },
+  "CA-40": {
+    "urbanPct": null,
+    "income": 135
+  },
+  "CA-41": {
+    "urbanPct": null,
+    "income": null
+  },
+  "CA-42": {
+    "urbanPct": null,
+    "income": null
+  },
+  "CA-43": {
+    "urbanPct": null,
+    "income": null
+  },
+  "CA-44": {
+    "urbanPct": 100,
+    "income": 91
+  },
+  "CA-45": {
+    "urbanPct": null,
+    "income": 106
+  },
+  "CA-46": {
+    "urbanPct": null,
+    "income": 91
+  },
+  "CA-47": {
+    "urbanPct": null,
+    "income": 128
+  },
+  "CA-48": {
+    "urbanPct": null,
+    "income": 115
+  },
+  "CA-49": {
+    "urbanPct": null,
+    "income": 122
+  },
+  "CA-50": {
+    "urbanPct": null,
+    "income": 121
+  },
+  "CA-51": {
+    "urbanPct": null,
+    "income": null
+  },
+  "CA-52": {
+    "urbanPct": null,
+    "income": null
+  },
+  "CO-01": {
+    "urbanPct": 100,
+    "income": 93
+  },
+  "CO-02": {
+    "urbanPct": 81,
+    "income": 101
+  },
+  "CO-03": {
+    "urbanPct": 35.3,
+    "income": 71
+  },
+  "CO-04": {
+    "urbanPct": 72.9,
+    "income": 120
+  },
+  "CO-05": {
+    "urbanPct": 86.4,
+    "income": 91
+  },
+  "CO-06": {
+    "urbanPct": 98.5,
+    "income": 103
+  },
+  "CO-07": {
+    "urbanPct": 99.4,
+    "income": 104
+  },
+  "CO-08": {
+    "urbanPct": null,
+    "income": 100
+  },
+  "CT-01": {
+    "urbanPct": 93.9,
+    "income": 85
+  },
+  "CT-02": {
+    "urbanPct": 67.8,
+    "income": 98
+  },
+  "CT-03": {
+    "urbanPct": 96.7,
+    "income": 91
+  },
+  "CT-04": {
+    "urbanPct": 95.8,
+    "income": 123
+  },
+  "CT-05": {
+    "urbanPct": 85.8,
+    "income": 92
+  },
+  "DE-00": {
+    "urbanPct": 83.3,
+    "income": 88
+  },
+  "FL-01": {
+    "urbanPct": 82.1,
+    "income": 77
+  },
+  "FL-02": {
+    "urbanPct": 51.3,
+    "income": 67
+  },
+  "FL-03": {
+    "urbanPct": 71.3,
+    "income": 63
+  },
+  "FL-04": {
+    "urbanPct": 87.4,
+    "income": 76
+  },
+  "FL-05": {
+    "urbanPct": 83.4,
+    "income": 90
+  },
+  "FL-06": {
+    "urbanPct": null,
+    "income": 66
+  },
+  "FL-07": {
+    "urbanPct": 97.9,
+    "income": 83
+  },
+  "FL-08": {
+    "urbanPct": 94.1,
+    "income": 78
+  },
+  "FL-09": {
+    "urbanPct": 89.9,
+    "income": 81
+  },
+  "FL-10": {
+    "urbanPct": 98.7,
+    "income": 72
+  },
+  "FL-11": {
+    "urbanPct": 75.2,
+    "income": 87
+  },
+  "FL-12": {
+    "urbanPct": 93.1,
+    "income": 69
+  },
+  "FL-13": {
+    "urbanPct": 100,
+    "income": 76
+  },
+  "FL-14": {
+    "urbanPct": 99.3,
+    "income": 81
+  },
+  "FL-15": {
+    "urbanPct": 92.1,
+    "income": 72
+  },
+  "FL-16": {
+    "urbanPct": 94.3,
+    "income": 89
+  },
+  "FL-17": {
+    "urbanPct": 82.1,
+    "income": 79
+  },
+  "FL-18": {
+    "urbanPct": 96.4,
+    "income": 65
+  },
+  "FL-19": {
+    "urbanPct": 96.3,
+    "income": 88
+  },
+  "FL-20": {
+    "urbanPct": 99,
+    "income": 70
+  },
+  "FL-21": {
+    "urbanPct": null,
+    "income": null
+  },
+  "FL-22": {
+    "urbanPct": null,
+    "income": null
+  },
+  "FL-23": {
+    "urbanPct": null,
+    "income": null
+  },
+  "FL-24": {
+    "urbanPct": 100,
+    "income": 72
+  },
+  "FL-25": {
+    "urbanPct": 94.4,
+    "income": 87
+  },
+  "FL-26": {
+    "urbanPct": 97.7,
+    "income": 76
+  },
+  "FL-27": {
+    "urbanPct": 100,
+    "income": 82
+  },
+  "FL-28": {
+    "urbanPct": null,
+    "income": 84
+  },
+  "GA-01": {
+    "urbanPct": 71,
+    "income": 72
+  },
+  "GA-02": {
+    "urbanPct": 65.8,
+    "income": 52
+  },
+  "GA-03": {
+    "urbanPct": 60.5,
+    "income": 83
+  },
+  "GA-04": {
+    "urbanPct": 96.1,
+    "income": 72
+  },
+  "GA-05": {
+    "urbanPct": 100,
+    "income": 81
+  },
+  "GA-06": {
+    "urbanPct": 99.8,
+    "income": 91
+  },
+  "GA-07": {
+    "urbanPct": 99.6,
+    "income": 136
+  },
+  "GA-08": {
+    "urbanPct": 56.7,
+    "income": 61
+  },
+  "GA-09": {
+    "urbanPct": 42.7,
+    "income": 85
+  },
+  "GA-10": {
+    "urbanPct": 56,
+    "income": 79
+  },
+  "GA-11": {
+    "urbanPct": 96.1,
+    "income": 99
+  },
+  "GA-12": {
+    "urbanPct": 60,
+    "income": 63
+  },
+  "GA-13": {
+    "urbanPct": 93.8,
+    "income": 85
+  },
+  "GA-14": {
+    "urbanPct": 59.7,
+    "income": 79
+  },
+  "HI-01": {
+    "urbanPct": 99.3,
+    "income": 103
+  },
+  "HI-02": {
+    "urbanPct": 83.7,
+    "income": 97
+  },
+  "IA-01": {
+    "urbanPct": 66.4,
+    "income": 72
+  },
+  "IA-02": {
+    "urbanPct": 66.1,
+    "income": 75
+  },
+  "IA-03": {
+    "urbanPct": 73.1,
+    "income": 80
+  },
+  "IA-04": {
+    "urbanPct": 50.6,
+    "income": 73
+  },
+  "ID-01": {
+    "urbanPct": 65.8,
+    "income": 83
+  },
+  "ID-02": {
+    "urbanPct": 67,
+    "income": 79
+  },
+  "IL-01": {
+    "urbanPct": null,
+    "income": 69
+  },
+  "IL-02": {
+    "urbanPct": null,
+    "income": 64
+  },
+  "IL-03": {
+    "urbanPct": null,
+    "income": 87
+  },
+  "IL-04": {
+    "urbanPct": 100,
+    "income": 80
+  },
+  "IL-05": {
+    "urbanPct": 100,
+    "income": 112
+  },
+  "IL-06": {
+    "urbanPct": 99.4,
+    "income": 97
+  },
+  "IL-07": {
+    "urbanPct": 100,
+    "income": 90
+  },
+  "IL-08": {
+    "urbanPct": 100,
+    "income": 96
+  },
+  "IL-09": {
+    "urbanPct": 100,
+    "income": 90
+  },
+  "IL-10": {
+    "urbanPct": 99.7,
+    "income": 104
+  },
+  "IL-11": {
+    "urbanPct": 99.7,
+    "income": 109
+  },
+  "IL-12": {
+    "urbanPct": 75.4,
+    "income": 71
+  },
+  "IL-13": {
+    "urbanPct": 78.9,
+    "income": 65
+  },
+  "IL-14": {
+    "urbanPct": 89.9,
+    "income": 98
+  },
+  "IL-15": {
+    "urbanPct": 48.6,
+    "income": 75
+  },
+  "IL-16": {
+    "urbanPct": 71,
+    "income": 85
+  },
+  "IL-17": {
+    "urbanPct": 73.3,
+    "income": 61
+  },
+  "IN-01": {
+    "urbanPct": 87,
+    "income": 75
+  },
+  "IN-02": {
+    "urbanPct": 72.9,
+    "income": 67
+  },
+  "IN-03": {
+    "urbanPct": 65.1,
+    "income": 72
+  },
+  "IN-04": {
+    "urbanPct": 68.2,
+    "income": 78
+  },
+  "IN-05": {
+    "urbanPct": 74.5,
+    "income": 81
+  },
+  "IN-06": {
+    "urbanPct": 59.2,
+    "income": 77
+  },
+  "IN-07": {
+    "urbanPct": 99.7,
+    "income": 65
+  },
+  "IN-08": {
+    "urbanPct": 58.1,
+    "income": 65
+  },
+  "IN-09": {
+    "urbanPct": null,
+    "income": 71
+  },
+  "KS-01": {
+    "urbanPct": null,
+    "income": 68
+  },
+  "KS-02": {
+    "urbanPct": 59.7,
+    "income": 68
+  },
+  "KS-03": {
+    "urbanPct": 94.7,
+    "income": 101
+  },
+  "KS-04": {
+    "urbanPct": 78.9,
+    "income": 71
+  },
+  "KY-01": {
+    "urbanPct": 36.9,
+    "income": 58
+  },
+  "KY-02": {
+    "urbanPct": 57.5,
+    "income": 69
+  },
+  "KY-03": {
+    "urbanPct": 99.3,
+    "income": 69
+  },
+  "KY-04": {
+    "urbanPct": 68.2,
+    "income": 82
+  },
+  "KY-05": {
+    "urbanPct": 23.5,
+    "income": 47
+  },
+  "KY-06": {
+    "urbanPct": 72.6,
+    "income": 68
+  },
+  "LA-01": {
+    "urbanPct": 86,
+    "income": 80
+  },
+  "LA-02": {
+    "urbanPct": 94.7,
+    "income": 58
+  },
+  "LA-03": {
+    "urbanPct": 73.4,
+    "income": 60
+  },
+  "LA-04": {
+    "urbanPct": 58.7,
+    "income": 61
+  },
+  "LA-05": {
+    "urbanPct": 48.4,
+    "income": 60
+  },
+  "LA-06": {
+    "urbanPct": 78.1,
+    "income": 51
+  },
+  "MA-01": {
+    "urbanPct": 69.2,
+    "income": 75
+  },
+  "MA-02": {
+    "urbanPct": null,
+    "income": 97
+  },
+  "MA-03": {
+    "urbanPct": null,
+    "income": 99
+  },
+  "MA-04": {
+    "urbanPct": null,
+    "income": 115
+  },
+  "MA-05": {
+    "urbanPct": null,
+    "income": 137
+  },
+  "MA-06": {
+    "urbanPct": 73.2,
+    "income": 121
+  },
+  "MA-07": {
+    "urbanPct": null,
+    "income": 99
+  },
+  "MA-08": {
+    "urbanPct": null,
+    "income": 119
+  },
+  "MA-09": {
+    "urbanPct": null,
+    "income": 101
+  },
+  "MD-01": {
+    "urbanPct": 64.1,
+    "income": 95
+  },
+  "MD-02": {
+    "urbanPct": 98.3,
+    "income": 95
+  },
+  "MD-03": {
+    "urbanPct": 98.7,
+    "income": 137
+  },
+  "MD-04": {
+    "urbanPct": 97.9,
+    "income": 88
+  },
+  "MD-05": {
+    "urbanPct": 74.2,
+    "income": 129
+  },
+  "MD-06": {
+    "urbanPct": 84.5,
+    "income": 105
+  },
+  "MD-07": {
+    "urbanPct": 95,
+    "income": 67
+  },
+  "MD-08": {
+    "urbanPct": 88.1,
+    "income": 146
+  },
+  "ME-01": {
+    "urbanPct": 49.4,
+    "income": 90
+  },
+  "ME-02": {
+    "urbanPct": 27.9,
+    "income": 67
+  },
+  "MI-01": {
+    "urbanPct": 36.6,
+    "income": 64
+  },
+  "MI-02": {
+    "urbanPct": 74.3,
+    "income": 67
+  },
+  "MI-03": {
+    "urbanPct": 68.5,
+    "income": 77
+  },
+  "MI-04": {
+    "urbanPct": 36.7,
+    "income": 74
+  },
+  "MI-05": {
+    "urbanPct": 77.5,
+    "income": 71
+  },
+  "MI-06": {
+    "urbanPct": null,
+    "income": 97
+  },
+  "MI-07": {
+    "urbanPct": null,
+    "income": 80
+  },
+  "MI-08": {
+    "urbanPct": null,
+    "income": 65
+  },
+  "MI-09": {
+    "urbanPct": null,
+    "income": 87
+  },
+  "MI-10": {
+    "urbanPct": null,
+    "income": 75
+  },
+  "MI-11": {
+    "urbanPct": null,
+    "income": 93
+  },
+  "MI-12": {
+    "urbanPct": null,
+    "income": 57
+  },
+  "MI-13": {
+    "urbanPct": 100,
+    "income": 51
+  },
+  "MN-01": {
+    "urbanPct": 62.5,
+    "income": 79
+  },
+  "MN-02": {
+    "urbanPct": 87,
+    "income": 108
+  },
+  "MN-03": {
+    "urbanPct": 95.6,
+    "income": 107
+  },
+  "MN-04": {
+    "urbanPct": 97.2,
+    "income": 85
+  },
+  "MN-05": {
+    "urbanPct": 100,
+    "income": 80
+  },
+  "MN-06": {
+    "urbanPct": 69.6,
+    "income": 105
+  },
+  "MN-07": {
+    "urbanPct": 35.9,
+    "income": 74
+  },
+  "MN-08": {
+    "urbanPct": 38.5,
+    "income": 75
+  },
+  "MO-01": {
+    "urbanPct": 99.2,
+    "income": 61
+  },
+  "MO-02": {
+    "urbanPct": null,
+    "income": 101
+  },
+  "MO-03": {
+    "urbanPct": null,
+    "income": 84
+  },
+  "MO-04": {
+    "urbanPct": null,
+    "income": 68
+  },
+  "MO-05": {
+    "urbanPct": null,
+    "income": 68
+  },
+  "MO-06": {
+    "urbanPct": null,
+    "income": 76
+  },
+  "MO-07": {
+    "urbanPct": 59.3,
+    "income": 66
+  },
+  "MO-08": {
+    "urbanPct": 38.3,
+    "income": 60
+  },
+  "MS-01": {
+    "urbanPct": 38.4,
+    "income": 61
+  },
+  "MS-02": {
+    "urbanPct": 62.7,
+    "income": 47
+  },
+  "MS-03": {
+    "urbanPct": 40.3,
+    "income": 66
+  },
+  "MS-04": {
+    "urbanPct": 53.7,
+    "income": 62
+  },
+  "MT-01": {
+    "urbanPct": null,
+    "income": 77
+  },
+  "MT-02": {
+    "urbanPct": null,
+    "income": 74
+  },
+  "NC-01": {
+    "urbanPct": null,
+    "income": 59
+  },
+  "NC-02": {
+    "urbanPct": null,
+    "income": 94
+  },
+  "NC-03": {
+    "urbanPct": null,
+    "income": 65
+  },
+  "NC-04": {
+    "urbanPct": null,
+    "income": 102
+  },
+  "NC-05": {
+    "urbanPct": null,
+    "income": 59
+  },
+  "NC-06": {
+    "urbanPct": null,
+    "income": 68
+  },
+  "NC-07": {
+    "urbanPct": null,
+    "income": 71
+  },
+  "NC-08": {
+    "urbanPct": null,
+    "income": 81
+  },
+  "NC-09": {
+    "urbanPct": null,
+    "income": 68
+  },
+  "NC-10": {
+    "urbanPct": null,
+    "income": 72
+  },
+  "NC-11": {
+    "urbanPct": null,
+    "income": 68
+  },
+  "NC-12": {
+    "urbanPct": null,
+    "income": 80
+  },
+  "NC-13": {
+    "urbanPct": null,
+    "income": 85
+  },
+  "NC-14": {
+    "urbanPct": null,
+    "income": 78
+  },
+  "ND-00": {
+    "urbanPct": 55.8,
+    "income": 78
+  },
+  "NE-01": {
+    "urbanPct": 65.2,
+    "income": 78
+  },
+  "NE-02": {
+    "urbanPct": 97.9,
+    "income": 84
+  },
+  "NE-03": {
+    "urbanPct": 46.2,
+    "income": 70
+  },
+  "NH-01": {
+    "urbanPct": 69.6,
+    "income": 102
+  },
+  "NH-02": {
+    "urbanPct": 48.3,
+    "income": 97
+  },
+  "NJ-01": {
+    "urbanPct": 98.2,
+    "income": 95
+  },
+  "NJ-02": {
+    "urbanPct": 80.6,
+    "income": 84
+  },
+  "NJ-03": {
+    "urbanPct": 95.7,
+    "income": 117
+  },
+  "NJ-04": {
+    "urbanPct": 95.1,
+    "income": 104
+  },
+  "NJ-05": {
+    "urbanPct": 87,
+    "income": 130
+  },
+  "NJ-06": {
+    "urbanPct": 100,
+    "income": 104
+  },
+  "NJ-07": {
+    "urbanPct": 85.8,
+    "income": 133
+  },
+  "NJ-08": {
+    "urbanPct": 100,
+    "income": 88
+  },
+  "NJ-09": {
+    "urbanPct": 100,
+    "income": 87
+  },
+  "NJ-10": {
+    "urbanPct": 100,
+    "income": 77
+  },
+  "NJ-11": {
+    "urbanPct": 96.2,
+    "income": 141
+  },
+  "NJ-12": {
+    "urbanPct": 97.6,
+    "income": 117
+  },
+  "NM-01": {
+    "urbanPct": 91.4,
+    "income": 77
+  },
+  "NM-02": {
+    "urbanPct": 70.8,
+    "income": 61
+  },
+  "NM-03": {
+    "urbanPct": 64.7,
+    "income": 66
+  },
+  "NV-01": {
+    "urbanPct": 99.9,
+    "income": 72
+  },
+  "NV-02": {
+    "urbanPct": null,
+    "income": 87
+  },
+  "NV-03": {
+    "urbanPct": null,
+    "income": 90
+  },
+  "NV-04": {
+    "urbanPct": null,
+    "income": 76
+  },
+  "NY-01": {
+    "urbanPct": 94.9,
+    "income": 130
+  },
+  "NY-02": {
+    "urbanPct": 99.9,
+    "income": 125
+  },
+  "NY-03": {
+    "urbanPct": 99.4,
+    "income": 138
+  },
+  "NY-04": {
+    "urbanPct": 100,
+    "income": 138
+  },
+  "NY-05": {
+    "urbanPct": 100,
+    "income": 82
+  },
+  "NY-06": {
+    "urbanPct": 100,
+    "income": 82
+  },
+  "NY-07": {
+    "urbanPct": 100,
+    "income": 92
+  },
+  "NY-08": {
+    "urbanPct": 100,
+    "income": 63
+  },
+  "NY-09": {
+    "urbanPct": 100,
+    "income": 77
+  },
+  "NY-10": {
+    "urbanPct": 100,
+    "income": 120
+  },
+  "NY-11": {
+    "urbanPct": 98,
+    "income": 91
+  },
+  "NY-12": {
+    "urbanPct": 100,
+    "income": 153
+  },
+  "NY-13": {
+    "urbanPct": 100,
+    "income": 52
+  },
+  "NY-14": {
+    "urbanPct": 100,
+    "income": 65
+  },
+  "NY-15": {
+    "urbanPct": 100,
+    "income": 45
+  },
+  "NY-16": {
+    "urbanPct": 100,
+    "income": 102
+  },
+  "NY-17": {
+    "urbanPct": 98.4,
+    "income": 123
+  },
+  "NY-18": {
+    "urbanPct": 81.5,
+    "income": 92
+  },
+  "NY-19": {
+    "urbanPct": 36.5,
+    "income": 73
+  },
+  "NY-20": {
+    "urbanPct": 88.7,
+    "income": 85
+  },
+  "NY-21": {
+    "urbanPct": null,
+    "income": null
+  },
+  "NY-22": {
+    "urbanPct": null,
+    "income": null
+  },
+  "NY-23": {
+    "urbanPct": null,
+    "income": null
+  },
+  "NY-24": {
+    "urbanPct": 72.8,
+    "income": 72
+  },
+  "NY-25": {
+    "urbanPct": 95.5,
+    "income": 77
+  },
+  "NY-26": {
+    "urbanPct": 95.5,
+    "income": 65
+  },
+  "OH-01": {
+    "urbanPct": 92.5,
+    "income": 82
+  },
+  "OH-02": {
+    "urbanPct": 73.4,
+    "income": 68
+  },
+  "OH-03": {
+    "urbanPct": 99.8,
+    "income": 73
+  },
+  "OH-04": {
+    "urbanPct": 63,
+    "income": 81
+  },
+  "OH-05": {
+    "urbanPct": 62.3,
+    "income": 73
+  },
+  "OH-06": {
+    "urbanPct": 42.7,
+    "income": 61
+  },
+  "OH-07": {
+    "urbanPct": null,
+    "income": 85
+  },
+  "OH-08": {
+    "urbanPct": 78,
+    "income": 78
+  },
+  "OH-09": {
+    "urbanPct": 86,
+    "income": 67
+  },
+  "OH-10": {
+    "urbanPct": null,
+    "income": 69
+  },
+  "OH-11": {
+    "urbanPct": 100,
+    "income": 56
+  },
+  "OH-12": {
+    "urbanPct": null,
+    "income": 79
+  },
+  "OH-13": {
+    "urbanPct": null,
+    "income": 71
+  },
+  "OH-14": {
+    "urbanPct": 74.1,
+    "income": 74
+  },
+  "OH-15": {
+    "urbanPct": 40,
+    "income": 81
+  },
+  "OK-01": {
+    "urbanPct": 89.6,
+    "income": 71
+  },
+  "OK-02": {
+    "urbanPct": 35.5,
+    "income": 56
+  },
+  "OK-03": {
+    "urbanPct": 50.7,
+    "income": 60
+  },
+  "OK-04": {
+    "urbanPct": 63.3,
+    "income": 67
+  },
+  "OK-05": {
+    "urbanPct": 87.5,
+    "income": 76
+  },
+  "OR-01": {
+    "urbanPct": 86.7,
+    "income": 97
+  },
+  "OR-02": {
+    "urbanPct": null,
+    "income": 68
+  },
+  "OR-03": {
+    "urbanPct": 93.1,
+    "income": 94
+  },
+  "OR-04": {
+    "urbanPct": 69.2,
+    "income": 69
+  },
+  "OR-05": {
+    "urbanPct": 80.3,
+    "income": 96
+  },
+  "OR-06": {
+    "urbanPct": null,
+    "income": 91
+  },
+  "PA-01": {
+    "urbanPct": null,
+    "income": 112
+  },
+  "PA-02": {
+    "urbanPct": 100,
+    "income": 58
+  },
+  "PA-03": {
+    "urbanPct": 100,
+    "income": 65
+  },
+  "PA-04": {
+    "urbanPct": null,
+    "income": 108
+  },
+  "PA-05": {
+    "urbanPct": null,
+    "income": 86
+  },
+  "PA-06": {
+    "urbanPct": null,
+    "income": 110
+  },
+  "PA-07": {
+    "urbanPct": null,
+    "income": 82
+  },
+  "PA-08": {
+    "urbanPct": null,
+    "income": 70
+  },
+  "PA-09": {
+    "urbanPct": 53.1,
+    "income": 68
+  },
+  "PA-10": {
+    "urbanPct": null,
+    "income": 81
+  },
+  "PA-11": {
+    "urbanPct": null,
+    "income": 85
+  },
+  "PA-12": {
+    "urbanPct": null,
+    "income": 75
+  },
+  "PA-13": {
+    "urbanPct": null,
+    "income": 70
+  },
+  "PA-14": {
+    "urbanPct": 99.8,
+    "income": 67
+  },
+  "PA-15": {
+    "urbanPct": null,
+    "income": 65
+  },
+  "PA-16": {
+    "urbanPct": null,
+    "income": 67
+  },
+  "PA-17": {
+    "urbanPct": null,
+    "income": 89
+  },
+  "RI-01": {
+    "urbanPct": 97,
+    "income": 78
+  },
+  "RI-02": {
+    "urbanPct": 84.5,
+    "income": 92
+  },
+  "SC-01": {
+    "urbanPct": null,
+    "income": 95
+  },
+  "SC-02": {
+    "urbanPct": null,
+    "income": 78
+  },
+  "SC-03": {
+    "urbanPct": null,
+    "income": 66
+  },
+  "SC-04": {
+    "urbanPct": null,
+    "income": 78
+  },
+  "SC-05": {
+    "urbanPct": null,
+    "income": 75
+  },
+  "SC-06": {
+    "urbanPct": null,
+    "income": 58
+  },
+  "SC-07": {
+    "urbanPct": null,
+    "income": 61
+  },
+  "SD-00": {
+    "urbanPct": 55.8,
+    "income": 77
+  },
+  "TN-01": {
+    "urbanPct": 57.5,
+    "income": 61
+  },
+  "TN-02": {
+    "urbanPct": 74.2,
+    "income": 73
+  },
+  "TN-03": {
+    "urbanPct": 62.8,
+    "income": 75
+  },
+  "TN-04": {
+    "urbanPct": 56.2,
+    "income": 74
+  },
+  "TN-05": {
+    "urbanPct": 88.7,
+    "income": 96
+  },
+  "TN-06": {
+    "urbanPct": 48.2,
+    "income": 72
+  },
+  "TN-07": {
+    "urbanPct": null,
+    "income": 79
+  },
+  "TN-08": {
+    "urbanPct": 60.8,
+    "income": 70
+  },
+  "TN-09": {
+    "urbanPct": 98.5,
+    "income": 56
+  },
+  "TX-01": {
+    "urbanPct": 56.8,
+    "income": 67
+  },
+  "TX-02": {
+    "urbanPct": 98.1,
+    "income": 101
+  },
+  "TX-03": {
+    "urbanPct": 96.9,
+    "income": 125
+  },
+  "TX-04": {
+    "urbanPct": 48.9,
+    "income": 99
+  },
+  "TX-05": {
+    "urbanPct": 67.2,
+    "income": 75
+  },
+  "TX-06": {
+    "urbanPct": 88.7,
+    "income": 82
+  },
+  "TX-07": {
+    "urbanPct": 100,
+    "income": 75
+  },
+  "TX-08": {
+    "urbanPct": 67.6,
+    "income": 92
+  },
+  "TX-09": {
+    "urbanPct": 100,
+    "income": 62
+  },
+  "TX-10": {
+    "urbanPct": 77.5,
+    "income": 89
+  },
+  "TX-11": {
+    "urbanPct": 71.7,
+    "income": 71
+  },
+  "TX-12": {
+    "urbanPct": 86.5,
+    "income": 90
+  },
+  "TX-13": {
+    "urbanPct": 68.9,
+    "income": 70
+  },
+  "TX-14": {
+    "urbanPct": 86.6,
+    "income": 78
+  },
+  "TX-15": {
+    "urbanPct": 86.7,
+    "income": 63
+  },
+  "TX-16": {
+    "urbanPct": 98.4,
+    "income": 60
+  },
+  "TX-17": {
+    "urbanPct": 75.3,
+    "income": 70
+  },
+  "TX-18": {
+    "urbanPct": 99.9,
+    "income": 67
+  },
+  "TX-19": {
+    "urbanPct": 74.3,
+    "income": 65
+  },
+  "TX-20": {
+    "urbanPct": 99.6,
+    "income": 62
+  },
+  "TX-21": {
+    "urbanPct": null,
+    "income": null
+  },
+  "TX-22": {
+    "urbanPct": null,
+    "income": null
+  },
+  "TX-23": {
+    "urbanPct": null,
+    "income": null
+  },
+  "TX-24": {
+    "urbanPct": 99.9,
+    "income": 119
+  },
+  "TX-25": {
+    "urbanPct": 67.5,
+    "income": 80
+  },
+  "TX-26": {
+    "urbanPct": 93.4,
+    "income": 123
+  },
+  "TX-27": {
+    "urbanPct": 75,
+    "income": 69
+  },
+  "TX-28": {
+    "urbanPct": 82.8,
+    "income": 65
+  },
+  "TX-29": {
+    "urbanPct": 99.9,
+    "income": 54
+  },
+  "TX-30": {
+    "urbanPct": 98.6,
+    "income": 77
+  },
+  "TX-31": {
+    "urbanPct": null,
+    "income": null
+  },
+  "TX-32": {
+    "urbanPct": 99.9,
+    "income": 72
+  },
+  "TX-33": {
+    "urbanPct": null,
+    "income": null
+  },
+  "TX-34": {
+    "urbanPct": 84,
+    "income": 54
+  },
+  "TX-35": {
+    "urbanPct": 96,
+    "income": 73
+  },
+  "TX-36": {
+    "urbanPct": 67.7,
+    "income": 76
+  },
+  "TX-37": {
+    "urbanPct": null,
+    "income": 94
+  },
+  "TX-38": {
+    "urbanPct": null,
+    "income": 99
+  },
+  "UT-01": {
+    "urbanPct": null,
+    "income": 92
+  },
+  "UT-02": {
+    "urbanPct": null,
+    "income": 91
+  },
+  "UT-03": {
+    "urbanPct": null,
+    "income": 96
+  },
+  "UT-04": {
+    "urbanPct": 96.1,
+    "income": 109
+  },
+  "VA-01": {
+    "urbanPct": 69.5,
+    "income": 101
+  },
+  "VA-02": {
+    "urbanPct": 92.6,
+    "income": 94
+  },
+  "VA-03": {
+    "urbanPct": 95,
+    "income": 68
+  },
+  "VA-04": {
+    "urbanPct": 73.8,
+    "income": 70
+  },
+  "VA-05": {
+    "urbanPct": 35.3,
+    "income": 73
+  },
+  "VA-06": {
+    "urbanPct": 64.3,
+    "income": 74
+  },
+  "VA-07": {
+    "urbanPct": 73.1,
+    "income": 114
+  },
+  "VA-08": {
+    "urbanPct": 99.7,
+    "income": 133
+  },
+  "VA-09": {
+    "urbanPct": 41.8,
+    "income": 59
+  },
+  "VA-10": {
+    "urbanPct": 85.5,
+    "income": 158
+  },
+  "VA-11": {
+    "urbanPct": 100,
+    "income": 158
+  },
+  "VT-00": {
+    "urbanPct": 38.9,
+    "income": 83
+  },
+  "WA-01": {
+    "urbanPct": null,
+    "income": 131
+  },
+  "WA-02": {
+    "urbanPct": null,
+    "income": 91
+  },
+  "WA-03": {
+    "urbanPct": null,
+    "income": 92
+  },
+  "WA-04": {
+    "urbanPct": null,
+    "income": 79
+  },
+  "WA-05": {
+    "urbanPct": null,
+    "income": 80
+  },
+  "WA-06": {
+    "urbanPct": null,
+    "income": 94
+  },
+  "WA-07": {
+    "urbanPct": null,
+    "income": 119
+  },
+  "WA-08": {
+    "urbanPct": 83.4,
+    "income": 131
+  },
+  "WA-09": {
+    "urbanPct": null,
+    "income": 101
+  },
+  "WA-10": {
+    "urbanPct": 92,
+    "income": 95
+  },
+  "WI-01": {
+    "urbanPct": 84.1,
+    "income": 79
+  },
+  "WI-02": {
+    "urbanPct": 75.7,
+    "income": 89
+  },
+  "WI-03": {
+    "urbanPct": 43.2,
+    "income": 73
+  },
+  "WI-04": {
+    "urbanPct": 100,
+    "income": 62
+  },
+  "WI-05": {
+    "urbanPct": 84.8,
+    "income": 92
+  },
+  "WI-06": {
+    "urbanPct": 60.6,
+    "income": 76
+  },
+  "WI-07": {
+    "urbanPct": 42,
+    "income": 73
+  },
+  "WI-08": {
+    "urbanPct": 56,
+    "income": 79
+  },
+  "WV-01": {
+    "urbanPct": null,
+    "income": 57
+  },
+  "WV-02": {
+    "urbanPct": null,
+    "income": 65
+  },
+  "WY-00": {
+    "urbanPct": 64.7,
+    "income": 76
+  }
+}
