@@ -48,19 +48,13 @@ export default function StateLegPage() {
         className="flex items-center justify-between px-5 py-2.5 shrink-0 z-40"
         style={{ backgroundColor: "#0d1117", borderBottom: "1px solid rgba(30,41,59,0.8)" }}
       >
-        <div className="flex items-center gap-3 shrink-0">
-          <Link href="/" className="flex items-center gap-3">
-            <div className="w-8 h-8 rounded-lg flex items-center justify-center text-base shrink-0" style={{ background: "linear-gradient(135deg, #1e3a5f, #1e40af)" }}>🏛</div>
-            <div>
-              <h1 className="text-white font-bold text-sm leading-tight tracking-tight">State Legislatures</h1>
-              <p className="text-slate-600 text-[10px]">Select a state</p>
-            </div>
-          </Link>
-        </div>
+        <Link href="/" className="flex items-center shrink-0">
+          <div className="w-8 h-8 rounded-lg flex items-center justify-center text-base shrink-0" style={{ background: "linear-gradient(135deg, #1e3a5f, #1e40af)" }}>🏛</div>
+        </Link>
 
         <div className="flex items-center gap-0.5 shrink-0">
           {([
-            { href: "/house", label: "House Map" },
+            { href: "/house", label: "House" },
             { href: "/senate", label: "Senate" },
             { href: "/state-leg", label: "State Leg." },
             { href: "/rankings", label: "Rankings" },
@@ -104,15 +98,15 @@ export default function StateLegPage() {
                     // eslint-disable-next-line @typescript-eslint/no-explicit-any
                     key={(geo as any).rsmKey ?? abbr}
                     geography={geo}
-                    fill={implemented ? (isHovered ? "#4338ca" : "#3730a3") : (isHovered ? "#374151" : "#1e293b")}
-                    stroke="#0a0e14"
+                    fill={isHovered ? "#2d3f58" : "#1e293b"}
+                    stroke="#475569"
                     strokeWidth={0.5}
                     onMouseEnter={() => setHoveredState(abbr)}
                     onMouseLeave={() => setHoveredState(null)}
                     onClick={() => handleStateClick(abbr)}
                     style={{
                       default: { outline: "none" },
-                      hover: { outline: "none", cursor: implemented ? "pointer" : "default" },
+                      hover: { outline: "none", cursor: "default" },
                       pressed: { outline: "none" },
                     }}
                   />

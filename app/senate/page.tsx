@@ -223,21 +223,15 @@ export default function SenatePage() {
         className="flex items-center justify-between px-5 py-2.5 shrink-0 z-40"
         style={{ backgroundColor: "#0d1117", borderBottom: "1px solid rgba(30,41,59,0.8)" }}
       >
-        <div className="flex items-center gap-3 shrink-0">
-          <Link href="/" className="flex items-center gap-3">
-            <div className="w-8 h-8 rounded-lg flex items-center justify-center text-base shrink-0" style={{ background: "linear-gradient(135deg, #1e3a5f, #1e40af)" }}>🏛</div>
-            <div>
-              <h1 className="text-white font-bold text-sm leading-tight tracking-tight">U.S. Senate</h1>
-              <p className="text-slate-600 text-[10px]">119th Congress</p>
-            </div>
-          </Link>
-        </div>
+        <Link href="/" className="flex items-center shrink-0">
+          <div className="w-8 h-8 rounded-lg flex items-center justify-center text-base shrink-0" style={{ background: "linear-gradient(135deg, #1e3a5f, #1e40af)" }}>🏛</div>
+        </Link>
 
         {senateData && <SeatTotals data={senateData} />}
 
         <div className="flex items-center gap-0.5 shrink-0">
           {([
-            { href: "/house", label: "House Map" },
+            { href: "/house", label: "House" },
             { href: "/senate", label: "Senate" },
             { href: "/state-leg", label: "State Leg." },
             { href: "/rankings", label: "Rankings" },
@@ -284,8 +278,8 @@ export default function SenatePage() {
                       // eslint-disable-next-line @typescript-eslint/no-explicit-any
                       key={(geo as any).rsmKey ?? abbr}
                       geography={geo}
-                      fill={isSelected ? fill : isHovered ? `${fill}dd` : `${fill}aa`}
-                      stroke={isSelected ? "#ffffff" : isHovered ? "#94a3b8" : "#0a0e14"}
+                      fill={fill}
+                      stroke={isSelected ? "#ffffff" : isHovered ? "#94a3b8" : "#334155"}
                       strokeWidth={isSelected ? 2 / zoom : isHovered ? 1 / zoom : 0.5 / zoom}
                       onMouseEnter={() => setHoveredState(abbr)}
                       onMouseLeave={() => setHoveredState(null)}
@@ -347,9 +341,8 @@ export default function SenatePage() {
           <p className="text-slate-600 text-[10px] font-bold uppercase tracking-widest mb-2">Senate composition</p>
           {[
             { label: "Both Republican", color: "#b91c1c" },
-            { label: "Split (R + D)", color: "#7e22ce" },
-            { label: "Both Democrat", color: "#1d4ed8" },
-            { label: "Independent", color: "#b45309" },
+            { label: "Split", color: "#7e22ce" },
+            { label: "Both Democrat / Ind.", color: "#1d4ed8" },
           ].map(({ label, color }) => (
             <div key={label} className="flex items-center gap-2 mb-1 last:mb-0">
               <div className="w-3 h-3 rounded-sm shrink-0" style={{ backgroundColor: color }} />

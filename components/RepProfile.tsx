@@ -651,55 +651,6 @@ export default function RepProfile({ districtId, repName, data, onClose }: Props
             )}
           </SectionCard>
 
-          {/* Recent News */}
-          <SectionCard title="Recent News">
-            {guardian === null ? (
-              <LoadingRows count={3} />
-            ) : guardian.noKey ? (
-              <p className="text-[12px] text-slate-600 italic">
-                Set <code className="text-slate-500 bg-slate-800 px-1 rounded">GUARDIAN_API_KEY</code> in your environment to enable news.
-              </p>
-            ) : guardian.error ? (
-              <p className="text-[12px] text-slate-700 italic">News unavailable</p>
-            ) : !guardian.articles?.length ? (
-              <p className="text-[12px] text-slate-700 italic">No recent articles found</p>
-            ) : (
-              <div className="space-y-0">
-                {guardian.articles.map((article) => (
-                  <a
-                    key={article.id}
-                    href={article.webUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex gap-3 py-3 border-b border-slate-800/60 last:border-0 hover:bg-slate-800/30 transition-colors rounded group"
-                  >
-                    {article.fields?.thumbnail && (
-                      <img
-                        src={article.fields.thumbnail}
-                        alt=""
-                        className="w-16 h-12 object-cover rounded shrink-0"
-                      />
-                    )}
-                    <div className="min-w-0 flex-1">
-                      <p className="text-[12px] font-semibold text-slate-300 group-hover:text-white leading-snug line-clamp-2 transition-colors">
-                        {article.webTitle}
-                      </p>
-                      {article.fields?.trailText && (
-                        <p className="text-[11px] text-slate-600 mt-0.5 line-clamp-2 leading-snug">
-                          {article.fields.trailText}
-                        </p>
-                      )}
-                      <p className="text-[10px] text-slate-700 mt-1">
-                        {new Date(article.webPublicationDate).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" })}
-                        {" · The Guardian"}
-                      </p>
-                    </div>
-                  </a>
-                ))}
-              </div>
-            )}
-          </SectionCard>
-
           <p className="text-[10px] text-slate-700 text-center pb-4">
             119th Congress · Data as of April 2026
           </p>

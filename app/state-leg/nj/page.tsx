@@ -29,10 +29,10 @@ const PARTY_C: Record<string, string> = {
   Independent: PARTY_COLORS.Independent,
 };
 
-const NJ_CENTER: [number, number] = [-74.5, 40.1];
-const NJ_ZOOM = 9;
-const ZOOM_MIN = 5;
-const ZOOM_MAX = 40;
+const NJ_CENTER: [number, number] = [-74.4, 40.1];
+const NJ_ZOOM = 1;
+const ZOOM_MIN = 0.5;
+const ZOOM_MAX = 20;
 
 function districtFill(distNum: number, data: NJLegData | null, chamber: Chamber, hovered: number | null, selected: number | null): string {
   const isHov = distNum === hovered;
@@ -55,8 +55,8 @@ function districtFill(distNum: number, data: NJLegData | null, chamber: Chamber,
 
   const base = PARTY_C[party ?? ""] ?? "#334155";
   if (isSel) return base;
-  if (isHov) return `${base}dd`;
-  return `${base}88`;
+  if (isHov) return base;
+  return base;
 }
 
 interface SelectedDistrict {
@@ -186,7 +186,7 @@ export default function NJLegPage() {
 
             <div className="flex items-center gap-0.5">
               {([
-                { href: "/house", label: "House Map" },
+                { href: "/house", label: "House" },
                 { href: "/senate", label: "Senate" },
                 { href: "/state-leg", label: "State Leg." },
               ] as const).map(({ href, label }) => (
@@ -210,7 +210,7 @@ export default function NJLegPage() {
             </div>
           )}
 
-          <ComposableMap projection="geoAlbersUsa" projectionConfig={{ scale: 900 }} width={800} height={500}
+          <ComposableMap projection="geoMercator" projectionConfig={{ center: [-74.4, 40.1], scale: 11000 }} width={800} height={500}
             style={{ width: "100%", height: "100%", display: "block" }}>
             <ZoomableGroup zoom={zoom} center={center} onMoveEnd={handleMoveEnd} minZoom={ZOOM_MIN} maxZoom={ZOOM_MAX}>
               <Geographies geography={geoUrl} parseGeographies={parseSenateGeos}>

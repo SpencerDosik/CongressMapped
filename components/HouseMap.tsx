@@ -698,18 +698,14 @@ export default function HouseMap() {
         }}
       >
         {/* Logo */}
-        <div className="flex items-center gap-2.5 shrink-0">
+        <a href="/" className="flex items-center gap-2.5 shrink-0">
           <div
             className="w-7 h-7 rounded-lg flex items-center justify-center text-sm shrink-0"
             style={{ background: "linear-gradient(135deg, #1e3a5f, #1e40af)" }}
           >
             🏛
           </div>
-          <div className="hidden sm:block">
-            <h1 className="text-white font-bold text-sm leading-tight tracking-tight">HouseMap</h1>
-            <p className="text-slate-600 text-[10px]">119th Congress</p>
-          </div>
-        </div>
+        </a>
 
         {/* Seat bar (center, takes available space) */}
         <div className="flex-1 flex justify-center min-w-0">
@@ -721,7 +717,7 @@ export default function HouseMap() {
           {/* Nav links */}
           <div className="hidden lg:flex items-center gap-0.5">
             {[
-              { href: "/house", label: "Map" },
+              { href: "/house", label: "House" },
               { href: "/senate", label: "Senate" },
               { href: "/state-leg", label: "State Leg." },
               { href: "/rankings", label: "Rankings" },
