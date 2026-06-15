@@ -164,15 +164,17 @@ export default async function Home({
           title="Compare"
           description="Two districts side by side."
         />
-        <DisabledCard
+        <ModeCard
+          href="/senate"
           icon={<LandmarkIcon />}
           title="U.S. Senate"
-          description="All 100 senators, mapped and ranked."
+          description="All 100 senators mapped by state — party, split delegations, and composition."
         />
-        <DisabledCard
+        <ModeCard
+          href="/state-leg"
           icon={<BuildingIcon />}
           title="State Legislatures"
-          description="State-level chambers and districts. Starting with New Jersey."
+          description="State-level chambers and districts. New Jersey now available."
         />
       </div>
 

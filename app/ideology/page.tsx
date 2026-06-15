@@ -8,6 +8,7 @@ import { PARTY_COLORS } from "@/lib/colors";
 import { STATE_NAMES, AT_LARGE_STATES } from "@/lib/stateFips";
 import IdeologyChart, { AxisConfig, MemberPoint } from "@/components/IdeologyChart";
 import DistrictPanel from "@/components/DistrictPanel";
+import RepProfile from "@/components/RepProfile";
 import { getDistrictData, getRepName } from "@/lib/districtData";
 
 // ── Axis definitions ──────────────────────────────────────────────────────────
@@ -299,6 +300,126 @@ function AxisPicker({
   );
 }
 
+// ── Committee data types ──────────────────────────────────────────────────────
+
+interface CommitteeEntry {
+  code: string;
+  name: string;
+  type: string;
+  parent: string | null;
+}
+
+// Short display names for committees
+function shortCommName(name: string): string {
+  return name
+    .replace("House Committee on the ", "")
+    .replace("House Committee on ", "")
+    .replace(" and ", " & ");
+}
+
+// ── Compact filter dropdown ────────────────────────────────────────────────────
+
+function FilterDropdown({
+  label,
+  value,
+  options,
+  onChange,
+  onClear,
+}: {
+  label: string;
+  value: string | null;
+  options: { value: string; label: string }[];
+  onChange: (v: string) => void;
+  onClear: () => void;
+}) {
+  const [open, setOpen] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
+  const [search, setSearch] = useState("");
+
+  useEffect(() => {
+    const h = (e: MouseEvent) => {
+      if (ref.current && !ref.current.contains(e.target as Node)) setOpen(false);
+    };
+    document.addEventListener("mousedown", h);
+    return () => document.removeEventListener("mousedown", h);
+  }, []);
+
+  const filtered = options.filter((o) =>
+    o.label.toLowerCase().includes(search.toLowerCase())
+  );
+
+  const hasValue = value !== null;
+  const displayLabel = value ? (options.find((o) => o.value === value)?.label ?? value) : label;
+
+  return (
+    <div ref={ref} className="relative shrink-0 flex items-center gap-1.5">
+      <button
+        onClick={() => setOpen((o) => !o)}
+        className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-[11px] font-medium transition-all duration-150 whitespace-nowrap max-w-[160px]"
+        style={hasValue || open
+          ? { backgroundColor: "rgba(99,102,241,0.25)", color: "#a5b4fc", border: "1px solid rgba(99,102,241,0.4)" }
+          : { backgroundColor: "rgba(15,23,42,0.7)", border: "1px solid rgba(30,41,59,0.9)", color: "#64748b" }
+        }
+      >
+        <span className="truncate">{displayLabel}</span>
+        {hasValue ? (
+          <span
+            className="text-indigo-300 hover:text-white ml-1 shrink-0"
+            onClick={(e) => { e.stopPropagation(); onClear(); setSearch(""); }}
+          >
+            ✕
+          </span>
+        ) : (
+          <svg className="w-3 h-3 shrink-0 transition-transform" style={{ transform: open ? "rotate(180deg)" : "" }} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+          </svg>
+        )}
+      </button>
+
+      {open && (
+        <div
+          className="absolute top-full right-0 mt-1 rounded-xl overflow-hidden z-50 shadow-2xl shadow-black/60 flex flex-col"
+          style={{ backgroundColor: "#0d1117", border: "1px solid rgba(51,65,85,0.7)", minWidth: "220px", maxHeight: "320px" }}
+        >
+          <div className="p-2 border-b border-slate-800/60 shrink-0">
+            <input
+              autoFocus
+              type="text"
+              placeholder="Search…"
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+              className="w-full px-2 py-1 rounded-md text-[11px] text-slate-300 placeholder-slate-600 outline-none"
+              style={{ backgroundColor: "rgba(15,23,42,0.8)", border: "1px solid rgba(51,65,85,0.5)" }}
+            />
+          </div>
+          <div className="overflow-y-auto flex-1">
+            {filtered.length === 0 ? (
+              <p className="px-4 py-3 text-[11px] text-slate-600">No matches</p>
+            ) : (
+              filtered.map((opt) => {
+                const active = value === opt.value;
+                return (
+                  <button
+                    key={opt.value}
+                    onClick={() => { onChange(opt.value); setOpen(false); setSearch(""); }}
+                    className="w-full flex items-center justify-between px-3 py-2.5 text-left text-[12px] transition-colors"
+                    style={{ backgroundColor: active ? "rgba(99,102,241,0.12)" : "transparent", color: active ? "#a5b4fc" : "#cbd5e1" }}
+                    onMouseEnter={(e) => { if (!active) (e.currentTarget as HTMLButtonElement).style.backgroundColor = "rgba(51,65,85,0.4)"; }}
+                    onMouseLeave={(e) => { if (!active) (e.currentTarget as HTMLButtonElement).style.backgroundColor = "transparent"; }}
+                  >
+                    <span className="truncate">{opt.label}</span>
+                    {active && <span className="text-indigo-400 text-[10px] shrink-0 ml-2">✓</span>}
+                  </button>
+                );
+              })
+            )}
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+
 // ── Page ──────────────────────────────────────────────────────────────────────
 
 const PARTY_CHIPS: { label: string; value: "All" | MemberParty }[] = [
@@ -308,13 +429,20 @@ const PARTY_CHIPS: { label: string; value: "All" | MemberParty }[] = [
   { label: "I", value: "Independent" },
 ];
 
+const ALL_STATES = Object.entries(STATE_NAMES)
+  .map(([abbr, name]) => ({ value: abbr, label: name }))
+  .sort((a, b) => a.label.localeCompare(b.label));
+
 export default function IdeologyPage() {
   const pathname = usePathname();
   const [xKey, setXKey] = useState<AxisKey>("pvi");
   const [yKey, setYKey] = useState<AxisKey>("tenure");
   const [partyFilter, setPartyFilter] = useState<"All" | MemberParty>("All");
+  const [stateFilter, setStateFilter] = useState<string | null>(null);
+  const [committeeFilter, setCommitteeFilter] = useState<string | null>(null);
   const [meta, setMeta] = useState<Record<string, LegislatorMeta> | null>(null);
   const [bills, setBills] = useState<Record<string, BillCounts> | null>(null);
+  const [committeeData, setCommitteeData] = useState<Record<string, CommitteeEntry[]> | null>(null);
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [showProfile, setShowProfile] = useState(false);
   const userChangedY = useRef(false);
@@ -324,30 +452,57 @@ export default function IdeologyPage() {
 
     fetch("/legislator-meta.json")
       .then((r) => (r.ok ? r.json() : null))
-      .then((json) => {
-        if (!cancelled && json && typeof json === "object") setMeta(json);
-      })
+      .then((json) => { if (!cancelled && json) setMeta(json); })
       .catch(() => {});
 
-    // Optional: bills axes only become available if this file exists & parses.
     fetch("/bill-counts.json")
       .then((r) => (r.ok ? r.json() : Promise.reject(new Error(`HTTP ${r.status}`))))
       .then((json) => {
-        if (cancelled || !json || typeof json !== "object") return;
+        if (cancelled || !json) return;
         setBills(json as Record<string, BillCounts>);
-        // Bills Sponsored is the default Y axis when bill data is available.
         if (!userChangedY.current) setYKey("sponsored");
       })
       .catch(() => {});
 
-    return () => {
-      cancelled = true;
-    };
+    fetch("/committee-data.json")
+      .then((r) => (r.ok ? r.json() : null))
+      .then((json) => { if (!cancelled && json) setCommitteeData(json); })
+      .catch(() => {});
+
+    return () => { cancelled = true; };
   }, []);
 
   const billsAvailable = bills !== null;
 
-  const { points, hiddenCount } = useMemo(() => {
+  // Build sorted list of unique full committees
+  const committeeOptions = useMemo(() => {
+    if (!committeeData) return [];
+    const seen = new Set<string>();
+    const opts: { value: string; label: string }[] = [];
+    Object.values(committeeData).forEach((comms) => {
+      comms.forEach((c) => {
+        if (c.type === "house" && !c.parent && !seen.has(c.name)) {
+          seen.add(c.name);
+          opts.push({ value: c.name, label: shortCommName(c.name) });
+        }
+      });
+    });
+    return opts.sort((a, b) => a.label.localeCompare(b.label));
+  }, [committeeData]);
+
+  // Set of district IDs on the selected committee
+  const committeeDistrictIds = useMemo(() => {
+    if (!committeeFilter || !committeeData) return null;
+    const ids = new Set<string>();
+    Object.entries(committeeData).forEach(([id, comms]) => {
+      if (comms.some((c) => c.name === committeeFilter || c.parent === committeeFilter)) {
+        ids.add(id);
+      }
+    });
+    return ids;
+  }, [committeeFilter, committeeData]);
+
+  const { points, hiddenCount, visibleCount } = useMemo(() => {
     const pts: MemberPoint[] = [];
     let hidden = 0;
     for (const { districtId, data } of MEMBERS) {
@@ -359,6 +514,12 @@ export default function IdeologyPage() {
       }
       const party = data.party as MemberParty;
       const [state] = districtId.split("-");
+
+      const partyFaded = partyFilter !== "All" && party !== partyFilter;
+      const stateFaded = stateFilter !== null && state !== stateFilter;
+      const committeeFaded = committeeDistrictIds !== null && !committeeDistrictIds.has(districtId);
+      const faded = partyFaded || stateFaded || committeeFaded;
+
       pts.push({
         districtId,
         name: data.repName,
@@ -368,121 +529,154 @@ export default function IdeologyPage() {
         bioguide: meta?.[districtId]?.bioguide ?? null,
         xValue: xv,
         yValue: yv,
-        faded: partyFilter !== "All" && party !== partyFilter,
+        faded,
       });
     }
-    return { points: pts, hiddenCount: hidden };
-  }, [xKey, yKey, partyFilter, meta, bills]);
+    const visibleCount = pts.filter((p) => !p.faded).length;
+    return { points: pts, hiddenCount: hidden, visibleCount };
+  }, [xKey, yKey, partyFilter, stateFilter, committeeDistrictIds, meta, bills]);
+
+  const activeFilters = [partyFilter !== "All", stateFilter !== null, committeeFilter !== null].filter(Boolean).length;
 
   return (
     <div className="h-screen flex flex-col overflow-hidden" style={{ backgroundColor: "#0a0e14", color: "#e2e8f0" }}>
       {/* Header bar */}
       <header
-        className="flex items-center justify-between flex-wrap gap-x-4 gap-y-2 px-4 py-2.5 shrink-0 z-20"
+        className="flex items-center justify-between gap-3 px-4 py-2 shrink-0 z-20"
         style={{ backgroundColor: "#0d1117", borderBottom: "1px solid rgba(30,41,59,0.8)" }}
       >
-        <div className="flex items-center gap-3 shrink-0">
-          <Link href="/" className="flex items-center text-slate-400 hover:text-white transition-colors text-sm whitespace-nowrap">
+        <div className="flex items-center gap-2 shrink-0">
+          <Link href="/" className="flex items-center text-slate-400 hover:text-white transition-colors">
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
             </svg>
           </Link>
           <div className="flex items-center gap-0.5">
-            {(["/house", "/rankings", "/compare", "/ideology"] as const).map((href) => {
-              const label = { "/house": "Map", "/rankings": "Rankings", "/compare": "Compare", "/ideology": "Ideology" }[href];
+            {(["/house", "/senate", "/rankings", "/compare", "/ideology"] as const).map((href) => {
+              const label: Record<string, string> = { "/house": "Map", "/senate": "Senate", "/rankings": "Rankings", "/compare": "Compare", "/ideology": "Ideology" };
               const active = pathname === href;
               return (
                 <a key={href} href={href} className="px-2 py-1 rounded text-[10px] font-medium transition-colors whitespace-nowrap"
                   style={{ color: active ? "#a5b4fc" : "#64748b", backgroundColor: active ? "rgba(99,102,241,0.12)" : "transparent" }}>
-                  {label}
+                  {label[href]}
                 </a>
               );
             })}
           </div>
-          <span className="text-slate-600 text-[11px] whitespace-nowrap hidden sm:inline">
-            {MEMBERS.length} members
-          </span>
         </div>
 
-        <div className="flex items-center gap-4 flex-wrap">
-          <AxisPicker label="X Axis" value={xKey} onChange={setXKey} billsAvailable={billsAvailable} />
-          <AxisPicker
-            label="Y Axis"
-            value={yKey}
-            onChange={(k) => {
-              userChangedY.current = true;
-              setYKey(k);
-            }}
-            billsAvailable={billsAvailable}
-          />
+        {/* Axis pickers */}
+        <div className="flex items-center gap-3 flex-wrap">
+          <AxisPicker label="X" value={xKey} onChange={setXKey} billsAvailable={billsAvailable} />
+          <AxisPicker label="Y" value={yKey} onChange={(k) => { userChangedY.current = true; setYKey(k); }} billsAvailable={billsAvailable} />
 
-          {/* Party filter chips */}
-          <div className="flex items-center gap-1.5">
+          <div className="w-px h-5 bg-slate-700/60 shrink-0" />
+
+          {/* Party chips */}
+          <div className="flex items-center gap-1">
             {PARTY_CHIPS.map(({ label, value }) => {
               const active = partyFilter === value;
               const color = value === "All" ? undefined : PARTY_COLORS[value];
               return (
-                <button
-                  key={value}
-                  onClick={() => setPartyFilter(value)}
-                  className="px-2.5 py-1 rounded-lg text-[11px] font-semibold transition-all whitespace-nowrap"
-                  style={
-                    active
-                      ? {
-                          backgroundColor: color ? `${color}25` : "rgba(99,102,241,0.25)",
-                          color: color ?? "#a5b4fc",
-                          border: `1px solid ${color ? `${color}50` : "rgba(99,102,241,0.4)"}`,
-                        }
-                      : {
-                          backgroundColor: "transparent",
-                          color: "#475569",
-                          border: "1px solid rgba(30,41,59,0.9)",
-                        }
-                  }
-                >
+                <button key={value} onClick={() => setPartyFilter(value)}
+                  className="px-2 py-1 rounded-lg text-[11px] font-semibold transition-all whitespace-nowrap"
+                  style={active
+                    ? { backgroundColor: color ? `${color}25` : "rgba(99,102,241,0.25)", color: color ?? "#a5b4fc", border: `1px solid ${color ? `${color}50` : "rgba(99,102,241,0.4)"}` }
+                    : { backgroundColor: "transparent", color: "#475569", border: "1px solid rgba(30,41,59,0.9)" }
+                  }>
                   {label}
                 </button>
               );
             })}
           </div>
+
+          <div className="w-px h-5 bg-slate-700/60 shrink-0" />
+
+          {/* State filter */}
+          <FilterDropdown
+            label="State"
+            value={stateFilter}
+            options={ALL_STATES}
+            onChange={setStateFilter}
+            onClear={() => setStateFilter(null)}
+          />
+
+          {/* Committee filter */}
+          <FilterDropdown
+            label="Committee"
+            value={committeeFilter}
+            options={committeeOptions}
+            onChange={setCommitteeFilter}
+            onClear={() => setCommitteeFilter(null)}
+          />
+
+          {/* Clear all active filters */}
+          {activeFilters > 0 && (
+            <button
+              onClick={() => { setPartyFilter("All"); setStateFilter(null); setCommitteeFilter(null); }}
+              className="px-2 py-1 rounded-lg text-[10px] font-medium transition-all whitespace-nowrap"
+              style={{ backgroundColor: "rgba(239,68,68,0.12)", color: "#f87171", border: "1px solid rgba(239,68,68,0.25)" }}
+            >
+              Clear {activeFilters}
+            </button>
+          )}
         </div>
+
+        <span className="text-slate-600 text-[11px] whitespace-nowrap shrink-0">
+          {visibleCount} / {MEMBERS.length}
+        </span>
       </header>
 
-      {/* Chart */}
-      <div className="flex-1 min-h-0 relative">
-        {points.length > 0 ? (
-          <IdeologyChart
-            members={points}
-            xAxis={AXES[xKey]}
-            yAxis={AXES[yKey]}
-            onMemberClick={(id) => { setSelectedId(id); setShowProfile(false); }}
-          />
-        ) : (
-          <div className="absolute inset-0 flex items-center justify-center text-slate-600 text-sm">
-            No members have data for the selected axes.
-          </div>
-        )}
+      {/* Chart + panel */}
+      <div className="flex-1 min-h-0 relative flex">
+        <div className="flex-1 min-w-0 relative">
+          {points.length > 0 ? (
+            <IdeologyChart
+              members={points}
+              xAxis={AXES[xKey]}
+              yAxis={AXES[yKey]}
+              onMemberClick={(id) => { setSelectedId(id); setShowProfile(false); }}
+            />
+          ) : (
+            <div className="absolute inset-0 flex items-center justify-center text-slate-600 text-sm">
+              No members have data for the selected axes.
+            </div>
+          )}
+        </div>
 
-        {/* District panel overlay */}
+        {/* District panel */}
         {selectedId && (() => {
           const data = getDistrictData(selectedId);
           const repName = getRepName(selectedId);
           if (!data || !repName) return null;
           return (
-            <div className="absolute inset-y-0 right-0 z-30 pointer-events-none flex items-stretch">
-              <div className="pointer-events-auto">
-                <DistrictPanel
-                  districtId={selectedId}
-                  repName={repName}
-                  data={data}
-                  onClose={() => setSelectedId(null)}
-                  onShowProfile={() => setShowProfile(true)}
-                />
-              </div>
+            <div className="shrink-0">
+              <DistrictPanel
+                districtId={selectedId}
+                repName={repName}
+                data={data}
+                onClose={() => { setSelectedId(null); setShowProfile(false); }}
+                onShowProfile={() => setShowProfile(true)}
+              />
             </div>
           );
         })()}
       </div>
+
+      {/* Full profile overlay */}
+      {showProfile && selectedId && (() => {
+        const data = getDistrictData(selectedId);
+        const repName = getRepName(selectedId);
+        if (!data || !repName) return null;
+        return (
+          <RepProfile
+            districtId={selectedId}
+            repName={repName}
+            data={data}
+            onClose={() => setShowProfile(false)}
+          />
+        );
+      })()}
 
       {/* Footnote */}
       <footer
@@ -490,8 +684,7 @@ export default function IdeologyPage() {
         style={{ backgroundColor: "#0d1117", borderTop: "1px solid rgba(30,41,59,0.8)" }}
       >
         <p className="text-slate-600 text-[10px] truncate">
-          Sources: PVI (estimated) &amp; margins from 2024 results · Income: Census ACS · Portraits:
-          Library of Congress bioguide
+          Sources: PVI (estimated) &amp; margins from 2024 results · Income: Census ACS · Portraits: Library of Congress bioguide
         </p>
         {hiddenCount > 0 && (
           <p className="text-slate-500 text-[10px] whitespace-nowrap">

@@ -752,37 +752,39 @@ export default function HouseMap() {
 
       {/* ── Header ─────────────────────────────────────────────────────── */}
       <header
-        className="flex items-center justify-between px-5 py-2.5 shrink-0 z-40"
+        className="flex items-center gap-3 px-4 py-2 shrink-0 z-40"
         style={{
           backgroundColor: "#0d1117",
           borderBottom: "1px solid rgba(30,41,59,0.8)",
         }}
       >
         {/* Logo */}
-        <div className="flex items-center gap-3 shrink-0">
+        <div className="flex items-center gap-2.5 shrink-0">
           <div
-            className="w-8 h-8 rounded-lg flex items-center justify-center text-base shrink-0"
+            className="w-7 h-7 rounded-lg flex items-center justify-center text-sm shrink-0"
             style={{ background: "linear-gradient(135deg, #1e3a5f, #1e40af)" }}
           >
             🏛
           </div>
-          <div>
-            <h1 className="text-white font-bold text-sm leading-tight tracking-tight">
-              HouseMap
-            </h1>
+          <div className="hidden sm:block">
+            <h1 className="text-white font-bold text-sm leading-tight tracking-tight">HouseMap</h1>
             <p className="text-slate-600 text-[10px]">119th Congress</p>
           </div>
         </div>
 
-        {/* Seat bar (center) */}
-        <SeatBar />
+        {/* Seat bar (center, takes available space) */}
+        <div className="flex-1 flex justify-center min-w-0">
+          <SeatBar />
+        </div>
 
         {/* Right controls */}
-        <div className="flex items-center gap-2 shrink-0">
+        <div className="flex items-center gap-1.5 shrink-0">
           {/* Nav links */}
-          <div className="hidden md:flex items-center gap-0.5">
+          <div className="hidden lg:flex items-center gap-0.5">
             {[
               { href: "/house", label: "Map" },
+              { href: "/senate", label: "Senate" },
+              { href: "/state-leg", label: "State Leg." },
               { href: "/rankings", label: "Rankings" },
               { href: "/compare", label: "Compare" },
               { href: "/ideology", label: "Ideology" },
@@ -792,7 +794,7 @@ export default function HouseMap() {
                 <a
                   key={href}
                   href={href}
-                  className="px-2 py-1 rounded text-[10px] font-medium transition-colors"
+                  className="px-2 py-1 rounded text-[10px] font-medium transition-colors whitespace-nowrap"
                   style={{ color: active ? "#a5b4fc" : "#64748b", backgroundColor: active ? "rgba(99,102,241,0.12)" : "transparent" }}
                   onMouseEnter={e => { if (!active) (e.currentTarget as HTMLAnchorElement).style.color = "#cbd5e1"; }}
                   onMouseLeave={e => { if (!active) (e.currentTarget as HTMLAnchorElement).style.color = "#64748b"; }}

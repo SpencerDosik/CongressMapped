@@ -3,10 +3,12 @@
 import { useMemo, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { getAllDistricts } from "@/lib/districtData";
+import { getAllDistricts, getDistrictData, getRepName } from "@/lib/districtData";
 import { PARTY_COLORS } from "@/lib/colors";
 import { STATE_NAMES, AT_LARGE_STATES } from "@/lib/stateFips";
 import { Party } from "@/lib/types";
+import DistrictPanel from "@/components/DistrictPanel";
+import RepProfile from "@/components/RepProfile";
 
 type SortKey = "districtId" | "repName" | "party" | "margin" | "income" | "tenure";
 type SortDir = "asc" | "desc";
@@ -48,6 +50,8 @@ export default function RankingsPage() {
   const [sortDir, setSortDir] = useState<SortDir>("desc");
   const [partyFilter, setPartyFilter] = useState<Party | "All">("All");
   const [search, setSearch] = useState("");
+  const [selectedId, setSelectedId] = useState<string | null>(null);
+  const [showProfile, setShowProfile] = useState(false);
 
   const sorted = useMemo(() => {
     let rows = ALL;
@@ -234,7 +238,16 @@ export default function RankingsPage() {
 
                   {/* Rep */}
                   <td className="px-3 py-2.5">
-                    <p className="text-slate-200 text-[12px] truncate max-w-[200px]">{data.repName}</p>
+                    <button
+                      className="text-slate-200 text-[12px] truncate max-w-[200px] hover:text-indigo-300 hover:underline text-left transition-colors"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        setSelectedId(districtId);
+                        setShowProfile(false);
+                      }}
+                    >
+                      {data.repName}
+                    </button>
                   </td>
 
                   {/* Party */}
@@ -282,6 +295,37 @@ export default function RankingsPage() {
           </div>
         )}
       </div>
+
+      {/* District panel overlay */}
+      {selectedId && (() => {
+        const entry = ALL.find(r => r.districtId === selectedId);
+        if (!entry) return null;
+        return (
+          <>
+            <div
+              className="fixed inset-0 z-40 bg-black/40"
+              onClick={() => { setSelectedId(null); setShowProfile(false); }}
+            />
+            <div className="fixed inset-y-0 right-0 z-50">
+              <DistrictPanel
+                districtId={selectedId}
+                repName={entry.data.repName}
+                data={entry.data}
+                onClose={() => { setSelectedId(null); setShowProfile(false); }}
+                onShowProfile={() => setShowProfile(true)}
+              />
+            </div>
+            {showProfile && (
+              <RepProfile
+                districtId={selectedId}
+                repName={entry.data.repName}
+                data={entry.data}
+                onClose={() => setShowProfile(false)}
+              />
+            )}
+          </>
+        );
+      })()}
     </div>
   );
 }
