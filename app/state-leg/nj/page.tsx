@@ -199,7 +199,7 @@ export default function NJLegPage() {
             </div>
           )}
 
-          <ComposableMap projection="geoMercator" projectionConfig={{ center: [-74.5, 40.1], scale: 11000 }} width={800} height={500}
+          <ComposableMap projection="geoMercator" projectionConfig={{ center: [-74.7, 40.2], scale: 8000 }} width={800} height={500}
             style={{ width: "100%", height: "100%", display: "block" }}>
             <Geographies geography={geoUrl} parseGeographies={parseSenateGeos}>
               {({ geographies }) =>
