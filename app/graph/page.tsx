@@ -445,6 +445,7 @@ export default function IdeologyPage() {
   const [committeeData, setCommitteeData] = useState<Record<string, CommitteeEntry[]> | null>(null);
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [showProfile, setShowProfile] = useState(false);
+  const [showTrendLine, setShowTrendLine] = useState(false);
   const userChangedY = useRef(false);
 
   useEffect(() => {
@@ -537,6 +538,7 @@ export default function IdeologyPage() {
   }, [xKey, yKey, partyFilter, stateFilter, committeeDistrictIds, meta, bills]);
 
   const activeFilters = [partyFilter !== "All", stateFilter !== null, committeeFilter !== null].filter(Boolean).length;
+  const hasActiveFilter = activeFilters > 0;
 
   return (
     <div className="h-screen flex flex-col overflow-hidden" style={{ backgroundColor: "#0a0e14", color: "#e2e8f0" }}>
@@ -620,6 +622,25 @@ export default function IdeologyPage() {
               Clear {activeFilters}
             </button>
           )}
+
+          <div className="w-px h-4 bg-slate-700/60 shrink-0" />
+
+          {/* Trend line toggle */}
+          <button
+            onClick={() => setShowTrendLine((t) => !t)}
+            className="px-2.5 py-1 rounded-lg text-[11px] font-semibold transition-all whitespace-nowrap"
+            style={showTrendLine ? {
+              backgroundColor: "rgba(251,191,36,0.18)",
+              color: "#fbbf24",
+              border: "1px solid rgba(251,191,36,0.4)",
+            } : {
+              backgroundColor: "transparent",
+              color: "#475569",
+              border: "1px solid rgba(30,41,59,0.9)",
+            }}
+          >
+            Trend Line
+          </button>
         </div>
 
         <span className="text-slate-600 text-[11px] whitespace-nowrap shrink-0">
@@ -636,6 +657,8 @@ export default function IdeologyPage() {
               xAxis={AXES[xKey]}
               yAxis={AXES[yKey]}
               onMemberClick={(id) => { setSelectedId(id); setShowProfile(false); }}
+              scaleToVisible={hasActiveFilter}
+              showTrendLine={showTrendLine}
             />
           ) : (
             <div className="absolute inset-0 flex items-center justify-center text-slate-600 text-sm">

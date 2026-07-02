@@ -577,6 +577,17 @@ export default function HouseMap() {
     return () => window.removeEventListener("mousemove", h);
   }, []);
 
+  // Keyboard shortcuts: Escape closes panel / state view
+  useEffect(() => {
+    function onKeyDown(e: KeyboardEvent) {
+      if (e.key !== "Escape") return;
+      if (selectedId) { setSelectedId(null); setShowProfile(false); return; }
+      if (focusedState) { setFocusedState(null); setZoom(1); setCenter([-98, 38]); }
+    }
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [selectedId, focusedState]);
+
   // Fullscreen via browser API
   useEffect(() => {
     const onChange = () => setFullscreen(!!document.fullscreenElement);

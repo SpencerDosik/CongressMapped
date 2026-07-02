@@ -35,6 +35,7 @@ interface Props {
   yAxis: AxisConfig;
   onMemberClick?: (districtId: string) => void;
   scaleToVisible?: boolean;
+  showTrendLine?: boolean;
 }
 
 // ── Layout constants ──────────────────────────────────────────────────────────
@@ -205,7 +206,7 @@ function ChartTooltip({
 
 // ── Chart ─────────────────────────────────────────────────────────────────────
 
-export default function IdeologyChart({ members, xAxis, yAxis, onMemberClick, scaleToVisible = false }: Props) {
+export default function IdeologyChart({ members, xAxis, yAxis, onMemberClick, scaleToVisible = false, showTrendLine = false }: Props) {
   const [hoveredId, setHoveredId] = useState<string | null>(null);
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const [failedPhotos, setFailedPhotos] = useState<Set<string>>(() => new Set());
@@ -227,6 +228,21 @@ export default function IdeologyChart({ members, xAxis, yAxis, onMemberClick, sc
 
   const xTicks = useMemo(() => xScale.ticks(6), [xScale]);
   const yTicks = useMemo(() => yScale.ticks(6), [yScale]);
+
+  const trendLine = useMemo(() => {
+    if (!showTrendLine || domainSrc.length < 3) return null;
+    const n = domainSrc.length;
+    let sumX = 0, sumY = 0, sumXY = 0, sumX2 = 0;
+    for (const m of domainSrc) {
+      sumX += m.xValue; sumY += m.yValue;
+      sumXY += m.xValue * m.yValue; sumX2 += m.xValue * m.xValue;
+    }
+    const denom = n * sumX2 - sumX * sumX;
+    if (Math.abs(denom) < 1e-10) return null;
+    const slope = (n * sumXY - sumX * sumY) / denom;
+    const intercept = (sumY - slope * sumX) / n;
+    return { slope, intercept };
+  }, [showTrendLine, domainSrc]);
 
   const [xMin, xMax] = xScale.domain();
   const [yMin, yMax] = yScale.domain();
@@ -275,6 +291,24 @@ export default function IdeologyChart({ members, xAxis, yAxis, onMemberClick, sc
         {showYCenter && (
           <line x1={M.left} x2={VB_W - M.right} y1={yScale(0)} y2={yScale(0)} stroke="rgba(148,163,184,0.4)" strokeWidth={1} strokeDasharray="4 4" />
         )}
+
+        {/* Trend line */}
+        {trendLine && (() => {
+          const [xDomMin, xDomMax] = xScale.domain();
+          const [yDomMin, yDomMax] = yScale.domain();
+          const { slope, intercept } = trendLine;
+          const clampY = (y: number) => Math.max(yDomMin, Math.min(yDomMax, y));
+          return (
+            <line
+              x1={xScale(xDomMin)} y1={yScale(clampY(slope * xDomMin + intercept))}
+              x2={xScale(xDomMax)} y2={yScale(clampY(slope * xDomMax + intercept))}
+              stroke="rgba(251,191,36,0.65)"
+              strokeWidth={1.8}
+              strokeDasharray="6 4"
+              strokeLinecap="round"
+            />
+          );
+        })()}
 
         {/* Axis baselines */}
         <line x1={M.left} x2={VB_W - M.right} y1={VB_H - M.bottom} y2={VB_H - M.bottom} stroke={AXIS_STROKE} strokeWidth={1} />

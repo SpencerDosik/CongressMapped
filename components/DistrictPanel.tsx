@@ -36,6 +36,8 @@ interface LegMeta {
   twitter: string | null;
 }
 
+const REDISTRICTING_YEARS = [2002, 2012, 2022];
+
 function ordinalSuffix(n: number) {
   const v = n % 100;
   if (v >= 11 && v <= 13) return "th";
@@ -99,6 +101,7 @@ export default function DistrictPanel({ districtId, repName, data, onClose, onSh
   const [photoError, setPhotoError] = useState(false);
   const [copied, setCopied] = useState(false);
   const [history, setHistory] = useState<HistoryPoint[] | null>(null);
+  const [showSources, setShowSources] = useState(false);
 
   useEffect(() => {
     fetch("/legislator-meta.json")
@@ -162,6 +165,21 @@ export default function DistrictPanel({ districtId, repName, data, onClose, onSh
           <p className="text-slate-500 text-[11px]">{districtLabel}</p>
         </div>
         <div className="flex items-center gap-1.5">
+          {/* Congress.gov link */}
+          {bioguide && !isVacant && (
+            <a
+              href={`https://bioguide.congress.gov/search/bio/${bioguide}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              title="View on Congress.gov"
+              className="w-6 h-6 rounded-full flex items-center justify-center transition-colors text-slate-600 hover:text-slate-300 hover:bg-slate-700/60"
+              aria-label="View on Congress.gov"
+            >
+              <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+              </svg>
+            </a>
+          )}
           {/* Copy link button */}
           <button
             onClick={handleCopyLink}
@@ -394,8 +412,37 @@ export default function DistrictPanel({ districtId, repName, data, onClose, onSh
           </div>
         )}
 
+        {/* Data Sources */}
+        <div className="border-t border-slate-700/30">
+          <button
+            onClick={() => setShowSources((s) => !s)}
+            className="w-full flex items-center justify-between px-4 py-2.5 text-left transition-colors hover:bg-slate-800/30"
+          >
+            <span className="text-[10px] font-bold text-slate-700 uppercase tracking-widest">Data Sources</span>
+            <span className="text-slate-700 text-[10px]">{showSources ? "▲" : "▼"}</span>
+          </button>
+          {showSources && (
+            <div className="px-4 pb-3 space-y-1">
+              {[
+                ["Election results", "MIT Election Data Science Lab (MEDSL)"],
+                ["Legislator info", "unitedstates/congress-legislators"],
+                ["Photos", "Library of Congress Bioguide"],
+                ["Income, Poverty, College", "Census ACS 5-Year 2023"],
+                ["Urban %", "2020 Decennial Census"],
+                ["Election history", "MIT MEDSL 1976–2022"],
+                ["Committees", "unitedstates/congress-legislators"],
+              ].map(([label, source]) => (
+                <div key={label} className="flex justify-between gap-2">
+                  <span className="text-[10px] text-slate-600">{label}</span>
+                  <span className="text-[10px] text-slate-700 text-right">{source}</span>
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
+
         {/* Footer */}
-        <div className="px-4 py-3 border-t border-slate-700/30">
+        <div className="px-4 py-2.5 border-t border-slate-700/30">
           <p className="text-[10px] text-slate-700 leading-relaxed">
             119th Congress · Data as of April 2026
           </p>
@@ -459,6 +506,19 @@ function ElectionSparkline({
       className="w-full"
       style={{ height: H }}
     >
+      {/* Redistricting year markers */}
+      {REDISTRICTING_YEARS.filter((y) => y > minYear && y < maxYear).map((y) => (
+        <line
+          key={`rd-${y}`}
+          x1={px(y)}
+          x2={px(y)}
+          y1={PAD.top}
+          y2={PAD.top + plotH}
+          stroke="rgba(100,116,139,0.22)"
+          strokeWidth={0.8}
+          strokeDasharray="2 2"
+        />
+      ))}
       {/* Zero line */}
       {zeroY >= PAD.top && zeroY <= PAD.top + plotH && (
         <line
