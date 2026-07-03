@@ -38,10 +38,14 @@ function districtDisplay(districtId: string): string {
   return `${state}-${parseInt(num ?? "0", 10)}`;
 }
 
+type SortKey = "margin" | "pvi" | "state" | "tenure";
+
 export default function CompetitivePage() {
   const pathname = usePathname();
   const [selectedCat, setSelectedCat] = useState<string | null>(null);
   const [partyFilter, setPartyFilter] = useState<"All" | "R" | "D">("All");
+  const [sortKey, setSortKey] = useState<SortKey>("margin");
+  const [freshmanOnly, setFreshmanOnly] = useState(false);
 
   const districts = useMemo(() => {
     return ALL
@@ -51,10 +55,17 @@ export default function CompetitivePage() {
         if (selectedCat && cat.label !== selectedCat) return false;
         if (partyFilter === "R" && d.data.margin <= 0) return false;
         if (partyFilter === "D" && d.data.margin >= 0) return false;
+        if (freshmanOnly && d.data.termStart < 2025) return false;
         return true;
       })
-      .sort((a, b) => Math.abs(a.data.margin) - Math.abs(b.data.margin));
-  }, [selectedCat, partyFilter]);
+      .sort((a, b) => {
+        if (sortKey === "margin") return Math.abs(a.data.margin) - Math.abs(b.data.margin);
+        if (sortKey === "pvi") return Math.abs(a.data.pvi) - Math.abs(b.data.pvi);
+        if (sortKey === "state") return a.districtId.localeCompare(b.districtId);
+        if (sortKey === "tenure") return a.data.termStart - b.data.termStart;
+        return 0;
+      });
+  }, [selectedCat, partyFilter, sortKey, freshmanOnly]);
 
   const counts = useMemo(() => {
     const m: Record<string, number> = {};
@@ -140,8 +151,8 @@ export default function CompetitivePage() {
           ))}
         </div>
 
-        {/* Party filter */}
-        <div className="flex gap-2">
+        {/* Party filter + Freshman filter */}
+        <div className="flex flex-wrap gap-2 items-center">
           {(["All", "R", "D"] as const).map((p) => (
             <button
               key={p}
@@ -160,6 +171,48 @@ export default function CompetitivePage() {
               {p === "All" ? "All seats" : p === "R" ? "R-held" : "D-held"}
             </button>
           ))}
+          <div className="w-px h-4 bg-slate-800 mx-1" />
+          <button
+            onClick={() => setFreshmanOnly(f => !f)}
+            className="px-2.5 py-1 rounded-lg text-[11px] font-medium transition-all"
+            style={freshmanOnly ? {
+              backgroundColor: "rgba(99,102,241,0.15)",
+              color: "#a5b4fc",
+              border: "1px solid rgba(99,102,241,0.35)",
+            } : {
+              backgroundColor: "transparent",
+              color: "#475569",
+              border: "1px solid transparent",
+            }}
+          >
+            Freshmen only
+          </button>
+        </div>
+
+        {/* Sort options */}
+        <div className="flex items-center gap-1 mt-2">
+          <span className="text-[10px] text-slate-700 uppercase tracking-widest mr-1">Sort:</span>
+          {(["margin", "pvi", "state", "tenure"] as SortKey[]).map((k) => {
+            const labels: Record<SortKey, string> = { margin: "Margin", pvi: "PVI", state: "State", tenure: "Tenure" };
+            return (
+              <button
+                key={k}
+                onClick={() => setSortKey(k)}
+                className="px-2 py-1 rounded text-[11px] font-medium transition-all"
+                style={sortKey === k ? {
+                  backgroundColor: "rgba(99,102,241,0.15)",
+                  color: "#a5b4fc",
+                  border: "1px solid rgba(99,102,241,0.3)",
+                } : {
+                  backgroundColor: "transparent",
+                  color: "#475569",
+                  border: "1px solid transparent",
+                }}
+              >
+                {labels[k]}
+              </button>
+            );
+          })}
         </div>
       </div>
 
@@ -202,9 +255,15 @@ export default function CompetitivePage() {
                   <div className="flex items-center gap-2.5 flex-1 min-w-0">
                     <div className="w-1 h-8 rounded-full shrink-0" style={{ backgroundColor: partyColor }} />
                     <div className="min-w-0">
-                      <div className="flex items-center gap-2">
+                      <div className="flex items-center gap-2 flex-wrap">
                         <span className="text-white font-bold text-[13px] tabular-nums">{districtDisplay(districtId)}</span>
                         <span className="text-slate-600 text-[11px]">{stateName}</span>
+                        {data.termStart >= 2025 && (
+                          <span className="text-[9px] font-bold px-1.5 py-0.5 rounded-full uppercase tracking-wide"
+                            style={{ backgroundColor: "rgba(99,102,241,0.15)", color: "#a5b4fc", border: "1px solid rgba(99,102,241,0.3)" }}>
+                            Fresh.
+                          </span>
+                        )}
                       </div>
                       <p className="text-slate-400 text-[11px] truncate">{data.repName}</p>
                     </div>
@@ -226,6 +285,14 @@ export default function CompetitivePage() {
                     </p>
                     <p className="text-[10px] text-slate-600">PVI</p>
                   </div>
+
+                  {/* Tenure (shown only when sorting by tenure) */}
+                  {sortKey === "tenure" && (
+                    <div className="shrink-0 text-right w-14">
+                      <p className="text-[11px] font-semibold tabular-nums text-slate-400">{data.termStart}</p>
+                      <p className="text-[10px] text-slate-600">since</p>
+                    </div>
+                  )}
 
                   {/* Arrow */}
                   <div className="text-slate-700 group-hover:text-slate-400 transition-colors text-sm shrink-0">→</div>
