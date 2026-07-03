@@ -9,7 +9,7 @@ import { STATE_NAMES, AT_LARGE_STATES } from "@/lib/stateFips";
 
 const ALL = getAllDistricts();
 
-type SortKey = "name" | "seats" | "rCount" | "dCount" | "margin" | "income" | "competitive";
+type SortKey = "name" | "seats" | "rCount" | "dCount" | "margin" | "income" | "competitive" | "freshmen";
 
 type StateRow = {
   code: string;
@@ -18,6 +18,7 @@ type StateRow = {
   rCount: number;
   dCount: number;
   vacantCount: number;
+  freshmenCount: number;
   competitiveCount: number;
   closestMargin: number;
   avgMargin: number;
@@ -37,6 +38,7 @@ function buildStateRows(): StateRow[] {
     const rCount = districts.filter(d => d.data.party === "Republican").length;
     const dCount = districts.filter(d => d.data.party === "Democrat" || d.data.party === "Independent").length;
     const vacantCount = districts.filter(d => d.data.party === "Vacant").length;
+    const freshmenCount = nonVacant.filter(d => d.data.termStart >= 2025).length;
     const competitiveCount = nonVacant.filter(d => Math.abs(d.data.margin) < 10).length;
     const margins = nonVacant.map(d => d.data.margin);
     const closestMargin = margins.length ? Math.min(...margins.map(m => Math.abs(m))) : 100;
@@ -49,6 +51,7 @@ function buildStateRows(): StateRow[] {
       rCount,
       dCount,
       vacantCount,
+      freshmenCount,
       competitiveCount,
       closestMargin,
       avgMargin,
@@ -80,6 +83,7 @@ export default function StatesPage() {
       else if (sortKey === "margin") { av = a.avgMargin; bv = b.avgMargin; }
       else if (sortKey === "income") { av = a.avgIncome; bv = b.avgIncome; }
       else if (sortKey === "competitive") { av = a.competitiveCount; bv = b.competitiveCount; }
+      else if (sortKey === "freshmen") { av = a.freshmenCount; bv = b.freshmenCount; }
       return sortDir * (av - bv);
     });
   }, [sortKey, sortDir, search]);
@@ -154,7 +158,7 @@ export default function StatesPage() {
         <div
           className="grid gap-4 px-4 py-2 mb-1 text-[10px] sticky top-0 z-10"
           style={{
-            gridTemplateColumns: "1.6fr 0.5fr 2.5fr 0.6fr 0.8fr 0.8fr",
+            gridTemplateColumns: "1.6fr 0.5fr 2.5fr 0.6fr 0.6fr 0.8fr 0.8fr",
             backgroundColor: "#0d1117",
             borderBottom: "1px solid rgba(30,41,59,0.6)",
           }}
@@ -163,6 +167,7 @@ export default function StatesPage() {
           <SortBtn k="seats" label="Seats" />
           <span className="text-[10px] font-bold uppercase tracking-widest text-slate-700">Delegation</span>
           <SortBtn k="competitive" label="Comp." />
+          <SortBtn k="freshmen" label="Fresh." />
           <SortBtn k="margin" label="Avg Lean" />
           <SortBtn k="income" label="Avg Income" />
         </div>
@@ -179,7 +184,7 @@ export default function StatesPage() {
                 href={`/house?s=${row.code}`}
                 className="grid gap-4 px-4 py-3 rounded-xl transition-colors group items-center"
                 style={{
-                  gridTemplateColumns: "1.6fr 0.5fr 2.5fr 0.6fr 0.8fr 0.8fr",
+                  gridTemplateColumns: "1.6fr 0.5fr 2.5fr 0.6fr 0.6fr 0.8fr 0.8fr",
                   backgroundColor: "rgba(13,17,23,0.6)",
                   border: "1px solid rgba(30,41,59,0.5)",
                 }}
@@ -229,6 +234,11 @@ export default function StatesPage() {
                 {/* Competitive seats */}
                 <span className="text-[12px] tabular-nums" style={{ color: row.competitiveCount > 0 ? "#f59e0b" : "#475569" }}>
                   {row.competitiveCount > 0 ? row.competitiveCount : "—"}
+                </span>
+
+                {/* Freshmen */}
+                <span className="text-[12px] tabular-nums" style={{ color: row.freshmenCount > 0 ? "#a5b4fc" : "#475569" }}>
+                  {row.freshmenCount > 0 ? row.freshmenCount : "—"}
                 </span>
 
                 {/* Avg lean */}
