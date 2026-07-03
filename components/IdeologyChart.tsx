@@ -36,6 +36,7 @@ interface Props {
   onMemberClick?: (districtId: string) => void;
   scaleToVisible?: boolean;
   showTrendLine?: boolean;
+  selectedId?: string | null;
 }
 
 // ── Layout constants ──────────────────────────────────────────────────────────
@@ -206,7 +207,7 @@ function ChartTooltip({
 
 // ── Chart ─────────────────────────────────────────────────────────────────────
 
-export default function IdeologyChart({ members, xAxis, yAxis, onMemberClick, scaleToVisible = false, showTrendLine = false }: Props) {
+export default function IdeologyChart({ members, xAxis, yAxis, onMemberClick, scaleToVisible = false, showTrendLine = false, selectedId = null }: Props) {
   const [hoveredId, setHoveredId] = useState<string | null>(null);
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const [failedPhotos, setFailedPhotos] = useState<Set<string>>(() => new Set());
@@ -415,6 +416,23 @@ export default function IdeologyChart({ members, xAxis, yAxis, onMemberClick, sc
             />
           </g>
         ))}
+
+        {/* Selected member ring */}
+        {selectedId && (() => {
+          const sel = members.find(m => m.districtId === selectedId);
+          if (!sel || sel.faded) return null;
+          return (
+            <circle
+              cx={xScale(sel.xValue)}
+              cy={yScale(sel.yValue)}
+              r={HOVER_R + 3}
+              fill="none"
+              stroke="rgba(255,255,255,0.7)"
+              strokeWidth={1.5}
+              style={{ pointerEvents: "none", transition: DOT_TRANSITION }}
+            />
+          );
+        })()}
 
         {/* Hover overlay — enlarged copy drawn on top, original keeps its place (and animation) */}
         {hovered && (

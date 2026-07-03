@@ -687,6 +687,7 @@ export default function IdeologyPage() {
               onMemberClick={(id) => { setSelectedId(id); setShowProfile(false); }}
               scaleToVisible={hasActiveFilter}
               showTrendLine={showTrendLine}
+              selectedId={selectedId}
             />
           ) : (
             <div className="absolute inset-0 flex items-center justify-center text-slate-600 text-sm">
