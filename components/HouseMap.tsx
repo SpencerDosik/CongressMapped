@@ -734,6 +734,10 @@ export default function HouseMap() {
               { href: "/rankings", label: "Rankings" },
               { href: "/compare", label: "Compare" },
               { href: "/graph", label: "Graph" },
+              { href: "/competitive", label: "Races" },
+              { href: "/states", label: "States" },
+              { href: "/committees", label: "Cmtes" },
+              { href: "/freshmen", label: "Class" },
             ].map(({ href, label }) => {
               const active = pathname === href;
               return (

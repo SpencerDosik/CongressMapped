@@ -54,6 +54,38 @@ function loadDemographics(): Promise<Record<string, DemographicBreakdown> | null
   return _demoPromise;
 }
 
+// ── Legislative stats cache (ProPublica) ─────────────────────────────────────
+type LegStats = { missedVotesPct?: number; partyUnityPct?: number; billsSponsored?: number; billsCosponsored?: number; totalVotes?: number; seniority?: string };
+let _legStatsData: Record<string, LegStats> | null = null;
+let _legStatsPromise: Promise<Record<string, LegStats> | null> | null = null;
+
+function loadLegStats(): Promise<Record<string, LegStats> | null> {
+  if (_legStatsData !== null) return Promise.resolve(_legStatsData);
+  if (!_legStatsPromise) {
+    _legStatsPromise = fetch("/propublica-data.json")
+      .then((r) => (r.ok ? r.json() : null))
+      .then((d) => { _legStatsData = d; return d; })
+      .catch(() => { _legStatsData = null; return null; });
+  }
+  return _legStatsPromise;
+}
+
+// ── FEC fundraising cache ─────────────────────────────────────────────────────
+type FundraisingData = { raised: number; spent: number; cashOnHand: number; debts: number };
+let _fecData: Record<string, FundraisingData> | null = null;
+let _fecPromise: Promise<Record<string, FundraisingData> | null> | null = null;
+
+function loadFEC(): Promise<Record<string, FundraisingData> | null> {
+  if (_fecData !== null) return Promise.resolve(_fecData);
+  if (!_fecPromise) {
+    _fecPromise = fetch("/fec-data.json")
+      .then((r) => (r.ok ? r.json() : null))
+      .then((d) => { _fecData = d; return d; })
+      .catch(() => { _fecData = null; return null; });
+  }
+  return _fecPromise;
+}
+
 interface Props {
   districtId: string;
   repName: string;
@@ -100,6 +132,12 @@ function daysUntil(dateStr: string): number {
   return Math.ceil((target.getTime() - now.getTime()) / (1000 * 60 * 60 * 24));
 }
 
+function fmtDollars(n: number): string {
+  if (Math.abs(n) >= 1_000_000) return `$${(n / 1_000_000).toFixed(1)}M`;
+  if (Math.abs(n) >= 1_000) return `$${Math.round(n / 1_000)}k`;
+  return `$${n}`;
+}
+
 export default function DistrictPanel({ districtId, repName, data, onClose, onShowProfile }: Props) {
   const [stateCode, rawNum] = districtId.split("-");
   const districtNum = parseInt(rawNum ?? "0", 10);
@@ -140,6 +178,8 @@ export default function DistrictPanel({ districtId, repName, data, onClose, onSh
   const [history, setHistory] = useState<HistoryPoint[] | null>(null);
   const [demographics, setDemographics] = useState<DemographicBreakdown | null>(null);
   const [committees, setCommittees] = useState<CommitteeEntry[] | null>(null);
+  const [legStats, setLegStats] = useState<LegStats | null>(null);
+  const [fundraising, setFundraising] = useState<FundraisingData | null>(null);
   const [showSources, setShowSources] = useState(false);
 
   useEffect(() => {
@@ -164,6 +204,18 @@ export default function DistrictPanel({ districtId, repName, data, onClose, onSh
   useEffect(() => {
     loadCommittees().then((all) => {
       setCommittees(all ? (all[districtId] ?? null) : null);
+    });
+  }, [districtId]);
+
+  useEffect(() => {
+    loadLegStats().then((all) => {
+      setLegStats(all ? (all[districtId] ?? null) : null);
+    });
+  }, [districtId]);
+
+  useEffect(() => {
+    loadFEC().then((all) => {
+      setFundraising(all ? (all[districtId] ?? null) : null);
     });
   }, [districtId]);
 
@@ -231,6 +283,17 @@ export default function DistrictPanel({ districtId, repName, data, onClose, onSh
               </svg>
             </a>
           )}
+          {/* View on Map link */}
+          <a
+            href={`/house?d=${districtId}`}
+            title="View on map"
+            className="w-6 h-6 rounded-full flex items-center justify-center transition-colors text-slate-600 hover:text-slate-300 hover:bg-slate-700/60"
+            aria-label="View on map"
+          >
+            <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-1.447-.894L15 9m0 8V9m0 0L9 7" />
+            </svg>
+          </a>
           {/* Copy link button */}
           <button
             onClick={handleCopyLink}
@@ -525,6 +588,94 @@ export default function DistrictPanel({ districtId, repName, data, onClose, onSh
           </>
         )}
 
+        {/* Legislative Activity */}
+        {!isVacant && legStats && (
+          <>
+            <div className="mx-4 border-t border-slate-700/40" />
+            <div className="px-4 py-4">
+              <p className="text-[10px] font-bold text-slate-600 uppercase tracking-widest mb-3">Legislative Activity</p>
+              <div className="space-y-2">
+                {legStats.partyUnityPct != null && (
+                  <div className="flex items-center justify-between">
+                    <span className="text-[12px] text-slate-500">Party Unity</span>
+                    <div className="flex items-center gap-2">
+                      <div className="w-20 h-1.5 rounded-full bg-slate-800 overflow-hidden">
+                        <div className="h-full rounded-full" style={{ width: `${legStats.partyUnityPct}%`, backgroundColor: partyColor }} />
+                      </div>
+                      <span className="text-[12px] font-semibold tabular-nums" style={{ color: partyColor }}>{legStats.partyUnityPct.toFixed(1)}%</span>
+                    </div>
+                  </div>
+                )}
+                {legStats.missedVotesPct != null && (
+                  <div className="flex items-center justify-between">
+                    <span className="text-[12px] text-slate-500">Missed Votes</span>
+                    <div className="flex items-center gap-2">
+                      <div className="w-20 h-1.5 rounded-full bg-slate-800 overflow-hidden">
+                        <div className="h-full rounded-full" style={{ width: `${Math.min(legStats.missedVotesPct, 100)}%`, backgroundColor: legStats.missedVotesPct > 10 ? "#f87171" : "#64748b" }} />
+                      </div>
+                      <span className="text-[12px] font-semibold tabular-nums" style={{ color: legStats.missedVotesPct > 10 ? "#f87171" : "#94a3b8" }}>{legStats.missedVotesPct.toFixed(1)}%</span>
+                    </div>
+                  </div>
+                )}
+                {legStats.billsSponsored != null && (
+                  <div className="flex items-center justify-between">
+                    <span className="text-[12px] text-slate-500">Bills Sponsored</span>
+                    <span className="text-[12px] font-semibold text-slate-300 tabular-nums">{legStats.billsSponsored}</span>
+                  </div>
+                )}
+                {legStats.billsCosponsored != null && (
+                  <div className="flex items-center justify-between">
+                    <span className="text-[12px] text-slate-500">Bills Cosponsored</span>
+                    <span className="text-[12px] font-semibold text-slate-300 tabular-nums">{legStats.billsCosponsored}</span>
+                  </div>
+                )}
+              </div>
+            </div>
+          </>
+        )}
+
+        {/* Fundraising */}
+        {!isVacant && fundraising && (
+          <>
+            <div className="mx-4 border-t border-slate-700/40" />
+            <div className="px-4 py-4">
+              <p className="text-[10px] font-bold text-slate-600 uppercase tracking-widest mb-3">2024 Fundraising</p>
+              <div className="space-y-2">
+                <div className="flex items-center justify-between">
+                  <span className="text-[12px] text-slate-500">Raised</span>
+                  <span className="text-[12px] font-semibold text-emerald-400 tabular-nums">{fmtDollars(fundraising.raised)}</span>
+                </div>
+                <div className="flex items-center justify-between">
+                  <span className="text-[12px] text-slate-500">Spent</span>
+                  <span className="text-[12px] font-semibold text-slate-300 tabular-nums">{fmtDollars(fundraising.spent)}</span>
+                </div>
+                <div className="flex items-center justify-between">
+                  <span className="text-[12px] text-slate-500">Cash on Hand</span>
+                  <span className="text-[12px] font-semibold text-slate-300 tabular-nums">{fmtDollars(fundraising.cashOnHand)}</span>
+                </div>
+                {fundraising.debts > 0 && (
+                  <div className="flex items-center justify-between">
+                    <span className="text-[12px] text-slate-500">Debts</span>
+                    <span className="text-[12px] font-semibold text-red-400 tabular-nums">{fmtDollars(fundraising.debts)}</span>
+                  </div>
+                )}
+                {/* Spend rate bar */}
+                {fundraising.raised > 0 && (
+                  <div className="pt-1">
+                    <div className="w-full h-1.5 rounded-full bg-slate-800 overflow-hidden">
+                      <div
+                        className="h-full rounded-full transition-all"
+                        style={{ width: `${Math.min(100, (fundraising.spent / fundraising.raised) * 100).toFixed(1)}%`, backgroundColor: "#34d399" }}
+                      />
+                    </div>
+                    <p className="text-[10px] text-slate-700 mt-1">{((fundraising.spent / fundraising.raised) * 100).toFixed(0)}% of raised spent</p>
+                  </div>
+                )}
+              </div>
+            </div>
+          </>
+        )}
+
         {/* Contact & Links */}
         {!isVacant && (meta?.phone || meta?.url || meta?.twitter || meta?.office) && (
           <>
@@ -600,6 +751,8 @@ export default function DistrictPanel({ districtId, repName, data, onClose, onSh
                 ["Racial breakdown", "Census ACS 5-Year 2023"],
                 ["Election history", "MIT MEDSL 1976–2022"],
                 ["Committee assignments", "unitedstates/congress-legislators"],
+                ...(legStats ? [["Legislative activity", "ProPublica Congress API"]] : []),
+                ...(fundraising ? [["Fundraising", "FEC Open Data"]] : []),
               ].map(([label, source]) => (
                 <div key={label} className="flex justify-between gap-2">
                   <span className="text-[10px] text-slate-600">{label}</span>

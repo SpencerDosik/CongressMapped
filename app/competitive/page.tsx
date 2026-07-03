@@ -7,6 +7,8 @@ import { getAllDistricts } from "@/lib/districtData";
 import { PARTY_COLORS } from "@/lib/colors";
 import { STATE_NAMES, AT_LARGE_STATES } from "@/lib/stateFips";
 import { Party } from "@/lib/types";
+import DistrictPanel from "@/components/DistrictPanel";
+import RepProfile from "@/components/RepProfile";
 
 const ALL = getAllDistricts().filter((d) => d.data.party !== "Vacant");
 
@@ -47,6 +49,8 @@ export default function CompetitivePage() {
   const [sortKey, setSortKey] = useState<SortKey>("margin");
   const [freshmanOnly, setFreshmanOnly] = useState(false);
   const [search, setSearch] = useState("");
+  const [selectedId, setSelectedId] = useState<string | null>(null);
+  const [showProfile, setShowProfile] = useState(false);
 
   const districts = useMemo(() => {
     const q = search.toLowerCase();
@@ -93,8 +97,8 @@ export default function CompetitivePage() {
             </svg>
           </Link>
           <div className="flex items-center gap-0.5">
-            {(["/house", "/rankings", "/compare", "/graph", "/competitive"] as const).map((href) => {
-              const label = { "/house": "Map", "/rankings": "Rankings", "/compare": "Compare", "/graph": "Graph", "/competitive": "Races" }[href];
+            {(["/house", "/rankings", "/compare", "/graph", "/competitive", "/states", "/committees", "/freshmen"] as const).map((href) => {
+              const label = { "/house": "Map", "/rankings": "Rankings", "/compare": "Compare", "/graph": "Graph", "/competitive": "Races", "/states": "States", "/committees": "Cmtes", "/freshmen": "Class" }[href];
               const active = pathname === href;
               return (
                 <a key={href} href={href}
@@ -245,13 +249,13 @@ export default function CompetitivePage() {
               const stateName = STATE_NAMES[state] ?? state;
 
               return (
-                <a
+                <div
                   key={districtId}
-                  href={`/house?d=${districtId}`}
-                  className="flex items-center gap-4 px-4 py-3 rounded-xl transition-colors group"
-                  style={{ backgroundColor: "rgba(13,17,23,0.6)", border: "1px solid rgba(30,41,59,0.5)" }}
-                  onMouseEnter={(e) => { (e.currentTarget as HTMLAnchorElement).style.backgroundColor = "rgba(30,41,59,0.6)"; }}
-                  onMouseLeave={(e) => { (e.currentTarget as HTMLAnchorElement).style.backgroundColor = "rgba(13,17,23,0.6)"; }}
+                  onClick={() => setSelectedId(districtId)}
+                  className="flex items-center gap-4 px-4 py-3 rounded-xl transition-colors group cursor-pointer"
+                  style={{ backgroundColor: selectedId === districtId ? "rgba(30,41,59,0.6)" : "rgba(13,17,23,0.6)", border: `1px solid ${selectedId === districtId ? "rgba(99,102,241,0.4)" : "rgba(30,41,59,0.5)"}` }}
+                  onMouseEnter={(e) => { if (selectedId !== districtId) (e.currentTarget as HTMLDivElement).style.backgroundColor = "rgba(30,41,59,0.6)"; }}
+                  onMouseLeave={(e) => { if (selectedId !== districtId) (e.currentTarget as HTMLDivElement).style.backgroundColor = "rgba(13,17,23,0.6)"; }}
                 >
                   {/* Competitiveness bar */}
                   <div className="shrink-0 w-16 text-center">
@@ -306,9 +310,18 @@ export default function CompetitivePage() {
                     </div>
                   )}
 
-                  {/* Arrow */}
-                  <div className="text-slate-700 group-hover:text-slate-400 transition-colors text-sm shrink-0">→</div>
-                </a>
+                  {/* Map link */}
+                  <a
+                    href={`/house?d=${districtId}`}
+                    onClick={(e) => e.stopPropagation()}
+                    title="View on map"
+                    className="text-slate-700 hover:text-slate-300 transition-colors shrink-0 p-1"
+                  >
+                    <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-1.447-.894L15 9m0 8V9m0 0L9 7" />
+                    </svg>
+                  </a>
+                </div>
               );
             })}
           </div>
@@ -320,6 +333,37 @@ export default function CompetitivePage() {
           Race ratings based on 2024 House general election results. PVI is estimated from 2024 presidential/House vote patterns. Boundaries reflect 2022 redistricting.
         </p>
       </footer>
+
+      {/* District panel overlay */}
+      {selectedId && (() => {
+        const entry = ALL.find(d => d.districtId === selectedId);
+        if (!entry) return null;
+        return (
+          <>
+            <div
+              className="fixed inset-0 z-40 bg-black/40"
+              onClick={() => { setSelectedId(null); setShowProfile(false); }}
+            />
+            <div className="fixed inset-y-0 right-0 z-50">
+              <DistrictPanel
+                districtId={selectedId}
+                repName={entry.data.repName}
+                data={entry.data}
+                onClose={() => { setSelectedId(null); setShowProfile(false); }}
+                onShowProfile={() => setShowProfile(true)}
+              />
+            </div>
+            {showProfile && (
+              <RepProfile
+                districtId={selectedId}
+                repName={entry.data.repName}
+                data={entry.data}
+                onClose={() => setShowProfile(false)}
+              />
+            )}
+          </>
+        );
+      })()}
     </div>
   );
 }

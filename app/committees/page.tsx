@@ -158,8 +158,8 @@ export default function CommitteesPage() {
             </svg>
           </Link>
           <div className="flex items-center gap-0.5">
-            {(["/house", "/rankings", "/compare", "/graph", "/competitive"] as const).map((href) => {
-              const label = { "/house": "Map", "/rankings": "Rankings", "/compare": "Compare", "/graph": "Graph", "/competitive": "Races" }[href];
+            {(["/house", "/rankings", "/compare", "/graph", "/competitive", "/states", "/committees", "/freshmen"] as const).map((href) => {
+              const label = { "/house": "Map", "/rankings": "Rankings", "/compare": "Compare", "/graph": "Graph", "/competitive": "Races", "/states": "States", "/committees": "Cmtes", "/freshmen": "Class" }[href];
               const active = pathname === href;
               return (
                 <a key={href} href={href}
