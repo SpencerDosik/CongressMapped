@@ -54,6 +54,7 @@ interface LegMeta {
   phone: string | null;
   url: string | null;
   office: string | null;
+  gender: string | null;
 }
 
 const REDISTRICTING_YEARS = [2002, 2012, 2022];
@@ -287,7 +288,9 @@ export default function DistrictPanel({ districtId, repName, data, onClose, onSh
                 </span>
                 <span className="text-[11px] text-slate-600">{stateCode}-{rawNum}</span>
                 {age !== null && !isVacant && (
-                  <span className="text-[11px] text-slate-600">Age {age}</span>
+                  <span className="text-[11px] text-slate-600">
+                    Age {age}{meta?.gender === "F" ? " · Female" : meta?.gender === "M" ? " · Male" : ""}
+                  </span>
                 )}
               </div>
               {data.caucus && (

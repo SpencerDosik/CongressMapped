@@ -64,6 +64,15 @@ function TargetIcon() {
   );
 }
 
+function FlagIcon() {
+  return (
+    <svg className="w-5 h-5 text-indigo-400" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+      <path strokeLinecap="round" strokeLinejoin="round" d="M3 3v18M3 5l9 4-9 4" />
+      <path strokeLinecap="round" strokeLinejoin="round" d="M3 5h13l-4 4 4 4H3" />
+    </svg>
+  );
+}
+
 // ── Card components ───────────────────────────────────────────────────────────
 const CARD_CLASSES =
   "rounded-xl p-5 bg-slate-900/80 border border-slate-800/80 flex items-start gap-4";
@@ -191,6 +200,12 @@ export default async function Home({
           icon={<TargetIcon />}
           title="Competitive Races"
           description="2026 battleground districts sorted by how close the 2024 race was."
+        />
+        <ModeCard
+          href="/states"
+          icon={<FlagIcon />}
+          title="State Delegations"
+          description="Each state's House delegation — seat counts, partisan lean, and median income."
         />
       </div>
 
