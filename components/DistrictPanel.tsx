@@ -34,6 +34,10 @@ interface LegMeta {
   bioguide: string | null;
   birthday: string | null;
   twitter: string | null;
+  facebook: string | null;
+  phone: string | null;
+  url: string | null;
+  office: string | null;
 }
 
 const REDISTRICTING_YEARS = [2002, 2012, 2022];
@@ -410,6 +414,61 @@ export default function DistrictPanel({ districtId, repName, data, onClose, onSh
               />
             </div>
           </div>
+        )}
+
+        {/* Contact & Links */}
+        {!isVacant && (meta?.phone || meta?.url || meta?.twitter || meta?.office) && (
+          <>
+            <div className="mx-4 border-t border-slate-700/40" />
+            <div className="px-4 py-4">
+              <p className="text-[10px] font-bold text-slate-600 uppercase tracking-widest mb-3">Contact</p>
+              <div className="space-y-2">
+                {meta?.phone && (
+                  <div className="flex items-center justify-between">
+                    <span className="text-[12px] text-slate-500">Phone</span>
+                    <a
+                      href={`tel:${meta.phone}`}
+                      className="text-[12px] font-medium text-indigo-400 hover:text-indigo-300 transition-colors tabular-nums"
+                    >
+                      {meta.phone}
+                    </a>
+                  </div>
+                )}
+                {meta?.url && (
+                  <div className="flex items-center justify-between">
+                    <span className="text-[12px] text-slate-500">Website</span>
+                    <a
+                      href={meta.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-[12px] font-medium text-indigo-400 hover:text-indigo-300 transition-colors truncate max-w-[180px]"
+                    >
+                      {meta.url.replace(/^https?:\/\//, "").replace(/\/$/, "")}
+                    </a>
+                  </div>
+                )}
+                {meta?.twitter && (
+                  <div className="flex items-center justify-between">
+                    <span className="text-[12px] text-slate-500">Twitter/X</span>
+                    <a
+                      href={`https://twitter.com/${meta.twitter}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-[12px] font-medium text-indigo-400 hover:text-indigo-300 transition-colors"
+                    >
+                      @{meta.twitter}
+                    </a>
+                  </div>
+                )}
+                {meta?.office && (
+                  <div className="flex items-start justify-between gap-2">
+                    <span className="text-[12px] text-slate-500 shrink-0">Office</span>
+                    <span className="text-[11px] text-slate-400 text-right leading-tight">{meta.office}</span>
+                  </div>
+                )}
+              </div>
+            </div>
+          </>
         )}
 
         {/* Data Sources */}

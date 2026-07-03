@@ -35,6 +35,15 @@ function districtTitle(districtId: string): string {
   return `${stateName} ${parseInt(num ?? "0", 10)}th`;
 }
 
+function ageFromBirthday(birthday: string): number {
+  const born = new Date(birthday);
+  const today = new Date();
+  let age = today.getFullYear() - born.getFullYear();
+  const m = today.getMonth() - born.getMonth();
+  if (m < 0 || (m === 0 && today.getDate() < born.getDate())) age--;
+  return age;
+}
+
 // ── District Picker ───────────────────────────────────────────────────────────
 function DistrictPicker({ value, onChange, exclude }: {
   value: string | null;
@@ -195,6 +204,24 @@ function CompareContent({ idA, idB }: { idA: string | null; idB: string | null }
   const dA = idA ? getDistrictData(idA) : null;
   const dB = idB ? getDistrictData(idB) : null;
 
+  const [ages, setAges] = useState<{ ageA: number | null; ageB: number | null }>({ ageA: null, ageB: null });
+
+  useEffect(() => {
+    fetch("/legislator-meta.json")
+      .then((r) => r.json())
+      .then((meta: Record<string, { birthday: string | null }>) => {
+        const birthdayA = idA ? meta[idA]?.birthday : null;
+        const birthdayB = idB ? meta[idB]?.birthday : null;
+        setAges({
+          ageA: birthdayA ? ageFromBirthday(birthdayA) : null,
+          ageB: birthdayB ? ageFromBirthday(birthdayB) : null,
+        });
+      })
+      .catch(() => {});
+  }, [idA, idB]);
+
+  const { ageA, ageB } = ages;
+
   if (!dA || !dB) return null;
 
   const tenureA = Math.max(0, 2026 - dA.termStart);
@@ -259,6 +286,43 @@ function CompareContent({ idA, idB }: { idA: string | null; idB: string | null }
         valB={tenureB < 1 ? "< 1 yr" : `${tenureB} yr`}
         winner={tenureA > tenureB ? "a" : tenureB > tenureA ? "b" : "tie"}
       />
+      {(dA.urbanPct != null || dB.urbanPct != null) && (
+        <CompareRow
+          label="Urban %"
+          valA={dA.urbanPct != null ? `${dA.urbanPct.toFixed(1)}%` : "—"}
+          valB={dB.urbanPct != null ? `${dB.urbanPct.toFixed(1)}%` : "—"}
+          winner={dA.urbanPct != null && dB.urbanPct != null
+            ? dA.urbanPct > dB.urbanPct ? "a" : dB.urbanPct > dA.urbanPct ? "b" : "tie"
+            : null}
+        />
+      )}
+      {(dA.collegePct != null || dB.collegePct != null) && (
+        <CompareRow
+          label="College Grad %"
+          valA={dA.collegePct != null ? `${dA.collegePct.toFixed(1)}%` : "—"}
+          valB={dB.collegePct != null ? `${dB.collegePct.toFixed(1)}%` : "—"}
+          winner={dA.collegePct != null && dB.collegePct != null
+            ? dA.collegePct > dB.collegePct ? "a" : dB.collegePct > dA.collegePct ? "b" : "tie"
+            : null}
+        />
+      )}
+      {(dA.povertyPct != null || dB.povertyPct != null) && (
+        <CompareRow
+          label="Poverty Rate"
+          valA={dA.povertyPct != null ? `${dA.povertyPct.toFixed(1)}%` : "—"}
+          valB={dB.povertyPct != null ? `${dB.povertyPct.toFixed(1)}%` : "—"}
+          winner={dA.povertyPct != null && dB.povertyPct != null
+            ? dA.povertyPct < dB.povertyPct ? "a" : dB.povertyPct < dA.povertyPct ? "b" : "tie"
+            : null}
+        />
+      )}
+      {(ageA !== null || ageB !== null) && (
+        <CompareRow
+          label="Rep. Age"
+          valA={ageA !== null ? String(ageA) : "—"}
+          valB={ageB !== null ? String(ageB) : "—"}
+        />
+      )}
     </div>
   );
 }

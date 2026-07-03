@@ -19,6 +19,9 @@ type AxisKey =
   | "income"
   | "tenure"
   | "age"
+  | "poverty"
+  | "college"
+  | "urban"
   | "sponsored"
   | "cosponsored"
   | "becameLaw";
@@ -63,6 +66,24 @@ const AXES: Record<AxisKey, AxisDef> = {
     format: (v) => `${Math.round(v)} yrs`,
     tickFormat: (v) => `${Math.round(v)}`,
   },
+  poverty: {
+    key: "poverty",
+    label: "Poverty Rate",
+    format: (v) => `${v.toFixed(1)}%`,
+    tickFormat: (v) => `${v.toFixed(1)}%`,
+  },
+  college: {
+    key: "college",
+    label: "College Grad %",
+    format: (v) => `${v.toFixed(1)}%`,
+    tickFormat: (v) => `${v.toFixed(1)}%`,
+  },
+  urban: {
+    key: "urban",
+    label: "Urban %",
+    format: (v) => `${v.toFixed(1)}%`,
+    tickFormat: (v) => `${v.toFixed(1)}%`,
+  },
   sponsored: {
     key: "sponsored",
     label: "Bills Sponsored",
@@ -93,6 +114,7 @@ const AXIS_GROUPS: AxisGroup[] = [
   { label: "Political", keys: ["pvi", "margin"] },
   { label: "Economic", keys: ["income"] },
   { label: "Representative", keys: ["tenure", "age"] },
+  { label: "Demographics", keys: ["poverty", "college", "urban"] },
   { label: "Legislative", keys: ["sponsored", "cosponsored", "becameLaw"], requiresBills: true },
 ];
 
@@ -162,6 +184,12 @@ function axisValue(
       }
       return age;
     }
+    case "poverty":
+      return data.povertyPct ?? undefined;
+    case "college":
+      return data.collegePct ?? undefined;
+    case "urban":
+      return data.urbanPct ?? undefined;
     case "sponsored":
     case "cosponsored":
     case "becameLaw": {

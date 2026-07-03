@@ -54,6 +54,16 @@ function BuildingIcon() {
   );
 }
 
+function TargetIcon() {
+  return (
+    <svg className="w-5 h-5 text-amber-400" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="10" />
+      <circle cx="12" cy="12" r="6" />
+      <circle cx="12" cy="12" r="2" />
+    </svg>
+  );
+}
+
 // ── Card components ───────────────────────────────────────────────────────────
 const CARD_CLASSES =
   "rounded-xl p-5 bg-slate-900/80 border border-slate-800/80 flex items-start gap-4";
@@ -175,6 +185,12 @@ export default async function Home({
           icon={<BuildingIcon />}
           title="State Legislatures"
           description="State-level chambers and districts."
+        />
+        <ModeCard
+          href="/competitive"
+          icon={<TargetIcon />}
+          title="Competitive Races"
+          description="2026 battleground districts sorted by how close the 2024 race was."
         />
       </div>
 
