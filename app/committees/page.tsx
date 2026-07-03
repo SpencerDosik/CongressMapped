@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useSearchParams } from "next/navigation";
 import { getAllDistricts } from "@/lib/districtData";
 import { PARTY_COLORS } from "@/lib/colors";
 import { STATE_NAMES, AT_LARGE_STATES } from "@/lib/stateFips";
@@ -58,6 +58,7 @@ function titleBadge(title: string | null) {
 
 export default function CommitteesPage() {
   const pathname = usePathname();
+  const searchParams = useSearchParams();
   const [committeeIndex, setCommitteeIndex] = useState<CommitteeIndex | null>(null);
   const [subcommitteeIndex, setSubcommitteeIndex] = useState<SubcommitteeIndex | null>(null);
   const [selected, setSelected] = useState<string | null>(null);
@@ -105,8 +106,13 @@ export default function CommitteesPage() {
 
         setCommitteeIndex(index);
         setSubcommitteeIndex(subIndex);
-        const first = Object.keys(index).sort()[0];
-        if (first) setSelected(first);
+        // If URL has ?c=..., select matching committee, else first alphabetically
+        const urlCommittee = searchParams.get("c");
+        const keys = Object.keys(index).sort();
+        const matched = urlCommittee
+          ? keys.find(k => k.toLowerCase().includes(urlCommittee.toLowerCase()) || shortName(k).toLowerCase().includes(urlCommittee.toLowerCase()))
+          : null;
+        setSelected(matched ?? keys[0] ?? null);
       })
       .catch(() => {});
   }, []);

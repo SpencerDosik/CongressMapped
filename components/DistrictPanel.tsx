@@ -496,7 +496,13 @@ export default function DistrictPanel({ districtId, repName, data, onClose, onSh
                       .replace(/Committee on /, "");
                     return (
                       <div key={c.name} className="flex items-center justify-between gap-2">
-                        <span className="text-[11px] text-slate-400 leading-snug">{shortName}</span>
+                        <a
+                          href={`/committees?c=${encodeURIComponent(shortName)}`}
+                          className="text-[11px] leading-snug hover:text-indigo-300 transition-colors"
+                          style={{ color: "#94a3b8" }}
+                        >
+                          {shortName}
+                        </a>
                         {c.title && (
                           <span
                             className="text-[9px] font-bold px-1.5 py-0.5 rounded-full shrink-0"
