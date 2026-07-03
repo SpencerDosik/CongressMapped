@@ -448,7 +448,7 @@ export default function DistrictPanel({ districtId, repName, data, onClose, onSh
                 partyColor={partyColor}
               />
               <p className="text-[9px] text-slate-700 mt-1.5 leading-snug">
-                Margins may reflect different district boundaries pre-2022 redistricting.
+                2020–2022 not shown. Pre-2022 boundaries may differ from current district.
               </p>
             </div>
           </>

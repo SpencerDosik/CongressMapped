@@ -24,7 +24,9 @@ type AxisKey =
   | "urban"
   | "sponsored"
   | "cosponsored"
-  | "becameLaw";
+  | "becameLaw"
+  | "partyUnity"
+  | "missedVotes";
 
 interface AxisDef extends AxisConfig {
   key: AxisKey;
@@ -102,12 +104,25 @@ const AXES: Record<AxisKey, AxisDef> = {
     format: (v) => Math.round(v).toLocaleString(),
     tickFormat: (v) => Math.round(v).toLocaleString(),
   },
+  partyUnity: {
+    key: "partyUnity",
+    label: "Party Unity %",
+    format: (v) => `${v.toFixed(1)}%`,
+    tickFormat: (v) => `${Math.round(v)}%`,
+  },
+  missedVotes: {
+    key: "missedVotes",
+    label: "Missed Votes %",
+    format: (v) => `${v.toFixed(1)}%`,
+    tickFormat: (v) => `${Math.round(v)}%`,
+  },
 };
 
 interface AxisGroup {
   label: string;
   keys: AxisKey[];
   requiresBills?: boolean;
+  requiresLegStats?: boolean;
 }
 
 const AXIS_GROUPS: AxisGroup[] = [
@@ -116,6 +131,7 @@ const AXIS_GROUPS: AxisGroup[] = [
   { label: "Representative", keys: ["tenure", "age"] },
   { label: "Demographics", keys: ["poverty", "college", "urban"] },
   { label: "Legislative", keys: ["sponsored", "cosponsored", "becameLaw"], requiresBills: true },
+  { label: "Voting", keys: ["partyUnity", "missedVotes"], requiresLegStats: true },
 ];
 
 // ── Data ──────────────────────────────────────────────────────────────────────
@@ -131,6 +147,13 @@ interface BillCounts {
   sponsored: number;
   cosponsored: number;
   becameLaw: number;
+}
+
+interface LegStats {
+  missedVotesPct?: number;
+  partyUnityPct?: number;
+  billsSponsored?: number;
+  billsCosponsored?: number;
 }
 
 const MEMBERS: { districtId: string; data: DistrictFullData }[] = getAllDistricts().filter(
@@ -158,7 +181,8 @@ function axisValue(
   districtId: string,
   data: DistrictFullData,
   meta: Record<string, LegislatorMeta> | null,
-  bills: Record<string, BillCounts> | null
+  bills: Record<string, BillCounts> | null,
+  legStats: Record<string, LegStats> | null
 ): number | undefined {
   switch (key) {
     case "pvi":
@@ -200,6 +224,14 @@ function axisValue(
       const v = counts[key];
       return typeof v === "number" ? v : undefined;
     }
+    case "partyUnity": {
+      const stats = legStats?.[districtId];
+      return stats?.partyUnityPct ?? undefined;
+    }
+    case "missedVotes": {
+      const stats = legStats?.[districtId];
+      return stats?.missedVotesPct ?? undefined;
+    }
   }
 }
 
@@ -216,11 +248,13 @@ function AxisPicker({
   value,
   onChange,
   billsAvailable,
+  legStatsAvailable,
 }: {
   label: string;
   value: AxisKey;
   onChange: (k: AxisKey) => void;
   billsAvailable: boolean;
+  legStatsAvailable: boolean;
 }) {
   const [open, setOpen] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -271,7 +305,7 @@ function AxisPicker({
           style={{ backgroundColor: "#0d1117", border: "1px solid rgba(51,65,85,0.7)", minWidth: "240px" }}
         >
           {AXIS_GROUPS.map((group) => {
-            const disabled = !!group.requiresBills && !billsAvailable;
+            const disabled = (!!group.requiresBills && !billsAvailable) || (!!group.requiresLegStats && !legStatsAvailable);
             return (
               <div key={group.label} className="border-b border-slate-800/60 last:border-0">
                 <p className="px-4 pt-2.5 pb-1 text-[10px] font-bold text-slate-600 uppercase tracking-widest select-none">
@@ -283,7 +317,7 @@ function AxisPicker({
                     <button
                       key={k}
                       disabled={disabled}
-                      title={disabled ? "Requires bill data — run scripts/generate-bill-counts.mjs" : undefined}
+                      title={disabled ? (group.requiresBills ? "Requires bill data — run scripts/generate-bill-counts.mjs" : "Requires ProPublica data — run scripts/fetch-propublica.mjs") : undefined}
                       onClick={() => {
                         onChange(k);
                         setOpen(false);
@@ -312,7 +346,7 @@ function AxisPicker({
                       </span>
                       {disabled && (
                         <span className="text-[10px] text-slate-700 mt-0.5 leading-snug">
-                          Requires bill data — run scripts/generate-bill-counts.mjs
+                          {group.requiresBills ? "Requires bill data — run scripts/generate-bill-counts.mjs" : "Requires ProPublica data — run scripts/fetch-propublica.mjs"}
                         </span>
                       )}
                     </button>
@@ -470,6 +504,7 @@ export default function IdeologyPage() {
   const [committeeFilter, setCommitteeFilter] = useState<string | null>(null);
   const [meta, setMeta] = useState<Record<string, LegislatorMeta> | null>(null);
   const [bills, setBills] = useState<Record<string, BillCounts> | null>(null);
+  const [legStats, setLegStats] = useState<Record<string, LegStats> | null>(null);
   const [committeeData, setCommitteeData] = useState<Record<string, CommitteeEntry[]> | null>(null);
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [showProfile, setShowProfile] = useState(false);
@@ -498,10 +533,16 @@ export default function IdeologyPage() {
       .then((json) => { if (!cancelled && json) setCommitteeData(json); })
       .catch(() => {});
 
+    fetch("/propublica-data.json")
+      .then((r) => (r.ok ? r.json() : null))
+      .then((json) => { if (!cancelled && json) setLegStats(json as Record<string, LegStats>); })
+      .catch(() => {});
+
     return () => { cancelled = true; };
   }, []);
 
   const billsAvailable = bills !== null;
+  const legStatsAvailable = legStats !== null;
 
   // Build sorted list of unique full committees
   const committeeOptions = useMemo(() => {
@@ -535,8 +576,8 @@ export default function IdeologyPage() {
     const pts: MemberPoint[] = [];
     let hidden = 0;
     for (const { districtId, data } of MEMBERS) {
-      const xv = axisValue(xKey, districtId, data, meta, bills);
-      const yv = axisValue(yKey, districtId, data, meta, bills);
+      const xv = axisValue(xKey, districtId, data, meta, bills, legStats);
+      const yv = axisValue(yKey, districtId, data, meta, bills, legStats);
       if (xv === undefined || yv === undefined) {
         hidden++;
         continue;
@@ -597,8 +638,8 @@ export default function IdeologyPage() {
 
         {/* Axis pickers */}
         <div className="flex items-center gap-3 flex-wrap">
-          <AxisPicker label="X" value={xKey} onChange={setXKey} billsAvailable={billsAvailable} />
-          <AxisPicker label="Y" value={yKey} onChange={(k) => { userChangedY.current = true; setYKey(k); }} billsAvailable={billsAvailable} />
+          <AxisPicker label="X" value={xKey} onChange={setXKey} billsAvailable={billsAvailable} legStatsAvailable={legStatsAvailable} />
+          <AxisPicker label="Y" value={yKey} onChange={(k) => { userChangedY.current = true; setYKey(k); }} billsAvailable={billsAvailable} legStatsAvailable={legStatsAvailable} />
 
           <div className="w-px h-5 bg-slate-700/60 shrink-0" />
 
