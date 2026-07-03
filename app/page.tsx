@@ -247,6 +247,12 @@ export default async function Home({
           title="Committees"
           description="All 23 House committees and their members, with party breakdown and leadership roles."
         />
+        <ModeCard
+          href="/freshmen"
+          icon={<TableIcon />}
+          title="Freshman Class of 2025"
+          description="All 67 members elected for the first time in 2024, sorted by how competitive their seat is."
+        />
       </div>
 
       <p className="text-[10px] text-slate-700 mt-10">
