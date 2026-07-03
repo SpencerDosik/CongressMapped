@@ -1,5 +1,7 @@
 import Link from "next/link";
 import { redirect } from "next/navigation";
+import { getAllDistricts } from "@/lib/districtData";
+import { PARTY_COLORS } from "@/lib/colors";
 
 // ── Inline icons (w-5 h-5, indigo accent) ────────────────────────────────────
 function MapIcon() {
@@ -151,6 +153,13 @@ export default async function Home({
   if (d) redirect(`/house?d=${encodeURIComponent(d)}`);
   if (s) redirect(`/house?s=${encodeURIComponent(s)}`);
 
+  const allDistricts = getAllDistricts();
+  const rCount = allDistricts.filter(d => d.data.party === "Republican").length;
+  const dCount = allDistricts.filter(d => d.data.party === "Democrat").length;
+  const iCount = allDistricts.filter(d => d.data.party === "Independent").length;
+  const vCount = allDistricts.filter(d => d.data.party === "Vacant").length;
+  const total = allDistricts.length;
+
   return (
     <main
       className="min-h-screen w-full flex flex-col items-center justify-center px-6 py-12"
@@ -165,6 +174,23 @@ export default async function Home({
       <p className="text-slate-500 text-sm mt-3 text-center">
         Interactive maps and analytics for the United States Congress
       </p>
+
+      {/* House composition bar */}
+      <div className="mt-6 flex flex-col items-center gap-2">
+        <div className="flex h-2 rounded-full overflow-hidden w-64">
+          <div style={{ width: `${(rCount / total) * 100}%`, backgroundColor: PARTY_COLORS.Republican }} />
+          {iCount > 0 && <div style={{ width: `${(iCount / total) * 100}%`, backgroundColor: PARTY_COLORS.Independent }} />}
+          {vCount > 0 && <div style={{ width: `${(vCount / total) * 100}%`, backgroundColor: "#374151" }} />}
+          <div style={{ width: `${(dCount / total) * 100}%`, backgroundColor: PARTY_COLORS.Democrat }} />
+        </div>
+        <div className="flex items-center gap-3 text-[11px]">
+          <span style={{ color: PARTY_COLORS.Republican }} className="font-semibold">{rCount}R</span>
+          {iCount > 0 && <span style={{ color: PARTY_COLORS.Independent }} className="font-semibold">{iCount}I</span>}
+          {vCount > 0 && <span className="text-slate-600">{vCount} vacant</span>}
+          <span style={{ color: PARTY_COLORS.Democrat }} className="font-semibold">{dCount}D</span>
+          <span className="text-slate-700">· majority 218</span>
+        </div>
+      </div>
 
       <div className="grid md:grid-cols-2 gap-4 max-w-3xl w-full mt-10">
         <ModeCard
