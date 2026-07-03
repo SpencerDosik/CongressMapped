@@ -7,6 +7,7 @@ import { getAllDistricts, getDistrictData, getRepName } from "@/lib/districtData
 import { PARTY_COLORS } from "@/lib/colors";
 import { STATE_NAMES, AT_LARGE_STATES } from "@/lib/stateFips";
 import { Party } from "@/lib/types";
+import ElectionSparkline, { HistoryPoint } from "@/components/ElectionSparkline";
 
 const ALL = getAllDistricts();
 
@@ -205,6 +206,8 @@ function CompareContent({ idA, idB }: { idA: string | null; idB: string | null }
   const dB = idB ? getDistrictData(idB) : null;
 
   const [ages, setAges] = useState<{ ageA: number | null; ageB: number | null }>({ ageA: null, ageB: null });
+  const [historyA, setHistoryA] = useState<HistoryPoint[] | null>(null);
+  const [historyB, setHistoryB] = useState<HistoryPoint[] | null>(null);
 
   useEffect(() => {
     fetch("/legislator-meta.json")
@@ -216,6 +219,16 @@ function CompareContent({ idA, idB }: { idA: string | null; idB: string | null }
           ageA: birthdayA ? ageFromBirthday(birthdayA) : null,
           ageB: birthdayB ? ageFromBirthday(birthdayB) : null,
         });
+      })
+      .catch(() => {});
+  }, [idA, idB]);
+
+  useEffect(() => {
+    fetch("/election-history.json")
+      .then((r) => (r.ok ? r.json() : null))
+      .then((all: Record<string, HistoryPoint[]> | null) => {
+        setHistoryA(all && idA ? (all[idA] ?? null) : null);
+        setHistoryB(all && idB ? (all[idB] ?? null) : null);
       })
       .catch(() => {});
   }, [idA, idB]);
@@ -322,6 +335,40 @@ function CompareContent({ idA, idB }: { idA: string | null; idB: string | null }
           valA={ageA !== null ? String(ageA) : "—"}
           valB={ageB !== null ? String(ageB) : "—"}
         />
+      )}
+
+      {/* Election History Sparklines */}
+      {(historyA || historyB) && (
+        <div className="pt-4 pb-2">
+          <p className="text-[10px] font-bold text-slate-600 uppercase tracking-wider text-center mb-3">
+            Election History <span className="font-normal text-slate-700 normal-case tracking-normal">2000–2024</span>
+          </p>
+          <div className="grid grid-cols-2 gap-6">
+            <div>
+              {historyA ? (
+                <ElectionSparkline
+                  history={historyA}
+                  current={dA.margin}
+                  partyColor={PARTY_COLORS[dA.party] ?? "#64748b"}
+                />
+              ) : (
+                <div className="h-[52px] flex items-center justify-center text-[10px] text-slate-700">No data</div>
+              )}
+            </div>
+            <div>
+              {historyB ? (
+                <ElectionSparkline
+                  history={historyB}
+                  current={dB.margin}
+                  partyColor={PARTY_COLORS[dB.party] ?? "#64748b"}
+                />
+              ) : (
+                <div className="h-[52px] flex items-center justify-center text-[10px] text-slate-700">No data</div>
+              )}
+            </div>
+          </div>
+          <p className="text-[9px] text-slate-700 text-center mt-1.5">2020–2022 not shown. Pre-2022 boundaries may differ from current district.</p>
+        </div>
       )}
     </div>
   );
