@@ -582,8 +582,8 @@ export default function IdeologyPage() {
             </svg>
           </Link>
           <div className="flex items-center gap-0.5">
-            {(["/house", "/senate", "/rankings", "/compare", "/graph"] as const).map((href) => {
-              const label: Record<string, string> = { "/house": "Map", "/senate": "Senate", "/rankings": "Rankings", "/compare": "Compare", "/graph": "Graph" };
+            {(["/house", "/senate", "/rankings", "/compare", "/graph", "/competitive"] as const).map((href) => {
+              const label: Record<string, string> = { "/house": "Map", "/senate": "Senate", "/rankings": "Rankings", "/compare": "Compare", "/graph": "Graph", "/competitive": "Races" };
               const active = pathname === href;
               return (
                 <a key={href} href={href} className="px-2 py-1 rounded text-[10px] font-medium transition-colors whitespace-nowrap"

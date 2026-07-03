@@ -22,6 +22,22 @@ function loadHistory(): Promise<Record<string, HistoryPoint[]> | null> {
   return _historyPromise;
 }
 
+// ── Demographics cache ────────────────────────────────────────────────────────
+type DemographicBreakdown = { white: number; hispanic: number; black: number; asian: number; multiracial: number; other: number };
+let _demoData: Record<string, DemographicBreakdown> | null = null;
+let _demoPromise: Promise<Record<string, DemographicBreakdown> | null> | null = null;
+
+function loadDemographics(): Promise<Record<string, DemographicBreakdown> | null> {
+  if (_demoData !== null) return Promise.resolve(_demoData);
+  if (!_demoPromise) {
+    _demoPromise = fetch("/district-demographics.json")
+      .then((r) => (r.ok ? r.json() : null))
+      .then((d) => { _demoData = d; return d; })
+      .catch(() => { _demoData = null; return null; });
+  }
+  return _demoPromise;
+}
+
 interface Props {
   districtId: string;
   repName: string;
@@ -105,6 +121,7 @@ export default function DistrictPanel({ districtId, repName, data, onClose, onSh
   const [photoError, setPhotoError] = useState(false);
   const [copied, setCopied] = useState(false);
   const [history, setHistory] = useState<HistoryPoint[] | null>(null);
+  const [demographics, setDemographics] = useState<DemographicBreakdown | null>(null);
   const [showSources, setShowSources] = useState(false);
 
   useEffect(() => {
@@ -117,6 +134,12 @@ export default function DistrictPanel({ districtId, repName, data, onClose, onSh
   useEffect(() => {
     loadHistory().then((all) => {
       setHistory(all ? (all[districtId] ?? null) : null);
+    });
+  }, [districtId]);
+
+  useEffect(() => {
+    loadDemographics().then((all) => {
+      setDemographics(all ? (all[districtId] ?? null) : null);
     });
   }, [districtId]);
 
@@ -381,6 +404,17 @@ export default function DistrictPanel({ districtId, repName, data, onClose, onSh
           </div>
         </div>
 
+        {/* Racial Breakdown */}
+        {demographics && (
+          <>
+            <div className="mx-4 border-t border-slate-700/40" />
+            <div className="px-4 py-4">
+              <p className="text-[10px] font-bold text-slate-600 uppercase tracking-widest mb-3">Racial Breakdown</p>
+              <RacialBreakdown demo={demographics} />
+            </div>
+          </>
+        )}
+
         {/* Full profile button */}
         {!isVacant && (
           <div className="px-4 pb-3">
@@ -488,6 +522,7 @@ export default function DistrictPanel({ districtId, repName, data, onClose, onSh
                 ["Photos", "Library of Congress Bioguide"],
                 ["Income, Poverty, College", "Census ACS 5-Year 2023"],
                 ["Urban %", "2020 Decennial Census"],
+                ["Racial breakdown", "Census ACS 5-Year 2023"],
                 ["Election history", "MIT MEDSL 1976–2022"],
                 ["Committees", "unitedstates/congress-legislators"],
               ].map(([label, source]) => (
@@ -615,6 +650,44 @@ function ElectionSparkline({
         {lastYear}
       </text>
     </svg>
+  );
+}
+
+const RACE_SEGMENTS: { key: keyof DemographicBreakdown; label: string; color: string }[] = [
+  { key: "white",      label: "White",        color: "#94a3b8" },
+  { key: "hispanic",   label: "Hispanic",     color: "#f59e0b" },
+  { key: "black",      label: "Black",        color: "#34d399" },
+  { key: "asian",      label: "Asian",        color: "#818cf8" },
+  { key: "multiracial",label: "Multi",        color: "#c084fc" },
+  { key: "other",      label: "Other",        color: "#64748b" },
+];
+
+function RacialBreakdown({ demo }: { demo: DemographicBreakdown }) {
+  const total = Object.values(demo).reduce((s, v) => s + v, 0) || 100;
+  const segments = RACE_SEGMENTS.map(seg => ({ ...seg, pct: demo[seg.key] ?? 0 })).filter(s => s.pct > 0);
+  return (
+    <div className="space-y-2.5">
+      {/* Stacked bar */}
+      <div className="flex h-3 rounded-full overflow-hidden bg-slate-800">
+        {segments.map(seg => (
+          <div
+            key={seg.key}
+            style={{ width: `${(seg.pct / total) * 100}%`, backgroundColor: seg.color, opacity: 0.85 }}
+            title={`${seg.label}: ${seg.pct.toFixed(1)}%`}
+          />
+        ))}
+      </div>
+      {/* Legend */}
+      <div className="flex flex-wrap gap-x-3 gap-y-1.5">
+        {segments.map(seg => (
+          <div key={seg.key} className="flex items-center gap-1">
+            <div className="w-2 h-2 rounded-full shrink-0" style={{ backgroundColor: seg.color, opacity: 0.85 }} />
+            <span className="text-[10px] text-slate-500">{seg.label}</span>
+            <span className="text-[10px] font-medium text-slate-400">{seg.pct.toFixed(1)}%</span>
+          </div>
+        ))}
+      </div>
+    </div>
   );
 }
 

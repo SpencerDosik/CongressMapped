@@ -79,8 +79,8 @@ export default function CompetitivePage() {
             </svg>
           </Link>
           <div className="flex items-center gap-0.5">
-            {(["/house", "/rankings", "/compare", "/graph"] as const).map((href) => {
-              const label = { "/house": "Map", "/rankings": "Rankings", "/compare": "Compare", "/graph": "Graph" }[href];
+            {(["/house", "/rankings", "/compare", "/graph", "/competitive"] as const).map((href) => {
+              const label = { "/house": "Map", "/rankings": "Rankings", "/compare": "Compare", "/graph": "Graph", "/competitive": "Races" }[href];
               const active = pathname === href;
               return (
                 <a key={href} href={href}
