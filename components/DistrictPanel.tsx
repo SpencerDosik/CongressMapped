@@ -749,7 +749,7 @@ export default function DistrictPanel({ districtId, repName, data, onClose, onSh
                 ["Income, Poverty, College", "Census ACS 5-Year 2023"],
                 ["Urban %", "2020 Decennial Census"],
                 ["Racial breakdown", "Census ACS 5-Year 2023"],
-                ["Election history", "MIT MEDSL 1976–2022"],
+                ["Election history", "MIT MEDSL 2000–2018 (constituency-returns)"],
                 ["Committee assignments", "unitedstates/congress-legislators"],
                 ...(legStats ? [["Legislative activity", "ProPublica Congress API"]] : []),
                 ...(fundraising ? [["Fundraising", "FEC Open Data"]] : []),
