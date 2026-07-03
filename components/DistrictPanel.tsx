@@ -22,6 +22,22 @@ function loadHistory(): Promise<Record<string, HistoryPoint[]> | null> {
   return _historyPromise;
 }
 
+// ── Committee cache ───────────────────────────────────────────────────────────
+type CommitteeEntry = { name: string; type: string; title: string | null; parent: string | null };
+let _committeeData: Record<string, CommitteeEntry[]> | null = null;
+let _committeePromise: Promise<Record<string, CommitteeEntry[]> | null> | null = null;
+
+function loadCommittees(): Promise<Record<string, CommitteeEntry[]> | null> {
+  if (_committeeData !== null) return Promise.resolve(_committeeData);
+  if (!_committeePromise) {
+    _committeePromise = fetch("/committee-data.json")
+      .then((r) => (r.ok ? r.json() : null))
+      .then((d) => { _committeeData = d; return d; })
+      .catch(() => { _committeeData = null; return null; });
+  }
+  return _committeePromise;
+}
+
 // ── Demographics cache ────────────────────────────────────────────────────────
 type DemographicBreakdown = { white: number; hispanic: number; black: number; asian: number; multiracial: number; other: number };
 let _demoData: Record<string, DemographicBreakdown> | null = null;
@@ -123,6 +139,7 @@ export default function DistrictPanel({ districtId, repName, data, onClose, onSh
   const [copied, setCopied] = useState(false);
   const [history, setHistory] = useState<HistoryPoint[] | null>(null);
   const [demographics, setDemographics] = useState<DemographicBreakdown | null>(null);
+  const [committees, setCommittees] = useState<CommitteeEntry[] | null>(null);
   const [showSources, setShowSources] = useState(false);
 
   useEffect(() => {
@@ -141,6 +158,12 @@ export default function DistrictPanel({ districtId, repName, data, onClose, onSh
   useEffect(() => {
     loadDemographics().then((all) => {
       setDemographics(all ? (all[districtId] ?? null) : null);
+    });
+  }, [districtId]);
+
+  useEffect(() => {
+    loadCommittees().then((all) => {
+      setCommittees(all ? (all[districtId] ?? null) : null);
     });
   }, [districtId]);
 
@@ -453,6 +476,49 @@ export default function DistrictPanel({ districtId, repName, data, onClose, onSh
           </div>
         )}
 
+        {/* Committee assignments */}
+        {!isVacant && committees && committees.filter(c => c.parent === null).length > 0 && (
+          <>
+            <div className="mx-4 border-t border-slate-700/40" />
+            <div className="px-4 py-4">
+              <p className="text-[10px] font-bold text-slate-600 uppercase tracking-widest mb-3">Committees</p>
+              <div className="space-y-1.5">
+                {committees
+                  .filter(c => c.parent === null)
+                  .map((c) => {
+                    const titleColor =
+                      c.title?.includes("Chair") && !c.title?.includes("Ranking") ? "#f59e0b" :
+                      c.title?.includes("Ranking") ? "#818cf8" :
+                      null;
+                    const shortName = c.name
+                      .replace(/^House (Permanent Select |Select |Committee on the |Committee on )/i, "")
+                      .replace(/^House /i, "")
+                      .replace(/Committee on /, "");
+                    return (
+                      <div key={c.name} className="flex items-center justify-between gap-2">
+                        <span className="text-[11px] text-slate-400 leading-snug">{shortName}</span>
+                        {c.title && (
+                          <span
+                            className="text-[9px] font-bold px-1.5 py-0.5 rounded-full shrink-0"
+                            style={titleColor ? {
+                              backgroundColor: `${titleColor}18`,
+                              color: titleColor,
+                              border: `1px solid ${titleColor}33`,
+                            } : {
+                              color: "#475569",
+                            }}
+                          >
+                            {c.title.replace("man", "").replace("woman", "")}
+                          </span>
+                        )}
+                      </div>
+                    );
+                  })}
+              </div>
+            </div>
+          </>
+        )}
+
         {/* Contact & Links */}
         {!isVacant && (meta?.phone || meta?.url || meta?.twitter || meta?.office) && (
           <>
@@ -527,7 +593,7 @@ export default function DistrictPanel({ districtId, repName, data, onClose, onSh
                 ["Urban %", "2020 Decennial Census"],
                 ["Racial breakdown", "Census ACS 5-Year 2023"],
                 ["Election history", "MIT MEDSL 1976–2022"],
-                ["Committees", "unitedstates/congress-legislators"],
+                ["Committee assignments", "unitedstates/congress-legislators"],
               ].map(([label, source]) => (
                 <div key={label} className="flex justify-between gap-2">
                   <span className="text-[10px] text-slate-600">{label}</span>
