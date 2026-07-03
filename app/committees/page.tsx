@@ -20,6 +20,7 @@ type CommitteeMember = {
 };
 
 type CommitteeIndex = Record<string, CommitteeMember[]>;
+type SubcommitteeIndex = Record<string, Record<string, CommitteeMember[]>>; // parent → subName → members
 
 function shortName(fullName: string): string {
   return fullName
@@ -58,7 +59,9 @@ function titleBadge(title: string | null) {
 export default function CommitteesPage() {
   const pathname = usePathname();
   const [committeeIndex, setCommitteeIndex] = useState<CommitteeIndex | null>(null);
+  const [subcommitteeIndex, setSubcommitteeIndex] = useState<SubcommitteeIndex | null>(null);
   const [selected, setSelected] = useState<string | null>(null);
+  const [selectedSub, setSelectedSub] = useState<string | null>(null);
   const [search, setSearch] = useState("");
 
   useEffect(() => {
@@ -66,28 +69,42 @@ export default function CommitteesPage() {
       .then(r => r.json())
       .then((raw: Record<string, Array<{ code: string; name: string; type: string; rank: number; title: string | null; parent: string | null }>>) => {
         const index: CommitteeIndex = {};
+        const subIndex: SubcommitteeIndex = {};
+
         for (const [districtId, items] of Object.entries(raw)) {
           const district = DISTRICT_MAP.get(districtId);
           if (!district) continue;
+          const member: Omit<CommitteeMember, "title" | "rank"> = {
+            districtId,
+            repName: district.data.repName,
+            party: district.data.party as Party,
+            margin: district.data.margin,
+          };
+
           for (const item of items) {
-            if (item.type !== "house" || item.parent !== null) continue;
-            if (!index[item.name]) index[item.name] = [];
-            index[item.name].push({
-              districtId,
-              repName: district.data.repName,
-              party: district.data.party as Party,
-              title: item.title,
-              rank: item.rank,
-              margin: district.data.margin,
-            });
+            if (item.type !== "house") continue;
+            const entry: CommitteeMember = { ...member, title: item.title, rank: item.rank };
+
+            if (item.parent === null) {
+              // Parent committee
+              if (!index[item.name]) index[item.name] = [];
+              index[item.name].push(entry);
+            } else {
+              // Subcommittee — store under parent
+              if (!subIndex[item.parent]) subIndex[item.parent] = {};
+              if (!subIndex[item.parent][item.name]) subIndex[item.parent][item.name] = [];
+              subIndex[item.parent][item.name].push(entry);
+            }
           }
         }
-        // Sort members by rank within each committee
-        for (const members of Object.values(index)) {
-          members.sort((a, b) => a.rank - b.rank);
+
+        for (const members of Object.values(index)) members.sort((a, b) => a.rank - b.rank);
+        for (const subs of Object.values(subIndex)) {
+          for (const members of Object.values(subs)) members.sort((a, b) => a.rank - b.rank);
         }
+
         setCommitteeIndex(index);
-        // Default: select first (alphabetically)
+        setSubcommitteeIndex(subIndex);
         const first = Object.keys(index).sort()[0];
         if (first) setSelected(first);
       })
@@ -106,10 +123,16 @@ export default function CommitteesPage() {
 
   const selectedMembers = useMemo(() => {
     if (!committeeIndex || !selected) return [];
-    const members = committeeIndex[selected] ?? [];
-    // Count R and D
-    return members;
-  }, [committeeIndex, selected]);
+    if (selectedSub && subcommitteeIndex?.[selected]?.[selectedSub]) {
+      return subcommitteeIndex[selected][selectedSub];
+    }
+    return committeeIndex[selected] ?? [];
+  }, [committeeIndex, subcommitteeIndex, selected, selectedSub]);
+
+  const subcommittees = useMemo(() => {
+    if (!subcommitteeIndex || !selected) return [];
+    return Object.keys(subcommitteeIndex[selected] ?? {}).sort();
+  }, [subcommitteeIndex, selected]);
 
   const rCount = selectedMembers.filter(m => m.party === "Republican").length;
   const dCount = selectedMembers.filter(m => m.party === "Democrat" || m.party === "Independent").length;
@@ -174,7 +197,7 @@ export default function CommitteesPage() {
               return (
                 <button
                   key={name}
-                  onClick={() => setSelected(name)}
+                  onClick={() => { setSelected(name); setSelectedSub(null); }}
                   className="w-full text-left px-3 py-2.5 transition-colors"
                   style={{
                     backgroundColor: isActive ? "rgba(99,102,241,0.1)" : "transparent",
@@ -224,6 +247,49 @@ export default function CommitteesPage() {
                     </span>
                   )}
                 </div>
+
+                {/* Subcommittee tabs */}
+                {subcommittees.length > 0 && (
+                  <div className="flex flex-wrap gap-1.5 mt-3">
+                    <button
+                      onClick={() => setSelectedSub(null)}
+                      className="px-2.5 py-1 rounded-lg text-[11px] font-medium transition-all"
+                      style={selectedSub === null ? {
+                        backgroundColor: "rgba(99,102,241,0.18)",
+                        color: "#a5b4fc",
+                        border: "1px solid rgba(99,102,241,0.4)",
+                      } : {
+                        backgroundColor: "transparent",
+                        color: "#475569",
+                        border: "1px solid rgba(30,41,59,0.8)",
+                      }}
+                    >
+                      Full Committee
+                    </button>
+                    {subcommittees.map(sub => {
+                      const subMembers = subcommitteeIndex?.[selected!]?.[sub] ?? [];
+                      return (
+                        <button
+                          key={sub}
+                          onClick={() => setSelectedSub(sub)}
+                          className="px-2.5 py-1 rounded-lg text-[11px] font-medium transition-all"
+                          style={selectedSub === sub ? {
+                            backgroundColor: "rgba(99,102,241,0.18)",
+                            color: "#a5b4fc",
+                            border: "1px solid rgba(99,102,241,0.4)",
+                          } : {
+                            backgroundColor: "transparent",
+                            color: "#475569",
+                            border: "1px solid rgba(30,41,59,0.8)",
+                          }}
+                        >
+                          {sub}
+                          <span className="ml-1 opacity-50 text-[10px]">({subMembers.length})</span>
+                        </button>
+                      );
+                    })}
+                  </div>
+                )}
               </div>
 
               {/* Members list */}
