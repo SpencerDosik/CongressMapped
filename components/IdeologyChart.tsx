@@ -241,7 +241,17 @@ export default function IdeologyChart({ members, xAxis, yAxis, onMemberClick, sc
     if (Math.abs(denom) < 1e-10) return null;
     const slope = (n * sumXY - sumX * sumY) / denom;
     const intercept = (sumY - slope * sumX) / n;
-    return { slope, intercept };
+
+    // Compute R² = 1 - SS_res / SS_tot
+    const yMean = sumY / n;
+    let ssTot = 0, ssRes = 0;
+    for (const m of domainSrc) {
+      ssTot += (m.yValue - yMean) ** 2;
+      ssRes += (m.yValue - (slope * m.xValue + intercept)) ** 2;
+    }
+    const r2 = ssTot < 1e-10 ? 0 : 1 - ssRes / ssTot;
+
+    return { slope, intercept, r2 };
   }, [showTrendLine, domainSrc]);
 
   const [xMin, xMax] = xScale.domain();
@@ -292,21 +302,33 @@ export default function IdeologyChart({ members, xAxis, yAxis, onMemberClick, sc
           <line x1={M.left} x2={VB_W - M.right} y1={yScale(0)} y2={yScale(0)} stroke="rgba(148,163,184,0.4)" strokeWidth={1} strokeDasharray="4 4" />
         )}
 
-        {/* Trend line */}
+        {/* Trend line + R² label */}
         {trendLine && (() => {
           const [xDomMin, xDomMax] = xScale.domain();
           const [yDomMin, yDomMax] = yScale.domain();
-          const { slope, intercept } = trendLine;
+          const { slope, intercept, r2 } = trendLine;
           const clampY = (y: number) => Math.max(yDomMin, Math.min(yDomMax, y));
           return (
-            <line
-              x1={xScale(xDomMin)} y1={yScale(clampY(slope * xDomMin + intercept))}
-              x2={xScale(xDomMax)} y2={yScale(clampY(slope * xDomMax + intercept))}
-              stroke="rgba(251,191,36,0.65)"
-              strokeWidth={1.8}
-              strokeDasharray="6 4"
-              strokeLinecap="round"
-            />
+            <>
+              <line
+                x1={xScale(xDomMin)} y1={yScale(clampY(slope * xDomMin + intercept))}
+                x2={xScale(xDomMax)} y2={yScale(clampY(slope * xDomMax + intercept))}
+                stroke="rgba(251,191,36,0.65)"
+                strokeWidth={1.8}
+                strokeDasharray="6 4"
+                strokeLinecap="round"
+              />
+              <text
+                x={VB_W - M.right - 4}
+                y={M.top + 4}
+                fontSize={10}
+                fill="rgba(251,191,36,0.7)"
+                textAnchor="end"
+                dominantBaseline="hanging"
+              >
+                R² = {r2.toFixed(3)}
+              </text>
+            </>
           );
         })()}
 
