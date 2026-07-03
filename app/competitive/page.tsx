@@ -46,8 +46,10 @@ export default function CompetitivePage() {
   const [partyFilter, setPartyFilter] = useState<"All" | "R" | "D">("All");
   const [sortKey, setSortKey] = useState<SortKey>("margin");
   const [freshmanOnly, setFreshmanOnly] = useState(false);
+  const [search, setSearch] = useState("");
 
   const districts = useMemo(() => {
+    const q = search.toLowerCase();
     return ALL
       .filter((d) => {
         const cat = CATEGORIES.find((c) => c.test(d.data.margin));
@@ -56,6 +58,7 @@ export default function CompetitivePage() {
         if (partyFilter === "R" && d.data.margin <= 0) return false;
         if (partyFilter === "D" && d.data.margin >= 0) return false;
         if (freshmanOnly && d.data.termStart < 2025) return false;
+        if (q && !d.data.repName.toLowerCase().includes(q) && !d.districtId.toLowerCase().includes(q)) return false;
         return true;
       })
       .sort((a, b) => {
@@ -108,7 +111,16 @@ export default function CompetitivePage() {
 
       {/* Title + category chips */}
       <div className="px-6 pt-6 pb-4 shrink-0">
-        <h1 className="text-xl font-bold text-white mb-1">Competitive Races — 2026</h1>
+        <div className="flex items-baseline justify-between gap-4 mb-1">
+          <h1 className="text-xl font-bold text-white">Competitive Races — 2026</h1>
+          <input
+            type="text"
+            placeholder="Search rep or district..."
+            value={search}
+            onChange={e => setSearch(e.target.value)}
+            className="px-2.5 py-1.5 rounded-lg text-[12px] bg-slate-800/60 border border-slate-700/40 text-slate-200 placeholder-slate-600 outline-none focus:border-indigo-500/50 w-44"
+          />
+        </div>
         <p className="text-slate-500 text-[13px] mb-5">
           Districts where the 2024 margin was under 35 points. Sorted by margin (closest first).
         </p>
