@@ -281,6 +281,19 @@ export default function DistrictPanel({ districtId, repName, data, onClose, onSh
               </svg>
             </a>
           )}
+          {/* Compare link */}
+          {!isVacant && (
+            <a
+              href={`/compare?a=${districtId}`}
+              title="Compare with another district"
+              className="w-6 h-6 rounded-full flex items-center justify-center transition-colors text-slate-600 hover:text-slate-300 hover:bg-slate-700/60"
+              aria-label="Compare with another district"
+            >
+              <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 4v16m6-16v16M5 4h14a1 1 0 011 1v14a1 1 0 01-1 1H5a1 1 0 01-1-1V5a1 1 0 011-1z" />
+              </svg>
+            </a>
+          )}
           {/* View on Map link */}
           <a
             href={`/house?d=${districtId}`}
