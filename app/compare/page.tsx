@@ -442,11 +442,24 @@ function ComparePageInner() {
         <div className="max-w-4xl mx-auto px-6 py-6">
 
           {/* Pickers */}
-          <div className="grid grid-cols-2 gap-6 mb-6">
+          <div className="grid grid-cols-[1fr_auto_1fr] gap-3 mb-6 items-start">
             <div>
               <p className="text-[10px] font-bold text-slate-600 uppercase tracking-widest mb-2">District A</p>
               <DistrictPicker value={idA} onChange={setIdA} exclude={idB} />
               <ColHeader districtId={idA} onClear={() => setIdA(null)} />
+            </div>
+            <div className="flex items-start pt-7">
+              <button
+                onClick={() => { setIdA(idB); setIdB(idA); }}
+                disabled={!idA && !idB}
+                title="Swap districts"
+                className="p-2 rounded-lg text-slate-600 hover:text-slate-200 transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
+                style={{ backgroundColor: "rgba(15,23,42,0.6)", border: "1px solid rgba(51,65,85,0.4)" }}
+              >
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
+                </svg>
+              </button>
             </div>
             <div>
               <p className="text-[10px] font-bold text-slate-600 uppercase tracking-widest mb-2">District B</p>
