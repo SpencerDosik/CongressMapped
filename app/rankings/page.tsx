@@ -9,6 +9,7 @@ import { STATE_NAMES, AT_LARGE_STATES } from "@/lib/stateFips";
 import { Party } from "@/lib/types";
 import DistrictPanel from "@/components/DistrictPanel";
 import RepProfile from "@/components/RepProfile";
+import ElectionSparkline, { HistoryPoint } from "@/components/ElectionSparkline";
 
 type SortKey =
   | "districtId" | "repName" | "party" | "margin"
@@ -52,12 +53,21 @@ export default function RankingsPage() {
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [showProfile, setShowProfile] = useState(false);
   const [meta, setMeta] = useState<Record<string, { birthday: string | null }> | null>(null);
+  const [historyData, setHistoryData] = useState<Record<string, HistoryPoint[]> | null>(null);
+  const [showHistory, setShowHistory] = useState(false);
   const searchRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     fetch("/legislator-meta.json")
       .then((r) => (r.ok ? r.json() : null))
       .then((d) => setMeta(d))
+      .catch(() => {});
+  }, []);
+
+  useEffect(() => {
+    fetch("/election-history.json")
+      .then((r) => (r.ok ? r.json() : null))
+      .then((d: Record<string, HistoryPoint[]> | null) => setHistoryData(d))
       .catch(() => {});
   }, []);
 
@@ -275,11 +285,26 @@ export default function RankingsPage() {
         >
           Most Competitive
         </button>
+
+        {historyData && (
+          <button
+            onClick={() => setShowHistory((h) => !h)}
+            className="px-2.5 py-1.5 rounded-lg text-[11px] font-medium transition-all whitespace-nowrap"
+            style={showHistory ? {
+              backgroundColor: "rgba(99,102,241,0.15)", color: "#a5b4fc",
+              border: "1px solid rgba(99,102,241,0.3)",
+            } : {
+              backgroundColor: "transparent", color: "#475569", border: "1px solid rgba(30,41,59,0.6)",
+            }}
+          >
+            History
+          </button>
+        )}
       </div>
 
       {/* Table */}
       <div className="flex-1 overflow-auto">
-        <table className="w-full border-collapse text-sm" style={{ minWidth: "960px" }}>
+        <table className="w-full border-collapse text-sm" style={{ minWidth: showHistory ? "1100px" : "960px" }}>
           <thead className="sticky top-0 z-10" style={{ backgroundColor: "#0d1117", borderBottom: "1px solid rgba(30,41,59,0.8)" }}>
             <tr>
               <th className={TH} onClick={() => handleSort("districtId")}>District <SortIcon col="districtId" /></th>
@@ -292,6 +317,7 @@ export default function RankingsPage() {
               <th className={`${TH} text-right`} onClick={() => handleSort("urban")}>Urban % <SortIcon col="urban" /></th>
               <th className={`${TH} text-right`} onClick={() => handleSort("age")}>Age <SortIcon col="age" /></th>
               <th className={`${TH} text-right`} onClick={() => handleSort("tenure")}>Tenure <SortIcon col="tenure" /></th>
+              {showHistory && <th className={`${TH} text-center`}>Election History</th>}
             </tr>
           </thead>
           <tbody>
@@ -405,6 +431,20 @@ export default function RankingsPage() {
                       {tenure < 1 ? "< 1 yr" : `${tenure} yr`}
                     </span>
                   </td>
+
+                  {/* Election History sparkline */}
+                  {showHistory && (() => {
+                    const hist = historyData?.[districtId];
+                    return (
+                      <td className="px-3 py-2.5">
+                        {hist && hist.length >= 2 ? (
+                          <ElectionSparkline history={hist} current={data.margin} partyColor={partyColor} width={120} height={36} />
+                        ) : (
+                          <span className="text-slate-700 text-[10px]">—</span>
+                        )}
+                      </td>
+                    );
+                  })()}
                 </tr>
               );
             })}
