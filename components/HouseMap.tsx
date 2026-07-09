@@ -31,9 +31,10 @@ const ZOOM_MAX = 25;
 const MAP_PROJ = geoAlbersUsa().scale(900).translate([400, 250]);
 const SVG_W = 800;
 const SVG_H = 500;
-const R_CAUCUS = 218; // 217 R + Kevin Kiley (I, caucuses R)
-const D_SEATS = 214; // +1: Analilia Mejia won NJ-11 special election Apr 16, 2026
-const V_SEATS = 3;   // CA-01, CA-14, TX-23
+const _ALL = getAllDistricts();
+const R_CAUCUS = _ALL.filter(d => d.data.party === "Republican" || (d.data.party === "Independent" && d.data.caucus === "Republican")).length;
+const D_SEATS = _ALL.filter(d => d.data.party === "Democrat" || (d.data.party === "Independent" && d.data.caucus === "Democrat")).length;
+const V_SEATS = _ALL.filter(d => d.data.party === "Vacant").length;
 const TOTAL_SEATS = 435;
 const MAJORITY = 218;
 
