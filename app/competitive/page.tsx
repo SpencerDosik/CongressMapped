@@ -81,7 +81,7 @@ export default function CompetitivePage() {
         if (sortKey === "tenure") return a.data.termStart - b.data.termStart;
         return 0;
       });
-  }, [selectedCat, partyFilter, sortKey, freshmanOnly]);
+  }, [selectedCat, partyFilter, sortKey, freshmanOnly, search]);
 
   const counts = useMemo(() => {
     const m: Record<string, number> = {};
