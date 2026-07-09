@@ -433,24 +433,46 @@ export default function DistrictPanel({ districtId, repName, data, onClose, onSh
         </div>
 
         {/* Election History Sparkline */}
-        {history && history.length >= 2 && !isVacant && (
-          <>
-            <div className="mx-4 border-t border-slate-700/40" />
-            <div className="px-4 py-4">
-              <p className="text-[10px] font-bold text-slate-600 uppercase tracking-widest mb-2">
-                Election History <span className="font-normal text-slate-700 normal-case tracking-normal">2000–2024</span>
-              </p>
-              <ElectionSparkline
-                history={history}
-                current={data.margin}
-                partyColor={partyColor}
-              />
-              <p className="text-[9px] text-slate-700 mt-1.5 leading-snug">
-                2020–2022 not shown. Pre-2022 boundaries may differ from current district.
-              </p>
-            </div>
-          </>
-        )}
+        {history && history.length >= 2 && !isVacant && (() => {
+          const allPts = [...history.filter(p => p.year !== 2024), { year: 2024, margin: data.margin }];
+          const competitive = allPts.filter(p => Math.abs(p.margin) < 10).length;
+          // detect last flip: consecutive points where sign changes
+          let lastFlip: number | null = null;
+          for (let i = allPts.length - 1; i >= 1; i--) {
+            if (Math.sign(allPts[i].margin) !== Math.sign(allPts[i-1].margin)) {
+              lastFlip = allPts[i].year;
+              break;
+            }
+          }
+          return (
+            <>
+              <div className="mx-4 border-t border-slate-700/40" />
+              <div className="px-4 py-4">
+                <div className="flex items-baseline justify-between mb-2">
+                  <p className="text-[10px] font-bold text-slate-600 uppercase tracking-widest">
+                    Election History <span className="font-normal text-slate-700 normal-case tracking-normal">2000–2024</span>
+                  </p>
+                  <div className="flex items-center gap-2.5">
+                    {competitive > 0 && (
+                      <span className="text-[10px] text-amber-600">{competitive} competitive</span>
+                    )}
+                    {lastFlip && (
+                      <span className="text-[10px] text-slate-600">flipped {lastFlip}</span>
+                    )}
+                  </div>
+                </div>
+                <ElectionSparkline
+                  history={history}
+                  current={data.margin}
+                  partyColor={partyColor}
+                />
+                <p className="text-[9px] text-slate-700 mt-1.5 leading-snug">
+                  2020–2022 not shown. Pre-2022 boundaries may differ from current district.
+                </p>
+              </div>
+            </>
+          );
+        })()}
 
         <div className="mx-4 border-t border-slate-700/40" />
 

@@ -233,9 +233,13 @@ export default function SenatePage() {
           {([
             { href: "/house", label: "House" },
             { href: "/senate", label: "Senate" },
-            { href: "/state-leg", label: "State Leg." },
+            { href: "/state-leg", label: "State" },
             { href: "/rankings", label: "Rankings" },
+            { href: "/compare", label: "Compare" },
             { href: "/graph", label: "Graph" },
+            { href: "/competitive", label: "Races" },
+            { href: "/committees", label: "Cmtes" },
+            { href: "/freshmen", label: "Class" },
           ] as const).map(({ href, label }) => {
             const active = pathname === href;
             return (

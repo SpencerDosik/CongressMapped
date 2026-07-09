@@ -2,7 +2,7 @@
 
 import { useEffect, useState, useCallback } from "react";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 import {
   ComposableMap,
   Geographies,
@@ -17,6 +17,7 @@ const IMPLEMENTED_STATES = new Set(["NJ"]);
 
 export default function StateLegPage() {
   const router = useRouter();
+  const pathname = usePathname();
   const [hoveredState, setHoveredState] = useState<string | null>(null);
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const [mapReady, setMapReady] = useState(false);
@@ -56,11 +57,15 @@ export default function StateLegPage() {
           {([
             { href: "/house", label: "House" },
             { href: "/senate", label: "Senate" },
-            { href: "/state-leg", label: "State Leg." },
+            { href: "/state-leg", label: "State" },
             { href: "/rankings", label: "Rankings" },
-            { href: "/ideology", label: "Ideology" },
+            { href: "/compare", label: "Compare" },
+            { href: "/graph", label: "Graph" },
+            { href: "/competitive", label: "Races" },
+            { href: "/committees", label: "Cmtes" },
+            { href: "/freshmen", label: "Class" },
           ] as const).map(({ href, label }) => {
-            const active = href === "/state-leg";
+            const active = pathname === href;
             return (
               <a key={href} href={href} className="px-2 py-1 rounded text-[10px] font-medium transition-colors whitespace-nowrap"
                 style={{ color: active ? "#a5b4fc" : "#64748b", backgroundColor: active ? "rgba(99,102,241,0.12)" : "transparent" }}>
@@ -98,15 +103,15 @@ export default function StateLegPage() {
                     // eslint-disable-next-line @typescript-eslint/no-explicit-any
                     key={(geo as any).rsmKey ?? abbr}
                     geography={geo}
-                    fill={isHovered ? "#2d3f58" : "#1e293b"}
-                    stroke="#475569"
-                    strokeWidth={0.5}
+                    fill={isHovered && implemented ? "#3730a3" : implemented ? "#312e81" : isHovered ? "#2d3f58" : "#1e293b"}
+                    stroke={implemented ? "#6366f1" : "#475569"}
+                    strokeWidth={implemented ? 0.8 : 0.5}
                     onMouseEnter={() => setHoveredState(abbr)}
                     onMouseLeave={() => setHoveredState(null)}
                     onClick={() => handleStateClick(abbr)}
                     style={{
                       default: { outline: "none" },
-                      hover: { outline: "none", cursor: "default" },
+                      hover: { outline: "none", cursor: implemented ? "pointer" : "default" },
                       pressed: { outline: "none" },
                     }}
                   />
