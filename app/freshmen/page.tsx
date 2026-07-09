@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { getAllDistricts } from "@/lib/districtData";
@@ -9,6 +9,7 @@ import { STATE_NAMES, AT_LARGE_STATES } from "@/lib/stateFips";
 import { Party } from "@/lib/types";
 import DistrictPanel from "@/components/DistrictPanel";
 import RepProfile from "@/components/RepProfile";
+import ElectionSparkline, { HistoryPoint } from "@/components/ElectionSparkline";
 
 const FRESHMEN = getAllDistricts().filter(
   d => d.data.termStart >= 2025 && d.data.party !== "Vacant"
@@ -41,6 +42,14 @@ export default function FreshmenPage() {
   const [search, setSearch] = useState("");
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [showProfile, setShowProfile] = useState(false);
+  const [historyData, setHistoryData] = useState<Record<string, HistoryPoint[]> | null>(null);
+
+  useEffect(() => {
+    fetch("/election-history.json")
+      .then((r) => (r.ok ? r.json() : null))
+      .then((d: Record<string, HistoryPoint[]> | null) => setHistoryData(d))
+      .catch(() => {});
+  }, []);
 
   const districts = useMemo(() => {
     const q = search.toLowerCase();
@@ -246,6 +255,18 @@ export default function FreshmenPage() {
                     </p>
                     <p className="text-[10px] text-slate-600">PVI</p>
                   </div>
+
+                  {historyData && (() => {
+                    const hist = historyData[districtId];
+                    return hist && hist.length >= 2 ? (
+                      <div className="shrink-0 w-28 hidden md:block">
+                        <ElectionSparkline history={hist} current={data.margin} partyColor={partyColor} width={112} height={32} />
+                        <p className="text-[8px] text-slate-700 text-center mt-0.5">history</p>
+                      </div>
+                    ) : (
+                      <div className="shrink-0 w-28 hidden md:block" />
+                    );
+                  })()}
 
                   <a
                     href={`/house?d=${districtId}`}
