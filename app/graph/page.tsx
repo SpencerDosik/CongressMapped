@@ -604,7 +604,7 @@ export default function IdeologyPage() {
     }
     const visibleCount = pts.filter((p) => !p.faded).length;
     return { points: pts, hiddenCount: hidden, visibleCount };
-  }, [xKey, yKey, partyFilter, stateFilter, committeeDistrictIds, meta, bills]);
+  }, [xKey, yKey, partyFilter, stateFilter, committeeDistrictIds, meta, bills, legStats]);
 
   const activeFilters = [partyFilter !== "All", stateFilter !== null, committeeFilter !== null].filter(Boolean).length;
   const hasActiveFilter = activeFilters > 0;
