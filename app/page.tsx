@@ -159,6 +159,7 @@ export default async function Home({
   const iCount = allDistricts.filter(d => d.data.party === "Independent").length;
   const vCount = allDistricts.filter(d => d.data.party === "Vacant").length;
   const total = allDistricts.length;
+  const freshmenCount = allDistricts.filter(d => d.data.termStart >= 2025 && d.data.party !== "Vacant").length;
 
   return (
     <main
@@ -251,7 +252,7 @@ export default async function Home({
           href="/freshmen"
           icon={<TableIcon />}
           title="Freshman Class of 2025"
-          description="All 67 members elected for the first time in 2024, sorted by how competitive their seat is."
+          description={`All ${freshmenCount} members elected for the first time in 2024, sorted by how competitive their seat is.`}
         />
       </div>
 
